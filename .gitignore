@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/BuildTools/.vs
+/BuildTools/packages
+/BuildTools/Xrm.CI.Framework.BuildTools/bin
+/BuildTools/Xrm.CI.Framework.BuildTools/obj
