@@ -12,6 +12,8 @@ $packageName = Get-VstsInput -Name packageName -Require
 $packageDirectory = Get-VstsInput -Name packageDirectory -Require
 $crmSdkVersion = Get-VstsInput -Name crmSdkVersion -Require
 $pdTimeout = Get-VstsInput -Name pdTimeout -Require
+$unpackFilesDirectory = Get-VstsInput -Name unpackFilesDirectory
+$runtimePackageSettings = Get-VstsInput -Name runtimePackageSettings
 
 #TFS Release Parameters
 $artifactsFolder = $env:AGENT_RELEASEDIRECTORY
@@ -23,6 +25,8 @@ Write-Verbose "packageDirectory = $packageDirectory"
 Write-Verbose "artifactsFolder = $artifactsFolder"
 Write-Verbose "crmSdkVersion = $crmSdkVersion"
 Write-Verbose "pdTimeout = pdTimeout"
+Write-Verbose "unpackFilesDirectory = $unpackFilesDirectory"
+Write-Verbose "runtimePackageSettings = $runtimePackageSettings"
 
 $LogFile = "$packageDirectory" +"\Microsoft.Xrm.Tooling.PackageDeployment-" + (Get-Date -Format yyyy-MM-dd) + ".log"
 
@@ -39,18 +43,13 @@ $PackageDeploymentPath = "$mscrmToolsPath\PackageDeployment\$crmSdkVersion"
 
 try
 {
-	& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $packageDirectory -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout
+	& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $packageDirectory -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings
 }
 finally
 {
-	Write-Host "Locating log file: $LogFile"
-
-	if (Test-Path $LogFile -PathType Leaf)
+	if (Test-Path "$LogFile")
 	{
-		Write-Host "Writing Contents of Log File..."
-		Write-Host "------------------------------------------"
-		Get-Content $LogFile
-		Write-Host "------------------------------------------"
+		Write-Host "##vso[task.uploadfile]$LogFile"
 	}
 }
 

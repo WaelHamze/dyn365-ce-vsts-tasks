@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "4"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Package Deployer: $(packageName)",
@@ -62,6 +62,22 @@
       "defaultValue": "00:30:00",
       "required": false,
       "helpMarkDown": "The timespan notation for the timeout value of a package deployment operation. The format applied is '[d:]h:mm:ss', where d is optional For example: 1:30:00 means wait up to 1 hr and 30 mins for the package deployment operation to complete. 1:14:30:00 means wait up to 1 day, 14 hrs, and 30 mins for the package deployment operation to complete."
+    },
+    {
+      "name": "unpackFilesDirectory",
+      "type": "string",
+      "label": "Unpack Files Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Use in conjuction with agentdesktopzipfile parameter in the ImportConfig.xml"
+    },
+    {
+      "name": "runtimePackageSettings",
+      "type": "string",
+      "label": "Runtime Package Settings",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Use to specifiy additional runtime parameters such as LCID=1033"
     }
   ],
   "execution": {
