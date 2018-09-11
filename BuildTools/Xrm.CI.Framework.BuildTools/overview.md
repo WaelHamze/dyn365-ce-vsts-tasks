@@ -35,6 +35,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Package Deployer** | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
 | **MSCRM Update Secure Configuration** | A task that updates Dynamics 365 plugin secure configuration |
 | **MSCRM Update Plugin Assembly (deprecated)** | Updates Dynamics 365 plugin assembly during build |
+| **MSCRM Update Configuration Records (preview)** | Upserts a configuration entity records using lookup/value pairs |
 | **MSCRM Plugin Registration (preview)** | Updates Dynamics 365 plugin/workflow activity assembly/types/steps |
 | **MSCRM Split Plugin Assembly (preview)** | Splits the plugin assembly into multiple plugin assemblies |
 | **MSCRM Update Web Resources (preview)** | Updates Dynamics 365 Web Resources from source control |
@@ -111,6 +112,7 @@ Added tasks for Exracting Customisations into source
 
 **9.2.x**
 Added Tools Installer Task to improve efficieny and reduce extension size
+Added new task to upsert configuration records
 Improvements to Plugin Registration and Web Resource Tasks
 
 For more information on changes between versions, check the commits on GitHub

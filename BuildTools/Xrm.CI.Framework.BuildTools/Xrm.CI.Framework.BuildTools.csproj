@@ -145,8 +145,8 @@
     <Content Include="Tasks\MSCRMSetOnlineInstanceAdminMode\task.json" />
     <Content Include="Tasks\MSCRMSetVersion\MSCRMSetVersion.ps1" />
     <Content Include="Tasks\MSCRMSetVersion\task.json" />
-    <Content Include="Tasks\MSCRMUpdateSecureConfiguration\MSCRMUpdateSecureConfiguration.ps1" />
-    <Content Include="Tasks\MSCRMUpdateSecureConfiguration\task.json" />
+    <Content Include="Tasks\MSCRMUpdateConfigurationRecords\MSCRMUpdateConfigurationRecords.ps1" />
+    <Content Include="Tasks\MSCRMUpdateConfigurationRecords\task.json" />
     <Content Include="vss-extension.json" />
     <Content Include="vss-extension-dev.json" />
     <Content Include="vss-extension-preview.json" />
@@ -168,6 +168,8 @@
     <Content Include="Tasks\MSCRMSplitPluginAssembly\task.json" />
     <Content Include="Tasks\MSCRMToolInstaller\MSCRMToolInstaller.ps1" />
     <Content Include="Tasks\MSCRMToolInstaller\task.json" />
+    <Content Include="Tasks\MSCRMUpdateSecureConfiguration\MSCRMUpdateSecureConfiguration.ps1" />
+    <Content Include="Tasks\MSCRMUpdateSecureConfiguration\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

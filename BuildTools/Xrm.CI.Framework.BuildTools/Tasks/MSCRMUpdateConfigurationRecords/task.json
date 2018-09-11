@@ -1,0 +1,74 @@
+{
+  "id": "FF6A3ADC-A2D1-4DDC-AF87-9139CBD74BF1",
+  "name": "MSCRMUpdateConfigurationRecords",
+  "friendlyName": "MSCRM Update Configuration Records",
+  "description": "Upserts a configuration entity records using lookup/value pairs",
+  "author": "Wael Hamze",
+  "helpMarkDown": "Reads a json array of lookup/value and upserts records in CRM",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "10"
+  },
+  "preview":  true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Update Configuration Records: $(entityName)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "entityName",
+      "type": "string",
+      "label": "Entity Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The entity logical name to upsert. (i.e. prefix_config)"
+    },
+    {
+      "name": "lookupFieldName",
+      "type": "string",
+      "label": "Lookup Field Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the field used to lookup the record. (i.e. prefix_key)"
+    },
+    {
+      "name": "valueFieldName",
+      "type": "string",
+      "label": "Value Field Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the field for upserting the value. (i.e. prefix_value)"
+    },
+    {
+      "name": "configurationRecordsJson",
+      "type": "multiLine",
+      "label": "A json array of lookup/value pairs.",
+      "defaultValue": "[['key1','value1'],['key2','$(variable2)']]",
+      "required": true,
+      "helpMarkDown": "FORMAT: [['key1','value1'],['key2','$(variable2)']]"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMUpdateConfigurationRecords.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}

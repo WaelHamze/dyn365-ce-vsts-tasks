@@ -7,3 +7,6 @@
 /BuildTools/packages
 /BuildTools/Xrm.CI.Framework.BuildTools/bin
 /BuildTools/Xrm.CI.Framework.BuildTools/obj
+/BuildTools/Xrm.CI.Framework.BuildTools.Tools/bin/Debug
+/BuildTools/Xrm.CI.Framework.BuildTools.Tools/obj
+/BuildTools/Xrm.CI.Framework.BuildTools.Tools/bin/Release

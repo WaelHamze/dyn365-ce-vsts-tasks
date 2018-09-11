@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xrm.CI.Framework.BuildTools", "Xrm.CI.Framework.BuildTools\Xrm.CI.Framework.BuildTools.csproj", "{FC7C6A46-6D82-4D7B-A947-91876185D62E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xrm.CI.Framework.BuildTools.Tools", "Xrm.CI.Framework.BuildTools.Tools\Xrm.CI.Framework.BuildTools.Tools.csproj", "{D8119832-31E5-4B70-9155-EE5A0B250C09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FC7C6A46-6D82-4D7B-A947-91876185D62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC7C6A46-6D82-4D7B-A947-91876185D62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC7C6A46-6D82-4D7B-A947-91876185D62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8119832-31E5-4B70-9155-EE5A0B250C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8119832-31E5-4B70-9155-EE5A0B250C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8119832-31E5-4B70-9155-EE5A0B250C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8119832-31E5-4B70-9155-EE5A0B250C09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

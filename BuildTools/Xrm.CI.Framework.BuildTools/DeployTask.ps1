@@ -27,10 +27,6 @@ Write-Host "Deploying Task $selectedTask" -ForegroundColor Cyan
 
 $taskMetadata = Get-Content -Raw -Path .\Tasks\$selectedTask\task.json | ConvertFrom-Json
 
-#$taskMetadata.version.Patch = '' + ([int]$taskMetadata.version.Patch + 1)
-
-#$taskMetadata | ConvertTo-Json | Format-Json | Out-File .\Tasks\$selectedTask\task.json
-
 $newVersion = ([int]$taskMetadata.version.Patch + 1)
 
 (Get-Content .\Tasks\$selectedTask\task.json).replace('"Patch": "' + $taskMetadata.version.Patch + '"', '"Patch": "' + $newVersion + '"') | Set-Content .\Tasks\$selectedTask\task.json

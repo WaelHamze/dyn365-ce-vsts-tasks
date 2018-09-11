@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.2.1",
+  "version": "9.2.6",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -128,6 +128,9 @@
     },
     {
       "path": "Tasks/MSCRMSplitPluginAssembly"
+    },
+    {
+      "path": "Tasks/MSCRMUpdateConfigurationRecords"
     }
   ],
   "contributions": [
@@ -272,6 +275,16 @@
       }
     },
     {
+      "id": "MSCRMGetOnlineInstanceByName",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMGetOnlineInstanceByName"
+      }
+    },
+    {
       "id": "MSCRMPluginRegistration",
       "type": "ms.vss-distributed-task.task",
       "targets": [
@@ -349,6 +362,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMSplitPluginAssembly"
+      }
+    },
+    {
+      "id": "MSCRMUpdateConfigurationRecords",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMUpdateConfigurationRecords"
       }
     }
   ]
