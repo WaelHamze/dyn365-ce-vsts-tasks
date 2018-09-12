@@ -90,30 +90,30 @@ MSCRM Restore Online Instance: May return 'internval server error' due to issue 
 **8.0.x**
 Initial Release
 
-**8.1.x**
+**8.1.x**  
 Added task to backup CRM online instances
 
-**8.2.x**
+**8.2.x**  
 MSCRM Backup Online Instance now uses instance name instead of instance id
-Added Tasks for Provision, Restore, Delete and Get Online Instances
-Added Task for updating Secure Configuration of Plug-ins
+Added Tasks for Provision, Restore, Delete and Get Online Instances  
+Added Task for updating Secure Configuration of Plug-ins  
 
-**8.3.x**
+**8.3.x**  
 Added Task Set Online Instance Admin Mode
 
-**9.0.x**
+**9.0.x**  
 Updated to use Dynamics 365 CE v9 Assemblies and Tools
 
-**9.1.x**
-Added Tasks to managing Plugin Registration
-Added Task for updating Web Resources
-Added Tasks for removing/copying solution components 
+**9.1.x**  
+Added Tasks to managing Plugin Registration  
+Added Task for updating Web Resources  
+Added Tasks for removing/copying solution components  
 Added tasks for Exracting Customisations into source
 
-**9.2.x**
-Added Tools Installer Task to improve efficieny and reduce extension size
-Added new task to upsert configuration records
-Improvements to Plugin Registration and Web Resource Tasks
-Updated to 9.0.2.4 SDK Assemblies and Tools
+**9.2.x**  
+Added Tools Installer Task to improve efficieny and reduce extension size  
+Added new task to upsert configuration records  
+Improvements to Plugin Registration and Web Resource Tasks  
+Updated to 9.0.2.4 SDK Assemblies and Tools  
 
 For more information on changes between versions, check the commits on GitHub
