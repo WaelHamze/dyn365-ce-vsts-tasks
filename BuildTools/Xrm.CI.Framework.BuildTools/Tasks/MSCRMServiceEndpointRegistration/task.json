@@ -1,0 +1,78 @@
+{
+  "id": "a48708ef-a5d6-4af5-a9be-589907132834",
+  "name": "MSCRMServiceEndpointRegistration",
+  "friendlyName": "MSCRM Service Endpoint Registration",
+  "description": "Upsert Dynamics 365 Service Endpoints and steps",
+  "author": "Wael Hamze",
+  "helpMarkDown": "Upsert Service Endpoint and steps",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "3"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Service Endpoint Registration",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "registrationType",
+      "type": "pickList",
+      "label": "Registration Type",
+      "defaultValue": "None",
+      "required": true,
+      "options": {
+        "upsert": "Upsert",
+        "reset": "Reset"
+      },
+      "helpMarkDown": "Upsert: Updates existing Service Endpoint/steps and creates if not present.  Reset: Deletes existing Service Endpoint/steps and re-creates everything."
+    },
+    {
+      "name": "solutionName",
+      "type": "string",
+      "label": "CRM solution name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Unique name of solution to which Service Endpoint has to be register."
+    },
+    {
+      "name": "mappingFile",
+      "type": "filePath",
+      "label": "Mapping File Path",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "int",
+      "label": "Crm Connection Timeout",
+      "defaultValue": 360,
+      "required": true,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMServiceEndpointRegistration.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}

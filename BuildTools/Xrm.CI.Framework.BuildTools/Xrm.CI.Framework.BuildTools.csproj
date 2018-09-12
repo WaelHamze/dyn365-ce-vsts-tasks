@@ -170,6 +170,8 @@
     <Content Include="Tasks\MSCRMToolInstaller\task.json" />
     <Content Include="Tasks\MSCRMUpdateSecureConfiguration\MSCRMUpdateSecureConfiguration.ps1" />
     <Content Include="Tasks\MSCRMUpdateSecureConfiguration\task.json" />
+    <Content Include="Tasks\MSCRMServiceEndpointRegistration\MSCRMServiceEndpointRegistration.ps1" />
+    <Content Include="Tasks\MSCRMServiceEndpointRegistration\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
