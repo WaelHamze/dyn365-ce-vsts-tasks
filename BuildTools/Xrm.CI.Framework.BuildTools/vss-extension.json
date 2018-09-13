@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.2.7",
+  "version": "9.2.8",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -131,6 +131,9 @@
     },
     {
       "path": "Tasks/MSCRMUpdateConfigurationRecords"
+    },
+    {
+      "path": "Tasks/MSCRMServiceEndpointRegistration"
     }
   ],
   "contributions": [
@@ -372,6 +375,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMUpdateConfigurationRecords"
+      }
+    },
+    {
+      "id": "MSCRMServiceEndpointRegistration",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMServiceEndpointRegistration"
       }
     }
   ]

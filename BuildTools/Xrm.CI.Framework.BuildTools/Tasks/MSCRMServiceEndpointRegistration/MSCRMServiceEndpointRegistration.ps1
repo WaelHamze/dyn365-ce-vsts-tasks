@@ -9,7 +9,7 @@ Write-Verbose 'Entering MSCRMServiceEndpointRegistration.ps1'
 #Get Parameters
 $CrmConnectionString = Get-VstsInput -Name crmConnectionString -Require
 $RegistrationType = Get-VstsInput -Name registrationType -Require
-$MappingFile = Get-VstsInput -Name mappingFile
+$MappingFile = Get-VstsInput -Name mappingFile -Require
 $SolutionName = Get-VstsInput -Name solutionName
 $CrmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
 
