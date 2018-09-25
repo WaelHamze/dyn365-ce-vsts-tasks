@@ -46,6 +46,6 @@ if (-not $mscrmToolsPath)
 
 $CoreToolsPath = "$mscrmToolsPath\CoreTools\$crmSdkVersion"
 
-& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\ExtractSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -solutionFile $solutionFile $includeVersionInSolutionFile -OutputPath -TreatUnpackWarningsAsErrors $treatUnpackWarningsAsErrors -CoreToolsPath $CoreToolsPath
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ExtractSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -solutionFile $solutionFile -TreatUnpackWarningsAsErrors $treatUnpackWarningsAsErrors -CoreToolsPath $CoreToolsPath
 
 Write-Verbose 'Leaving MSCRMExtractSolution.ps1'
