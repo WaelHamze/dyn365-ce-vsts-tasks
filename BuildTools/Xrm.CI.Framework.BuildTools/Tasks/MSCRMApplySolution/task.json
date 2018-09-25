@@ -13,8 +13,8 @@
   "demands": [],
   "version": {
     "Major": "10",
-    "Minor": "0",
-    "Patch": "1"
+    "Minor": "1",
+    "Patch": "4"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Apply Solution: $(solutionName)",
@@ -34,6 +34,22 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "The unique name of the solution you want to apply"
+    },
+    {
+      "name": "useAsyncMode",
+      "type": "boolean",
+      "label": "Use Async Mode",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "If set to true will perform operation in asynchronous mode using ExecuteAsyncRequest"
+    },
+    {
+      "name": "asyncWaitTimeout",
+      "type": "string",
+      "label": "Async Wait Timeout",
+      "defaultValue": "900",
+      "required": false,
+      "helpMarkDown": "The number of seconds to wait for async solution apply to complete before timing out"
     },
     {
       "name": "crmConnectionTimeout",
