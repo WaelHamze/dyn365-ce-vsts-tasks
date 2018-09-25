@@ -15,6 +15,7 @@ $skipProductUpdateDependencies = Get-VstsInput -Name skipProductUpdateDependenci
 $convertToManaged = Get-VstsInput -Name convertToManaged -AsBool
 $holdingSolution = Get-VstsInput -Name holdingSolution -AsBool
 $override = Get-VstsInput -Name override -AsBool
+$useAsyncMode = Get-VstsInput -Name useAsyncMode -Require -AsBool
 $asyncWaitTimeout = Get-VstsInput -Name asyncWaitTimeout -Require -AsInt
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
 
@@ -30,6 +31,7 @@ Write-Verbose "skipProductUpdateDependencies = $skipProductUpdateDependencies"
 Write-Verbose "convertToManaged = $convertToManaged"
 Write-Verbose "holdingSolution = $holdingSolution"
 Write-Verbose "override = $override"
+Write-Verbose "useAsyncMode = $useAsyncMode"
 Write-Verbose "asyncWaitTimeout = $asyncWaitTimeout"
 Write-Verbose "crmConnectionTimeout = $crmConnectionTimeout"
 Write-Verbose "artifactsFolder = $artifactsFolder"
@@ -47,7 +49,7 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\ImportSolution.ps1" -solutionFile "$solutionFile" -crmConnectionString "$CrmConnectionString" -override $override -publishWorkflows $publishWorkflows -overwriteUnmanagedCustomizations $overwriteUnmanagedCustomizations -skipProductUpdateDependencies $skipProductUpdateDependencies -ConvertToManaged $convertToManaged -HoldingSolution $holdingSolution -logsDirectory "$artifactsFolder" -logFileName "$logFilename" -AsyncWaitTimeout $AsyncWaitTimeout -Timeout $crmConnectionTimeout
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ImportSolution.ps1" -solutionFile "$solutionFile" -crmConnectionString "$CrmConnectionString" -override $override -publishWorkflows $publishWorkflows -overwriteUnmanagedCustomizations $overwriteUnmanagedCustomizations -skipProductUpdateDependencies $skipProductUpdateDependencies -ConvertToManaged $convertToManaged -HoldingSolution $holdingSolution -logsDirectory "$artifactsFolder" -logFileName "$logFilename" -ImportAsync $useAsyncMode -AsyncWaitTimeout $asyncWaitTimeout -Timeout $crmConnectionTimeout
 
 if (Test-Path "$artifactsFolder\$logFilename")
 {
