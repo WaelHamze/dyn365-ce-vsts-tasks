@@ -54,6 +54,6 @@ if ($updateVersion)
 	$versionNumber = $buildNumber.Substring($buildNumber.IndexOf("_") + 1)
 }
 
-& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -UpdateVersion $updateVersion -RequiredVersion $versionNumber -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -CoreToolsPath $CoreToolsPath
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -UpdateVersion $updateVersion -RequiredVersion $versionNumber -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -CoreToolsPath $CoreToolsPath
 
 Write-Verbose 'Leaving MSCRMPackSolution.ps1'
