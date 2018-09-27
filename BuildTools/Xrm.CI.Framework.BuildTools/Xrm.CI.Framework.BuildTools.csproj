@@ -118,6 +118,7 @@
     <Content Include="Package.ps1" />
     <Content Include="Lib\xRMCIFramework\9.0.0\UpdatePluginAssembly.ps1" />
     <Content Include="Lib\xRMCIFramework\9.0.0\PluginRegistration.ps1" />
+    <Content Include="Lib\xRMCIFramework\9.0.0\RemoveSolution.ps1" />
     <None Include="packages.config" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\MSCRMBackupOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\task.json" />
@@ -172,6 +173,8 @@
     <Content Include="Tasks\MSCRMUpdateSecureConfiguration\task.json" />
     <Content Include="Tasks\MSCRMServiceEndpointRegistration\MSCRMServiceEndpointRegistration.ps1" />
     <Content Include="Tasks\MSCRMServiceEndpointRegistration\task.json" />
+    <Content Include="Tasks\MSCRMRemoveSolution\MSCRMRemoveSolution.ps1" />
+    <Content Include="Tasks\MSCRMRemoveSolution\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

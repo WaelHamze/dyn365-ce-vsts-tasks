@@ -1,0 +1,52 @@
+{
+  "id": "33C2D0CA-7945-4A03-ABDB-9C2E1B2DEEE9",
+  "name": "MSCRMRemoveSolution",
+  "friendlyName": "MSCRM Remove Solution",
+  "description": "Removes the given CRM Solution",
+  "author": "Bob Guidinger",
+  "helpMarkDown": "Removes the given CRM Solution",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Remove solution: $(solutionName)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "solutionName",
+      "type": "string",
+      "label": "Solution Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The unique name of the solution you want to apply"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMRemoveSolution.ps1"
+    }
+  }
+}

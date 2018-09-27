@@ -76,6 +76,12 @@ Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
 New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
 
+#MSCRMRemoveSolution
+$taskName = "MSCRMRemoveSolution"
+Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
+New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
+
 #MSCRMRemoveSolutionComponents
 $taskName = "MSCRMRemoveSolutionComponents"
 Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
