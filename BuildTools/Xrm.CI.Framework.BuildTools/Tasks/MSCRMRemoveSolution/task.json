@@ -4,7 +4,7 @@
   "friendlyName": "MSCRM Remove Solution",
   "description": "Removes the given CRM Solution",
   "author": "Bob Guidinger",
-  "helpMarkDown": "Removes the given CRM Solution",
+  "helpMarkDown": "Deletes a Dynamics CRM managed/unmanaged Solution",
   "category": "Build",
   "visibility": [
     "Build",
@@ -14,8 +14,9 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "2"
   },
+  "preview": true,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Remove solution: $(solutionName)",
   "inputs": [

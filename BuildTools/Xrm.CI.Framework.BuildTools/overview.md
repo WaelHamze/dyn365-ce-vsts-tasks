@@ -31,6 +31,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Import Solution** | Import a Dynamics CRM Solution package |
 | **MSCRM Apply Solution** | Applies a solution upgrade after solution is import using stage for upgrade option |
 | **MSCRM Copy Solution Components** | Add components from a given solution to another solution if not present |
+| **MSCRM Remove Solution** | Deletes a Dynamics CRM managed/unmanaged Solution |
 | **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
 | **MSCRM Package Deployer** | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
 | **MSCRM Update Secure Configuration** | A task that updates Dynamics 365 plugin secure configuration |
