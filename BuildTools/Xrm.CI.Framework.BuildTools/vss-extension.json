@@ -76,6 +76,9 @@
       "path": "Tasks/MSCRMCopySolutionComponents"
     },
     {
+      "path": "Tasks/MSCRMRemoveSolution"
+    },
+    {
       "path": "Tasks/MSCRMRemoveSolutionComponents"
     },
     {
@@ -245,6 +248,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMCopySolutionComponents"
+      }
+    },
+    {
+      "id": "MSCRMRemoveSolution",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMRemoveSolution"
       }
     },
     {
