@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "10"
+    "Patch": "12"
   },
   "preview":  true,
   "minimumAgentVersion": "1.95.0",
@@ -47,10 +47,10 @@
     {
       "name": "valueFieldName",
       "type": "string",
-      "label": "Value Field Name",
+      "label": "Value Field Names",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The name of the field for upserting the value. (i.e. prefix_value)"
+      "helpMarkDown": "Comma-separated list of the names of the fields for upserting the values. (e.g.: prefix_value1,prefix_value2). At least one if required."
     },
     {
       "name": "configurationRecordsJson",

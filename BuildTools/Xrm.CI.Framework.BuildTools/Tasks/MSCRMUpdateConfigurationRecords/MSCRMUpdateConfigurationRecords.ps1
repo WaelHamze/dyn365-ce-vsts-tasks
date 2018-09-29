@@ -29,6 +29,6 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\UpdateConfigurationRecords.ps1" -CrmConnectionString $crmConnectionString -entityName $entityName -lookupFieldName $lookupFieldName -valueFieldName $valueFieldName -configurationRecordsJson $configurationRecordsJson
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\UpdateConfigurationRecords.ps1" -CrmConnectionString $crmConnectionString -entityName $entityName -lookupFieldName $lookupFieldName -valueFieldNames $valueFieldName -configurationRecordsJson $configurationRecordsJson
 
 Write-Verbose 'Leaving MSCRMUpdateConfigurationRecords.ps1'
