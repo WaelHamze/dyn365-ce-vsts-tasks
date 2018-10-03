@@ -12,6 +12,7 @@ Write-Host "Packaging Dynamics 365 Builds tools"
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
 Write-Host "Script Path: $scriptPath"
 
+.\Make.ps1
 
 #Creating output directory
 $OutputDir = $scriptPath + "\bin"

@@ -115,6 +115,13 @@ Added tasks for Exracting Customisations into source
 Added Tools Installer Task to improve efficieny and reduce extension size  
 Added new task to upsert configuration records  
 Improvements to Plugin Registration and Web Resource Tasks  
-Updated to 9.0.2.4 SDK Assemblies and Tools  
+Updated to 9.0.2.4 SDK Assemblies and Tools
 
-For more information on changes between versions, check the commits on GitHub
+**9.3.x**  
+Added Task to manage Service Endpoints  
+Added Task to Delete a Solution  
+Added Synch mode for Solution Import Task  
+Added Async mode for Apply Solution Task  
+Update Configuration Records Task to support updating mutiple value fields  
+
+For more information on changes between versions, check the commits and releases on GitHub
