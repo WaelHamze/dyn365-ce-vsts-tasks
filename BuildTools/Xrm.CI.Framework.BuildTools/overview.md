@@ -124,4 +124,7 @@ Added Synch mode for Solution Import Task
 Added Async mode for Apply Solution Task  
 Update Configuration Records Task to support updating mutiple value fields  
 
+**9.4.x**  
+Updated to 9.0.2.5 SDK Assemblies and Tools  
+
 For more information on changes between versions, check the commits and releases on GitHub
