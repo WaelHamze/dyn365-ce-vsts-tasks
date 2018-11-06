@@ -46,11 +46,24 @@
     },
     {
       "name": "newDescription",
-      "type": "string",
+      "type": "multiLine",
       "label": "New Description",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "The new description to give to your Solution in CRM"
+    },
+    {
+      "name": "descriptionUpdateMethod",
+      "type": "pickList",
+      "label": "Description Update Method",
+      "defaultValue": "Replace",
+      "options": {
+        "replace": "Replace",
+        "appendToTop": "AppendToTop",
+        "appendToBottom": "AppendToBottom"
+      },
+      "required": true,
+      "helpMarkDown": "The method in which to update your description"
     }
   ],
   "execution": {
