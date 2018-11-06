@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -119,6 +120,7 @@
     <Content Include="Lib\xRMCIFramework\9.0.0\UpdatePluginAssembly.ps1" />
     <Content Include="Lib\xRMCIFramework\9.0.0\PluginRegistration.ps1" />
     <Content Include="Lib\xRMCIFramework\9.0.0\RemoveSolution.ps1" />
+    <Content Include="Lib\xRMCIFramework\9.0.0\UpdateSolutionDescriptionInCRM.ps1" />
     <None Include="packages.config" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\MSCRMBackupOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\task.json" />
@@ -175,6 +177,8 @@
     <Content Include="Tasks\MSCRMServiceEndpointRegistration\task.json" />
     <Content Include="Tasks\MSCRMRemoveSolution\MSCRMRemoveSolution.ps1" />
     <Content Include="Tasks\MSCRMRemoveSolution\task.json" />
+    <Content Include="Tasks\MSCRMUpdateSolutionDescription\MSCRMUpdateSolutionDescription.ps1" />
+    <Content Include="Tasks\MSCRMUpdateSolutionDescription\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,7 +316,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties Tasks_4MSCRMSplitPluginAssembly_4task_1json__JSONSchema="https://github.com/Microsoft/vsts-task-lib/blob/master/tasks.schema.json" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
