@@ -11,7 +11,7 @@ $crmConnectionString = Get-VstsInput -Name crmConnectionString -Require
 $solutionName = Get-VstsInput -Name solutionName -Require
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
 $newDescription = Get-VstsInput -Name newDescription -Require
-$descriptionUpdateMethod = Get-VstsInput -Name descriptionUpdateMethod -Default 'Replace' -Require
+$descriptionUpdateMethod = Get-VstsInput -Name descriptionUpdateMethod -Require
       #"options": {
       #  "replace": "Replace",
       #  "appendToTop": "AppendToTop",
