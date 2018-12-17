@@ -97,6 +97,9 @@
       "path": "Tasks/MSCRMPackageDeployer"
     },
     {
+      "path": "Tasks/MSCRMUpdateSolutionDescription"
+    },
+    {
       "path": "Tasks/MSCRMSetVersion"
     },
     {
@@ -241,6 +244,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMSetVersion"
+      }
+    },
+    {
+      "id": "MSCRMUpdateSolutionDescription",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMUpdateSolutionDescription"
       }
     },
     {
