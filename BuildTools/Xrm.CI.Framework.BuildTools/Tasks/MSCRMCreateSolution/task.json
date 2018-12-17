@@ -1,0 +1,84 @@
+{
+  "id": "7F08480D-87C0-425A-BC7B-6FF2700C0632",
+  "name": "MSCRMCreateSolution",
+  "friendlyName": "MSCRM Create Solution",
+  "description": "Creates an unmanaged CRM Solution",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/customize/create-solution",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Create Solution: $(solutionName)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "uniqueName",
+      "type": "string",
+      "label": "Unique Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The unique name of the solution you want to create"
+    },
+    {
+      "name": "displayName",
+      "type": "string",
+      "label": "Display Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The display name of the solution you want to create"
+    },
+    {
+      "name": "publisherUniqueName",
+      "type": "string",
+      "label": "Publisher Unique Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The unique name of the publisher for the solution you want to create"
+    },
+    {
+      "name": "versionNumber",
+      "type": "string",
+      "label": "Version Number",
+      "defaultValue": "1.0.0.0",
+      "required": true,
+      "helpMarkDown": "The initial version of the solution you want to create"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "label": "Description",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The description of the solution you want to create"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMCreateSolution.ps1"
+    }
+  }
+}

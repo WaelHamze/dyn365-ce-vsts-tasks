@@ -175,6 +175,8 @@
     <Content Include="Tasks\MSCRMServiceEndpointRegistration\task.json" />
     <Content Include="Tasks\MSCRMRemoveSolution\MSCRMRemoveSolution.ps1" />
     <Content Include="Tasks\MSCRMRemoveSolution\task.json" />
+    <Content Include="Tasks\MSCRMCreateSolution\MSCRMCreateSolution.ps1" />
+    <Content Include="Tasks\MSCRMCreateSolution\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
