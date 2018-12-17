@@ -179,6 +179,8 @@
     <Content Include="Tasks\MSCRMRemoveSolution\task.json" />
     <Content Include="Tasks\MSCRMUpdateSolutionDescription\MSCRMUpdateSolutionDescription.ps1" />
     <Content Include="Tasks\MSCRMUpdateSolutionDescription\task.json" />
+    <Content Include="Tasks\MSCRMCreateSolution\MSCRMCreateSolution.ps1" />
+    <Content Include="Tasks\MSCRMCreateSolution\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

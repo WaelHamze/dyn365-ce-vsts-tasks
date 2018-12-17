@@ -63,21 +63,22 @@ if (-not $mscrmToolsPath)
 
 $PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.0.0"
 
+$templateNames = [string[]] @()
 if ($sales)
 {
-    $templatesNames = "D365_Sales"
+    $templateNames += "D365_Sales"
 }
 if ($customerService)
 {
-    $templatesNames = $templatesNames += "D365_CustomerService"
+    $templateNames += "D365_CustomerService"
 }
 if ($fieldService)
 {
-    $templatesNames = $templatesNames += "D365_FieldService"
+    $templateNames += "D365_FieldService"
 }
 if ($projectService)
 {
-    $templatesNames = $templatesNames += "D365_ProjectServiceAutomation"
+    $templateNames += "D365_ProjectServiceAutomation"
 }
 
 
