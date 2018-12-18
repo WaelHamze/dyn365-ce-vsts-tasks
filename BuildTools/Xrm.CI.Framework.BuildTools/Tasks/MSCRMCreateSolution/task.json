@@ -17,7 +17,7 @@
     "Patch": "2"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Create Solution: $(solutionName)",
+  "instanceNameFormat": "MSCRM Create Solution: $(uniqueName)",
   "inputs": [
     {
       "name": "crmConnectionString",
