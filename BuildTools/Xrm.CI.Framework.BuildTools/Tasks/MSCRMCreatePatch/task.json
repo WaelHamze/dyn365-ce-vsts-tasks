@@ -1,0 +1,68 @@
+{
+  "id": "4118C1E8-158C-4F0E-9D4D-E393F426F057",
+  "name": "MSCRMCreatePatch",
+  "friendlyName": "MSCRM Create Patch",
+  "description": "Creates an unmanaged CRM Solution Patch",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/create-patches-simplify-solution-updates",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Create Patch: $(uniqueName)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "uniqueName",
+      "type": "string",
+      "label": "Parent Solution Unique Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The unique name of the parent solution you want to create a patch from"
+    },
+    {
+      "name": "displayName",
+      "type": "string",
+      "label": "Patch Display Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The display name of the patch solution. If blank the display name of the parent base solution will be used."
+    },
+    {
+      "name": "versionNumber",
+      "type": "string",
+      "label": "Patch Version Number",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The version number of the patch. If blank a default version will be assigned with an incremented build revision"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMCreatePatch.ps1"
+    }
+  }
+}

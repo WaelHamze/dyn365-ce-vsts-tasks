@@ -19,7 +19,7 @@
   "version": {
     "Major": "9",
     "Minor": "0",
-    "Patch": "26"
+    "Patch": "29"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Tool Installer",
