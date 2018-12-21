@@ -146,6 +146,9 @@
     },
     {
       "path": "Tasks/MSCRMCreatePatch"
+    },
+    {
+      "path": "Tasks/MSCRMCloneSolution"
     }
   ],
   "contributions": [
@@ -437,6 +440,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMCreatePatch"
+      },
+      {
+        "id": "MSCRMCloneSolution",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+          "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+          "name": "Tasks/MSCRMCloneSolution"
+        }
       }
     }
   ]

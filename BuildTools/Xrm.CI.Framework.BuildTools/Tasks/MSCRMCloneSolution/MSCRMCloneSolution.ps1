@@ -4,7 +4,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-Write-Verbose 'Entering MSCRMCreatePatch.ps1'
+Write-Verbose 'Entering MSCRMCloneSolution.ps1'
 
 #Get Parameters
 $crmConnectionString = Get-VstsInput -Name crmConnectionString -Require
@@ -22,6 +22,6 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\CreatePatch.ps1"  -CrmConnectionString $crmConnectionString -ParentSolutionUniqueName $UniqueName -DisplayName "$DisplayName" -VersionNumber "$VersionNumber" -Timeout $crmConnectionTimeout
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\CloneSolution.ps1"  -CrmConnectionString $crmConnectionString -ParentSolutionUniqueName $UniqueName -DisplayName "$DisplayName" -VersionNumber "$VersionNumber" -Timeout $crmConnectionTimeout
 
-Write-Verbose 'Leaving MSCRMCreatePatch.ps1'
+Write-Verbose 'Leaving MSCRMCloneSolution.ps1'

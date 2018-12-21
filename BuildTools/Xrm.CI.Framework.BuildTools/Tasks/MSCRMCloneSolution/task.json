@@ -1,10 +1,10 @@
 {
-  "id": "4118C1E8-158C-4F0E-9D4D-E393F426F057",
-  "name": "MSCRMCreatePatch",
-  "friendlyName": "MSCRM Create Patch",
-  "description": "Creates an unmanaged CRM Solution Patch",
+  "id": "ABA6B43B-589D-4D88-A91B-19D9681913A1",
+  "name": "MSCRMCloneSolution",
+  "friendlyName": "MSCRM Clone Solution",
+  "description": "Clones a CRM unmanaged Solution",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/create-patches-simplify-solution-updates",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/customize/use-segmented-solutions-patches-simplify-updates#clone-a-solution",
   "category": "Build",
   "visibility": [
     "Build",
@@ -17,7 +17,7 @@
     "Patch": "2"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Create Patch: $(uniqueName)",
+  "instanceNameFormat": "MSCRM Clone Solution: $(uniqueName)",
   "inputs": [
     {
       "name": "crmConnectionString",
@@ -38,18 +38,18 @@
     {
       "name": "displayName",
       "type": "string",
-      "label": "Patch Display Name",
+      "label": "Solution Display Name",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "The display name of the patch solution. If blank the display name of the parent base solution will be used."
+      "helpMarkDown": "The display name of the cloned solution. If blank the display name of the parent base solution will be used."
     },
     {
       "name": "versionNumber",
       "type": "string",
-      "label": "Patch Version Number",
+      "label": "Solution Version Number",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Format:[major.minor.build.release]. The version number of the patch. If blank a default version will be assigned with an incremented build revision"
+      "helpMarkDown": "Format:[major.minor.build.release]. The version number of the cloned solution. If blank a default version will be assigned with an incremented minor revision"
     },
     {
       "name": "crmConnectionTimeout",
@@ -62,7 +62,7 @@
   ],
   "execution": {
     "PowerShell3": {
-      "target": "MSCRMCreatePatch.ps1"
+      "target": "MSCRMCloneSolution.ps1"
     }
   }
 }

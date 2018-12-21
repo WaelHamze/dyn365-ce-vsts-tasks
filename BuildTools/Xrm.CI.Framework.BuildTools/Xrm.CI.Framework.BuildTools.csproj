@@ -183,6 +183,8 @@
     <Content Include="Tasks\MSCRMCreateSolution\task.json" />
     <Content Include="Tasks\MSCRMCreatePatch\MSCRMCreatePatch.ps1" />
     <Content Include="Tasks\MSCRMCreatePatch\task.json" />
+    <Content Include="Tasks\MSCRMCloneSolution\MSCRMCloneSolution.ps1" />
+    <Content Include="Tasks\MSCRMCloneSolution\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
