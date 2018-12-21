@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "2"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Provision $(domainName)",
@@ -110,11 +110,11 @@
       "defaultValue": "31cafafe-c6b1-4c0a-bb53-73927841bc5c",
       "required": true,
       "options": {
-        "bce9abbf-90fd-42e7-b0e5-1ced6df22fa1": "July 2017 Update for Dynamics 365",
-        "31cafafe-c6b1-4c0a-bb53-73927841bc5c": "Dynamics 365",
-        "aaf5fa67-3f34-835d-85bb-6c8eb44aff8d": "Microsoft Dynamics CRM Online 2016 Update 1",
-        "015e6a5c-2fa5-e411-80ce-00155db07c21": "Microsoft Dynamics CRM Online 2016",
-        "9f2caf05-45b9-e411-80ec-6c3be5a88dd4": "Microsoft Dynamics CRM Online 2015 Update 1 (May 2015)"
+        "bce9abbf-90fd-42e7-b0e5-1ced6df22fa1": "Dynamics 365, version 9.0",
+        "31cafafe-c6b1-4c0a-bb53-73927841bc5c": "Dynamics 365, version 8.2",
+        "aaf5fa67-3f34-835d-85bb-6c8eb44aff8d": "Dynamics CRM Online, version 8.1",
+        "015e6a5c-2fa5-e411-80ce-00155db07c21": "Dynamics CRM Online, version 8.0",
+        "9f2caf05-45b9-e411-80ec-6c3be5a88dd4": "Dynamics CRM Online, version 7.1"
       },
       "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
     },
