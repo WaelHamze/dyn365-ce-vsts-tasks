@@ -14,11 +14,11 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "2"
+    "Patch": "4"
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "Remove solution: $(solutionName)",
+  "instanceNameFormat": "Remove Solution: $(solutionName)",
   "inputs": [
     {
       "name": "crmConnectionString",
