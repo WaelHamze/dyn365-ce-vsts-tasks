@@ -80,13 +80,13 @@
       "label": "Mapping File Path",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Plugin registration json/xml mapping used to register assembly/types/steps.</br> Mapping json(PluginRegistrationMappingExample.json)/xml file sample can be found here: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration. </br> JSON schema which will help you to generate plugin registration mapping can be found here: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration/PluginRegistrationMappingSchema.json. </br> How to use schema can be found here: https://blogs.msdn.microsoft.com/webdev/2014/04/10/intellisense-for-json-schema-in-the-json-editor/. </br> To generate plugin registration JSON mapping from existing assembly/type/steps from a specific solution, please use cmdlet: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/GetPluginRegistrationJsonMapping.ps1 </br>"
+      "helpMarkDown": "Plugin registration json/xml mapping used to register assembly/types/steps.</br> Mapping json(PluginRegistrationMappingExample.json)/xml file sample can be found here: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration. </br> JSON schema which will help you to generate plugin registration mapping can be found here: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration/PluginRegistrationSchema.json . </br> How to use schema can be found here: https://blogs.msdn.microsoft.com/webdev/2014/04/10/intellisense-for-json-schema-in-the-json-editor/. </br> To generate plugin registration JSON mapping from existing assembly/type/steps from a specific solution, please use cmdlet: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/GetPluginRegistration.ps1 </br>"
     },
     {
       "name": "crmConnectionTimeout",
       "type": "int",
       "label": "Crm Connection Timeout",
-      "defaultValue": 360,
+      "defaultValue": 36
       "required": true,
       "helpMarkDown": "The Crm connection timeout in seconds"
     }
