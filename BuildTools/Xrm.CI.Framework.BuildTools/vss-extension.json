@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.4.1",
+  "version": "9.5.1",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -440,16 +440,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMCreatePatch"
-      },
-      {
-        "id": "MSCRMCloneSolution",
-        "type": "ms.vss-distributed-task.task",
-        "targets": [
-          "ms.vss-distributed-task.tasks"
-        ],
-        "properties": {
-          "name": "Tasks/MSCRMCloneSolution"
-        }
+      }
+    },
+    {
+      "id": "MSCRMCloneSolution",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMCloneSolution"
       }
     }
   ]

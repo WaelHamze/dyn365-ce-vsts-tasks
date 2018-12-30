@@ -23,7 +23,11 @@ Below is a list of tasks that are included with this extension.
 | --- | --- |
 | **MSCRM Tool Installer** | Installs the Dynamics 365 tools required by all of the tasks |
 | **MSCRM Ping** | Checks connectivity to a Dynamics 365 environment |
+| **MSCRM Create Solution (preview)** | Creates an unmanaged CRM Solution |
 | **MSCRM Export Solution** | Exports a CRM Solution from the source CRM environment |
+| **MSCRM Create Patch (preview)** | Creates an unmanaged CRM Solution Patch |
+| **MSCRM Clone Solution (preview)** | Clones a CRM unmanaged Solution |
+| **MSCRM Update Solution Description (preview)** | Updates the description of a given CRM Solution |
 | **MSCRM Publish Customizations** | Publishes all CRM customizations |
 | **MSCRM Set Version** | Updates the version of a CRM Solution |
 | **MSCRM Extract Solution** | Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe |
@@ -126,5 +130,10 @@ Update Configuration Records Task to support updating mutiple value fields
 
 **9.4.x**  
 Updated to 9.0.2.5 SDK Assemblies and Tools  
+
+**9.5.x**
+Added tasks to Create Solution, Clone Solution, Create Patch and Update Solution Description
+Enhancements to Import Solution stability and improved logging
+
 
 For more information on changes between versions, check the commits and releases on GitHub
