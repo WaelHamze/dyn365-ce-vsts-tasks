@@ -28,6 +28,8 @@ Write-Verbose "Framework Cache: $frameworkCache"
 $currentVersion = '9.0.4'
 $currentVersionPath = "$frameworkCache\$currentVersion"
 
+Write-Host "Tools Version: $currentVersion"
+
 if (Test-Path $frameworkCache)
 {
 	Write-Host "$frameworkCache already created"

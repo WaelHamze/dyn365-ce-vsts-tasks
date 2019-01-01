@@ -12,9 +12,9 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
+    "Major": "11",
     "Minor": "0",
-    "Patch": "6"
+    "Patch": "1"
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
