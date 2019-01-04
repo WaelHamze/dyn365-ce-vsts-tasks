@@ -310,6 +310,7 @@
 	displayName: {String}
 	versionNumber: {String}
 	crmConnectionTimeout: {String}
+```
 
 ### MSCRM Update Solution Description
 ```
@@ -321,3 +322,4 @@
 	newDescription: {String}
 	descriptionUpdateMethod: {String}
 	crmConnectionTimeout: {String}
+```
