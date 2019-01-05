@@ -134,7 +134,7 @@ Updated to 9.0.2.5 SDK Assemblies and Tools
 **9.5.x**  
 Added tasks to Create Solution, Clone Solution, Create Patch and Update Solution Description  
 Enhancements to Import Solution stability and improved logging (ver. 11)  
-Plugin Registration task now supports StateCode and AsyncAutoDelete in json for Plug-in Steps (ver. 11)   
+Plugin Registration task now supports StateCode and AsyncAutoDelete in json for Plug-in Steps  
 
 
 For more information on changes between versions, check the commits and releases on GitHub
