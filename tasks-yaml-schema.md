@@ -286,6 +286,8 @@
 	description: {String}
 	crmConnectionTimeout: {String}
 
+```
+
 ### MSCRM Create Patch
 ```
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMCreatePatch.MSCRMCreatePatch@10
@@ -296,6 +298,7 @@
 	displayName: {String}
 	versionNumber: {String}
 	crmConnectionTimeout: {String}
+```
 
 ### MSCRM Clone Solution
 ```
@@ -307,6 +310,7 @@
 	displayName: {String}
 	versionNumber: {String}
 	crmConnectionTimeout: {String}
+```
 
 ### MSCRM Update Solution Description
 ```
@@ -318,3 +322,4 @@
 	newDescription: {String}
 	descriptionUpdateMethod: {String}
 	crmConnectionTimeout: {String}
+```
