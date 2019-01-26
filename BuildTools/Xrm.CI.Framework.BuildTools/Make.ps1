@@ -238,5 +238,17 @@ Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
 New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
 
+#MSCRMCloneSolution
+$taskName = "MSCRMImportSolutionsUsingConfig"
+Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
+New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
+
+#MSCRMCloneSolution
+$taskName = "MSCRMExportSolutionsUsingConfig"
+Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
+New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
+
 #Clean Up
 Remove-Item $TempDir -Force -Recurse

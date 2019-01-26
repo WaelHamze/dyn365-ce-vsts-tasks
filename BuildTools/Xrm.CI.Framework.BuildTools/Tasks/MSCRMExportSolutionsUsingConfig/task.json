@@ -1,0 +1,60 @@
+{
+  "id": "810C5475-76B3-4CD1-91DD-6D455C9EEB5F",
+  "name": "MSCRMExportSolutionsUsingConfig",
+  "friendlyName": "MSCRM Export Solutions Using Config",
+  "description": "Exports Dynamics 365 Solutions using a json configuration",
+  "author": "Wael Hamze",
+  "helpMarkDown": "This task invokes ExportSolutionRequest",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Exports Solutions Using Config",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "configFilePath",
+      "type": "filePath",
+      "label": "ConfigFilePath",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the file on the agent server containing the export config json."
+    },
+    {
+      "name": "outputPath",
+      "type": "filePath",
+      "label": "Output Path",
+      "defaultValue": "$(build.binariesdirectory)",
+      "required": true,
+      "helpMarkDown": "The path on the agent machine where you want the solutions to be placed"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMExportSolutionsUsingConfig.ps1"
+    }
+  }
+}

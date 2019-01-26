@@ -1,0 +1,60 @@
+{
+  "id": "EE3C3FAB-FDA0-4F27-8535-EB0B7771C5BE",
+  "name": "MSCRMImportSolutionsUsingConfig",
+  "friendlyName": "MSCRM Import Solutions Using Config",
+  "description": "Imports Dynamics 365 Solutions using a json configuration",
+  "author": "Wael Hamze",
+  "helpMarkDown": "This task invokes ImportSolutionRequest",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "11"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Import Solutions Using Config",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "configFilePath",
+      "type": "filePath",
+      "label": "ConfigFilePath",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the file on the agent server containing the import config json."
+    },
+    {
+      "name": "logsDirectory",
+      "type": "filePath",
+      "label": "Logs Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to the directory on agent server where logs will be placed. By default this will be $env:System_DefaultWorkingDirectory"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMImportSolutionsUsingConfig.ps1"
+    }
+  }
+}

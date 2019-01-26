@@ -14,7 +14,7 @@
   "version": {
     "Major": "11",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "3"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Import Solution",
@@ -98,6 +98,22 @@
       "defaultValue": "900",
       "required": false,
       "helpMarkDown": "The number of seconds to wait for async solution import to complete before timing out"
+    },
+    {
+      "name": "logsDirectory",
+      "type": "filePath",
+      "label": "Logs Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to the directory on agent server where logs will be placed. By default this will be $env:System_DefaultWorkingDirectory"
+    },
+    {
+      "name": "logFileName",
+      "type": "filePath",
+      "label": "Import Log Filename",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the solution import log file. By default the name will be ImportLog_[solutionzipfilewithoutextension]_yyyy_MM_dd__HH_mm.xml"
     },
     {
       "name": "crmConnectionTimeout",

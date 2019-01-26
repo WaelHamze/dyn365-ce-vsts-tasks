@@ -11,3 +11,4 @@
 /BuildTools/Xrm.CI.Framework.BuildTools.Tools/obj
 /BuildTools/Xrm.CI.Framework.BuildTools.Tools/bin/Release
 /BuildTools/Xrm.CI.Framework.BuildTools.Tools/bin/coretools
+/BuildTools/Xrm.CI.Framework.BuildTools/Lib/xRMCIFramework/9.0.0/System.Management.Automation.dll

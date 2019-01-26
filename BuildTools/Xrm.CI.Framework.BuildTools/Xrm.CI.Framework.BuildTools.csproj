@@ -185,6 +185,11 @@
     <Content Include="Tasks\MSCRMCreatePatch\task.json" />
     <Content Include="Tasks\MSCRMCloneSolution\MSCRMCloneSolution.ps1" />
     <Content Include="Tasks\MSCRMCloneSolution\task.json" />
+    <Content Include="Tasks\MSCRMImportSolutionsUsingConfig\MSCRMImportSolutionsUsingConfig.ps1" />
+    <Content Include="Tasks\MSCRMImportSolutionsUsingConfig\task.json" />
+    <Content Include="UpdateXrmCIFramework.ps1" />
+    <Content Include="Tasks\MSCRMExportSolutionsUsingConfig\MSCRMExportSolutionsUsingConfig.ps1" />
+    <Content Include="Tasks\MSCRMExportSolutionsUsingConfig\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

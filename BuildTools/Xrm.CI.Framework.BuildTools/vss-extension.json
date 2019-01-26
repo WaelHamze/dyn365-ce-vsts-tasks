@@ -149,6 +149,12 @@
     },
     {
       "path": "Tasks/MSCRMCloneSolution"
+    },
+    {
+      "path": "Tasks/MSCRMImportSolutionsUsingConfig"
+    },
+    {
+      "path": "Tasks/MSCRMExportSolutionsUsingConfig"
     }
   ],
   "contributions": [
@@ -450,6 +456,26 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMCloneSolution"
+      }
+    },
+    {
+      "id": "MSCRMExportSolutionsUsingConfig",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMExportSolutionsUsingConfig"
+      }
+    },
+    {
+      "id": "MSCRMImportSolutionsUsingConfig",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMImportSolutionsUsingConfig"
       }
     }
   ]
