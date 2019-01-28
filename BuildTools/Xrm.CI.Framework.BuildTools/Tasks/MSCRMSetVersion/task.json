@@ -14,26 +14,48 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "3"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Set Version: $(solutionName)",
+  "instanceNameFormat": "MSCRM Set Version",
   "inputs": [
+    {
+      "name": "target",
+      "type": "pickList",
+      "label": "Target",
+      "defaultValue": "crm",
+      "required": true,
+      "options": {
+        "crm": "Solution in CRM",
+        "xml": "Unpacked Solution Customizations"
+      }
+    },
     {
       "name": "crmConnectionString",
       "type": "string",
       "label": "CRM Connection String",
       "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "[Connection String Format](https://msdn.microsoft.com/en-US/library/mt608573.aspx)"
+      "required": false,
+      "helpMarkDown": "[Connection String Format](https://msdn.microsoft.com/en-US/library/mt608573.aspx)",
+      "visibleRule": "target = crm"
     },
     {
       "name": "solutionName",
       "type": "string",
       "label": "Solution Name",
       "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "The unique name of the solution you want to update"
+      "required": false,
+      "helpMarkDown": "The unique name of the solution you want to update",
+      "visibleRule": "target = crm"
+    },
+    {
+      "name": "unpackedFilesFolder",
+      "type": "filePath",
+      "label": "Unpacked Files Folder",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The folder in source control containing the unpacked solution files extracted using SolutionPackager.exe",
+      "visibleRule": "target = xml"
     },
     {
       "name": "versionNumber",
