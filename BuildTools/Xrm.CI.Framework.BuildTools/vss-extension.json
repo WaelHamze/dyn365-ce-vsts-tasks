@@ -155,6 +155,9 @@
     },
     {
       "path": "Tasks/MSCRMExportSolutionsUsingConfig"
+    },
+    {
+      "path": "Tasks/MSCRMPackSolutionsUsingConfig"
     }
   ],
   "contributions": [
@@ -476,6 +479,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMImportSolutionsUsingConfig"
+      }
+    },
+    {
+      "id": "MSCRMPackSolutionsUsingConfig",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMPackSolutionsUsingConfig"
       }
     }
   ]

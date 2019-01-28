@@ -190,6 +190,8 @@
     <Content Include="UpdateXrmCIFramework.ps1" />
     <Content Include="Tasks\MSCRMExportSolutionsUsingConfig\MSCRMExportSolutionsUsingConfig.ps1" />
     <Content Include="Tasks\MSCRMExportSolutionsUsingConfig\task.json" />
+    <Content Include="Tasks\MSCRMPackSolutionsUsingConfig\MSCRMPackSolutionsUsingConfig.ps1" />
+    <Content Include="Tasks\MSCRMPackSolutionsUsingConfig\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

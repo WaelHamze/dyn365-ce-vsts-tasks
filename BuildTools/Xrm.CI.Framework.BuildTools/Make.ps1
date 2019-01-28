@@ -238,14 +238,20 @@ Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
 New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
 
-#MSCRMCloneSolution
+#MSCRMImportSolutionsUsingConfig
 $taskName = "MSCRMImportSolutionsUsingConfig"
 Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
 New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
 
-#MSCRMCloneSolution
+#MSCRMExportSolutionsUsingConfig
 $taskName = "MSCRMExportSolutionsUsingConfig"
+Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
+New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
+
+#MSCRMPackSolutionsUsingConfig
+$taskName = "MSCRMPackSolutionsUsingConfig"
 Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
 New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
