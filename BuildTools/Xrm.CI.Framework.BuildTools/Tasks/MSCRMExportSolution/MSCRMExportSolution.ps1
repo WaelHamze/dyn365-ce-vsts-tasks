@@ -45,7 +45,6 @@ Write-Verbose "exportManaged = $exportManaged"
 Write-Verbose "exportUnmanaged = $exportUnmanaged"
 Write-Verbose "includeVersionInSolutionFile = $includeVersionInSolutionFile"
 Write-Verbose "targetVersion = $targetVersion"
-Write-Verbose "updateVersion = $updateVersion"
 Write-Verbose "includeVersionInSolutionFile = $includeVersionInSolutionFile"
 Write-Verbose "outputPath = $outputPath"
 Write-Verbose "crmConnectionTimeout = $crmConnectionTimeout"
@@ -65,14 +64,15 @@ Write-Verbose "buildNumber = $buildNumber"
 Write-Verbose "sourcesDirectory = $sourcesDirectory"
 Write-Verbose "binariesDirectory = $binariesDirectory"
 
-if ($updateVersion)
-{
+$updateVersion ="$versioning".ToUpperInvariant() -ne "NONE"
+if("$versioning".ToUpperInvariant() -eq "BUILDNUMBER") {
+    $splits = $buildNumber.Split("_")
+    $versionNumber = $splits[$splits.Count-1]
+} elseif("$versioning".ToUpperInvariant() -eq "RELEASENAME") {
+    $splits = $releaseName.Split("_")
+    $versionNumber = $splits[$splits.Count-1]
+} elseif("$versioning".ToUpperInvariant() -eq "MANUAL") {
     $versionNumber = $versionString
-    if($useBuildNumber)
-    {
-    	$splits = $buildNumber.Split("_")
-    	$versionNumber = $splits[$splits.Count-1]
-    }
 }
 
 #MSCRM Tools

@@ -12,7 +12,7 @@
   ],
   "demands": [ ],
   "version": {
-    "Major": "10",
+    "Major": "11",
     "Minor": "0",
     "Patch": "1"
   },
@@ -20,13 +20,13 @@
   "instanceNameFormat": "MSCRM Export Solution: $(solutionName)",
   "groups": [
     {
-      "name": "exportOptions",
-      "displayName": "Additional Export Options",
-      "isExpanded": false
-    },
-    {
       "name": "versioningOptions",
       "displayName": "Versioning Options",
+      "isExpanded": true
+    },
+    {
+      "name": "exportOptions",
+      "displayName": "Additional Export Options",
       "isExpanded": false
     }
   ],
@@ -200,14 +200,14 @@
       "label": "Versioning",
       "required": false,
       "defaultValue": "none",
-      "helpMarkDown": "Defines whether and how the solution version on the source environment should be updated.",
+      "helpMarkDown": "Defines whether and how the solution version on the source environment should be updated. When 'Build Number' or 'Release Name' is used the name/number has to end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'",
       "groupName": "versioningOptions",
       "options": {
           "none": "None",
           "buildnumber": "Build Number",
           "releasename": "Release Name",
           "manual": "Manual"
-      },
+      }
     },   
     {
       "name": "versionString",
