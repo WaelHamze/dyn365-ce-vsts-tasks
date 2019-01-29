@@ -29,14 +29,14 @@ $exportRelationshipRoles = Get-VstsInput -Name exportRelationshipRoles -AsBool
 $exportSales = Get-VstsInput -Name exportSales -AsBool
 
 # Versioning
-$updateVersion = Get-VstsInput -Name updateVersion -AsBool
-$useBuildNumber = Get-VstsInput -Name useBuildNumber -AsBool
-$versionString = Get-VstsInput -Name versionString -AsBool
+$versioning = Get-VstsInput -Name versioning
+$versionString = Get-VstsInput -Name versionString
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
 $sourcesDirectory = $env:BUILD_SOURCESDIRECTORY
 $binariesDirectory = $env:BUILD_BINARIESDIRECTORY
+$releaseName = $env:RELEASE_NAME
 
 #Print Verbose
 Write-Verbose "crmConnectionString = $crmConnectionString"
