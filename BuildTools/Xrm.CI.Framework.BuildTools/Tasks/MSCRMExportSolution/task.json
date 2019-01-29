@@ -72,15 +72,6 @@
       "helpMarkDown": "Check task help for more information"
     },
     {
-      "name": "updateVersion",
-      "type": "boolean",
-      "label": "Update Version",
-      "defaultValue": "false",
-      "required": false,
-      "groupName": "deprecatedOptions",
-      "helpMarkDown": "This option is deprecated. Please use the **MSCRM Set Version** task instead."
-    },
-    {
       "name": "includeVersionInSolutionFile",
       "type": "boolean",
       "label": "Include Version in Filename",
@@ -202,6 +193,15 @@
       "required": false,
       "helpMarkDown": "Check task help for more information",
       "groupName": "exportOptions"
+    },
+    {
+      "name": "updateVersion",
+      "type": "boolean",
+      "label": "Update Version",
+      "defaultValue": "false",
+      "required": false,
+      "groupName": "deprecatedOptions",
+      "helpMarkDown": "This option is deprecated. Please use the **MSCRM Set Version** task instead."
     }
   ],
   "execution": {
