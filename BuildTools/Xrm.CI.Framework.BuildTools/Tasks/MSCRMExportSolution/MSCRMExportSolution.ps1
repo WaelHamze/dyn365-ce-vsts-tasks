@@ -36,7 +36,7 @@ $versionString = Get-VstsInput -Name versionString
 $buildNumber = $env:BUILD_BUILDNUMBER
 $sourcesDirectory = $env:BUILD_SOURCESDIRECTORY
 $binariesDirectory = $env:BUILD_BINARIESDIRECTORY
-$releaseName = $env:RELEASE_NAME
+$releaseName = $env:RELEASE_RELEASENAME
 
 #Print Verbose
 Write-Verbose "crmConnectionString = $crmConnectionString"
