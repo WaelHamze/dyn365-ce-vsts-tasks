@@ -213,6 +213,7 @@
       "name": "versionString",
       "type": "string",
       "label": "Version String",
+      "visibleRule": "versioning = manual",
       "required": false,
       "helpMarkDown": "Sets the solution version explicitly",
       "groupName": "versioningOptions"
