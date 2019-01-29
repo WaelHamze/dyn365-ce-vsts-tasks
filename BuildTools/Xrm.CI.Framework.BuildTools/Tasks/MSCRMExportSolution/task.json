@@ -195,23 +195,20 @@
       "groupName": "exportOptions"
     },
     {
-      "name": "updateVersion",
-      "type": "boolean",
-      "label": "Update Version",
-      "defaultValue": "false",
+      "name": "versioning",
+      "type": "radio",
+      "label": "Versioning",
       "required": false,
-      "helpMarkDown": "Set the solution version in the source environment.",
-      "groupName": "versioningOptions"
-    },
-    {
-      "name": "useBuildNumber",
-      "type": "boolean",
-      "label": "User Build Number",
-      "defaultValue": "false",
-      "required": false,
-      "helpMarkDown": "Sets the solution version in the source environment to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'",
-      "groupName": "versioningOptions"
-    },
+      "defaultValue": "none",
+      "helpMarkDown": "Defines whether and how the solution version on the source environment should be updated.",
+      "groupName": "versioningOptions",
+      "options": {
+          "none": "None",
+          "buildnumber": "Build Number",
+          "releasename": "Release Name",
+          "manual": "Manual"
+      },
+    },   
     {
       "name": "versionString",
       "type": "string",
