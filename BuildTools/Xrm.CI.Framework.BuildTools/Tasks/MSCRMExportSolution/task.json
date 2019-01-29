@@ -23,6 +23,11 @@
       "name": "exportOptions",
       "displayName": "Additional Export Options",
       "isExpanded": false
+    },
+    {
+      "name": "versioningOptions",
+      "displayName": "Versioning Options",
+      "isExpanded": false
     }
   ],
   "inputs": [
@@ -65,14 +70,6 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Check task help for more information"
-    },
-    {
-      "name": "updateVersion",
-      "type": "boolean",
-      "label": "Update Version",
-      "defaultValue": "false",
-      "required": false,
-      "helpMarkDown": "Sets the solution version in the source environment to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'"
     },
     {
       "name": "includeVersionInSolutionFile",
@@ -196,6 +193,32 @@
       "required": false,
       "helpMarkDown": "Check task help for more information",
       "groupName": "exportOptions"
+    },
+    {
+      "name": "updateVersion",
+      "type": "boolean",
+      "label": "Update Version",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Set the solution version in the source environment.",
+      "groupName": "versioningOptions"
+    },
+    {
+      "name": "useBuildNumber",
+      "type": "boolean",
+      "label": "User Build Number",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Sets the solution version in the source environment to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'",
+      "groupName": "versioningOptions"
+    },
+    {
+      "name": "versionString",
+      "type": "string",
+      "label": "Version String",
+      "required": false,
+      "helpMarkDown": "Sets the solution version explicitly",
+      "groupName": "versioningOptions"
     }
   ],
   "execution": {
