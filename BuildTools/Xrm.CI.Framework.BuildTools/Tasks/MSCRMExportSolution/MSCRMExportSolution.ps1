@@ -13,7 +13,6 @@ $exportManaged = Get-VstsInput -Name exportManaged -Require -AsBool
 $exportUnmanaged = Get-VstsInput -Name exportUnmanaged -Require -AsBool
 $includeVersionInSolutionFile = Get-VstsInput -Name includeVersionInSolutionFile -AsBool
 $targetVersion = Get-VstsInput -Name targetVersion
-$updateVersion = Get-VstsInput -Name updateVersion -AsBool
 $includeVersionInSolutionFile = Get-VstsInput -Name includeVersionInSolutionFile -AsBool
 $outputPath = Get-VstsInput -Name outputPath -Require
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
@@ -28,6 +27,11 @@ $exportMarketingSettings = Get-VstsInput -Name exportMarketingSettings -AsBool
 $exportOutlookSynchronizationSettings = Get-VstsInput -Name exportOutlookSynchronizationSettings -AsBool
 $exportRelationshipRoles = Get-VstsInput -Name exportRelationshipRoles -AsBool
 $exportSales = Get-VstsInput -Name exportSales -AsBool
+
+# Versioning
+$updateVersion = Get-VstsInput -Name updateVersion -AsBool
+$useBuildNumber = Get-VstsInput -Name useBuildNumber -AsBool
+$versionString = Get-VstsInput -Name versionString -AsBool
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -63,8 +67,12 @@ Write-Verbose "binariesDirectory = $binariesDirectory"
 
 if ($updateVersion)
 {
-    $splits = $buildNumber.Split("_")
-    $versionNumber = $splits[$splits.Count-1]
+    $versionNumber = $versionString
+    if($useBuildNumber)
+    {
+    	$splits = $buildNumber.Split("_")
+    	$versionNumber = $splits[$splits.Count-1]
+    }
 }
 
 #MSCRM Tools
