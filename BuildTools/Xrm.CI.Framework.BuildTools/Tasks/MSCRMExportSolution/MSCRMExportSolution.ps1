@@ -63,6 +63,7 @@ Write-Verbose "binariesDirectory = $binariesDirectory"
 
 if ($updateVersion)
 {
+    Write-Warning 'The option "Update Version" is deprecated. Please use the "MSCRM Set Version" task instead.'
     $splits = $buildNumber.Split("_")
     $versionNumber = $splits[$splits.Count-1]
 }

@@ -23,6 +23,11 @@
       "name": "exportOptions",
       "displayName": "Additional Export Options",
       "isExpanded": false
+    },
+    {
+      "name": "deprecatedOptions",
+      "displayName": "Deprecated Options",
+      "isExpanded": false
     }
   ],
   "inputs": [
@@ -72,7 +77,8 @@
       "label": "Update Version",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "Sets the solution version in the source environment to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'"
+      "groupName": "deprecatedOptions",
+      "helpMarkDown": "This option is deprecated. Please use the **MSCRM Set Version** task instead."
     },
     {
       "name": "includeVersionInSolutionFile",
