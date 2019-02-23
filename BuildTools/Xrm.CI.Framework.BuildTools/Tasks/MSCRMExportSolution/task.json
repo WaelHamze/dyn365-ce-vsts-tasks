@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "2"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Export Solution: $(solutionName)",
@@ -69,7 +69,7 @@
     {
       "name": "updateVersion",
       "type": "boolean",
-      "label": "Update Version",
+      "label": "Update Version (Deprecated) use task Set Version instead",
       "defaultValue": "false",
       "required": false,
       "helpMarkDown": "Sets the solution version in the source environment to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'"

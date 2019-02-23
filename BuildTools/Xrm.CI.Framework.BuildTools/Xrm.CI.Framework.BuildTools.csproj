@@ -121,6 +121,7 @@
     <Content Include="Lib\xRMCIFramework\9.0.0\PluginRegistration.ps1" />
     <Content Include="Lib\xRMCIFramework\9.0.0\RemoveSolution.ps1" />
     <Content Include="Lib\xRMCIFramework\9.0.0\UpdateSolutionDescriptionInCRM.ps1" />
+    <Content Include="GenerateTasksMD.ps1" />
     <None Include="packages.config" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\MSCRMBackupOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\task.json" />

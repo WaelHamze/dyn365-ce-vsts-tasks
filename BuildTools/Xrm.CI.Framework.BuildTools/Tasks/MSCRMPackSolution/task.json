@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "3"
+    "Patch": "4"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Pack Solution",
@@ -63,10 +63,10 @@
     {
       "name": "updateVersion",
       "type": "boolean",
-      "label": "Update Version",
+      "label": "Update Version (Deprecated) use task Set Version instead",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "Sets the packaged solution version to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'"
+      "helpMarkDown": "Sets the packaged solution version to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'. This has been deprecated. Use "
     },
     {
       "name": "includeVersionInSolutionFile",
