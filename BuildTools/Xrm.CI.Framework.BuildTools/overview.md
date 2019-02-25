@@ -140,13 +140,13 @@ Enhancements to Import Solution stability and improved logging (ver. 11)
 Plugin Registration task now supports StateCode and AsyncAutoDelete in json for Plug-in Steps  
 
 **9.6.x**  
-Updated SDK core assemblies to 9.0.2.9 and tools to 9.0.2.11
-Added ability to specify custom log directory and file for Import Solution task
-Added tasks to allow exporting/importing mutiple solution using json configuration
-Added task to allow packing mutiple solutions using json configuration
-Enhacements to Pack Solution task and improved logging
-Set Version task now allows setting version on extracted solution files
-Updating version as part of Export/Pack Solution task is now deprecated. These will be removed in next release. Use the Set Version task instead. 
+Updated SDK core assemblies to 9.0.2.9 and tools to 9.0.2.11  
+Added ability to specify custom log directory and file for Import Solution task  
+Added tasks to allow exporting/importing mutiple solution using json configuration  
+Added task to allow packing mutiple solutions using json configuration  
+Enhacements to Pack Solution task and improved logging  
+Set Version task now allows setting version on extracted solution files  
+Updating version as part of Export/Pack Solution task is now deprecated. These will be removed in next release. Use the Set Version task instead.  
 
 
 For more information on changes between versions, check the commits and releases on GitHub
