@@ -44,11 +44,17 @@ Copy-Item .\Screenshots $OutputDir -Force -Recurse
 #Copy Initial Tasks
 Copy-Item -Path .\Tasks -Destination $OutputDir -Recurse
 
+$tasks = Get-ChildItem .\Tasks -directory
+
+foreach($task in $tasks)
+{
+	Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$task"
+	New-Item "$OutputDir\Tasks\$task\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
+	Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$task\ps_modules\VstsTaskSdk"
+}
+
 #MSCRMToolInstaller
 $taskName = "MSCRMToolInstaller"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
 New-Item "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\8.2.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\xRMCIFramework\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\9.0.0" -ItemType directory | Out-Null
@@ -57,204 +63,14 @@ New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0" -ItemType directory | 
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\8.2.0\SolutionPackager.exe -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\SolutionPackager.exe -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
+Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\SolutionPackager.exe.config -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
+Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\System.ValueTuple.dll -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.0.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.Xrm.OnlineManagementAPI\1.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.0.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell\8.2.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0"
-
-#MSCRMApplySolution
-$taskName = "MSCRMApplySolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMCopySolutionComponents
-$taskName = "MSCRMCopySolutionComponents"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMRemoveSolution
-$taskName = "MSCRMRemoveSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMRemoveSolutionComponents
-$taskName = "MSCRMRemoveSolutionComponents"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#Ping
-$taskName = "MSCRMPing"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMPublishCustomizations
-$taskName = "MSCRMPublishCustomizations"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMPackSolution
-$taskName = "MSCRMPackSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMExportSolution
-$taskName = "MSCRMExportSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMExtractSolution
-$taskName = "MSCRMExtractSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMImportSolution
-$taskName = "MSCRMImportSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMPackageDeployer
-$taskName = "MSCRMPackageDeployer"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMSetVersion
-$taskName = "MSCRMSetVersion"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMUpdateSolutionDescription
-$taskName = "MSCRMUpdateSolutionDescription"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMUpdateSecureConfiguration
-$taskName = "MSCRMUpdateSecureConfiguration"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMBackupOnlineInstance
-$taskName = "MSCRMBackupOnlineInstance"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMProvisionOnlineInstance
-$taskName = "MSCRMProvisionOnlineInstance"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMGetOnlineInstanceByName
-$taskName = "MSCRMGetOnlineInstanceByName"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMDeleteOnlineInstance
-$taskName = "MSCRMDeleteOnlineInstance"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMRestoreOnlineInstance
-$taskName = "MSCRMRestoreOnlineInstance"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMSetOnlineInstanceAdminMode
-$taskName = "MSCRMSetOnlineInstanceAdminMode"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMUpdatePluginAssembly
-$taskName = "MSCRMUpdatePluginAssembly"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMUpdateWebResource
-$taskName = "MSCRMUpdateWebResources"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMPluginRegistration
-$taskName = "MSCRMPluginRegistration"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMSplitPluginAssembly
-$taskName = "MSCRMSplitPluginAssembly"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMUpdateConfigurationRecords
-$taskName = "MSCRMUpdateConfigurationRecords"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMServiceEndpointRegistration
-$taskName = "MSCRMServiceEndpointRegistration"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMCreateSolution
-$taskName = "MSCRMCreateSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMCreatePatch
-$taskName = "MSCRMCreatePatch"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMCloneSolution
-$taskName = "MSCRMCloneSolution"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMImportSolutionsUsingConfig
-$taskName = "MSCRMImportSolutionsUsingConfig"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMExportSolutionsUsingConfig
-$taskName = "MSCRMExportSolutionsUsingConfig"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
-
-#MSCRMPackSolutionsUsingConfig
-$taskName = "MSCRMPackSolutionsUsingConfig"
-Copy-Item -Path .\icon.png -Destination "$OutputDir\Tasks\$taskName"
-New-Item "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\VstsTaskSdk\0.10.0\*.* -Destination "$OutputDir\Tasks\$taskName\ps_modules\VstsTaskSdk"
 
 #Clean Up
 Remove-Item $TempDir -Force -Recurse
