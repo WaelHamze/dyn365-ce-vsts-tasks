@@ -34,7 +34,7 @@
       "label": "ConfigFilePath",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The absolute path to the file on the agent server containing the import config json."
+      "helpMarkDown": "The absolute path to the file on the agent server containing the import config json. Example config [here](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.Common/Schema/ImportSolutionsExample.json)."
     },
     {
       "name": "logsDirectory",
