@@ -1,0 +1,68 @@
+{
+  "id": "24EAAFB6-ECE6-404E-8FEA-6B7C73A02ECA",
+  "name": "MSCRMGetSolutionMissingComponents",
+  "friendlyName": "MSCRM Get Solution Missing Components",
+  "description": "Retrieves missing components for a solution from a target instance",
+  "author": "Wael Hamze",
+  "helpMarkDown": "This task uses [RetrieveMissingComponentsRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.crm.sdk.messages.retrievemissingcomponentsrequest?view=dynamics-general-ce-9).",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Get Missing Components For Solution",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format check the [docs](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/xrm-tooling/use-connection-strings-xrm-tooling-connect)"
+    },
+    {
+      "name": "solutionFile",
+      "type": "filePath",
+      "label": "Solution File",
+      "defaultValue": "$(System.DefaultWorkingDirectory)/<BuildName>/<ArtifactName>/<SolutionFile>.zip",
+      "required": true,
+      "helpMarkDown": "The absolute path to the CRM solution zip file on the release agent machine"
+    },
+    {
+      "name": "warnIfMissing",
+      "type": "boolean",
+      "label": "Warn If Missing",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Set to true to generate a warning if missing components are found"
+    },
+    {
+      "name": "errorIfMissing",
+      "type": "boolean",
+      "label": "Error If Missing",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Set to true to generate an error if missing components are found"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMGetSolutionMissingComponents.ps1"
+    }
+  }
+}
