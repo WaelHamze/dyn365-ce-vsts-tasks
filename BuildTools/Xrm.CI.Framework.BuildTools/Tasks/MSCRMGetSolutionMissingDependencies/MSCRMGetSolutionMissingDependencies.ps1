@@ -4,11 +4,11 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-Write-Verbose 'Entering MSCRMGetSolutionMissingComponents.ps1'
+Write-Verbose 'Entering MSCRMGetSolutionMissingDependencies.ps1'
 
 #Get Parameters
 $crmConnectionString = Get-VstsInput -Name crmConnectionString -Require
-$solutionFile = Get-VstsInput -Name solutionFile -Require
+$solutionName = Get-VstsInput -Name solutionName -Require
 $warnIfMissing = Get-VstsInput -Name warnIfMissing -AsBool
 $errorIfMissing = Get-VstsInput -Name errorIfMissing -AsBool
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
@@ -24,7 +24,7 @@ if (-not $mscrmToolsPath)
 
 #Get Missing Components
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\GetSolutionMissingComponents.ps1" -solutionFile "$solutionFile" -crmConnectionString "$CrmConnectionString" -warnIfMissing $warnIfMissing -errorIfMissing $errorIfMissing -Timeout $crmConnectionTimeout
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\GetSolutionMissingDependencies.ps1" -solutionName "$solutionName" -crmConnectionString "$CrmConnectionString" -warnIfMissing $warnIfMissing -errorIfMissing $errorIfMissing -Timeout $crmConnectionTimeout
 
 
-Write-Verbose 'Leaving MSCRMGetSolutionMissingComponents.ps1'
+Write-Verbose 'Leaving MSCRMGetSolutionMissingDependencies.ps1'

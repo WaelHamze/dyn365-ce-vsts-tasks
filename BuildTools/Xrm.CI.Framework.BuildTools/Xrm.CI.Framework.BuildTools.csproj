@@ -220,6 +220,8 @@
     <Content Include="Tasks\MSCRMPackSolutionsUsingConfig\task.json" />
     <Content Include="Tasks\MSCRMGetSolutionMissingComponents\MSCRMGetSolutionMissingComponents.ps1" />
     <Content Include="Tasks\MSCRMGetSolutionMissingComponents\task.json" />
+    <None Include="Tasks\MSCRMGetSolutionMissingDependencies\MSCRMGetSolutionMissingDependencies.ps1" />
+    <Content Include="Tasks\MSCRMGetSolutionMissingDependencies\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
