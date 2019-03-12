@@ -148,5 +148,9 @@ Enhacements to Pack Solution task and improved logging
 Set Version task now allows setting version on extracted solution files  
 Updating version as part of Export/Pack Solution task is now deprecated. These will be removed in next release. Use the Set Version task instead.  
 
+**9.7.x**  
+Added task to retrieve missing components for a solution for a target instance  
+Added task to retrieve missing dependencies for a solution in the source instance  
+Updated SDK assemblies/tools to 9.0.2.12  
 
 For more information on changes between versions, check the commits and releases on GitHub
