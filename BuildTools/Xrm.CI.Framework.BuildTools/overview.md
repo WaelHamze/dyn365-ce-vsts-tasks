@@ -32,6 +32,8 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Export Solutions Using Config** (preview) | Exports Dynamics 365 Solutions using a json configuration |
 | **MSCRM Extract Solution** | Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe |
 | **MSCRM Get Online Instance By Name** | Gets an Online instance ID based on the name of the instance. |
+| **MSCRM Get Solution Missing Components** (preview) | Retrieves missing components for a solution from a target instance |
+| **MSCRM Get Solution Missing Dependencies** (preview) | Retrieves missing dependencies for a solution in a instance |
 | **MSCRM Import Solution** | Import a Dynamics CRM Solution package |
 | **MSCRM Import Solutions Using Config** (preview) | Imports Dynamics 365 Solutions using a json configuration |
 | **MSCRM Package Deployer** | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
@@ -41,8 +43,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Plugin Registration** (preview) | Upsert Dynamics 365 plugin/workflow activity assembly/types/steps |
 | **MSCRM Provision Online Instance** | Creates a new Dynamics 365 Customer Engagement Online Instance |
 | **MSCRM Publish Customizations** | Publishes all CRM customizations |
-| **MSCRM Remove Solution** (preview) | Removes the given CRM Solution |
-| **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
+| **MSCRM Remove Solution** (preview) | Removes the given CRM Solution || **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
 | **MSCRM Restore Instance** | Restores an online instance from a previous backup |
 | **MSCRM Service Endpoint Registration** (preview) | Upsert Dynamics 365 Service Endpoints and steps |
 | **MSCRM Set Online Instance Admin Mode** | Enable/Disable administration mode on Online Instances |
@@ -147,6 +148,10 @@ Added task to allow packing mutiple solutions using json configuration
 Enhacements to Pack Solution task and improved logging  
 Set Version task now allows setting version on extracted solution files  
 Updating version as part of Export/Pack Solution task is now deprecated. These will be removed in next release. Use the Set Version task instead.  
+
+**9.7.x**  
+Added task to retrieve missing components for a solution zip in a target instance  
+Added task to retrieve missing dependencies for a solution in a given source instance  
 
 
 For more information on changes between versions, check the commits and releases on GitHub

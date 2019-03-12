@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.6.7",
+  "version": "9.7.1",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -158,6 +158,12 @@
     },
     {
       "path": "Tasks/MSCRMPackSolutionsUsingConfig"
+    },
+    {
+      "path": "Tasks/MSCRMGetSolutionMissingComponents"
+    },
+    {
+      "path": "Tasks/MSCRMGetSolutionMissingDependencies"
     }
   ],
   "contributions": [
@@ -489,6 +495,26 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMPackSolutionsUsingConfig"
+      }
+    },
+    {
+      "id": "MSCRMGetSolutionMissingComponents",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMGetSolutionMissingComponents"
+      }
+    },
+    {
+      "id": "MSCRMGetSolutionMissingDependencies",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMGetSolutionMissingDependencies"
       }
     }
   ]
