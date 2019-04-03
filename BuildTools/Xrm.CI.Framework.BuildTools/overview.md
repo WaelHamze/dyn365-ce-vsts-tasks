@@ -154,4 +154,7 @@ Added task to retrieve missing components for a solution for a target instance
 Added task to retrieve missing dependencies for a solution in the source instance  
 Updated SDK assemblies/tools to 9.0.2.12  
 
+**9.8.x**  
+Updated Solution Packager to 9.0.3.1   
+
 For more information on changes between versions, check the commits and releases on GitHub
