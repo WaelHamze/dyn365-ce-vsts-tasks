@@ -155,6 +155,7 @@ Added task to retrieve missing dependencies for a solution in the source instanc
 Updated SDK assemblies/tools to 9.0.2.12  
 
 **9.8.x**  
-Updated Solution Packager to 9.0.3.1   
+Updated Solution Packager to 9.0.3.1  
+New task to reset v9 online instances  
 
 For more information on changes between versions, check the commits and releases on GitHub

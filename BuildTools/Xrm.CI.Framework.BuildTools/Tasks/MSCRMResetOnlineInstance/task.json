@@ -1,0 +1,228 @@
+{
+  "id": "79269B84-F11B-4F39-A819-50C473FCB2EE",
+  "name": "MSCRMResetOnlineInstance",
+  "friendlyName": "MSCRM Reset Online Instance",
+  "description": "Resets a Dynamics 365 Customer Engagement Online Instance",
+  "author": "Wael Hamze",
+  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "3"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Reset $(domainName)",
+  "groups": [
+    {
+      "name": "currencyInfo",
+      "displayName": "Currency Info",
+      "isExpanded": true
+    },
+    {
+      "name": "templates",
+      "displayName": "Templates",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "apiUrl",
+      "type": "string",
+      "label": "ApiUrl",
+      "defaultValue": "https://admin.services.crm[n].dynamics.com",
+      "required": true,
+      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "label": "Username",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The Dynamics 365 username"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The Dynamics 365 password"
+    },
+    {
+      "name": "instanceName",
+      "type": "string",
+      "label": "Current Instance Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+    },
+    {
+      "name": "domainName",
+      "type": "string",
+      "label": "New Domain Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "friendlyName",
+      "type": "string",
+      "label": "Friendly Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "purpose",
+      "type": "string",
+      "label": "Purpose",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "targetReleaseName",
+      "type": "pickList",
+      "label": "Target Release Name",
+      "defaultValue": "Dynamics 365, version 9.0",
+      "required": true,
+      "options": {
+        "Dynamics 365, version 9.0": "Dynamics 365, version 9.0"
+      },
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "sales",
+      "type": "boolean",
+      "label": "Sales",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "templates"
+    },
+    {
+      "name": "customerService",
+      "type": "boolean",
+      "label": "CustomerService",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "templates"
+    },
+    {
+      "name": "fieldService",
+      "type": "boolean",
+      "label": "Field Service",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "templates"
+    },
+    {
+      "name": "projectService",
+      "type": "boolean",
+      "label": "Project Service",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "templates"
+    },
+    {
+      "name": "languageId",
+      "type": "string",
+      "label": "Language Id",
+      "defaultValue": "1033",
+      "required": true,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "preferredCulture",
+      "type": "string",
+      "label": "Preferred Culture",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "currencyCode",
+      "type": "string",
+      "label": "Code",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "currencyInfo"
+    },
+    {
+      "name": "currencyName",
+      "type": "string",
+      "label": "Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "currencyInfo"
+    },
+    {
+      "name": "currencyPrecision",
+      "type": "string",
+      "label": "Precision",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "currencyInfo"
+    },
+    {
+      "name": "currencySymbol",
+      "type": "string",
+      "label": "Symbol",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps",
+      "groupName": "currencyInfo"
+    },
+    {
+      "name": "securityGroupId",
+      "type": "string",
+      "label": "Security Group Id",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/reset-crminstance?view=dynamics365ce-ps"
+    },
+    {
+      "name": "securityGroupName",
+      "type": "string",
+      "label": "Security Group Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "You can provide this instead of Security Group Id. Note you will need AzureAD PowerShell Module installed on the Agent"
+    },
+    {
+      "name": "waitForCompletion",
+      "type": "boolean",
+      "label": "Wait For Completion",
+      "defaultValue": "true",
+      "required": true,
+      "helpMarkDown": "Setting this to true will cause the task to wait until the backup completes"
+    },
+    {
+      "name": "sleepDuration",
+      "type": "string",
+      "label": "Sleep Duration (seconds)",
+      "defaultValue": "5",
+      "required": false,
+      "helpMarkDown": "The frequency to query the status of the backup job while waiting for completion"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMResetOnlineInstance.ps1"
+    }
+  }
+}
