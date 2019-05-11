@@ -1,0 +1,148 @@
+{
+  "id": "28C0A6D8-B0D0-407F-ADFE-8C901142A6D0",
+  "name": "MSCRMCheckSolution",
+  "friendlyName": "MSCRM Check Solution",
+  "description": "Uses PowerApps Checker API to validate your solution against a list of known issues",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/use-powerapps-checker",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "9"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Check Solution",
+  "inputs": [
+    {
+      "name": "solutionFile",
+      "type": "filePath",
+      "label": "Solution File",
+      "defaultValue": "$(System.DefaultWorkingDirectory)/<BuildName>/<ArtifactName>/<SolutionFile>.zip",
+      "required": false,
+      "helpMarkDown": "The absolute path to the CRM solution zip file on the agent machine"
+    },
+    {
+      "name": "outputPath",
+      "type": "filePath",
+      "label": "Output Path",
+      "defaultValue": "$(build.binariesdirectory)",
+      "required": false,
+      "helpMarkDown": "The path on the agent machine where you want the checker results to be placed"
+    },
+    {
+      "name": "tenantId",
+      "type": "string",
+      "label": "Tenant Id",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The azure tenant id. Must have at least one instance"
+    },
+    {
+      "name": "applicationId",
+      "type": "string",
+      "label": "Application Id",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The id of a valid azure active directory app registration. No permissions required."
+    },
+    {
+      "name": "applicationSecret",
+      "type": "string",
+      "label": "Application Secret",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The application secret used for connection."
+    },
+    {
+      "name": "rulesetId",
+      "type": "pickList",
+      "label": "Ruleset",
+      "defaultValue": "0ad12346-e108-40b8-a956-9a8f95ea18c9",
+      "options": {
+        "0ad12346-e108-40b8-a956-9a8f95ea18c9": "Solution Checker"
+      },
+      "required": true,
+      "helpMarkDown": "The ruleset to use for checking the solution "
+    },
+    {
+      "name": "geography",
+      "type": "pickList",
+      "label": "geography",
+      "defaultValue": "Europe",
+      "options": {
+        "United States": "United States",
+        "Europe": "Europe",
+        "Asia": "Asia",
+        "Australia": "Australia",
+        "Japan": "Japan",
+        "India": "India",
+        "Canada": "Canada",
+        "South America": "South America",
+        "United Kingdom": "United Kingdom"
+      },
+      "required": true,
+      "helpMarkDown": "The region where the scan will be executed"
+    },
+    {
+      "name": "enableThresholds",
+      "type": "boolean",
+      "label": "Enable Thresholds",
+      "defaultValue": "false",
+      "required": true,
+      "helpMarkDown": "Enables threshold checks"
+    },
+    {
+      "name": "thresholdAction",
+      "type": "pickList",
+      "label": "Threshold Action",
+      "defaultValue": "Warn",
+      "options": {
+        "Warn": "Warn",
+        "Error": "Error"
+      },
+      "required": true,
+      "helpMarkDown": "The type of action to generate when number of issues exceeds threshold limit"
+    },
+    {
+      "name": "highThreshold",
+      "type": "string",
+      "label": "High Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of high severity issues"
+    },
+    {
+      "name": "mediumThreshold",
+      "type": "string",
+      "label": "Medium Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of medium severity issues"
+    },
+    {
+      "name": "lowThreshold",
+      "type": "string",
+      "label": "Low Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of low severity issues"
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "SOLUTION_CHECK_RESULT_FILE",
+      "description": "The absolute path to solution check result file on the agent server"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMCheckSolution.ps1"
+    }
+  }
+}

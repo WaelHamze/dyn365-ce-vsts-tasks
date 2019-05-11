@@ -73,6 +73,10 @@ New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0" -ItemType dire
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell\8.2.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0"
+#New-Item "$OutputDir\Tasks\$taskName\Lib\AzureAD" -ItemType directory | Out-Null
+#Copy-Item -Path .\Lib\AzureAD\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\AzureAD" -Recurse
+New-Item "$OutputDir\Tasks\$taskName\Lib\PowerAppsChecker" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\PowerAppsChecker\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PowerAppsChecker" -Recurse
 
 #Clean Up
 Remove-Item $TempDir -Force -Recurse
