@@ -45,7 +45,7 @@ if (-not $outputPath)
 	
 	$outputPath = $env:System_DefaultWorkingDirectory
 
-	Write-Verbose "logsDirectory set to $outputPath"
+	Write-Verbose "outputPath set to $outputPath"
 }
 
 $tempFolder =  "$outputPath\$(New-Guid)"
