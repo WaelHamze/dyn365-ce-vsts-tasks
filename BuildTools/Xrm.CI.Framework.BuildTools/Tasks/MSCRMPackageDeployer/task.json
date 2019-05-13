@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "5"
+    "Patch": "8"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Package Deployer: $(packageName)",
@@ -62,6 +62,14 @@
       "defaultValue": "00:30:00",
       "required": false,
       "helpMarkDown": "The timespan notation for the timeout value of a package deployment operation. The format applied is '[d:]h:mm:ss', where d is optional For example: 1:30:00 means wait up to 1 hr and 30 mins for the package deployment operation to complete. 1:14:30:00 means wait up to 1 day, 14 hrs, and 30 mins for the package deployment operation to complete."
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "2",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in minutes"
     },
     {
       "name": "unpackFilesDirectory",

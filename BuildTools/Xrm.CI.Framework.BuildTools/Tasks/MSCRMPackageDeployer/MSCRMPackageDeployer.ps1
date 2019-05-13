@@ -12,23 +12,12 @@ $packageName = Get-VstsInput -Name packageName -Require
 $packageDirectory = Get-VstsInput -Name packageDirectory -Require
 $crmSdkVersion = Get-VstsInput -Name crmSdkVersion -Require
 $pdTimeout = Get-VstsInput -Name pdTimeout -Require
+$crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
 $unpackFilesDirectory = Get-VstsInput -Name unpackFilesDirectory
 $runtimePackageSettings = Get-VstsInput -Name runtimePackageSettings
 
 #TFS Release Parameters
 $artifactsFolder = $env:AGENT_RELEASEDIRECTORY
-
-#Print Verbose
-Write-Verbose "crmConnectionString = $crmConnectionString"
-Write-Verbose "packageName = $packageName"
-Write-Verbose "packageDirectory = $packageDirectory"
-Write-Verbose "artifactsFolder = $artifactsFolder"
-Write-Verbose "crmSdkVersion = $crmSdkVersion"
-Write-Verbose "pdTimeout = pdTimeout"
-Write-Verbose "unpackFilesDirectory = $unpackFilesDirectory"
-Write-Verbose "runtimePackageSettings = $runtimePackageSettings"
-
-$LogFile = "$packageDirectory" +"\Microsoft.Xrm.Tooling.PackageDeployment-" + (Get-Date -Format yyyy-MM-dd) + ".log"
 
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
@@ -41,15 +30,21 @@ if (-not $mscrmToolsPath)
 
 $PackageDeploymentPath = "$mscrmToolsPath\PackageDeployment\$crmSdkVersion"
 
+$tempFolder =  "$packageDirectory\$(New-Guid)"
+Write-Verbose "Creating Temp Logs Folder: $tempFolder"
+New-Item $tempFolder -ItemType directory | Out-Null
+
 try
 {
-	& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $packageDirectory -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings
+	& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $tempFolder -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -crmConnectionTimeout $crmConnectionTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings
 }
 finally
 {
-	if (Test-Path "$LogFile")
+	$Logs = Get-ChildItem "$tempFolder" -Filter *.log
+
+	foreach($LogFile in $Logs)
 	{
-		Write-Host "##vso[task.uploadfile]$LogFile"
+		Write-Host "##vso[task.uploadfile]$($LogFile.FullName)"
 	}
 }
 
