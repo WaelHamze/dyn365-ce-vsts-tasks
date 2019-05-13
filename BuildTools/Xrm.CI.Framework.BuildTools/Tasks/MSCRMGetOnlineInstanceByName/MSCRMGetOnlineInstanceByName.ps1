@@ -28,7 +28,7 @@ if (-not $mscrmToolsPath)
 }
 
 #Load Online Management Module
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.0.0"
+$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
 
 $xrmOnlineModule = $PSModulePath + "\Microsoft.Xrm.OnlineManagementAPI.dll"
 

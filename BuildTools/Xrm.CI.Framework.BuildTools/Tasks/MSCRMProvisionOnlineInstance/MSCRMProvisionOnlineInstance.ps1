@@ -61,7 +61,7 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.0.0"
+$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
 
 $templateNames = [string[]] @()
 if ($sales)

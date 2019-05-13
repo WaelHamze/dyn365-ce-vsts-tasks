@@ -14,17 +14,10 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "0"
+    "Patch": "1"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Set $(instanceName) Admin Mode: $(enable)",
-  "groups": [
-    {
-      "name": "azureStorageInfo",
-      "displayName": "Azure Storage Info",
-      "isExpanded": false
-    }
-  ],
   "inputs": [
     {
       "name": "apiUrl",
