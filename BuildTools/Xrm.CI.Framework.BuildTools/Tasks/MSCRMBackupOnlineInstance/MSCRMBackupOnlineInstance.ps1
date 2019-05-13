@@ -42,7 +42,7 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.0.0"
+$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\BackupOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName -BackupLabel $backupLabel -BackupNotes $backupNotes -WaitForCompletion $waitForCompletion -SleepDuration $sleepDuration -PSModulePath $PSModulePath  -IsAzureBackup $isAzureBackup -ContainerName $containerName -StorageAccountKey $storageAccountKey -StorageAccountName $storageAccountName
 

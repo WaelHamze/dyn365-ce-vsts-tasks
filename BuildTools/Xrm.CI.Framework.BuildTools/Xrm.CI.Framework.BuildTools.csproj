@@ -80,6 +80,14 @@
     <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.0.0\Microsoft.Xrm.OnlineManagementAPI.cat" />
     <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.0.0\Microsoft.Xrm.OnlineManagementAPI.psd1" />
     <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.0.0\Microsoft.Xrm.OnlineManagementAPI.psm1" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Rest.ClientRuntime.dll" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.dll" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.dll-Help.xml" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Xrm.Online.Admin.Client.dll" />
+    <Content Include="Lib\PowerAppsChecker\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
     <Content Include="Lib\VstsTaskSdk\0.10.0\FindFunctions.ps1" />
     <Content Include="Lib\VstsTaskSdk\0.10.0\InputFunctions.ps1" />
     <Content Include="Lib\VstsTaskSdk\0.10.0\LegacyFindFunctions.ps1" />
@@ -147,6 +155,11 @@
     <Content Include="Lib\VstsTaskSdk\0.11.0\TraceFunctions.ps1" />
     <Content Include="Lib\VstsTaskSdk\0.11.0\VstsTaskSdk.psd1" />
     <Content Include="Lib\VstsTaskSdk\0.11.0\VstsTaskSdk.psm1" />
+    <Content Include="Lib\PowerAppsChecker\PowerApps.Checker.psd1" />
+    <Content Include="Lib\PowerAppsChecker\PowerApps.Checker.psm1" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.cat" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.psd1" />
+    <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.psm1" />
     <None Include="packages.config" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\MSCRMBackupOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\task.json" />
