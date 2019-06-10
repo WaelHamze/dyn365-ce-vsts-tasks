@@ -42,9 +42,19 @@ finally
 {
 	$Logs = Get-ChildItem "$tempFolder" -Filter *.log
 
+	Write-Verbose "$($Logs.Length) log files found"
+
 	foreach($LogFile in $Logs)
 	{
-		Write-Host "##vso[task.uploadfile]$($LogFile.FullName)"
+		try
+		{
+			Write-Host "##vso[task.uploadfile]$($LogFile.FullName)"
+		}
+		catch
+		{
+			Write-Warning "Unable to upload $($LogFile.FullName)"
+			$_
+		}
 	}
 }
 

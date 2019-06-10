@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "8"
+    "Patch": "22"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Package Deployer: $(packageName)",
