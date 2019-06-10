@@ -42,7 +42,7 @@ if (-not $logsDirectory)
 	Write-Verbose "logsDirectory set to $logsDirectory"
 }
 
-if ((-not $logFileName) -or ($logFilename -eq $env:System_DefaultWorkingDirectory))
+if (-not $logFileName)
 {
 	Write-Verbose "logFileName not supplied"
 	

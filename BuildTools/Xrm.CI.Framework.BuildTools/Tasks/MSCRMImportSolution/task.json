@@ -14,7 +14,7 @@
   "version": {
     "Major": "11",
     "Minor": "0",
-    "Patch": "3"
+    "Patch": "4"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Import Solution",
@@ -109,7 +109,7 @@
     },
     {
       "name": "logFileName",
-      "type": "filePath",
+      "type": "string",
       "label": "Import Log Filename",
       "defaultValue": "",
       "required": false,
