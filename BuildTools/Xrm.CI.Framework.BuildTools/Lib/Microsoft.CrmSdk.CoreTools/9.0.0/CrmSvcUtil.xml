@@ -29,123 +29,6 @@
             Hidden... Used by the devToolkit to set the appName whos connection is being used. 
             </summary>
         </member>
-        <member name="T:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin">
-            <summary>
-            Interaction logic for CRMInteractiveLogin.xaml
-            </summary>
-            <summary>
-            CRMInteractiveLogin
-            </summary>
-        </member>
-        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmSvc">
-            <summary>
-            Microsoft.Xrm.Tooling.Connector services
-            </summary>
-        </member>
-        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.bIsConnectedComplete">
-            <summary>
-            Bool flag to determine if there is a connection 
-            </summary>
-        </member>
-        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.mgr">
-            <summary>
-            CRM Connection Manager component. 
-            </summary>
-        </member>
-        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.resetUiFlag">
-            <summary>
-             This is used to allow the UI to reset w/out closing 
-            </summary>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Raised when the window loads for the first time. 
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ExecuteLoginProcess">
-            <summary>
-            Run Login process. 
-            </summary>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.mgr_ServerConnectionStatusUpdate(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ServerConnectStatusEventArgs)">
-            <summary>
-            Updates from the Auto Login process. 
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.mgr_ConnectionCheckComplete(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ServerConnectStatusEventArgs)">
-            <summary>
-            Complete Event from the Auto Login process
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_ConnectionCheckBegining(System.Object,System.EventArgs)">
-            <summary>
-             Login control connect check starting. 
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_ConnectionStatusEvent(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ConnectStatusEventArgs)">
-            <summary>
-            Login control connect check status event. 
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_ConnectErrorEvent(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ConnectErrorEventArgs)">
-            <summary>
-            Login control Error event. 
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_UserCancelClicked(System.Object,System.EventArgs)">
-            <summary>
-            Login Control Cancel event raised. 
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ProcessSuccess">
-            <summary>
-            This raises and processes Success
-            </summary>
-        </member>
-        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmConnectionMgr">
-            <summary>
-            CRM Connection Manager 
-            </summary>
-        </member>
-        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.HostApplicatioNameOveride">
-            <summary>
-            Host Name to use.. 
-            </summary>
-        </member>
-        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.HostProfileName">
-            <summary>
-            Profile Name to use
-            </summary>
-        </member>
-        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ForceDirectLogin">
-            <summary>
-            When set to true, forces a user login, 
-            </summary>
-        </member>
-        <member name="E:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ConnectionToCrmCompleted">
-            <summary>
-            Raised when a connection to CRM has completed. 
-            </summary>
-        </member>
         <member name="T:Microsoft.Crm.Services.Utility.ArgumentType">
             <remarks>
             Type of command line argument represented.
@@ -280,110 +163,6 @@
         <member name="P:Microsoft.Crm.Services.Utility.IOrganizationMetadata.Messages">
             <summary>
             All SdkMessages for the Organization.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Crm.Services.Utility.ICustomizeCodeDomService">
-            <summary>
-            Interface that can be used to customize the CodeDom before it generates code.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICustomizeCodeDomService.CustomizeCodeDom(System.CodeDom.CodeCompileUnit,System.IServiceProvider)">
-            <summary>
-            Customize the generated types before code is generated
-            </summary>
-        </member>
-        <member name="T:Microsoft.Crm.Services.Utility.ICodeGenerationService">
-            <summary>
-            Interface that provides the ability to generate code based on organization metadata.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.Write(Microsoft.Crm.Services.Utility.IOrganizationMetadata,System.String,System.String,System.String,System.IServiceProvider)">
-            <summary>
-            Writes code based on the organization metadata.
-            </summary>
-            <param name="organizationMetadata">Organization metadata to generate the code for.</param>
-            <param name="outputFile">Output file to write the generated code to.</param>
-            <param name="targetNamespace">Target namespace for the generated code.</param>
-            <param name="serviceProvider">ServiceProvider to query for additional services that can be used during code generation.</param>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForOptionSet(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the OptionSetMetadata
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForOption(Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,Microsoft.Xrm.Sdk.Metadata.OptionMetadata,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the Option
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForEntity(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the EntityMetadata
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForAttribute(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.AttributeMetadata,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the AttributeMetadata
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForMessagePair(Microsoft.Crm.Services.Utility.SdkMessagePair,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the SdkMessagePair
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForRequestField(Microsoft.Crm.Services.Utility.SdkMessageRequest,Microsoft.Crm.Services.Utility.SdkMessageRequestField,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the SdkMessageRequestField
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForResponseField(Microsoft.Crm.Services.Utility.SdkMessageResponse,Microsoft.Crm.Services.Utility.SdkMessageResponseField,System.IServiceProvider)">
-            <summary>
-            Returns the type that gets generated for the SdkMessageResponseField
-            </summary>
-        </member>
-        <member name="T:Microsoft.Crm.Services.Utility.ICodeWriterFilterService">
-            <summary>
-            Interface that can be used to filter out specific pieces of metadata from having code generated for it.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateOptionSet(Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the OptionSet and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateOption(Microsoft.Xrm.Sdk.Metadata.OptionMetadata,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the Option and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateEntity(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the Entity and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateAttribute(Microsoft.Xrm.Sdk.Metadata.AttributeMetadata,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the Attribute and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateRelationship(Microsoft.Xrm.Sdk.Metadata.RelationshipMetadataBase,Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the 1:N, N:N, or N:1 relationship and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateServiceContext(System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the data context and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterMessageFilterService.GenerateSdkMessage(Microsoft.Crm.Services.Utility.SdkMessage,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the SDK Message and false otherwise.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterMessageFilterService.GenerateSdkMessagePair(Microsoft.Crm.Services.Utility.SdkMessagePair,System.IServiceProvider)">
-            <summary>
-            Returns true to generate code for the SDK Message Pair and false otherwise.
             </summary>
         </member>
         <member name="M:Microsoft.Crm.Services.Utility.CodeWriterFilterService.IsNotExposedChildAttribute(Microsoft.Xrm.Sdk.Metadata.AttributeMetadata)">
@@ -536,6 +315,132 @@
             Static constructor.
             </summary>
         </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMetadataProviderService.SetConnectionTimeoutValues">
+            <summary>
+            Updates the timeout value to extend the amount of item that a request will wait. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMetadataProviderService.GetConnectionString">
+            <summary>
+            Builds a connection string from the passed in parameters. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.ICodeGenerationService">
+            <summary>
+            Interface that provides the ability to generate code based on organization metadata.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.Write(Microsoft.Crm.Services.Utility.IOrganizationMetadata,System.String,System.String,System.String,System.IServiceProvider)">
+            <summary>
+            Writes code based on the organization metadata.
+            </summary>
+            <param name="organizationMetadata">Organization metadata to generate the code for.</param>
+            <param name="outputFile">Output file to write the generated code to.</param>
+            <param name="targetNamespace">Target namespace for the generated code.</param>
+            <param name="serviceProvider">ServiceProvider to query for additional services that can be used during code generation.</param>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForOptionSet(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the OptionSetMetadata
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForOption(Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,Microsoft.Xrm.Sdk.Metadata.OptionMetadata,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the Option
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForEntity(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the EntityMetadata
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForAttribute(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.AttributeMetadata,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the AttributeMetadata
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForMessagePair(Microsoft.Crm.Services.Utility.SdkMessagePair,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the SdkMessagePair
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForRequestField(Microsoft.Crm.Services.Utility.SdkMessageRequest,Microsoft.Crm.Services.Utility.SdkMessageRequestField,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the SdkMessageRequestField
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForResponseField(Microsoft.Crm.Services.Utility.SdkMessageResponse,Microsoft.Crm.Services.Utility.SdkMessageResponseField,System.IServiceProvider)">
+            <summary>
+            Returns the type that gets generated for the SdkMessageResponseField
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.ICodeWriterFilterService">
+            <summary>
+            Interface that can be used to filter out specific pieces of metadata from having code generated for it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateOptionSet(Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the OptionSet and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateOption(Microsoft.Xrm.Sdk.Metadata.OptionMetadata,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the Option and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateEntity(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the Entity and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateAttribute(Microsoft.Xrm.Sdk.Metadata.AttributeMetadata,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the Attribute and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateRelationship(Microsoft.Xrm.Sdk.Metadata.RelationshipMetadataBase,Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the 1:N, N:N, or N:1 relationship and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterFilterService.GenerateServiceContext(System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the data context and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterMessageFilterService.GenerateSdkMessage(Microsoft.Crm.Services.Utility.SdkMessage,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the SDK Message and false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterMessageFilterService.GenerateSdkMessagePair(Microsoft.Crm.Services.Utility.SdkMessagePair,System.IServiceProvider)">
+            <summary>
+            Returns true to generate code for the SDK Message Pair and false otherwise.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.ICustomizeCodeDomService">
+            <summary>
+            Interface that can be used to customize the CodeDom before it generates code.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ICustomizeCodeDomService.CustomizeCodeDom(System.CodeDom.CodeCompileUnit,System.IServiceProvider)">
+            <summary>
+            Customize the generated types before code is generated
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.IMetadataProviderService">
+            <summary>
+            Interface that provides metadata for a given organization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.IMetadataProviderService.LoadMetadata">
+            <summary>
+            Returns the metadata for a given organization.  Subsequent calls to the method should
+            return the same set of information on the IOrganizationMetadata object.
+            </summary>
+        </member>
         <member name="T:Microsoft.Crm.Services.Utility.INamingService">
             <summary>
             Used by the ICodeGenerationService to retrieve names for the CodeDOM objects being created.
@@ -592,28 +497,6 @@
             Retrieves a name for the Response Field being generated.
             </summary>
         </member>
-        <member name="T:Microsoft.Crm.Services.Utility.IMetadataProviderService">
-            <summary>
-            Interface that provides metadata for a given organization.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.IMetadataProviderService.LoadMetadata">
-            <summary>
-            Returns the metadata for a given organization.  Subsequent calls to the method should
-            return the same set of information on the IOrganizationMetadata object.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.SdkMetadataProviderService.SetConnectionTimeoutValues">
-            <summary>
-            Updates the timeout value to extend the amount of item that a request will wait. 
-            </summary>
-        </member>
-        <member name="M:Microsoft.Crm.Services.Utility.SdkMetadataProviderService.GetConnectionString">
-            <summary>
-            Builds a connection string from the passed in parameters. 
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Microsoft.Crm.Services.Utility.ITypeMappingService">
             <summary>
             Used by the ICodeGenerationService to retrieve types for the CodeDOM objects being created.
@@ -664,6 +547,21 @@
             Last Exception.
             </summary>
         </member>
+        <member name="P:Microsoft.Crm.Services.Utility.TraceLogger.LastError">
+            <summary>
+            Last Error from CRM.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.TraceLogger.LastException">
+            <summary>
+            Last Exception from CRM .
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.TraceLogger.CurrentTraceLevel">
+            <summary>
+            Returns the trace source level for the current logger. 
+            </summary>
+        </member>
         <member name="M:Microsoft.Crm.Services.Utility.TraceLogger.#ctor(System.String)">
             <summary>
             Constructor.
@@ -710,19 +608,121 @@
             <param name="sw">Stream writer to use to write the exception.</param>
             <param name="level">level of the exception, this deals with inner exceptions.</param>
         </member>
-        <member name="P:Microsoft.Crm.Services.Utility.TraceLogger.LastError">
+        <member name="T:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin">
             <summary>
-            Last Error from CRM.
+            Interaction logic for CRMInteractiveLogin.xaml
+            </summary>
+            <summary>
+            CRMInteractiveLogin
             </summary>
         </member>
-        <member name="P:Microsoft.Crm.Services.Utility.TraceLogger.LastException">
+        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmSvc">
             <summary>
-            Last Exception from CRM .
+            Microsoft.Xrm.Tooling.Connector services
             </summary>
         </member>
-        <member name="P:Microsoft.Crm.Services.Utility.TraceLogger.CurrentTraceLevel">
+        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.bIsConnectedComplete">
             <summary>
-            Returns the trace source level for the current logger. 
+            Bool flag to determine if there is a connection 
+            </summary>
+        </member>
+        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.mgr">
+            <summary>
+            CRM Connection Manager component. 
+            </summary>
+        </member>
+        <member name="F:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.resetUiFlag">
+            <summary>
+             This is used to allow the UI to reset w/out closing 
+            </summary>
+        </member>
+        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmConnectionMgr">
+            <summary>
+            CRM Connection Manager 
+            </summary>
+        </member>
+        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.HostApplicatioNameOveride">
+            <summary>
+            Host Name to use.. 
+            </summary>
+        </member>
+        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.HostProfileName">
+            <summary>
+            Profile Name to use
+            </summary>
+        </member>
+        <member name="P:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ForceDirectLogin">
+            <summary>
+            When set to true, forces a user login, 
+            </summary>
+        </member>
+        <member name="E:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ConnectionToCrmCompleted">
+            <summary>
+            Raised when a connection to CRM has completed. 
+            </summary>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Raised when the window loads for the first time. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ExecuteLoginProcess">
+            <summary>
+            Run Login process. 
+            </summary>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.mgr_ServerConnectionStatusUpdate(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ServerConnectStatusEventArgs)">
+            <summary>
+            Updates from the Auto Login process. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.mgr_ConnectionCheckComplete(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ServerConnectStatusEventArgs)">
+            <summary>
+            Complete Event from the Auto Login process
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_ConnectionCheckBegining(System.Object,System.EventArgs)">
+            <summary>
+             Login control connect check starting. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_ConnectionStatusEvent(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ConnectStatusEventArgs)">
+            <summary>
+            Login control connect check status event. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_ConnectErrorEvent(System.Object,Microsoft.Xrm.Tooling.CrmConnectControl.ConnectErrorEventArgs)">
+            <summary>
+            Login control Error event. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.CrmLoginCtrl_UserCancelClicked(System.Object,System.EventArgs)">
+            <summary>
+            Login Control Cancel event raised. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ProcessSuccess">
+            <summary>
+            This raises and processes Success
+            </summary>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.InitializeComponent">
+            <summary>
+            InitializeComponent
             </summary>
         </member>
     </members>
