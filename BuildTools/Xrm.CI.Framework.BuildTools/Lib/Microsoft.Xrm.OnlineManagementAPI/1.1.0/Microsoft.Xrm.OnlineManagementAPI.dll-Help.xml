@@ -1722,13 +1722,13 @@
 				<maml:title>Example 1</maml:title>
 				<dev:code>PS C:\&gt; Set-CrmProtectWithMicrosoftKey -ApiUrl $connectionhost -Credential $cred -InstanceId $InstanceId</dev:code>
 				<dev:remarks>
-					<maml:para>Import a new protection key.</maml:para>
+					<maml:para>Protects an instance with default Microsoft key.</maml:para>
 				</dev:remarks>
 			</command:example>
 		</command:examples>
 		<command:relatedLinks>
 			<maml:navigationLink>
-				<maml:linkText>New-CrmImportProtectionKey</maml:linkText>
+				<maml:linkText>Set-CrmProtectWithTenantKey</maml:linkText>
 				<maml:uri></maml:uri>
 			</maml:navigationLink>
 		</command:relatedLinks>
@@ -2140,15 +2140,171 @@
     <command:examples>
       <command:example>
         <maml:title>Example 1</maml:title>
-        <dev:code>PS C:\&gt; Set-CrmLockTenantProtectedInstances -ApiUrl $connectionhost -Credential $cred -KeyName $keyName -Key $keyContent -KeyType 0 -KeyPassword $keyPassword</dev:code>
+        <dev:code>PS C:\&gt; Set-CrmLockTenantProtectedInstances -ApiUrl $connectionhost -Credential $cred -KeyName $keyName</dev:code>
         <dev:remarks>
-          <maml:para>Import a new protection key.</maml:para>
+          <maml:para>Lock all the instances associated with the tenant.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Lock all the instances associated with the tenant</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-CrmUnLockTenantProtectedInstance</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>CrmUnLockTenantProtectedInstance</command:noun>
+      <maml:description>
+        <maml:para>Unlock the target instance</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Set-CrmUnLockTenantProtectedInstance unlocks the target instance</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-CrmUnLockTenantProtectedInstance</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>ApiUrl</maml:name>
+          <maml:Description>
+            <maml:para>URL of the Dynamics 365 Customer Engagement (online) root service endpoint.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>Credential</maml:name>
+          <maml:Description>
+            <maml:para>User credential for signing in to Microsoft Dynamics 365 Customer Engagement (online).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+          <dev:type>
+            <maml:name>PSCredential</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>InstanceId</maml:name>
+          <maml:Description>
+            <maml:para>The Id of the instance</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>MaxCrmConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>ApiUrl</maml:name>
+        <maml:Description>
+          <maml:para>URL of the Dynamics 365 Customer Engagement (online) root service endpoint.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>Credential</maml:name>
+        <maml:Description>
+          <maml:para>User credential for signing in to Microsoft Dynamics 365 Customer Engagement (online).</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>InstanceId</maml:name>
+        <maml:Description>
+          <maml:para>The id of the instance</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>MaxCrmConnectionTimeOutMinutes</maml:name>
+        <maml:Description>
+          <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Uri</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>System.Management.Automation.PSCredential System.Int32</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1</maml:title>
+        <dev:code>PS C:\&gt; Set-CrmUnLockTenantProtectedInstance -ApiUrl $connectionhost -Credential $cred -InstanceId $InstanceId</dev:code>
+        <dev:remarks>
+          <maml:para>Unlock the tenant instance</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Unlock the tenant instance</maml:linkText>
         <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
@@ -2272,7 +2428,7 @@
 		<command:examples>
 			<command:example>
 				<maml:title>Example 1</maml:title>
-				<dev:code>PS C:\&gt; Set-CrmProtectWithMicrosoftKey -ApiUrl $connecthost -Credential $cred -Verbose -InstanceId $InstanceId</dev:code>
+				<dev:code>PS C:\&gt; Set-CrmProtectWithTenantKey -ApiUrl $connecthost -Credential $cred -Verbose -InstanceId $InstanceId</dev:code>
 				<dev:remarks>
 					<maml:para>Triggers the protection of the instance and return an operation status.</maml:para>
 				</dev:remarks>
@@ -4956,7 +5112,187 @@
         <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
-  </command:command>  
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Copy-CrmInstance</command:name>
+      <command:verb>Copy</command:verb>
+      <command:noun>CrmInstance</command:noun>
+      <maml:description>
+        <maml:para>Copy a (v9 or higher) Dynamics 365 Customer Engagement (online) production or sandbox instance to another sandbox instance in your Office 365 tenant.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Copy-CrmInstance cmdlet performs a copy operation on a Dynamics 365 Customer Engagement (online) instance to another Sandbox instance in your Office 365 tenant.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Copy-CrmInstance</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>ApiUrl</maml:name>
+          <maml:Description>
+            <maml:para>URL of the Dynamics 365 Customer Engagement (online) root service endpoint.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>Credential</maml:name>
+          <maml:Description>
+            <maml:para>User credential for signing in to Microsoft Dynamics 365 Customer Engagement (online).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+          <dev:type>
+            <maml:name>PSCredential</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>MaxCrmConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>CopyInstanceRequestDetails</maml:name>
+          <maml:Description>
+            <maml:para>Object created by using the New-CrmInstanceCopyRequestInfo cmdlet that contains the information used to copy the instance.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">CopyRequest</command:parameterValue>
+          <dev:type>
+            <maml:name>CopyRequest</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>SourceInstanceIdToCopy</maml:name>
+          <maml:Description>
+            <maml:para>Id of the source instance to copy</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>ApiUrl</maml:name>
+        <maml:Description>
+          <maml:para>URL of the Dynamics 365 Customer Engagement (online) root service endpoint.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>Credential</maml:name>
+        <maml:Description>
+          <maml:para>User credential for signing in to Microsoft Dynamics 365 Customer Engagement (online).</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>MaxCrmConnectionTimeOutMinutes</maml:name>
+        <maml:Description>
+          <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>CopyInstanceRequestDetails</maml:name>
+        <maml:Description>
+          <maml:para>Object created by using the New-CrmInstanceCopyRequestInfo cmdlet that contains the information used to copy the instance.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">CopyRequest</command:parameterValue>
+        <dev:type>
+          <maml:name>CopyRequest</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>SourceInstanceIdToCopy</maml:name>
+        <maml:Description>
+          <maml:para>Id of the instance to copy</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.Xrm.Services.Admin.Client.Models.CopyRequest</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>System.Management.Automation.SwitchParameter System.Uri System.Management.Automation.PSCredential System.Int32</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1</maml:title>
+        <dev:code>Copy-CrmInstance -ApiUrl $connectionhost -CopyInstanceRequestDetails CopyInstanceRequestDetails -Credential $cred -SourceInstanceIdToCopy $InstanceId</dev:code>
+        <dev:remarks>
+          <maml:para>Copies a Dynamics 365 Customer Engagement (online) instance in your Office 365 tenant from information specified in the object created by the New-CrmInstanceCopyRequestInfo cmdlet.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>New-CrmInstanceCopyRequestInfo</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
       <command:name>New-CrmInstanceInfo</command:name>
@@ -5767,6 +6103,162 @@
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-CrmTemplates</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-CrmInstanceCopyRequestInfo</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>CrmInstanceCopyRequestInfo</command:noun>
+      <maml:description>
+        <maml:para>Creates the object that defines the parameters used to copy a instance of Dynamics 365 Customer Enagagement (online) by using the Copy-CrmInstance cmdlet.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The New-CrmInstanceCopyRequestInfo cmdlet creates the object that defines the parameters used to copy a instance of Dynamics 365 Customer Enagagement (online) by using the Copy-CrmInstance cmdlet.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-CrmInstanceCopyRequestInfo</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>FriendlyName</maml:name>
+          <maml:Description>
+            <maml:para>Required parameter. This is typically the name of your organization and is displayed in the Microsoft Dynamics 365 application.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>SecurityGroupId</maml:name>
+          <maml:Description>
+            <maml:para>Optional parameter. This value is used to determine the security group that includes the users who will have access to this instance of Microsoft Dynamics 365 (online).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>TargetInstanceId</maml:name>
+          <maml:Description>
+            <maml:para>Required parameter. This value is used to determine the target instance for the copy operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>CopyType</maml:name>
+          <maml:Description>
+            <maml:para>Required parameter. This value is used to determine the copy is full copy or minimal copy. The Value can be either FullCopy or MinimalCopy</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>FriendlyName</maml:name>
+        <maml:Description>
+          <maml:para>Required parameter. This is typically the name of your organization and is displayed in the Microsoft Dynamics 365 application.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>SecurityGroupId</maml:name>
+        <maml:Description>
+          <maml:para>Optional parameter. This value is used to determine the security group that includes the users who will have access to this instance of Microsoft Dynamics 365 (online).</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>TargetInstanceId</maml:name>
+        <maml:Description>
+          <maml:para>Required parameter. This value is used to determine the target instance for the copy operation</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>CopyType</maml:name>
+        <maml:Description>
+          <maml:para>Required parameter. This value is used to determine the copy is full copy or minimal copy. The Value can be either FullCopy or MinimalCopy</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>System.String System.Guid Microsoft.Xrm.Services.Admin.Client.Models.InstanceType System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1</maml:title>
+        <dev:code>PS C:\&gt; $CopyRequestInfo = New-CrmInstanceCopyRequestInfo -FriendlyName "Contoso production instance"  -TargetInstanceId "3c7fa7b4-b93a-4794-8913-6807e0c3aea3" -CopyType "FullCopy"</dev:code>
+        <dev:remarks>
+          <maml:para>Defines the object that can be used to copy an instance to target instance whose id is "3c7fa7b4-b93a-4794-8913-6807e0c3aea3", the new firendly name of the target instance will be "Contoso production instance".</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>New-CrmInstanceCopyRequestInfo</maml:linkText>
         <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
