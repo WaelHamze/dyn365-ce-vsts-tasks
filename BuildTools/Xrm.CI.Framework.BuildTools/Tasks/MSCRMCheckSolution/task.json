@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "9"
+    "Patch": "10"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Check Solution",
@@ -60,12 +60,13 @@
       "helpMarkDown": "The application secret used for connection."
     },
     {
-      "name": "rulesetId",
+      "name": "ruleset",
       "type": "pickList",
       "label": "Ruleset",
-      "defaultValue": "0ad12346-e108-40b8-a956-9a8f95ea18c9",
+      "defaultValue": "Solution Checker",
       "options": {
-        "0ad12346-e108-40b8-a956-9a8f95ea18c9": "Solution Checker"
+        "Solution Checker": "Solution Checker",
+        "AppSource Certification": "AppSource Certification"
       },
       "required": true,
       "helpMarkDown": "The ruleset to use for checking the solution "
@@ -108,6 +109,14 @@
       },
       "required": true,
       "helpMarkDown": "The type of action to generate when number of issues exceeds threshold limit"
+    },
+    {
+      "name": "criticalThreshold",
+      "type": "string",
+      "label": "Critical Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of critical severity issues"
     },
     {
       "name": "highThreshold",
