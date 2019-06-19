@@ -43,7 +43,8 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Plugin Registration** (preview) | Upsert Dynamics 365 plugin/workflow activity assembly/types/steps |
 | **MSCRM Provision Online Instance** | Creates a new Dynamics 365 Customer Engagement Online Instance |
 | **MSCRM Publish Customizations** | Publishes all CRM customizations |
-| **MSCRM Remove Solution** (preview) | Removes the given CRM Solution || **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
+| **MSCRM Remove Solution** (preview) | Removes the given CRM Solution |
+| **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
 | **MSCRM Restore Instance** | Restores an online instance from a previous backup |
 | **MSCRM Service Endpoint Registration** (preview) | Upsert Dynamics 365 Service Endpoints and steps |
 | **MSCRM Set Online Instance Admin Mode** | Enable/Disable administration mode on Online Instances |
@@ -157,5 +158,9 @@ Updated SDK assemblies/tools to 9.0.2.12
 **9.8.x**  
 Updated Solution Packager to 9.0.3.1  
 New task to reset v9 online instances  
+
+**9.9.x**  
+Update Solution Packager to SDK 9.0.3.4  
+Enhancements to Package Deployer Task including addition of Crm Connection Timeout and more logging  
 
 For more information on changes between versions, check the commits and releases on GitHub
