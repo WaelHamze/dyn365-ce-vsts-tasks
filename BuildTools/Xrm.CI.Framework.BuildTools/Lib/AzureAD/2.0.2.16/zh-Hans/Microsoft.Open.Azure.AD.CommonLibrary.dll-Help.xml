@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Connect-AzureAD</command:name>
+      <command:verb>Connect</command:verb>
+      <command:noun>AzureAD</command:noun>
+      <maml:description>
+        <maml:para>连接验证帐户以使用 Active Directory cmdlet 请求。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Connect-AzureAD cmdlet 将连接验证帐户以便用于 Azure Active Directory cmdlet 请求。</maml:para>
+      <maml:para>你只能将此验证帐户与 Azure Active Directory cmdlets 一起使用。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Connect-AzureAD</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AadAccessToken</maml:name>
+          <maml:Description>
+            <maml:para>指定 Azure Active Directory Graph 访问令牌。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AccountId</maml:name>
+          <maml:Description>
+            <maml:para>指定帐户 ID。使用用户访问令牌进行身份验证时必须指定用户的 UPN。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AzureEnvironmentName</maml:name>
+          <maml:Description>
+            <maml:para>指定 Azure 环境的名称。此参数的可接受值为: </maml:para>
+            <maml:para>- AzureCloud</maml:para>
+            <maml:para>- AzureChinaCloud</maml:para>
+            <maml:para>- AzureUSGovernment</maml:para>
+            <maml:para>- AzureGermanyCloud</maml:para>
+            <maml:para></maml:para>
+            <maml:para>默认值为 AzureCloud。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+          <dev:type>
+            <maml:name>EnvironmentName</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>指定此 cmdlet 如何响应信息事件。此参数的可接受值为:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>指定要在其中存储信息事件消息的变量。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogLevel</maml:name>
+          <maml:Description>
+            <maml:para>指定日志级别。此参数的可接受值为: </maml:para>
+            <maml:para>- Info</maml:para>
+            <maml:para>- Error</maml:para>
+            <maml:para>- Warning</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>默认值为 Info。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+          <dev:type>
+            <maml:name>LogLevel</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MsAccessToken</maml:name>
+          <maml:Description>
+            <maml:para>指定 Microsoft Graph 访问令牌。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>指定租户的 ID。</maml:para>
+            <maml:para>如果未指定此参数，则通过主租户对此帐户进行身份验证。</maml:para>
+            <maml:para>必须指定 TenantId 参数才能作为服务主体或使用 Microsoft 帐户进行身份验证。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>提示你在运行 cmdlet 之前进行确认。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFilePath</maml:name>
+          <maml:Description>
+            <maml:para>此 PowerShell 会话写入的日志文件的路径。如果需要使用非默认 PowerShell 日志文件位置，请在此处输入相应值。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Connect-AzureAD</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AccountId</maml:name>
+          <maml:Description>
+            <maml:para>指定帐户 ID。使用用户访问令牌进行身份验证时必须指定用户的 UPN。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AzureEnvironmentName</maml:name>
+          <maml:Description>
+            <maml:para>指定 Azure 环境的名称。此参数的可接受值为: </maml:para>
+            <maml:para>- AzureCloud</maml:para>
+            <maml:para>- AzureChinaCloud</maml:para>
+            <maml:para>- AzureUSGovernment</maml:para>
+            <maml:para>- AzureGermanyCloud</maml:para>
+            <maml:para></maml:para>
+            <maml:para>默认值为 AzureCloud。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+          <dev:type>
+            <maml:name>EnvironmentName</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Credential</maml:name>
+          <maml:Description>
+            <maml:para>指定一个 PSCredential 对象。有关 PSCredential 对象的详细信息，请键入 Get-Help Get-Credential。</maml:para>
+            <maml:para>PSCredential 对象为组织 ID 凭据提供用户 ID 和密码。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+          <dev:type>
+            <maml:name>PSCredential</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>指定此 cmdlet 如何响应信息事件。此参数的可接受值为:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>指定要在其中存储信息事件消息的变量。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogLevel</maml:name>
+          <maml:Description>
+            <maml:para>指定日志级别。此参数的可接受值为: </maml:para>
+            <maml:para>- Info</maml:para>
+            <maml:para>- Error</maml:para>
+            <maml:para>- Warning</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>默认值为 Info。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+          <dev:type>
+            <maml:name>LogLevel</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>指定租户的 ID。</maml:para>
+            <maml:para>如果未指定此参数，则通过主租户对此帐户进行身份验证。</maml:para>
+            <maml:para>必须指定 TenantId 参数才能作为服务主体或使用 Microsoft 帐户进行身份验证。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>提示你在运行 cmdlet 之前进行确认。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFilePath</maml:name>
+          <maml:Description>
+            <maml:para>此 PowerShell 会话写入的日志文件的路径。如果需要使用非默认 PowerShell 日志文件位置，请在此处输入相应值。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Connect-AzureAD</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ApplicationId</maml:name>
+          <maml:Description>
+            <maml:para>指定服务主体的应用程序 ID。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AzureEnvironmentName</maml:name>
+          <maml:Description>
+            <maml:para>指定 Azure 环境的名称。此参数的可接受值为: </maml:para>
+            <maml:para>- AzureCloud</maml:para>
+            <maml:para>- AzureChinaCloud</maml:para>
+            <maml:para>- AzureUSGovernment</maml:para>
+            <maml:para>- AzureGermanyCloud</maml:para>
+            <maml:para></maml:para>
+            <maml:para>默认值为 AzureCloud。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+          <dev:type>
+            <maml:name>EnvironmentName</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CertificateThumbprint</maml:name>
+          <maml:Description>
+            <maml:para>指定有权执行此操作的用户帐户的数字公钥 X.509 证书的证书指纹。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>指定此 cmdlet 如何响应信息事件。此参数的可接受值为:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>指定要在其中存储信息事件消息的变量。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogLevel</maml:name>
+          <maml:Description>
+            <maml:para>指定日志级别。此参数的可接受值为: </maml:para>
+            <maml:para>- Info</maml:para>
+            <maml:para>- Error</maml:para>
+            <maml:para>- Warning</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>默认值为 Info。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+          <dev:type>
+            <maml:name>LogLevel</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>指定租户的 ID。</maml:para>
+            <maml:para>如果未指定此参数，则通过主租户对此帐户进行身份验证。</maml:para>
+            <maml:para>必须指定 TenantId 参数才能作为服务主体或使用 Microsoft 帐户进行身份验证。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>提示你在运行 cmdlet 之前进行确认。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFilePath</maml:name>
+          <maml:Description>
+            <maml:para>此 PowerShell 会话写入的日志文件的路径。如果需要使用非默认 PowerShell 日志文件位置，请在此处输入相应值。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AadAccessToken</maml:name>
+        <maml:Description>
+          <maml:para>指定 Azure Active Directory Graph 访问令牌。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AccountId</maml:name>
+        <maml:Description>
+          <maml:para>指定帐户 ID。使用用户访问令牌进行身份验证时必须指定用户的 UPN。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ApplicationId</maml:name>
+        <maml:Description>
+          <maml:para>指定服务主体的应用程序 ID。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AzureEnvironmentName</maml:name>
+        <maml:Description>
+          <maml:para>指定 Azure 环境的名称。此参数的可接受值为: </maml:para>
+          <maml:para>- AzureCloud</maml:para>
+          <maml:para>- AzureChinaCloud</maml:para>
+          <maml:para>- AzureUSGovernment</maml:para>
+          <maml:para>- AzureGermanyCloud</maml:para>
+          <maml:para></maml:para>
+          <maml:para>默认值为 AzureCloud。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+        <dev:type>
+          <maml:name>EnvironmentName</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>CertificateThumbprint</maml:name>
+        <maml:Description>
+          <maml:para>指定有权执行此操作的用户帐户的数字公钥 X.509 证书的证书指纹。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Credential</maml:name>
+        <maml:Description>
+          <maml:para>指定一个 PSCredential 对象。有关 PSCredential 对象的详细信息，请键入 Get-Help Get-Credential。</maml:para>
+          <maml:para>PSCredential 对象为组织 ID 凭据提供用户 ID 和密码。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:Description>
+          <maml:para>指定此 cmdlet 如何响应信息事件。此参数的可接受值为:</maml:para>
+          <maml:para>- Continue</maml:para>
+          <maml:para>- Ignore</maml:para>
+          <maml:para>- Inquire</maml:para>
+          <maml:para>- SilentlyContinue</maml:para>
+          <maml:para>- Stop</maml:para>
+          <maml:para>- Suspend</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:Description>
+          <maml:para>指定要在其中存储信息事件消息的变量。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LogLevel</maml:name>
+        <maml:Description>
+          <maml:para>指定日志级别。此参数的可接受值为: </maml:para>
+          <maml:para>- Info</maml:para>
+          <maml:para>- Error</maml:para>
+          <maml:para>- Warning</maml:para>
+          <maml:para>- None</maml:para>
+          <maml:para></maml:para>
+          <maml:para>默认值为 Info。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+        <dev:type>
+          <maml:name>LogLevel</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MsAccessToken</maml:name>
+        <maml:Description>
+          <maml:para>指定 Microsoft Graph 访问令牌。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+        <maml:name>TenantId</maml:name>
+        <maml:Description>
+          <maml:para>指定租户的 ID。</maml:para>
+          <maml:para>如果未指定此参数，则通过主租户对此帐户进行身份验证。</maml:para>
+          <maml:para>必须指定 TenantId 参数才能作为服务主体或使用 Microsoft 帐户进行身份验证。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>提示你在运行 cmdlet 之前进行确认。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LogFilePath</maml:name>
+        <maml:Description>
+          <maml:para>此 PowerShell 会话写入的日志文件的路径。如果需要使用非默认 PowerShell 日志文件位置，请在此处输入相应值。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes/>
+    <command:returnValues/>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>示例 1: 将 PowerShell 会话连接到租户</maml:title>
+        <dev:code>PS C:\&gt; Connect-AzureAD -Confirm</dev:code>
+        <dev:remarks>
+          <maml:para>此命令将当前 PowerShell 会话连接到 Azure Active Directory 租户。此命令将提示你想要连接到的租户的用户名和密码。Confirm 参数将提示你进行确认。</maml:para>
+          <maml:para>如果为你的凭据启用了多重身份验证，则必须使用交互式选项登录或使用服务主体身份验证。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>示例 2: 使用变量连接会话</maml:title>
+        <dev:code>PS C:\&gt; $Credential = Get-Credential
+PS C:\&gt; Connect-AzureAD -Credential $Credential</dev:code>
+        <dev:remarks>
+          <maml:para>第一个命令获取用户凭据，然后将其存储在 $Credential 变量中。</maml:para>
+          <maml:para>第二个命令将使用 $Credential 中的凭据连接当前 PowerShell 会话。</maml:para>
+          <maml:para>此帐户将使用组织 ID 凭据对 Azure Active Directory 进行身份验证。无法通过该帐户使用多重身份验证或 Microsoft 帐户凭据来运行 Azure Active Directory cmdlet。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>示例 3: 以服务主体身份连接会话</maml:title>
+        <dev:code># Login to Azure AD PowerShell With Admin Account
+Connect-AzureAD 
+
+# Create the self signed cert
+$currentDate = Get-Date
+$endDate = $currentDate.AddYears(1)
+$notAfter = $endDate.AddYears(1)
+$pwd = "&lt;password&gt;"
+$thumb = (New-SelfSignedCertificate -CertStoreLocation cert:\localmachine\my -DnsName com.foo.bar -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" -NotAfter $notAfter).Thumbprint
+$pwd = ConvertTo-SecureString -String $pwd -Force -AsPlainText
+Export-PfxCertificate -cert "cert:\localmachine\my\$thumb" -FilePath c:\temp\examplecert.pfx -Password $pwd
+
+# Load the certificate
+$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\temp\examplecert.pfx", $pwd)
+$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+
+# Create the Azure Active Directory Application
+$application = New-AzureADApplication -DisplayName "test123" -IdentifierUris "https://test123"
+New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyIdentifier "Test123" -StartDate $currentDate -EndDate $endDate -Type AsymmetricX509Cert -Usage Verify -Value $keyValue
+
+# Create the Service Principal and connect it to the Application
+$sp=New-AzureADServicePrincipal -AppId $application.AppId
+
+# Give the Service Principal Reader access to the current tenant (Get-AzureADDirectoryRole)
+Add-AzureADDirectoryRoleMember -ObjectId 5997d714-c3b5-4d5b-9973-ec2f38fd49d5 -RefObjectId $sp.ObjectId
+
+# Get Tenant Detail
+$tenant=Get-AzureADTenantDetail
+# Now you can login to Azure PowerShell with your Service Principal and Certificate
+Connect-AzureAD -TenantId $tenant.ObjectId -ApplicationId  $sp.AppId -CertificateThumbprint $thumb</dev:code>
+        <dev:remarks>
+          <maml:para>此命令将以服务主体身份对 Azure Active Directory 的用户进行身份验证。</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disconnet-AzureAD</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Disconnect-AzureAD</command:name>
+      <command:verb>Disconnect</command:verb>
+      <command:noun>AzureAD</command:noun>
+      <maml:description>
+        <maml:para>断开当前会话与 Azure Active Directory 租户的连接。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Disconnect-AzureAD cmdlet 将断开当前会话与 Azure Active Directory 租户的连接。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Disconnect-AzureAD</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>指定此 cmdlet 如何响应信息事件。此参数的可接受值为:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>指定要在其中存储信息事件消息的变量。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>提示你在运行 cmdlet 前进行确认。提示你在运行 cmdlet 前进行确认。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:Description>
+          <maml:para>指定此 cmdlet 如何响应信息事件。此参数的可接受值为:</maml:para>
+          <maml:para>- Continue</maml:para>
+          <maml:para>- Ignore</maml:para>
+          <maml:para>- Inquire</maml:para>
+          <maml:para>- SilentlyContinue</maml:para>
+          <maml:para>- Stop</maml:para>
+          <maml:para>- Suspend</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:Description>
+          <maml:para>指定要在其中存储信息事件消息的变量。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>提示你在运行 cmdlet 前进行确认。提示你在运行 cmdlet 前进行确认。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes/>
+    <command:returnValues/>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>示例 1: 断开会话与租户的连接</maml:title>
+        <dev:code>PS C:\&gt; Disconnect-AzureAD</dev:code>
+        <dev:remarks>
+          <maml:para>此命令将断开会话与租户的连接。</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Connect-AzureAD</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-AzureADCurrentSessionInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>AzureADCurrentSessionInfo</command:noun>
+      <maml:description>
+        <maml:para>此 cmdlet 将返回当前会话状态</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>此 cmdlet 将返回当前会话状态</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-AzureADCurrentSessionInfo</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>提示你在运行 cmdlet 之前进行确认。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>提示你在运行 cmdlet 之前进行确认。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>显示如果此 cmdlet 运行将会发生什么。此 cmdlet 未运行。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>示例 1</maml:title>
+        <dev:code>Get-AzureADCurrentSessionInfo
+
+Account                       Environment TenantId
+-------                       ----------- --------
+Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f9e965325d1</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks/>
+  </command:command>
+</helpItems>

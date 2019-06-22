@@ -40,6 +40,7 @@ if (-not $mscrmToolsPath)
 }
 
 $PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
+$AzureADModulePath = "$mscrmToolsPath\AzureAD\2.0.2.16"
 
 $templateNames = [string[]] @()
 if ($sales)
@@ -60,6 +61,6 @@ if ($projectService)
 }
 
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\ResetOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -DomainName $domainName -FriendlyName $friendlyName -Purpose $purpose -TargetReleaseName $targetReleaseName -TemplateNames $templateNames -LanguageId $languageId -PreferredCulture $preferredCulture -CurrencyCode $currencyCode -CurrencyName $currencyName -CurrencyPrecision $currencyPrecision -CurrencySymbol $currencySymbol -SecurityGroupId $securityGroupId -SecurityGroupName $securityGroupName -PSModulePath $PSModulePath -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ResetOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -DomainName $domainName -FriendlyName $friendlyName -Purpose $purpose -TargetReleaseName $targetReleaseName -TemplateNames $templateNames -LanguageId $languageId -PreferredCulture $preferredCulture -CurrencyCode $currencyCode -CurrencyName $currencyName -CurrencyPrecision $currencyPrecision -CurrencySymbol $currencySymbol -SecurityGroupId $securityGroupId -SecurityGroupName $securityGroupName -PSModulePath $PSModulePath -azureADModulePath "$AzureADModulePath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 
 Write-Verbose 'Leaving MSCRMResetOnlineInstance.ps1'

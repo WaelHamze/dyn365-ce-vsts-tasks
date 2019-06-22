@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Connect-AzureAD</command:name>
+      <command:verb>Connect</command:verb>
+      <command:noun>AzureAD</command:noun>
+      <maml:description>
+        <maml:para>Active Directory コマンドレット要求を使用する認証アカウントと接続します。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Connect-AzureAD コマンドレットは、Azure Active Directory コマンドレット要求に使用する認証アカウントに接続します。</maml:para>
+      <maml:para>この認証アカウントは Azure Active Directory コマンドレットでのみ使用できます。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Connect-AzureAD</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AadAccessToken</maml:name>
+          <maml:Description>
+            <maml:para>Azure Active Directory Graph アクセス トークンを指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AccountId</maml:name>
+          <maml:Description>
+            <maml:para>アカウントの ID を指定します。ユーザー アクセス トークンで認証する場合は、ユーザーの UPN を指定する必要があります。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AzureEnvironmentName</maml:name>
+          <maml:Description>
+            <maml:para>Azure 環境の名前を指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+            <maml:para>- AzureCloud</maml:para>
+            <maml:para>- AzureChinaCloud</maml:para>
+            <maml:para>- AzureUSGovernment</maml:para>
+            <maml:para>- AzureGermanyCloud</maml:para>
+            <maml:para></maml:para>
+            <maml:para>既定値は AzureCloud です。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+          <dev:type>
+            <maml:name>EnvironmentName</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>このコマンドレットの情報イベントに対する応答方法を指定します。このパラメーターに使用できる値は次のとおりです:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>情報イベント メッセージを格納する変数を指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogLevel</maml:name>
+          <maml:Description>
+            <maml:para>ログ レベルを指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+            <maml:para>- Info</maml:para>
+            <maml:para>- Error</maml:para>
+            <maml:para>- Warning</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>既定値は Info です。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+          <dev:type>
+            <maml:name>LogLevel</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MsAccessToken</maml:name>
+          <maml:Description>
+            <maml:para>Microsoft Graph アクセス トークンを指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>テナントの ID を指定します。</maml:para>
+            <maml:para>このパラメーターを指定しないと、アカウントはホーム テナントで認証されます。</maml:para>
+            <maml:para>サービス プリンシパルとして認証する、または Microsoft アカウントを使用して認証するには、TenantId パラメーターを指定する必要があります。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFilePath</maml:name>
+          <maml:Description>
+            <maml:para>この PowerShell セッションのログ ファイルが書き込まれるパス。既定の PowerShell ログ ファイルの場所以外の場所を使用する必要がある場合は、ここに値を入力します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Connect-AzureAD</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AccountId</maml:name>
+          <maml:Description>
+            <maml:para>アカウントの ID を指定します。ユーザー アクセス トークンで認証する場合は、ユーザーの UPN を指定する必要があります。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AzureEnvironmentName</maml:name>
+          <maml:Description>
+            <maml:para>Azure 環境の名前を指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+            <maml:para>- AzureCloud</maml:para>
+            <maml:para>- AzureChinaCloud</maml:para>
+            <maml:para>- AzureUSGovernment</maml:para>
+            <maml:para>- AzureGermanyCloud</maml:para>
+            <maml:para></maml:para>
+            <maml:para>既定値は AzureCloud です。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+          <dev:type>
+            <maml:name>EnvironmentName</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Credential</maml:name>
+          <maml:Description>
+            <maml:para>PSCredential オブジェクトを指定します。PSCredential オブジェクトの詳細については、「Get-Help Get-Credential」と入力してください。</maml:para>
+            <maml:para>PSCredential オブジェクトは、組織 ID の資格情報のユーザー ID とパスワードを提供します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+          <dev:type>
+            <maml:name>PSCredential</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>このコマンドレットの情報イベントに対する応答方法を指定します。このパラメーターに使用できる値は次のとおりです:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>情報イベント メッセージを格納する変数を指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogLevel</maml:name>
+          <maml:Description>
+            <maml:para>ログ レベルを指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+            <maml:para>- Info</maml:para>
+            <maml:para>- Error</maml:para>
+            <maml:para>- Warning</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>既定値は Info です。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+          <dev:type>
+            <maml:name>LogLevel</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>テナントの ID を指定します。</maml:para>
+            <maml:para>このパラメーターを指定しないと、アカウントはホーム テナントで認証されます。</maml:para>
+            <maml:para>サービス プリンシパルとして認証する、または Microsoft アカウントを使用して認証するには、TenantId パラメーターを指定する必要があります。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFilePath</maml:name>
+          <maml:Description>
+            <maml:para>この PowerShell セッションのログ ファイルが書き込まれるパス。既定の PowerShell ログ ファイルの場所以外の場所を使用する必要がある場合は、ここに値を入力します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Connect-AzureAD</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ApplicationId</maml:name>
+          <maml:Description>
+            <maml:para>サービス プリンシパルのアプリケーション ID を指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AzureEnvironmentName</maml:name>
+          <maml:Description>
+            <maml:para>Azure 環境の名前を指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+            <maml:para>- AzureCloud</maml:para>
+            <maml:para>- AzureChinaCloud</maml:para>
+            <maml:para>- AzureUSGovernment</maml:para>
+            <maml:para>- AzureGermanyCloud</maml:para>
+            <maml:para></maml:para>
+            <maml:para>既定値は AzureCloud です。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+          <dev:type>
+            <maml:name>EnvironmentName</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CertificateThumbprint</maml:name>
+          <maml:Description>
+            <maml:para>このアクションを実行するアクセス許可を持つユーザー アカウントのデジタル公開キー X.509 証明書の証明書拇印を指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>このコマンドレットの情報イベントに対する応答方法を指定します。このパラメーターに使用できる値は次のとおりです:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>情報イベント メッセージを格納する変数を指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogLevel</maml:name>
+          <maml:Description>
+            <maml:para>ログ レベルを指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+            <maml:para>- Info</maml:para>
+            <maml:para>- Error</maml:para>
+            <maml:para>- Warning</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>既定値は Info です。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+          <dev:type>
+            <maml:name>LogLevel</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>テナントの ID を指定します。</maml:para>
+            <maml:para>このパラメーターを指定しないと、アカウントはホーム テナントで認証されます。</maml:para>
+            <maml:para>サービス プリンシパルとして認証する、または Microsoft アカウントを使用して認証するには、TenantId パラメーターを指定する必要があります。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFilePath</maml:name>
+          <maml:Description>
+            <maml:para>この PowerShell セッションのログ ファイルが書き込まれるパス。既定の PowerShell ログ ファイルの場所以外の場所を使用する必要がある場合は、ここに値を入力します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AadAccessToken</maml:name>
+        <maml:Description>
+          <maml:para>Azure Active Directory Graph アクセス トークンを指定します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AccountId</maml:name>
+        <maml:Description>
+          <maml:para>アカウントの ID を指定します。ユーザー アクセス トークンで認証する場合は、ユーザーの UPN を指定する必要があります。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ApplicationId</maml:name>
+        <maml:Description>
+          <maml:para>サービス プリンシパルのアプリケーション ID を指定します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AzureEnvironmentName</maml:name>
+        <maml:Description>
+          <maml:para>Azure 環境の名前を指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+          <maml:para>- AzureCloud</maml:para>
+          <maml:para>- AzureChinaCloud</maml:para>
+          <maml:para>- AzureUSGovernment</maml:para>
+          <maml:para>- AzureGermanyCloud</maml:para>
+          <maml:para></maml:para>
+          <maml:para>既定値は AzureCloud です。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">EnvironmentName</command:parameterValue>
+        <dev:type>
+          <maml:name>EnvironmentName</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>CertificateThumbprint</maml:name>
+        <maml:Description>
+          <maml:para>このアクションを実行するアクセス許可を持つユーザー アカウントのデジタル公開キー X.509 証明書の証明書拇印を指定します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Credential</maml:name>
+        <maml:Description>
+          <maml:para>PSCredential オブジェクトを指定します。PSCredential オブジェクトの詳細については、「Get-Help Get-Credential」と入力してください。</maml:para>
+          <maml:para>PSCredential オブジェクトは、組織 ID の資格情報のユーザー ID とパスワードを提供します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:Description>
+          <maml:para>このコマンドレットの情報イベントに対する応答方法を指定します。このパラメーターに使用できる値は次のとおりです:</maml:para>
+          <maml:para>- Continue</maml:para>
+          <maml:para>- Ignore</maml:para>
+          <maml:para>- Inquire</maml:para>
+          <maml:para>- SilentlyContinue</maml:para>
+          <maml:para>- Stop</maml:para>
+          <maml:para>- Suspend</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:Description>
+          <maml:para>情報イベント メッセージを格納する変数を指定します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LogLevel</maml:name>
+        <maml:Description>
+          <maml:para>ログ レベルを指定します。このパラメーターに使用できる値は次のとおりです: </maml:para>
+          <maml:para>- Info</maml:para>
+          <maml:para>- Error</maml:para>
+          <maml:para>- Warning</maml:para>
+          <maml:para>- None</maml:para>
+          <maml:para></maml:para>
+          <maml:para>既定値は Info です。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">LogLevel</command:parameterValue>
+        <dev:type>
+          <maml:name>LogLevel</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MsAccessToken</maml:name>
+        <maml:Description>
+          <maml:para>Microsoft Graph アクセス トークンを指定します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain, TenantDomain">
+        <maml:name>TenantId</maml:name>
+        <maml:Description>
+          <maml:para>テナントの ID を指定します。</maml:para>
+          <maml:para>このパラメーターを指定しないと、アカウントはホーム テナントで認証されます。</maml:para>
+          <maml:para>サービス プリンシパルとして認証する、または Microsoft アカウントを使用して認証するには、TenantId パラメーターを指定する必要があります。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LogFilePath</maml:name>
+        <maml:Description>
+          <maml:para>この PowerShell セッションのログ ファイルが書き込まれるパス。既定の PowerShell ログ ファイルの場所以外の場所を使用する必要がある場合は、ここに値を入力します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes/>
+    <command:returnValues/>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>例 1: PowerShell セッションをテナントに接続する</maml:title>
+        <dev:code>PS C:\&gt; Connect-AzureAD -Confirm</dev:code>
+        <dev:remarks>
+          <maml:para>このコマンドは、現在の PowerShell セッションを Azure Active Directory テナントに接続します。コマンドは、接続先のテナントのユーザー名とパスワードの入力を求めるダイアログを表示します。Confirm パラメーターは、確認を求めるダイアログを表示します。 </maml:para>
+          <maml:para>多要素認証が資格情報に対して有効になっている場合は、対話型オプションを使用してログインするか、またはサービス プリンシパル認証を使用する必要があります。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>例 2: 変数を使用してセッションを接続する</maml:title>
+        <dev:code>PS C:\&gt; $Credential = Get-Credential
+PS C:\&gt; Connect-AzureAD -Credential $Credential</dev:code>
+        <dev:remarks>
+          <maml:para>最初のコマンドでユーザー資格情報を取得して、$Credential 変数に保存します。</maml:para>
+          <maml:para>2 つ目のコマンドは、$Credential 内の資格情報を使用して現在の PowerShell セッションを接続します。</maml:para>
+          <maml:para>このアカウントは、組織 ID 資格情報を使用して Azure Active Directory で認証されます。このアカウントで Azure Active Directory コマンドレットを実行するために、多要素認証または Microsoft アカウントの資格情報を使用することはできません。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>例 3: セッションをサービス プリンシパルとして接続する</maml:title>
+        <dev:code># Login to Azure AD PowerShell With Admin Account
+Connect-AzureAD 
+
+# Create the self signed cert
+$currentDate = Get-Date
+$endDate = $currentDate.AddYears(1)
+$notAfter = $endDate.AddYears(1)
+$pwd = "&lt;password&gt;"
+$thumb = (New-SelfSignedCertificate -CertStoreLocation cert:\localmachine\my -DnsName com.foo.bar -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" -NotAfter $notAfter).Thumbprint
+$pwd = ConvertTo-SecureString -String $pwd -Force -AsPlainText
+Export-PfxCertificate -cert "cert:\localmachine\my\$thumb" -FilePath c:\temp\examplecert.pfx -Password $pwd
+
+# Load the certificate
+$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\temp\examplecert.pfx", $pwd)
+$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+
+# Create the Azure Active Directory Application
+$application = New-AzureADApplication -DisplayName "test123" -IdentifierUris "https://test123"
+New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyIdentifier "Test123" -StartDate $currentDate -EndDate $endDate -Type AsymmetricX509Cert -Usage Verify -Value $keyValue
+
+# Create the Service Principal and connect it to the Application
+$sp=New-AzureADServicePrincipal -AppId $application.AppId
+
+# Give the Service Principal Reader access to the current tenant (Get-AzureADDirectoryRole)
+Add-AzureADDirectoryRoleMember -ObjectId 5997d714-c3b5-4d5b-9973-ec2f38fd49d5 -RefObjectId $sp.ObjectId
+
+# Get Tenant Detail
+$tenant=Get-AzureADTenantDetail
+# Now you can login to Azure PowerShell with your Service Principal and Certificate
+Connect-AzureAD -TenantId $tenant.ObjectId -ApplicationId  $sp.AppId -CertificateThumbprint $thumb</dev:code>
+        <dev:remarks>
+          <maml:para>このコマンドは、Azure Active Directory に対してユーザーをサービス プリンシパルとして認証します。</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disconnet-AzureAD</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Disconnect-AzureAD</command:name>
+      <command:verb>Disconnect</command:verb>
+      <command:noun>AzureAD</command:noun>
+      <maml:description>
+        <maml:para>Azure Active Directory テナントから現在のセッションを切断します。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Disconnect-AzureAD コマンドレットは、Azure Active Directory テナントから現在のセッションを切断します。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Disconnect-AzureAD</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:Description>
+            <maml:para>このコマンドレットの情報イベントに対する応答方法を指定します。このパラメーターに使用できる値は次のとおりです:</maml:para>
+            <maml:para>- Continue</maml:para>
+            <maml:para>- Ignore</maml:para>
+            <maml:para>- Inquire</maml:para>
+            <maml:para>- SilentlyContinue</maml:para>
+            <maml:para>- Stop</maml:para>
+            <maml:para>- Suspend</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:Description>
+            <maml:para>情報イベント メッセージを格納する変数を指定します。</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行前に確認メッセージを表示します。コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:Description>
+          <maml:para>このコマンドレットの情報イベントに対する応答方法を指定します。このパラメーターに使用できる値は次のとおりです:</maml:para>
+          <maml:para>- Continue</maml:para>
+          <maml:para>- Ignore</maml:para>
+          <maml:para>- Inquire</maml:para>
+          <maml:para>- SilentlyContinue</maml:para>
+          <maml:para>- Stop</maml:para>
+          <maml:para>- Suspend</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:Description>
+          <maml:para>情報イベント メッセージを格納する変数を指定します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>コマンドレットの実行前に確認メッセージを表示します。コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes/>
+    <command:returnValues/>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>例 1: テナントからセッションを切断する</maml:title>
+        <dev:code>PS C:\&gt; Disconnect-AzureAD</dev:code>
+        <dev:remarks>
+          <maml:para>このコマンドはテナントからセッションを切断します。</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Connect-AzureAD</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-AzureADCurrentSessionInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>AzureADCurrentSessionInfo</command:noun>
+      <maml:description>
+        <maml:para>このコマンドレットは現在のセッション状態を返します</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>このコマンドレットは現在のセッション状態を返します</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-AzureADCurrentSessionInfo</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri/>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>コマンドレットの実行前に確認メッセージを表示します。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>コマンドレットの実行時に生じることを示します。コマンドレットは実行されていません。</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri/>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>例 1</maml:title>
+        <dev:code>Get-AzureADCurrentSessionInfo
+
+Account                       Environment TenantId
+-------                       ----------- --------
+Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f9e965325d1</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks/>
+  </command:command>
+</helpItems>
