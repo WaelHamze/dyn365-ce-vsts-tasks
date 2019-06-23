@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.9.1",
+  "version": "9.9.4",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -167,6 +167,9 @@
     },
     {
       "path": "Tasks/MSCRMResetOnlineInstance"
+    },
+    {
+      "path": "Tasks/MSCRMCopyOnlineInstance"
     }
   ],
   "contributions": [
@@ -528,6 +531,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMResetOnlineInstance"
+      }
+    },
+    {
+      "id": "MSCRMCopyOnlineInstance",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMCopyOnlineInstance"
       }
     }
   ]

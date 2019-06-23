@@ -1,0 +1,113 @@
+{
+  "id": "647F6885-BBF7-4FC9-9938-C5124DE4965C",
+  "name": "MSCRMCopyOnlineInstance",
+  "friendlyName": "MSCRM Copy Instance",
+  "description": "Copies a source instance to a target instance",
+  "author": "Wael Hamze",
+  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "preview":  "true",
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Copy $(sourceInstanceName) to $(targetInstanceName)",
+  "inputs": [
+    {
+      "name": "apiUrl",
+      "type": "string",
+      "label": "ApiUrl",
+      "defaultValue": "https://admin.services.crm[n].dynamics.com",
+      "required": true,
+      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "label": "Username",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The Dynamics 365 username"
+    },
+    {
+      "name": "Password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The Dynamics 365 password"
+    },
+    {
+      "name": "sourceInstanceName",
+      "type": "string",
+      "label": "Source Instance Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+    },
+    {
+      "name": "targetInstanceName",
+      "type": "string",
+      "label": "Target Instance Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+    },
+    {
+      "name": "copyType",
+      "type": "pickList",
+      "label": "Copy Type",
+      "defaultValue": "MinimalCopy",
+      "required": true,
+      "options": {
+        "MinimalCopy": "Minimal Copy",
+        "FullCopy": "Full Copy"
+      },
+      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/copyinstance"
+    },
+    {
+      "name": "friendlyName",
+      "type": "string",
+      "label": "Target Instance Friendly Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Leave blank to use the current target instance name"
+    },
+    {
+      "name": "SecurityGroupName",
+      "type": "string",
+      "label": "Target Instance Security Group Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the security group to be applied to target instance after copy"
+    },
+    {
+      "name": "waitForCompletion",
+      "type": "boolean",
+      "label": "Wait For Completion",
+      "defaultValue": "true",
+      "required": true,
+      "helpMarkDown": "Setting this to true will cause the task to wait until the backup completes"
+    },
+    {
+      "name": "sleepDuration",
+      "type": "string",
+      "label": "Sleep Duration (seconds)",
+      "defaultValue": "5",
+      "required": false,
+      "helpMarkDown": "The frequency to query the status of the backup job while waiting for completion"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMCopyOnlineInstance.ps1"
+    }
+  }
+}

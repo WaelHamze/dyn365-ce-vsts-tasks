@@ -24,6 +24,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Apply Solution Upgrade** | Applies a solution upgrade after solution is import using stage for upgrade option |
 | **MSCRM Backup Online Instance** | Creates a backup of a Dynamics 365 Customer Engagement Online Instance |
 | **MSCRM Clone Solution** | Clones a CRM unmanaged Solution |
+| **MSCRM Copy Instance** (preview) | Copies a source instance to a target instance |
 | **MSCRM Copy Solution Components** | Add components from a given solution to another solution if not present |
 | **MSCRM Create Patch** | Creates an unmanaged CRM Solution Patch |
 | **MSCRM Create Solution** | Creates an unmanaged CRM Solution |
@@ -45,6 +46,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Publish Customizations** | Publishes all CRM customizations |
 | **MSCRM Remove Solution** (preview) | Removes the given CRM Solution |
 | **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
+| **MSCRM Reset Online Instance** (preview) | Resets a Dynamics 365 Customer Engagement Online Instance |
 | **MSCRM Restore Instance** | Restores an online instance from a previous backup |
 | **MSCRM Service Endpoint Registration** (preview) | Upsert Dynamics 365 Service Endpoints and steps |
 | **MSCRM Set Online Instance Admin Mode** | Enable/Disable administration mode on Online Instances |
@@ -162,5 +164,7 @@ New task to reset v9 online instances
 **9.9.x**  
 Update Solution Packager to SDK 9.0.3.4  
 Enhancements to Package Deployer Task including addition of Crm Connection Timeout and more logging  
+Added a task to copy online instances  
+Updated Online Management PS SDK to 1.1.0.9053  
 
 For more information on changes between versions, check the commits and releases on GitHub

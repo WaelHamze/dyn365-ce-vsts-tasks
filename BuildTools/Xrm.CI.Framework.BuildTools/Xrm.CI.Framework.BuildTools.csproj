@@ -239,6 +239,8 @@
     <Content Include="Tasks\MSCRMGetSolutionMissingDependencies\task.json" />
     <Content Include="Tasks\MSCRMResetOnlineInstance\MSCRMResetOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMResetOnlineInstance\task.json" />
+    <Content Include="Tasks\MSCRMCopyOnlineInstance\MSCRMCopyOnlineInstance.ps1" />
+    <Content Include="Tasks\MSCRMCopyOnlineInstance\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
