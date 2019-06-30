@@ -23,6 +23,7 @@ Below is a list of tasks that are included with this extension.
 | --- | --- |
 | **MSCRM Apply Solution Upgrade** | Applies a solution upgrade after solution is import using stage for upgrade option |
 | **MSCRM Backup Online Instance** | Creates a backup of a Dynamics 365 Customer Engagement Online Instance |
+| **MSCRM Check Solution** | Uses PowerApps Checker API to validate your solution against a list of known issues |
 | **MSCRM Clone Solution** | Clones a CRM unmanaged Solution |
 | **MSCRM Copy Instance** (preview) | Copies a source instance to a target instance |
 | **MSCRM Copy Solution Components** | Add components from a given solution to another solution if not present |
@@ -166,5 +167,6 @@ Update Solution Packager to SDK 9.0.3.4
 Enhancements to Package Deployer Task including addition of Crm Connection Timeout and more logging  
 Added a task to copy online instances  
 Updated Online Management PS SDK to 1.1.0.9053  
+Added task to check solution using PowerApps Checker  
 
 For more information on changes between versions, check the commits and releases on GitHub

@@ -1,0 +1,1458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PowerAppsCheckerRules</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PowerAppsCheckerRules</command:noun>
+      <maml:description>
+        <maml:para>This topic is pre-release documentation and is subject to change.</maml:para>
+        <maml:para>Obtains the list of rules for a specific ruleset or rulesets currently supported by the PowerApps checker service.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-PowerAppsCheckerRulesets cmdlet obtains the list of rules available, but the most common usage is to obtain a list of rules included in a ruleset. An array of `Microsoft.PowerApps.Checker.Client.Models.Rule` objects is returned.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PowerAppsCheckerRules</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>ApiUrl</maml:name>
+          <maml:Description>
+            <maml:para>URL of the PowerApps checker root service endpoint. Unless provided a direct URL from Microsoft, Geography should be used.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludeMessageFormats</maml:name>
+          <maml:Description>
+            <maml:para>When specified, includes all of the issue message variations available for the resulting rules in the `Locale` specified. This can be used in cases where additional translations are being performed to provide the output in a different language.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LocaleName</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the language code that determines how the results are listed, such as es , for Spanish. The languages that are supported are included in the validation set of the parameter.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">bg</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ca</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">cs</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">da</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">de</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">el</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">en</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">es</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">et</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">eu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">gl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">id</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">it</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ja</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">kk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ko</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ms</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nb</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-BR</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-pt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ro</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ru</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Cyrl-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Latn-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">th</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">tr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">uk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">vi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANT</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>en</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>2</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Ruleset</maml:name>
+          <maml:Description>
+            <maml:para>A ruleset is a collection of rules that are referenceable by name or Id. The `Get-PowerAppsCheckerRulesets` cmdlet obtains the list of rulesets currently supported by the PowerApps checker service. The required type is `Microsoft.PowerApps.Checker.Client.Models.Ruleset[]` The minimal requirement to be included is a valid value for either the `Name` or `Id` property.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Ruleset[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Ruleset[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>Id of the tenant that is requesting the information. For normal usage this is not necessary to provide. It is also referred to as the directory Id.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PowerAppsCheckerRules</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>Geography</maml:name>
+          <maml:Description>
+            <maml:para>When executing `Invoke-PowerAppsChecker` the PowerApps checker service temporarily stores the data that you upload in Azure along with the reports that are generated. By specifying a geography, you can control where the data is stored. If no geography is specified, then the United States preview region is used. It is suggested to specify the same geography that will be provided to `Invoke-PowerAppsChecker`. Each geography may have a different version at any given point in time and doing this ensures that there is version compatibility. In some cases, it may reduce execution time as the data will not have to travel as far.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">PreviewUnitedStates</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">UnitedStates</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Europe</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Asia</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Australia</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Japan</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">India</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Canada</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SouthAmerica</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">UnitedKingdom</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ApiGeography</command:parameterValue>
+          <dev:type>
+            <maml:name>ApiGeography</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludeMessageFormats</maml:name>
+          <maml:Description>
+            <maml:para>When specified, includes all of the issue message variations available for the resulting rules in the `Locale` specified. This can be used in cases where additional translations are being performed to provide the output in a different language.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LocaleName</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the language code that determines how the results are listed, such as es , for Spanish. The languages that are supported are included in the validation set of the parameter.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">bg</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ca</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">cs</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">da</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">de</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">el</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">en</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">es</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">et</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">eu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">gl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">id</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">it</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ja</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">kk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ko</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ms</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nb</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-BR</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-pt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ro</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ru</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Cyrl-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Latn-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">th</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">tr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">uk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">vi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANT</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>en</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>2</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Ruleset</maml:name>
+          <maml:Description>
+            <maml:para>A ruleset is a collection of rules that are referenceable by name or Id. The `Get-PowerAppsCheckerRulesets` cmdlet obtains the list of rulesets currently supported by the PowerApps checker service. The required type is `Microsoft.PowerApps.Checker.Client.Models.Ruleset[]` The minimal requirement to be included is a valid value for either the `Name` or `Id` property.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Ruleset[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Ruleset[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>Id of the tenant that is requesting the information. For normal usage this is not necessary to provide. It is also referred to as the directory Id.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>ApiUrl</maml:name>
+        <maml:Description>
+          <maml:para>URL of the PowerApps checker root service endpoint. Unless provided a direct URL from Microsoft, Geography should be used.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>Geography</maml:name>
+        <maml:Description>
+          <maml:para>When executing `Invoke-PowerAppsChecker` the PowerApps checker service temporarily stores the data that you upload in Azure along with the reports that are generated. By specifying a geography, you can control where the data is stored. If no geography is specified, then the United States preview region is used. It is suggested to specify the same geography that will be provided to `Invoke-PowerAppsChecker`. Each geography may have a different version at any given point in time and doing this ensures that there is version compatibility. In some cases, it may reduce execution time as the data will not have to travel as far.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ApiGeography</command:parameterValue>
+        <dev:type>
+          <maml:name>ApiGeography</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IncludeMessageFormats</maml:name>
+        <maml:Description>
+          <maml:para>When specified, includes all of the issue message variations available for the resulting rules in the `Locale` specified. This can be used in cases where additional translations are being performed to provide the output in a different language.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LocaleName</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the language code that determines how the results are listed, such as es , for Spanish. The languages that are supported are included in the validation set of the parameter.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>en</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+        <maml:Description>
+          <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>2</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Ruleset</maml:name>
+        <maml:Description>
+          <maml:para>A ruleset is a collection of rules that are referenceable by name or Id. The `Get-PowerAppsCheckerRulesets` cmdlet obtains the list of rulesets currently supported by the PowerApps checker service. The required type is `Microsoft.PowerApps.Checker.Client.Models.Ruleset[]` The minimal requirement to be included is a valid value for either the `Name` or `Id` property.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Ruleset[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Ruleset[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>TenantId</maml:name>
+        <maml:Description>
+          <maml:para>Id of the tenant that is requesting the information. For normal usage this is not necessary to provide. It is also referred to as the directory Id.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.PowerApps.Checker.Client.Models.Ruleset[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Nullable`1[[System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Uri</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.PowerApps.Checker.PowerShell.ApiGeography</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>It is suggested that you periodically run this cmdlet to query the service for updates to the list of available rulesets.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $rulesets = Get-PowerAppsCheckerRulesets -Geography Europe
+PS C:\&gt; $rules = $rulesets | Get-PowerAppsCheckerRules -Geography Europe</dev:code>
+        <dev:remarks>
+          <maml:para>Returns the rules available in all available rulesets in the geography.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $rulesets = Get-PowerAppsCheckerRulesets -Geography Europe
+PS C:\&gt; $rules = $rulesets | Get-PowerAppsCheckerRules -Geography Europe -LocaleName es</dev:code>
+        <dev:remarks>
+          <maml:para>Returns the rules available in all available rulesets in the geography with the `Description` and `Summary` properties translated in Spanish.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://go.microsoft.com/fwlink/?linkid=2094304</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Find your Office 365 tenant ID</maml:linkText>
+        <maml:uri>https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PowerAppsCheckerRulesets</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PowerAppsCheckerRulesets</command:noun>
+      <maml:description>
+        <maml:para>This topic is pre-release documentation and is subject to change.</maml:para>
+        <maml:para>Obtains the list of rulesets currently supported by the PowerApps checker service.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>A ruleset is a collection of rules that can be referenced by name or Id. The Get-PowerAppsCheckerRulesets cmdlet obtains the list of rulesets currently supported by the PowerApps checker service. Both `Get-PowerAppsCheckerRules` and `Invoke-PowerAppsChecker` accept the result of this cmdlet as a parameter. An array of `Microsoft.PowerApps.Checker.Client.Models.Ruleset` objects is returned.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PowerAppsCheckerRulesets</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>ApiUrl</maml:name>
+          <maml:Description>
+            <maml:para>URL of the PowerApps checker root service endpoint. Unless provided a direct URL from Microsoft, Geography should be used.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>2</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>Id of the tenant that is requesting the information. For normal usage this is not necessary to provide. This is also referred to as the directory Id.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PowerAppsCheckerRulesets</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>Geography</maml:name>
+          <maml:Description>
+            <maml:para>When executing `Invoke-PowerAppsChecker` the PowerApps checker service temporarily stores the data that you upload in Azure along with the reports that are generated. By specifying a geography, you can control where the data is stored. If no geography is specified, then the United States preview region is used. We recommend that you specify the same geography that will be provided to `Invoke-PowerAppsChecker`. Each geography may have a different version at any given point in time and doing this ensures that there is version compatibility. In some cases, this can also reduce execution time as the data will not have to travel as far.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">PreviewUnitedStates</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">UnitedStates</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Europe</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Asia</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Australia</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Japan</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">India</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Canada</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SouthAmerica</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">UnitedKingdom</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ApiGeography</command:parameterValue>
+          <dev:type>
+            <maml:name>ApiGeography</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>PreviewUnitedStates</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>2</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>Id of the tenant that is requesting the information. For normal usage this is not necessary to provide. This is also referred to as the directory Id.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>ApiUrl</maml:name>
+        <maml:Description>
+          <maml:para>URL of the PowerApps checker root service endpoint. Unless provided a direct URL from Microsoft, Geography should be used.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>Geography</maml:name>
+        <maml:Description>
+          <maml:para>When executing `Invoke-PowerAppsChecker` the PowerApps checker service temporarily stores the data that you upload in Azure along with the reports that are generated. By specifying a geography, you can control where the data is stored. If no geography is specified, then the United States preview region is used. We recommend that you specify the same geography that will be provided to `Invoke-PowerAppsChecker`. Each geography may have a different version at any given point in time and doing this ensures that there is version compatibility. In some cases, this can also reduce execution time as the data will not have to travel as far.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ApiGeography</command:parameterValue>
+        <dev:type>
+          <maml:name>ApiGeography</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>PreviewUnitedStates</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+        <maml:Description>
+          <maml:para>Maximum number in minutes to wait before quitting the operation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>2</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>TenantId</maml:name>
+        <maml:Description>
+          <maml:para>Id of the tenant that is requesting the information. For normal usage this is not necessary to provide. This is also referred to as the directory Id.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Nullable`1[[System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Uri</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.PowerApps.Checker.PowerShell.ApiGeography</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>We recommend that you periodically run this cmdlet to query the service for updates to the list of available rulesets.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $rulesets = Get-PowerAppsCheckerRulesets</dev:code>
+        <dev:remarks>
+          <maml:para>Returns the list of rulesets currently supported by the PowerApps checker service using the region in the United States.
+</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $rulesets = Get-PowerAppsCheckerRulesets -Geography Europe</dev:code>
+        <dev:remarks>
+          <maml:para>Returns the list of rulesets currently supported by the PowerApps checker service using the Europe geography.
+</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://go.microsoft.com/fwlink/?linkid=2094407</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Find your Office 365 tenant ID</maml:linkText>
+        <maml:uri>https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Invoke-PowerAppsChecker</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>PowerAppsChecker</command:noun>
+      <maml:description>
+        <maml:para>This topic is pre-release documentation and is subject to change.</maml:para>
+        <maml:para>Performs the actions necessary for initiating an analysis job with the PowerApps checker service and waits for and downloads the results.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-PowerAppsChecker cmdlet first, uploads the file specified by the FileUnderAnalysis parameter, if provided, next submits an analysis job with the PowerApps checker service, monitors for status updates, and when completed, downloads a compressed report file. The file provided is a JSON formatted report, which is in Static Analysis Results Interchange Format (SARIF). A `Microsoft.PowerApps.Checker.Client.Models.AnalyzeResult` object is returned.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-PowerAppsChecker</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>ApiUrl</maml:name>
+          <maml:Description>
+            <maml:para>URL of the PowerApps checker root service endpoint. Unless provided a direct URL from Microsoft, Geography should be used.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientApplicationId</maml:name>
+          <maml:Description>
+            <maml:para>Id of the client application registered in your tenant that will be used to connect to the service. This is the identifier used while processing analysis requests in the PowerApps checker service. The client application must reside in the tenant provided as well as have access to the PowerApps-Advisor APIs.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientApplicationSecret</maml:name>
+          <maml:Description>
+            <maml:para>Used as a credential, along with what is specified in the ClientApplicationId, for authenticating against Azure Active Directory. A token is generated and submitted along with the request to the PowerApps checker service. For more information about how to create a secret, see Certificates and secrets (/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ExcludedFileNamePattern</maml:name>
+          <maml:Description>
+            <maml:para>List the names of files to be excluded from the analysis. It can include a full file name or a name with leading or trailing wildcards, such as- jquery or form.js</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>FileUnderAnalysis</maml:name>
+          <maml:Description>
+            <maml:para>One or more paths to local files to be uploaded and used as part of the analysis. Notice that each file must be under 30 MB. If you have a file over 30 MB you must upload it to your blob storage and provide a SAS URI in the `FileUnderAnalysisSasUri` parameter.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>FileUnderAnalysisSasUri</maml:name>
+          <maml:Description>
+            <maml:para>One or more paths to a file uploaded in a location accessible by URL, for example, Azure blob storage. This path must be available with no other credentials required, commonly referred to as a SAS URL. For more information about how to upload to Azure blob storage, see Upload, download, and list blobs by using Azure PowerShell (/azure/storage/blobs/storage-quickstart-blobs-powershell).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LocaleName</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the language code that determines how the results are listed, such as es , for Spanish. The languages that are supported are included in the validation set of the parameter.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">bg</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ca</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">cs</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">da</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">de</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">el</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">en</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">es</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">et</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">eu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">gl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">id</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">it</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ja</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">kk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ko</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ms</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nb</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-BR</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-pt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ro</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ru</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Cyrl-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Latn-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">th</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">tr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">uk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">vi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANT</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting a web based operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxStatusChecks</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number of times in which status calls are made to the service. The default number is 20, which in most cases is sufficient. If the threshold is exceeded, then a timeout exception is thrown.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>OutputDirectory</maml:name>
+          <maml:Description>
+            <maml:para>Directory in which the resulting reports are to be downloaded. This directory must already exist or it will not pass validation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Rule</maml:name>
+          <maml:Description>
+            <maml:para>One or more rule that are to be run as part of the analysis. This is of type `Microsoft.PowerApps.Checker.Client.Models.Rule[]`. The Rule object should minimally contain the `RuleCode` property. You can also use what is returned from a call to the `Get-PowerAppsCheckerRule` cmdlet. This parameter can be used instead of or in combination with the `Ruleset` parameter. At least one of these two parameters must be provided.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Rule[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Rule[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Ruleset</maml:name>
+          <maml:Description>
+            <maml:para>One or more rulesets that contain the rules that are to be run as part of the analysis. This is of type `Microsoft.PowerApps.Checker.Client.Models.Ruleset[]`. The Ruleset object should minimally contain the `Id` or `Name` property. You can also use what is returned from a call to the `Get-PowerAppsCheckerRuleset` cmdlet. This parameter can be used instead of or in combination with the `Rule` parameter. At least one of these two parameters must be provided.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Ruleset[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Ruleset[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>SecondsBetweenChecks</maml:name>
+          <maml:Description>
+            <maml:para>The number of seconds between status checks. The default is 15 seconds.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>Id of your tenant. It is also referred to as the directory Id. It can be found in the overview properties of Azure Active Directory in your Azure subscription.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Invoke-PowerAppsChecker</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>Geography</maml:name>
+          <maml:Description>
+            <maml:para>The PowerApps checker service temporarily stores the data that you upload in Azure along with the reports that are generated. By specifying a geography, you can control where the data is stored. If no geography is specified, then United States is the default.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">PreviewUnitedStates</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">UnitedStates</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Europe</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Asia</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Australia</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Japan</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">India</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Canada</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SouthAmerica</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">UnitedKingdom</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ApiGeography</command:parameterValue>
+          <dev:type>
+            <maml:name>ApiGeography</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientApplicationId</maml:name>
+          <maml:Description>
+            <maml:para>Id of the client application registered in your tenant that will be used to connect to the service. This is the identifier used while processing analysis requests in the PowerApps checker service. The client application must reside in the tenant provided as well as have access to the PowerApps-Advisor APIs.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientApplicationSecret</maml:name>
+          <maml:Description>
+            <maml:para>Used as a credential, along with what is specified in the ClientApplicationId, for authenticating against Azure Active Directory. A token is generated and submitted along with the request to the PowerApps checker service. For more information about how to create a secret, see Certificates and secrets (/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ExcludedFileNamePattern</maml:name>
+          <maml:Description>
+            <maml:para>List the names of files to be excluded from the analysis. It can include a full file name or a name with leading or trailing wildcards, such as- jquery or form.js</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>FileUnderAnalysis</maml:name>
+          <maml:Description>
+            <maml:para>One or more paths to local files to be uploaded and used as part of the analysis. Notice that each file must be under 30 MB. If you have a file over 30 MB you must upload it to your blob storage and provide a SAS URI in the `FileUnderAnalysisSasUri` parameter.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>FileUnderAnalysisSasUri</maml:name>
+          <maml:Description>
+            <maml:para>One or more paths to a file uploaded in a location accessible by URL, for example, Azure blob storage. This path must be available with no other credentials required, commonly referred to as a SAS URL. For more information about how to upload to Azure blob storage, see Upload, download, and list blobs by using Azure PowerShell (/azure/storage/blobs/storage-quickstart-blobs-powershell).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LocaleName</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the language code that determines how the results are listed, such as es , for Spanish. The languages that are supported are included in the validation set of the parameter.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">bg</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ca</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">cs</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">da</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">de</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">el</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">en</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">es</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">et</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">eu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">fr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">gl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">hu</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">id</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">it</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ja</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">kk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ko</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ms</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nb</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">nl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-BR</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">pt-pt</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ro</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ru</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Cyrl-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sr-Latn-RS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">sv</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">th</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">tr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">uk</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">vi</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANS</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">zh-HANT</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number in minutes to wait before quitting a web based operation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxStatusChecks</maml:name>
+          <maml:Description>
+            <maml:para>Maximum number of times in which status calls are made to the service. The default number is 20, which in most cases is sufficient. If the threshold is exceeded, then a timeout exception is thrown.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>OutputDirectory</maml:name>
+          <maml:Description>
+            <maml:para>Directory in which the resulting reports are to be downloaded. This directory must already exist or it will not pass validation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Rule</maml:name>
+          <maml:Description>
+            <maml:para>One or more rule that are to be run as part of the analysis. This is of type `Microsoft.PowerApps.Checker.Client.Models.Rule[]`. The Rule object should minimally contain the `RuleCode` property. You can also use what is returned from a call to the `Get-PowerAppsCheckerRule` cmdlet. This parameter can be used instead of or in combination with the `Ruleset` parameter. At least one of these two parameters must be provided.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Rule[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Rule[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Ruleset</maml:name>
+          <maml:Description>
+            <maml:para>One or more rulesets that contain the rules that are to be run as part of the analysis. This is of type `Microsoft.PowerApps.Checker.Client.Models.Ruleset[]`. The Ruleset object should minimally contain the `Id` or `Name` property. You can also use what is returned from a call to the `Get-PowerAppsCheckerRuleset` cmdlet. This parameter can be used instead of or in combination with the `Rule` parameter. At least one of these two parameters must be provided.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Ruleset[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Ruleset[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>SecondsBetweenChecks</maml:name>
+          <maml:Description>
+            <maml:para>The number of seconds between status checks. The default is 15 seconds.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TenantId</maml:name>
+          <maml:Description>
+            <maml:para>Id of your tenant. It is also referred to as the directory Id. It can be found in the overview properties of Azure Active Directory in your Azure subscription.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+          <dev:type>
+            <maml:name>Guid</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>ApiUrl</maml:name>
+        <maml:Description>
+          <maml:para>URL of the PowerApps checker root service endpoint. Unless provided a direct URL from Microsoft, Geography should be used.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ClientApplicationId</maml:name>
+        <maml:Description>
+          <maml:para>Id of the client application registered in your tenant that will be used to connect to the service. This is the identifier used while processing analysis requests in the PowerApps checker service. The client application must reside in the tenant provided as well as have access to the PowerApps-Advisor APIs.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ClientApplicationSecret</maml:name>
+        <maml:Description>
+          <maml:para>Used as a credential, along with what is specified in the ClientApplicationId, for authenticating against Azure Active Directory. A token is generated and submitted along with the request to the PowerApps checker service. For more information about how to create a secret, see Certificates and secrets (/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets).</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ExcludedFileNamePattern</maml:name>
+        <maml:Description>
+          <maml:para>List the names of files to be excluded from the analysis. It can include a full file name or a name with leading or trailing wildcards, such as- jquery or form.js</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>FileUnderAnalysis</maml:name>
+        <maml:Description>
+          <maml:para>One or more paths to local files to be uploaded and used as part of the analysis. Notice that each file must be under 30 MB. If you have a file over 30 MB you must upload it to your blob storage and provide a SAS URI in the `FileUnderAnalysisSasUri` parameter.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>FileUnderAnalysisSasUri</maml:name>
+        <maml:Description>
+          <maml:para>One or more paths to a file uploaded in a location accessible by URL, for example, Azure blob storage. This path must be available with no other credentials required, commonly referred to as a SAS URL. For more information about how to upload to Azure blob storage, see Upload, download, and list blobs by using Azure PowerShell (/azure/storage/blobs/storage-quickstart-blobs-powershell).</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>Geography</maml:name>
+        <maml:Description>
+          <maml:para>The PowerApps checker service temporarily stores the data that you upload in Azure along with the reports that are generated. By specifying a geography, you can control where the data is stored. If no geography is specified, then United States is the default.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ApiGeography</command:parameterValue>
+        <dev:type>
+          <maml:name>ApiGeography</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LocaleName</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the language code that determines how the results are listed, such as es , for Spanish. The languages that are supported are included in the validation set of the parameter.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MaxConnectionTimeOutMinutes</maml:name>
+        <maml:Description>
+          <maml:para>Maximum number in minutes to wait before quitting a web based operation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MaxStatusChecks</maml:name>
+        <maml:Description>
+          <maml:para>Maximum number of times in which status calls are made to the service. The default number is 20, which in most cases is sufficient. If the threshold is exceeded, then a timeout exception is thrown.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>OutputDirectory</maml:name>
+        <maml:Description>
+          <maml:para>Directory in which the resulting reports are to be downloaded. This directory must already exist or it will not pass validation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Rule</maml:name>
+        <maml:Description>
+          <maml:para>One or more rule that are to be run as part of the analysis. This is of type `Microsoft.PowerApps.Checker.Client.Models.Rule[]`. The Rule object should minimally contain the `RuleCode` property. You can also use what is returned from a call to the `Get-PowerAppsCheckerRule` cmdlet. This parameter can be used instead of or in combination with the `Ruleset` parameter. At least one of these two parameters must be provided.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Rule[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Rule[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Ruleset</maml:name>
+        <maml:Description>
+          <maml:para>One or more rulesets that contain the rules that are to be run as part of the analysis. This is of type `Microsoft.PowerApps.Checker.Client.Models.Ruleset[]`. The Ruleset object should minimally contain the `Id` or `Name` property. You can also use what is returned from a call to the `Get-PowerAppsCheckerRuleset` cmdlet. This parameter can be used instead of or in combination with the `Rule` parameter. At least one of these two parameters must be provided.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Ruleset[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Ruleset[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>SecondsBetweenChecks</maml:name>
+        <maml:Description>
+          <maml:para>The number of seconds between status checks. The default is 15 seconds.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>TenantId</maml:name>
+        <maml:Description>
+          <maml:para>Id of your tenant. It is also referred to as the directory Id. It can be found in the overview properties of Azure Active Directory in your Azure subscription.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Guid</command:parameterValue>
+        <dev:type>
+          <maml:name>Guid</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.PowerApps.Checker.Client.Models.Ruleset[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.PowerApps.Checker.Client.Models.Rule[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Guid</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Security.SecureString</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Nullable`1[[System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Uri</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.PowerApps.Checker.PowerShell.ApiGeography</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $rulesets = Get-PowerAppsCheckerRulesets -Geography Europe
+PS C:\&gt; $rulesetToUse = $rulesets | where Name -EQ 'AppSource Certification'
+PS C:\&gt; $analyzeResult = Invoke-PowerAppsChecker -Geography Europe -ClientApplicationId 'dc316d60-f8a8-4b75-b835-ba81054a0b0e' `
+    -TenantId '3a11a289-d956-408f-92f6-eddb3413abc2' -Ruleset $rulesetToUse -FileUnderAnalysis "C:\src\mysolution.zip" `
+    -OutputDirectory "C:\out"</dev:code>
+        <dev:remarks>
+          <maml:para>In this example the data is run in the European data centers and using the AppSource Certification ruleset as the list of rules for the PowerApps checker service to use in its analysis. This is an example of an interactive approach. A prompt will be received to login to the Azure tenant. The user must reside in the tenant provided as well as have access to login to the application provided.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $rulesets = Get-PowerAppsCheckerRulesets -Geography Europe
+PS C:\&gt; $rulesetToUse = $rulesets | where Name -NE 'AppSource Certification'
+PS C:\&gt; $analyzeResult = Invoke-PowerAppsChecker -Geography Europe -ClientApplicationId 'dc316d60-f8a8-4b75-b835-ba81054a0b0e' `
+    -TenantId '3a11a289-d956-408f-92f6-eddb3413abc2' -Ruleset $rulesetToUse -FileUnderAnalysis "C:\src\mysolution.zip" `
+    -OutputDirectory "C:\out" -ClientApplicationSecret (ConvertTo-SecureString -AsPlainText -Force -String '*************************************')</dev:code>
+        <dev:remarks>
+          <maml:para>In this example the data is run in the European data centers and using the AppSource Certification ruleset as the list of rules for the PowerApps checker service to use in its analysis. This is an example of an approach to be used in non-interactive scenarios,such as automated builds and deployments. No prompt will be received to login to the Azure tenant.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://go.microsoft.com/fwlink/?linkid=2094408</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Find your Office 365 tenant ID</maml:linkText>
+        <maml:uri>https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>
