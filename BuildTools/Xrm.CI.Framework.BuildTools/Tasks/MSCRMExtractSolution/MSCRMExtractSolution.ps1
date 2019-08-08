@@ -18,6 +18,7 @@ $crmSdkVersion = Get-VstsInput -Name crmSdkVersion -Require
 $buildNumber = $env:BUILD_BUILDNUMBER
 $sourcesDirectory = $env:BUILD_SOURCESDIRECTORY
 $binariesDirectory = $env:BUILD_BINARIESDIRECTORY
+$defaultDirectory = $env:System_DefaultWorkingDirectory
 
 #Print Verbose
 Write-Verbose "unpackedFilesFolder = $unpackedFilesFolder"
@@ -30,7 +31,7 @@ Write-Verbose "sourcesDirectory = $sourcesDirectory"
 Write-Verbose "binariesDirectory = $binariesDirectory"
 Write-Verbose "crmSdkVersion = $crmSdkVersion"
 
-if ($mappingFile -eq $sourcesDirectory)
+if ($mappingFile -eq $sourcesDirectory -or $mappingFile -eq $defaultDirectory)
 {
 	$mappingFile = $null
 }
