@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "2"
+    "Patch": "4"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Create Patch: $(uniqueName)",
@@ -58,6 +58,12 @@
       "defaultValue": "120",
       "required": false,
       "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "PATCH_SOLUTION_NAME",
+      "description": "The unique name of the patch soluton created"
     }
   ],
   "execution": {

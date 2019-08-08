@@ -22,6 +22,16 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\CreatePatch.ps1"  -CrmConnectionString $crmConnectionString -ParentSolutionUniqueName $UniqueName -DisplayName "$DisplayName" -VersionNumber "$VersionNumber" -Timeout $crmConnectionTimeout
+#Load XrmCIFramework
+$xrmCIToolkit = $mscrmToolsPath + "\xRMCIFramework\9.0.0\Xrm.Framework.CI.PowerShell.Cmdlets.dll"
+Write-Verbose "Importing CIToolkit: $xrmCIToolkit" 
+Import-Module $xrmCIToolkit
+Write-Verbose "Imported CIToolkit"
+
+$patchName = Add-XrmSolutionPatch -DisplayName $DisplayName -ParentSolutionUniqueName $UniqueName -VersionNumber $VersionNumber -ConnectionString $crmConnectionString -Timeout $crmConnectionTimeout
+
+Write-Host ("Patch solution created with name: {0}" -f $patchName)
+
+Write-Host "##vso[task.setvariable variable=PATCH_SOLUTION_NAME]$patchName"
 
 Write-Verbose 'Leaving MSCRMCreatePatch.ps1'
