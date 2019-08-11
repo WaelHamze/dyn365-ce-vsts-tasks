@@ -33,6 +33,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Export Solution** | Exports a CRM Solution from the source CRM environment |
 | **MSCRM Export Solutions Using Config** (preview) | Exports Dynamics 365 Solutions using a json configuration |
 | **MSCRM Extract Solution** | Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe |
+| **MSCRM Get Latest Patch** (preview) | Retrieves the latest patch for a given solution |
 | **MSCRM Get Online Instance By Name** | Gets an Online instance ID based on the name of the instance. |
 | **MSCRM Get Solution** (preview) | Retrieves solution details from a CRM instance |
 | **MSCRM Get Solution Missing Components** (preview) | Retrieves missing components for a solution from a target instance |
@@ -173,5 +174,6 @@ Added task to check solution using PowerApps Checker
 **9.10.x**  
 Added support for localization parameters in solution packager tasks  
 Added task to retrieve solution details from a CRM instance  
+Added task to retrieve the latest patch for given solution  
 
 For more information on changes between versions, check the commits and releases on GitHub
