@@ -13,6 +13,8 @@ $packageType = Get-VstsInput -Name packageType -Require
 $solutionFile = Get-VstsInput -Name solutionFile -Require
 $treatUnpackWarningsAsErrors = Get-VstsInput -Name treatUnpackWarningsAsErrors -AsBool
 $crmSdkVersion = Get-VstsInput -Name crmSdkVersion -Require
+$sourceLoc = Get-VstsInput -Name sourceLoc
+$localize = Get-VstsInput -Name localize -AsBool
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -47,6 +49,6 @@ if (-not $mscrmToolsPath)
 
 $CoreToolsPath = "$mscrmToolsPath\CoreTools\$crmSdkVersion"
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\ExtractSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -solutionFile $solutionFile -TreatUnpackWarningsAsErrors $treatUnpackWarningsAsErrors -CoreToolsPath $CoreToolsPath
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ExtractSolution.ps1" -UnpackedFilesFolder "$unpackedFilesFolder" -MappingFile "$mappingFile" -PackageType $packageType -solutionFile "$solutionFile" -TreatUnpackWarningsAsErrors $treatUnpackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath "$CoreToolsPath"
 
 Write-Verbose 'Leaving MSCRMExtractSolution.ps1'

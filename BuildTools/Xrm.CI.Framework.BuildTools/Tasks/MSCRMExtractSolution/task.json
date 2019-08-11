@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "3"
+    "Patch": "4"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Extract Solution",
@@ -67,6 +67,22 @@
       "defaultValue": "$(build.binariesdirectory)",
       "required": true,
       "helpMarkDown": "The path on the agent machine to the solution zip file. For package type = Both, use the unmanaged zip"
+    },
+    {
+      "name": "sourceLoc",
+      "type": "string",
+      "label": "Source Loc",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "This argument generates a template resource file"
+    },
+    {
+      "name": "localize",
+      "type": "boolean",
+      "label": "Localize",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Extract or merge all string resources into .resx files"
     },
     {
       "name": "treatUnpackWarningsAsErrors",
