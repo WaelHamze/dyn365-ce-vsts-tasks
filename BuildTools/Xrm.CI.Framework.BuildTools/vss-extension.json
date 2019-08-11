@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.9.6",
+  "version": "9.10.0",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -173,6 +173,9 @@
     },
     {
       "path": "Tasks/MSCRMCheckSolution"
+    },
+    {
+      "path": "Tasks/MSCRMGetSolution"
     }
   ],
   "contributions": [
@@ -554,6 +557,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMCheckSolution"
+      }
+    },
+    {
+      "id": "MSCRMGetSolution",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMGetSolution"
       }
     }
   ]

@@ -235,6 +235,8 @@
     <Content Include="Tasks\MSCRMGetSolutionMissingComponents\task.json" />
     <Content Include="Tasks\MSCRMCheckSolution\MSCRMCheckSolution.ps1" />
     <Content Include="Tasks\MSCRMCheckSolution\task.json" />
+    <Content Include="Tasks\MSCRMGetSolution\MSCRMGetSolution.ps1" />
+    <Content Include="Tasks\MSCRMGetSolution\task.json" />
     <None Include="Tasks\MSCRMGetSolutionMissingDependencies\MSCRMGetSolutionMissingDependencies.ps1" />
     <Content Include="Tasks\MSCRMGetSolutionMissingDependencies\task.json" />
     <Content Include="Tasks\MSCRMResetOnlineInstance\MSCRMResetOnlineInstance.ps1" />

@@ -34,6 +34,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Export Solutions Using Config** (preview) | Exports Dynamics 365 Solutions using a json configuration |
 | **MSCRM Extract Solution** | Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe |
 | **MSCRM Get Online Instance By Name** | Gets an Online instance ID based on the name of the instance. |
+| **MSCRM Get Solution** (preview) | Retrieves solution details from a CRM instance |
 | **MSCRM Get Solution Missing Components** (preview) | Retrieves missing components for a solution from a target instance |
 | **MSCRM Get Solution Missing Dependencies** (preview) | Retrieves missing dependencies for a solution in a instance |
 | **MSCRM Import Solution** | Import a Dynamics CRM Solution package |
@@ -168,5 +169,9 @@ Enhancements to Package Deployer Task including addition of Crm Connection Timeo
 Added a task to copy online instances  
 Updated Online Management PS SDK to 1.1.0.9053  
 Added task to check solution using PowerApps Checker  
+
+**9.10.x**  
+Added support for localization parameters in solution packager tasks  
+Added task to retrieve solution details from a CRM instance  
 
 For more information on changes between versions, check the commits and releases on GitHub

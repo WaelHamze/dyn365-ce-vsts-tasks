@@ -1,0 +1,67 @@
+{
+  "id": "4E476451-A01B-4B86-AB9E-658D496F9B17",
+  "name": "MSCRMGetSolution",
+  "friendlyName": "MSCRM Get Solution",
+  "description": "Retrieves solution details from a CRM instance",
+  "author": "Wael Hamze",
+  "helpMarkDown": "",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "5"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Get Solution: $(solutionName)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format check the [docs](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/xrm-tooling/use-connection-strings-xrm-tooling-connect)"
+    },
+    {
+      "name": "solutionName",
+      "type": "string",
+      "label": "Solution Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The unique name of the solution you want to check"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "SOLUTION_EXISTS",
+      "description": "Returns true if the solution exists"
+    },
+    {
+      "name": "SOLUTION_VERSION",
+      "description": "The version of the solution"
+    },
+    {
+      "name": "SOLUTION_DISPLAY_NAME",
+      "description": "The display name of the solution"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMGetSolution.ps1"
+    }
+  }
+}
