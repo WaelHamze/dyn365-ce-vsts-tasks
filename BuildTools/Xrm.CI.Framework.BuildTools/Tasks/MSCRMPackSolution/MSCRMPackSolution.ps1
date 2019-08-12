@@ -15,6 +15,8 @@ $includeVersionInSolutionFile = Get-VstsInput -Name includeVersionInSolutionFile
 $outputPath = Get-VstsInput -Name outputPath
 $treatPackWarningsAsErrors = Get-VstsInput -Name treatPackWarningsAsErrors -AsBool
 $crmSdkVersion = Get-VstsInput -Name crmSdkVersion -Require
+$sourceLoc = Get-VstsInput -Name sourceLoc
+$localize = Get-VstsInput -Name localize -AsBool
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -54,6 +56,6 @@ if ($updateVersion)
 	$versionNumber = $buildNumber.Substring($buildNumber.IndexOf("_") + 1)
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -UpdateVersion $updateVersion -RequiredVersion $versionNumber -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -CoreToolsPath $CoreToolsPath
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -UpdateVersion $updateVersion -RequiredVersion $versionNumber -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath $CoreToolsPath
 
 Write-Verbose 'Leaving MSCRMPackSolution.ps1'

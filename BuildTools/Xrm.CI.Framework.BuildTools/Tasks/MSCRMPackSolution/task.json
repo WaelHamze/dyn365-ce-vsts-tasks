@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "4"
+    "Patch": "5"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Pack Solution",
@@ -83,6 +83,22 @@
       "defaultValue": "$(build.binariesdirectory)",
       "required": true,
       "helpMarkDown": "The path on the agent machine where you want the solutions to be placed"
+    },
+    {
+      "name": "sourceLoc",
+      "type": "string",
+      "label": "Source Loc",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "This argument generates a template resource file"
+    },
+    {
+      "name": "localize",
+      "type": "boolean",
+      "label": "Localize",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Extract or merge all string resources into .resx files"
     },
     {
       "name": "treatPackWarningsAsErrors",
