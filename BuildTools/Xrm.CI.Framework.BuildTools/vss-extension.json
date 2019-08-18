@@ -2,14 +2,14 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Dynamics 365 Build Tools",
-  "version": "9.10.0",
+  "version": "9.10.3",
   "publisher": "WaelHamze",
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "description": "Tasks for automating Build & Deployment of Dynamics 365 CE Solutions",
+  "description": "Tasks for automating Build & Deployment of Dynamics 365 CE/CDS/PowerApps Solutions",
   "categories": [
     "Build and release"
   ],
@@ -27,7 +27,12 @@
     "Dynamics 365",
     "Customer Engagement",
     "Online Management API",
-    "PowerShell"
+    "PowerShell",
+    "PowerApps",
+    "CDS",
+    "Flow",
+    "Model-Driven PowerApps",
+    "Canvas PowerApps"
   ],
   "icons": {
     "default": "icon_128x128.png"
@@ -179,6 +184,21 @@
     },
     {
       "path": "Tasks/MSCRMGetLatestPatch"
+    },
+    {
+      "path": "Tasks/MSCRMExportCMData"
+    },
+    {
+      "path": "Tasks/MSCRMImportCMData"
+    },
+    {
+      "path": "Tasks/MSCRMExtractCMData"
+    },
+    {
+      "path": "Tasks/MSCRMPackCMData"
+    },
+    {
+      "path": "Tasks/MSCRMGetConfigurationRecord"
     }
   ],
   "contributions": [
@@ -580,6 +600,56 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMGetLatestPatch"
+      }
+    },
+    {
+      "id": "MSCRMExportCMData",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMExportCMData"
+      }
+    },
+    {
+      "id": "MSCRMImportCMData",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMImportCMData"
+      }
+    },
+    {
+      "id": "MSCRMExtractCMData",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMExtractCMData"
+      }
+    },
+    {
+      "id": "MSCRMPackCMData",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMPackCMData"
+      }
+    },
+    {
+      "id": "MSCRMGetConfigurationRecord",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMGetConfigurationRecord"
       }
     }
   ]

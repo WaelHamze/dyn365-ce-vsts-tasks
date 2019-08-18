@@ -1,15 +1,15 @@
 # Dynamics 365 Build Tools
-**Dynamics 365 Build Tools is a set of tools that makes it easy and quick to automate builds and deployment of your Dynamics 365 CE solutions.**
+**Dynamics 365 Build Tools is a set of tools that makes it easy and quick to automate builds and deployment of your PowerApps/CDS/Dynamics 365 CE solutions.**
 
 This will allow you to setup a fully automated DevOps pipeline so you can deliver CRM more frequently in a consistent and reliable way.
 
 ## Compatibility
 
-**Dynamics 365 (8.x.x)**
-**Dynamics 365 (9.x.x)**
-(Some tasks may work with previous version of CRM)
+**Dynamics 365 (8.x.x)**  
+**Dynamics 365 (9.x.x)/CDS/PowerApps**  
+(Some tasks may work with previous version of Dynamics CRM)
 
-**VSTS/TFS** For support and installation [instructions](https://docs.microsoft.com/en-us/vsts/marketplace/get-tfs-extensions)
+**Azure DevOps/Azure DevOps Server/TFS** For support and installation [instructions](https://docs.microsoft.com/en-us/vsts/marketplace/get-tfs-extensions)
 
 Works with Hosted VSTS Agents
 
@@ -17,50 +17,55 @@ Works with Hosted VSTS Agents
 
 Below is a list of tasks that are included with this extension.
 
-**You must add the 'MSCRM Tool Installer' at the begining of every agent phase for the task to work.**
+**You must add the 'MSCRM Tool Installer' at the begining of every agent phase for the other tasks to work.**
 
-| Task | Description |
-| --- | --- |
-| **MSCRM Apply Solution Upgrade** | Applies a solution upgrade after solution is import using stage for upgrade option |
-| **MSCRM Backup Online Instance** | Creates a backup of a Dynamics 365 Customer Engagement Online Instance |
-| **MSCRM Check Solution** | Uses PowerApps Checker API to validate your solution against a list of known issues |
-| **MSCRM Clone Solution** | Clones a CRM unmanaged Solution |
-| **MSCRM Copy Instance** (preview) | Copies a source instance to a target instance |
-| **MSCRM Copy Solution Components** | Add components from a given solution to another solution if not present |
-| **MSCRM Create Patch** | Creates an unmanaged CRM Solution Patch |
-| **MSCRM Create Solution** | Creates an unmanaged CRM Solution |
-| **MSCRM Delete Instance** | Deletes an Online Instance |
-| **MSCRM Export Solution** | Exports a CRM Solution from the source CRM environment |
-| **MSCRM Export Solutions Using Config** (preview) | Exports Dynamics 365 Solutions using a json configuration |
-| **MSCRM Extract Solution** | Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe |
-| **MSCRM Get Latest Patch** (preview) | Retrieves the latest patch for a given solution |
-| **MSCRM Get Online Instance By Name** | Gets an Online instance ID based on the name of the instance. |
-| **MSCRM Get Solution** (preview) | Retrieves solution details from a CRM instance |
-| **MSCRM Get Solution Missing Components** (preview) | Retrieves missing components for a solution from a target instance |
-| **MSCRM Get Solution Missing Dependencies** (preview) | Retrieves missing dependencies for a solution in a instance |
-| **MSCRM Import Solution** | Import a Dynamics CRM Solution package |
-| **MSCRM Import Solutions Using Config** (preview) | Imports Dynamics 365 Solutions using a json configuration |
-| **MSCRM Package Deployer** | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
-| **MSCRM Pack Solution** | Packages a CRM Solution using SolutionPackager.exe |
-| **MSCRM Pack Solutions Using Config** (preview) | Packs Dynamics 365 Solutions using a json configuration |
-| **MSCRM Ping** | A sample task that checks connectivity to a Dynamics 365 environment |
-| **MSCRM Plugin Registration** (preview) | Upsert Dynamics 365 plugin/workflow activity assembly/types/steps |
-| **MSCRM Provision Online Instance** | Creates a new Dynamics 365 Customer Engagement Online Instance |
-| **MSCRM Publish Customizations** | Publishes all CRM customizations |
-| **MSCRM Remove Solution** (preview) | Removes the given CRM Solution |
-| **MSCRM Remove Solution Components** | Removes all components from a given CRM Solution |
-| **MSCRM Reset Online Instance** (preview) | Resets a Dynamics 365 Customer Engagement Online Instance |
-| **MSCRM Restore Instance** | Restores an online instance from a previous backup |
-| **MSCRM Service Endpoint Registration** (preview) | Upsert Dynamics 365 Service Endpoints and steps |
-| **MSCRM Set Online Instance Admin Mode** | Enable/Disable administration mode on Online Instances |
-| **MSCRM Set Version** | Updates the version of a CRM Solution |
-| **MSCRM Split Plugin Assembly** (preview) | Splits the plugin assembly into multiple plugin assemblies |
-| **MSCRM Tool Installer** | Installs the Dynamics 365 tools required by all of the tasks |
-| **MSCRM Update Configuration Records** (preview) | Upserts a configuration entity records using lookup/value pairs |
-| **MSCRM Update Plugin Assembly** (deprecated) | Updates Dynamics 365 plugin assembly from file |
-| **MSCRM Update Secure Configuration** | A task that updates Dynamics 365 plugin secure configuration |
-| **MSCRM Update Solution Description** (preview) | Updates the description of a given CRM Solution |
-| **MSCRM Update Web Resources** (preview) | Updates Dynamics 365 Web Resources from source control |
+| Task | Category | Description |
+| --- | --- | --- |
+| **MSCRM Tool Installer** | Utility | Installs the Dynamics 365 tools required by all of the tasks |
+| **MSCRM Ping** | Utility | A sample task that checks connectivity to a Dynamics 365 environment |
+| **MSCRM Create Solution** | Solution | Creates an unmanaged CRM Solution |
+| **MSCRM Create Patch** | Solution | Creates an unmanaged CRM Solution Patch |
+| **MSCRM Get Solution** (preview) | Solution | Retrieves solution details from a CRM instance |
+| **MSCRM Get Latest Patch** (preview) | Solution | Retrieves the latest patch for a given solution |
+| **MSCRM Get Solution Missing Dependencies** (preview) | Solution | Retrieves missing dependencies for a solution in a instance |
+| **MSCRM Update Solution Description** (preview) | Solution | Updates the description of a given CRM Solution |
+| **MSCRM Set Version** | Solution | Updates the version of a CRM Solution |
+| **MSCRM Copy Solution Components** | Solution | Add components from a given solution to another solution if not present |
+| **MSCRM Export Solution** | Solution | Exports a CRM Solution from the source CRM environment |
+| **MSCRM Extract Solution** | Solution | Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe |
+| **MSCRM Pack Solution** | Solution | Packages a CRM Solution using SolutionPackager.exe |
+| **MSCRM Pack Solutions Using Config** (preview) | Solution | Packs Dynamics 365 Solutions using a json configuration |
+| **MSCRM Clone Solution** | Solution | Clones a CRM unmanaged Solution |
+| **MSCRM Export Solutions Using Config** (preview) | Solution |  Exports Dynamics 365 Solutions using a json configuration |
+| **MSCRM Get Solution Missing Components** (preview) | Solution | Retrieves missing components for a solution from a target instance |
+| **MSCRM Import Solution** | Solution | Import a Dynamics CRM Solution package |
+| **MSCRM Import Solutions Using Config** (preview) | Solution | Imports Dynamics 365 Solutions using a json configuration |
+| **MSCRM Apply Solution Upgrade** | Solution | Applies a solution upgrade after solution is import using stage for upgrade option |
+| **MSCRM Remove Solution** (preview) | Solution | Removes the given CRM Solution |
+| **MSCRM Remove Solution Components** | Solution | Removes all components from a given CRM Solution |
+| **MSCRM Publish Customizations** | Solution | Publishes all CRM customizations |
+| **MSCRM Check Solution** | Solution | Uses PowerApps Checker API to validate your solution against a list of known issues |
+| **MSCRM Get Online Instance By Name** | Environment | Gets an Online instance ID based on the name of the instance. |
+| **MSCRM Provision Online Instance** | Environment | Creates a new Dynamics 365 Customer Engagement Online Instance |
+| **MSCRM Backup Online Instance** | Environment | Creates a backup of a Dynamics 365 Customer Engagement Online Instance |
+| **MSCRM Restore Instance** | Environment | Restores an online instance from a previous backup |
+| **MSCRM Copy Instance** (preview) | Environment | Copies a source instance to a target instance |
+| **MSCRM Reset Online Instance** (preview) | Environment | Resets a Dynamics 365 Customer Engagement Online Instance |
+| **MSCRM Set Online Instance Admin Mode** | Environment | Enable/Disable administration mode on Online Instances |
+| **MSCRM Delete Instance** | Environment | Deletes an Online Instance |
+| **MSCRM Export Config Migration Data** (preview) | Data | Exports data from a CRM instance using a Configuration Migration schema file |
+| **MSCRM Extract Config Migration Data** (preview) |  Data | Extracts the data zip exported using Configuration Migration Tool into folder with the option split and sort the data.xml |
+| **MSCRM Pack Config Migration Data** (preview) |  Data | Packs the data files that have been extracted using Extract task back into a data zip that can be imported using Configuration Migration Tool |
+| **MSCRM Import Config Migration Data** (preview) |  Data | Import data exported using Configuration Migration Tool into a CRM instance |
+| **MSCRM Get Configuration Record** (preview) | Data | Retrieves a configuration entity record value using a unique lookup value |
+| **MSCRM Update Configuration Records** (preview) | Data | Upserts a configuration entity records using lookup/value pairs |
+| **MSCRM Package Deployer** | Package Deployer | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
+| **MSCRM Plugin Registration** (preview) | Plug-ins | Upsert Dynamics 365 plugin/workflow activity assembly/types/steps |
+| **MSCRM Split Plugin Assembly** (preview) | Plug-ins | Splits the plugin assembly into multiple plugin assemblies |
+| **MSCRM Update Plugin Assembly** (deprecated) | Plug-ins | Updates Dynamics 365 plugin assembly from file |
+| **MSCRM Update Secure Configuration** | Plug-ins | A task that updates Dynamics 365 plugin secure configuration |
+| **MSCRM Service Endpoint Registration** (preview) | Plug-ins | Upsert Dynamics 365 Service Endpoints and steps |
+| **MSCRM Update Web Resources** (preview) | Web Resources | Updates Dynamics 365 Web Resources from source control |
 
 Some explanation for tasks that have the below in the names:
 
@@ -175,5 +180,8 @@ Added task to check solution using PowerApps Checker
 Added support for localization parameters in solution packager tasks  
 Added task to retrieve solution details from a CRM instance  
 Added task to retrieve the latest patch for given solution  
+Added task to retrieve a configuration record from a CRM instance  
+Added tasks to export/import Configuration Migration Data  
+Added tasks to extract/pack Configuration Migration data for version control management  
 
 For more information on changes between versions, check the commits and releases on GitHub

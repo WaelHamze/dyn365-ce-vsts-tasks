@@ -77,6 +77,10 @@ New-Item "$OutputDir\Tasks\$taskName\Lib\AzureAD\2.0.2.16" -ItemType directory |
 Copy-Item -Path .\Lib\AzureAD\2.0.2.16\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\AzureAD\2.0.2.16" -Recurse
 New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2" -Recurse
+New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.ConfigurationMigration\1.0.0.12" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\Microsoft.Xrm.Tooling.ConfigurationMigration\1.0.0.12\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.ConfigurationMigration\1.0.0.12" -Recurse
+New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.CrmConnector.PowerShell\3.3.0.857" -ItemType directory | Out-Null
+Copy-Item -Path .\Lib\Microsoft.Xrm.Tooling.CrmConnector.PowerShell\3.3.0.857\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.CrmConnector.PowerShell\3.3.0.857" -Recurse
 
 #Clean Up
 Remove-Item $TempDir -Force -Recurse

@@ -239,12 +239,22 @@
     <Content Include="Tasks\MSCRMGetSolution\task.json" />
     <Content Include="Tasks\MSCRMGetLatestPatch\MSCRMGetLatestPatch.ps1" />
     <Content Include="Tasks\MSCRMGetLatestPatch\task.json" />
+    <Content Include="Tasks\MSCRMExportCMData\MSCRMExportCMData.ps1" />
+    <Content Include="Tasks\MSCRMExportCMData\task.json" />
+    <Content Include="Tasks\MSCRMImportCMData\MSCRMImportCMData.ps1" />
+    <Content Include="Tasks\MSCRMImportCMData\task.json" />
+    <Content Include="Tasks\MSCRMExtractCMData\MSCRMExtractCMData.ps1" />
+    <Content Include="Tasks\MSCRMExtractCMData\task.json" />
+    <Content Include="Tasks\MSCRMPackCMData\MSCRMPackCMData.ps1" />
+    <Content Include="Tasks\MSCRMPackCMData\task.json" />
     <None Include="Tasks\MSCRMGetSolutionMissingDependencies\MSCRMGetSolutionMissingDependencies.ps1" />
     <Content Include="Tasks\MSCRMGetSolutionMissingDependencies\task.json" />
     <Content Include="Tasks\MSCRMResetOnlineInstance\MSCRMResetOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMResetOnlineInstance\task.json" />
     <Content Include="Tasks\MSCRMCopyOnlineInstance\MSCRMCopyOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMCopyOnlineInstance\task.json" />
+    <Content Include="Tasks\MSCRMGetConfigurationRecord\MSCRMGetConfigurationRecord.ps1" />
+    <Content Include="Tasks\MSCRMGetConfigurationRecord\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
