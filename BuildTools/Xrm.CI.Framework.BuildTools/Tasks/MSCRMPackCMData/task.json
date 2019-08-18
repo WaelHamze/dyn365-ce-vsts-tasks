@@ -1,0 +1,55 @@
+{
+  "id": "EF5BA6DF-1DEC-49C8-AEDA-15BFDB6F6D56",
+  "name": "MSCRMPackCMData",
+  "friendlyName": "MSCRM Pack Config Migration Data",
+  "description": "Packs the data files that have been extracted using Extract task back into a data zip that can be imported using Configuration Migration Tool",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/administering-dynamics-365/dn647421(v=crm.8)",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "5"
+  },
+  "preview": "true",
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Pack Configuration Migration Data",
+  "groups": [
+  ],
+  "inputs": [
+    {
+      "name": "dataFile",
+      "type": "filePath",
+      "label": "Data File",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to data zip file that will be generated from the extract folder"
+    },
+    {
+      "name": "extractFolder",
+      "type": "filePath",
+      "label": "Extract Folder",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the folder containing the extracted data files"
+    },
+    {
+      "name": "combineDataXmlFile",
+      "type": "boolean",
+      "label": "Combine Data Xml",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Set to true to combine multiple entity data xml files into single data.xml file"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMPackCMData.ps1"
+    }
+  }
+}
