@@ -1,0 +1,84 @@
+{
+  "id": "0969E8A7-CC41-4B68-A78E-522C285702A5",
+  "name": "MSCRMGetConfigurationRecord",
+  "friendlyName": "MSCRM Get Configuration Record",
+  "description": "Retrieves a configuration entity record value using a lookup",
+  "author": "Wael Hamze",
+  "helpMarkDown": "Retrieves a configuration entity record value using a unique lookup value",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Get Configuration Record: $(lookupValue)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "entityName",
+      "type": "string",
+      "label": "Entity Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The entity logical name to upsert. (i.e. prefix_config)"
+    },
+    {
+      "name": "lookupFieldName",
+      "type": "string",
+      "label": "Lookup Field Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the field used to lookup the record. (i.e. prefix_key)"
+    },
+    {
+      "name": "valueFieldName",
+      "type": "string",
+      "label": "Value Field Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the field containing the value to you want to retrieve (i.e. prefix_value)"
+    },
+    {
+      "name": "lookupValue",
+      "type": "string",
+      "label": "Lookup Value",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The value that uniquely identifies a configuration record"
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "RECORD_EXISTS",
+      "description": "Returns true if the configuration record exists"
+    },
+    {
+      "name": "RECORD_VALUE",
+      "description": "The value of the configuration record"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMGetConfigurationRecord.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}
