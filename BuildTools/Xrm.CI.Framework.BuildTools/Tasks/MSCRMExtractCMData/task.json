@@ -1,0 +1,63 @@
+{
+  "id": "F63A7F0B-A432-4B2B-8EC3-A2A9E089CDF2",
+  "name": "MSCRMExtractCMData",
+  "friendlyName": "MSCRM Extract Config Migration Data",
+  "description": "Extracts the data zip exported using Configuration Migration Tool into folder with the option split and sort the data.xml",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/administering-dynamics-365/dn647421(v=crm.8)",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "4"
+  },
+  "preview": "true",
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Extract Configuration Migration Data",
+  "groups": [
+  ],
+  "inputs": [
+    {
+      "name": "dataFile",
+      "type": "filePath",
+      "label": "Data File",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to exported data zip file"
+    },
+    {
+      "name": "extractFolder",
+      "type": "filePath",
+      "label": "Extract Folder",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the folder for storing the extracted data files"
+    },
+    {
+      "name": "sortExtractedData",
+      "type": "boolean",
+      "label": "Sort Data Xml",
+      "defaultValue": "2",
+      "required": false,
+      "helpMarkDown": "Set to true to sort the records in the data.xml by Ids for easier version control management"
+    },
+    {
+      "name": "splitExtractedData",
+      "type": "boolean",
+      "label": "Split Data Xml",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Set to true to split the data.xml into mutiple files per entity i.e. entityname_data.xml"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMExtractCMData.ps1"
+    }
+  }
+}
