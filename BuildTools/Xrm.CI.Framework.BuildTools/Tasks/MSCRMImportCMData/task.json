@@ -1,0 +1,71 @@
+{
+  "id": "81FA890C-2B95-4D6B-BC9E-58828D754D07",
+  "name": "MSCRMImportCMData",
+  "friendlyName": "MSCRM Import Config Migration Data",
+  "description": "Import data exported using Configuration Migration Tool into a CRM instance",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/administering-dynamics-365/dn647421(v=crm.8)",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "preview": "true",
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Import Configuration Migration Data",
+  "groups": [
+  ],
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "dataFile",
+      "type": "filePath",
+      "label": "Data File",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to exported data zip file"
+    },
+    {
+      "name": "concurrentThreads",
+      "type": "string",
+      "label": "Concurrent Threads",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "The number of concurrent threads to use during import"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "2",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in minutes"
+    },
+    {
+      "name": "logsDirectory",
+      "type": "filePath",
+      "label": "Logs Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to the directory on agent server where logs will be placed. By default this will be $env:System_DefaultWorkingDirectory"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMImportCMData.ps1"
+    }
+  }
+}
