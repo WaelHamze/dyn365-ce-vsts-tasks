@@ -1,0 +1,71 @@
+{
+  "id": "0BE5756E-887C-41DD-AA63-E52C293B2AD4",
+  "name": "MSCRMExportCMData",
+  "friendlyName": "MSCRM Export Config Migration Data",
+  "description": "Exports data from a CRM instance using a Configuration Migration schema file",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/administering-dynamics-365/dn647421(v=crm.8)",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "4"
+  },
+  "preview": "true",
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Export Configuration Migration Data",
+  "groups": [
+  ],
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "schemaFile",
+      "type": "filePath",
+      "label": "Schema File",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the schema file used for export"
+    },
+    {
+      "name": "dataFile",
+      "type": "filePath",
+      "label": "Data File",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to exported data zip file"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "2",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in minutes"
+    },
+    {
+      "name": "logsDirectory",
+      "type": "filePath",
+      "label": "Logs Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to the directory on agent server where logs will be placed. By default this will be $env:System_DefaultWorkingDirectory"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMExportCMData.ps1"
+    }
+  }
+}
