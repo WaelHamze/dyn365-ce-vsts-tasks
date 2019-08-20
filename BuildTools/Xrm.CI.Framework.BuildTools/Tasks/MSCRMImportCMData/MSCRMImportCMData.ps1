@@ -13,11 +13,13 @@ $concurrentThreads = Get-VstsInput -Name concurrentThreads -AsInt
 $dataFile = Get-VstsInput -Name dataFile -Require
 $logsDirectory = Get-VstsInput -Name logsDirectory
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
+$userMapFile = Get-VstsInput -Name userMapFile
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
 $sourcesDirectory = $env:BUILD_SOURCESDIRECTORY
 $binariesDirectory = $env:BUILD_BINARIESDIRECTORY
+$defaultDirectory = $env:System_DefaultWorkingDirectory
 
 Write-Verbose "buildNumber = $buildNumber"
 Write-Verbose "sourcesDirectory = $sourcesDirectory"
@@ -38,8 +40,13 @@ if (-not $logsDirectory)
 	Write-Verbose "logsDirectory not supplied"
 	
 	$logsDirectory = $env:System_DefaultWorkingDirectory
+}
 
-	Write-Verbose "logsDirectory set to $logsDirectory"
+Write-Verbose "logsDirectory: $logsDirectory"
+
+if ($userMapFile -eq $sourcesDirectory -or $userMapFile -eq $defaultDirectory)
+{
+	$userMapFile = $null
 }
 
 $params = @{
@@ -50,6 +57,7 @@ $params = @{
 	logsDirectory = "$logsDirectory"
 	configurationMigrationModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.ConfigurationMigration\1.0.0.12"
 	toolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell\3.3.0.857"
+	userMapFile = "$userMapFile"
 }
 
 try
@@ -58,7 +66,22 @@ try
 }
 finally
 {
+	$Logs = Get-ChildItem "$logsDirectory" -Filter *.log
 
+	Write-Verbose "$($Logs.Length) log files found"
+
+	foreach($LogFile in $Logs)
+	{
+		try
+		{
+			Write-Host "##vso[task.uploadfile]$($LogFile.FullName)"
+		}
+		catch
+		{
+			Write-Warning "Unable to upload $($LogFile.FullName)"
+			$_
+		}
+	}
 }
 
 Write-Verbose 'Leaving MSCRMImportCMData.ps1'

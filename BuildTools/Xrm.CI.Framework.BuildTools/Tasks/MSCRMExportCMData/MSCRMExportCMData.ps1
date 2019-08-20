@@ -58,7 +58,22 @@ try
 }
 finally
 {
+	$Logs = Get-ChildItem "$logsDirectory" -Filter *.log
 
+	Write-Verbose "$($Logs.Length) log files found"
+
+	foreach($LogFile in $Logs)
+	{
+		try
+		{
+			Write-Host "##vso[task.uploadfile]$($LogFile.FullName)"
+		}
+		catch
+		{
+			Write-Warning "Unable to upload $($LogFile.FullName)"
+			$_
+		}
+	}
 }
 
 Write-Verbose 'Leaving MSCRMExportCMData.ps1'

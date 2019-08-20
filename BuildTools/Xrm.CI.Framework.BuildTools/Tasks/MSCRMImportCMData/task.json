@@ -14,7 +14,7 @@
   "version": {
     "Major": "9",
     "Minor": "0",
-    "Patch": "1"
+    "Patch": "2"
   },
   "preview": "true",
   "minimumAgentVersion": "1.95.0",
@@ -45,6 +45,14 @@
       "defaultValue": "0",
       "required": false,
       "helpMarkDown": "The number of concurrent threads to use during import"
+    },
+    {
+      "name": "userMapFile",
+      "type": "filePath",
+      "label": "User Map File",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "The user mapping xml file for mapping users during import (on-premise)"
     },
     {
       "name": "crmConnectionTimeout",
