@@ -65,6 +65,7 @@ New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -ItemType directory | 
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\SolutionPackager.exe -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\SolutionPackager.exe.config -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\System.ValueTuple.dll -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
+Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\9.0.0\SolutionPackagerLib.dll -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.0.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.Xrm.OnlineManagementAPI\1.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.0.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.1.0" -ItemType directory | Out-Null

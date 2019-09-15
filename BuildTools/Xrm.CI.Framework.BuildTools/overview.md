@@ -184,4 +184,7 @@ Added task to retrieve a configuration record from a CRM instance
 Added tasks to export/import Configuration Migration Data  
 Added tasks to extract/pack Configuration Migration data for version control management  
 
+**9.11.x**  
+Updated Solution Packager to SDK 9.1.0.13  
+
 For more information on changes between versions, check the commits and releases on GitHub

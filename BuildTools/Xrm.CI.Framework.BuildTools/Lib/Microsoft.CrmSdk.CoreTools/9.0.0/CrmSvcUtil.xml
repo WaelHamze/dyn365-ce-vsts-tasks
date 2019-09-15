@@ -150,6 +150,11 @@
             Populates the command line arguments map.
             </summary>
         </member>
+        <member name="T:Microsoft.Crm.Services.Utility.IOrganizationMetadata">
+            <summary>
+            Interface for IOrganization metadata
+            </summary>
+        </member>
         <member name="P:Microsoft.Crm.Services.Utility.IOrganizationMetadata.Entities">
             <summary>
             Array of complete EntityMetadata for the Organization.
@@ -163,6 +168,448 @@
         <member name="P:Microsoft.Crm.Services.Utility.IOrganizationMetadata.Messages">
             <summary>
             All SdkMessages for the Organization.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.Result">
+            <summary>
+            SDK Message result
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.Result.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.Name">
+            <summary>
+            Message name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.IsPrivate">
+            <summary>
+            Gets or sets whether the message is private
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.CustomizationLevel">
+            <summary>
+            Gets or sets the customization level
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageId">
+            <summary>
+            Gets or sets the message id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessagePairId">
+            <summary>
+            Gets or sets the message pair id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessagePairNamespace">
+            <summary>
+            Gets or sets the message pair namespace
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestId">
+            <summary>
+            Gets or sets the message request id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestName">
+            <summary>
+            Gets or sets the message request name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestFieldName">
+            <summary>
+            Gets or sets the message request field name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestFieldIsOptional">
+            <summary>
+            Gets or sets whether the message request field is optional
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestFieldParser">
+            <summary>
+            Gets or sets the message request field parser
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestFieldClrParser">
+            <summary>
+            Gets or sets the message request field CLR parser
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageResponseId">
+            <summary>
+            Gets or sets the message request response id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageResponseFieldValue">
+            <summary>
+            Gets or sets the message request response field value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageResponseFieldFormatter">
+            <summary>
+            Gets or sets the message request response field formatter
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageResponseFieldClrFormatter">
+            <summary>
+            Gets or sets the message request response field CLR formatter
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageResponseFieldName">
+            <summary>
+            Gets or sets the message request response field name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageRequestFieldPosition">
+            <summary>
+            Gets or sets the message request field position
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageResponseFieldPosition">
+            <summary>
+            Gets or sets the message response field position
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageFilterId">
+            <summary>
+            Gets or sets the message filter id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessagePrimaryOTCFilter">
+            <summary>
+            Gets or sets the message primary OTC filter
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.Result.SdkMessageSecondaryOTCFilter">
+            <summary>
+            Gets or sets the message secondary OTC filter
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.ResultSet">
+            <summary>
+            Set of SDK message results
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.ResultSet.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.ResultSet.Results">
+            <summary>
+            Gets or sets an array of results
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.ResultSet.PagingCookie">
+            <summary>
+            Gets or sets the paging cookie
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.ResultSet.MoreRecords">
+            <summary>
+            Gets or sets a flag for more records
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessage">
+            <summary>
+            An SDK Message
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessage.#ctor(System.Guid,System.String,System.Boolean)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessage.Name">
+            <summary>
+            Gets the SDK message name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessage.Id">
+            <summary>
+            Gets the SDK message id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessage.IsPrivate">
+            <summary>
+            Gets whether the SDK message is private
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessage.IsCustomAction">
+            <summary>
+            Gets whether the SDK message is a custom action
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessage.SdkMessagePairs">
+            <summary>
+            Gets a dictionary of message pairs
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessage.SdkMessageFilters">
+            <summary>
+            Gets a dictionary of message filters
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessage.Fill(Microsoft.Crm.Services.Utility.Result)">
+            <summary>
+            Fills an SDK message from a given result
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessageFilter">
+            <summary>
+            An SDK message filter
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessageFilter.#ctor(System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Message filter id</param>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessageFilter.#ctor(System.Guid,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Message filter id</param>
+            <param name="primaryObjectTypeCode">Primary object type code</param>
+            <param name="secondaryObjectTypeCode">Secondary object type code</param>
+            <param name="isVisible">Whether the message filter is visible</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageFilter.Id">
+            <summary>
+            Gets the message filter id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageFilter.PrimaryObjectTypeCode">
+            <summary>
+            Gets or sets the message filter primary object type code
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageFilter.SecondaryObjectTypeCode">
+            <summary>
+            Gets or sets the message secondary object type code
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageFilter.IsVisible">
+            <summary>
+            Gets or sets whether the message filter is visible
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessagePair">
+            <summary>
+            An SDK message pair
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessagePair.#ctor(Microsoft.Crm.Services.Utility.SdkMessage,System.Guid,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">SDK message</param>
+            <param name="id">Message pair id</param>
+            <param name="messageNamespace">Message namespace</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessagePair.Id">
+            <summary>
+            Gets the message pair id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessagePair.MessageNamespace">
+            <summary>
+            Gets the message namespace
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessagePair.Message">
+            <summary>
+            Gets or sets the message
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessagePair.Request">
+            <summary>
+            Gets or sets the message request
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessagePair.Response">
+            <summary>
+            Gets or sets the message response
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessageRequest">
+            <summary>
+            An SDK message request
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessageRequest.#ctor(Microsoft.Crm.Services.Utility.SdkMessagePair,System.Guid,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">SDK Message</param>
+            <param name="id">Message request id</param>
+            <param name="name">Message request name</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequest.Id">
+            <summary>
+            Gets the message request id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequest.MessagePair">
+            <summary>
+            Gets the message pair of the request
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequest.Name">
+            <summary>
+            Gets the message request name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequest.RequestFields">
+            <summary>
+            Gets a dictionary of message request fields
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessageRequestField">
+            <summary>
+            An SDK message request field
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessageRequestField.#ctor(Microsoft.Crm.Services.Utility.SdkMessageRequest,System.Int32,System.String,System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="request">SDK message request</param>
+            <param name="index">Request field index</param>
+            <param name="name">Request field name</param>
+            <param name="clrFormatter">Request field CLR formatter</param>
+            <param name="isOptional">Whether the request field is optional</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequestField.Request">
+            <summary>
+            Gets the SDK message request
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequestField.Index">
+            <summary>
+            Gets the message request field index
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequestField.Name">
+            <summary>
+            Gets the message request field name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequestField.CLRFormatter">
+            <summary>
+            Gets the message request field CLR formatter
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequestField.IsOptional">
+            <summary>
+            Gets whether the message field is optional
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageRequestField.IsGeneric">
+            <summary>
+            Gets whether the message request field is generic
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessageResponse">
+            <summary>
+            An SDK message response
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessageResponse.#ctor(System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Message response id</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageResponse.Id">
+            <summary>
+            Gets the message response id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageResponse.ResponseFields">
+            <summary>
+            Gets the message response fields
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessageResponseField">
+            <summary>
+            An SDK message response field
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessageResponseField.#ctor(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="index">Field index</param>
+            <param name="name">Field name</param>
+            <param name="clrFormatter">Field CLR formatter</param>
+            <param name="value">Field value</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageResponseField.Index">
+            <summary>
+            Gets the message response field index
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageResponseField.Name">
+            <summary>
+            Gets the message response field name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageResponseField.CLRFormatter">
+            <summary>
+            Gets the message response field CLR formatter
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessageResponseField.Value">
+            <summary>
+            Gets the message response field value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.SdkMessages">
+            <summary>
+            SDK Messages
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessages.#ctor(System.Collections.Generic.Dictionary{System.Guid,Microsoft.Crm.Services.Utility.SdkMessage})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="messageCollection">SDK message collection</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.SdkMessages.MessageCollection">
+            <summary>
+            Gets the message collection
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.SdkMessages.FromFetchResult(Microsoft.Crm.Services.Utility.SdkMessages,System.String)">
+            <summary>
+            Gets the MessagePagingInfo for a given collection SDK messages
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.MessagePagingInfo">
+            <summary>
+            Message paging info
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.MessagePagingInfo.PagingCookig">
+            <summary>
+            Gets or sets the paging cookie
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.MessagePagingInfo.HasMoreRecords">
+            <summary>
+            Gets or sets whether the paging info has more records
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.MessagePagingInfo.FromResultSet(Microsoft.Crm.Services.Utility.ResultSet)">
+            <summary>
+            Gets the message paging info from a set of message results
             </summary>
         </member>
         <member name="M:Microsoft.Crm.Services.Utility.CodeWriterFilterService.IsNotExposedChildAttribute(Microsoft.Xrm.Sdk.Metadata.AttributeMetadata)">
@@ -179,6 +626,7 @@
             <summary>
             Loads the device credentials (if they exist). If they don't
             </summary>
+            <param name="applicationId">Application id</param>
             <param name="issuerUri">URL for the current token issuer</param>
             <remarks>
             The issuerUri can be retrieved from the IServiceConfiguration interface's CurrentIssuer property.
@@ -300,6 +748,195 @@
             <param name="si"></param>
             <param name="sc"></param>
         </member>
+        <member name="T:Microsoft.Crm.Services.Utility.DeviceRegistrationRequest">
+            <summary>
+            Device requestration request
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.DeviceRegistrationRequest.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.DeviceRegistrationRequest.#ctor(System.Guid,Microsoft.Crm.Services.Utility.LiveDevice)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="applicationId">Application id</param>
+            <param name="device">Device to register</param>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationRequest.ClientInfo">
+            <summary>
+            Gets or sets the device registration client info
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationRequest.Authentication">
+            <summary>
+            Gets or sets the device registration authentication
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.DeviceRegistrationClientInfo">
+            <summary>
+            Device registration client info
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationClientInfo.ApplicationId">
+            <summary>
+            Gets or sets the device registration client info's application id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationClientInfo.Version">
+            <summary>
+            Gets or sets the device registration client info version
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.DeviceRegistrationAuthentication">
+            <summary>
+            Device registration authentication
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationAuthentication.MemberName">
+            <summary>
+            Gets or sets the device registration authentication member name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationAuthentication.Password">
+            <summary>
+            Gets or sets the device registration authentication password
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.DeviceRegistrationResponse">
+            <summary>
+            Device registration response
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationResponse.IsSuccess">
+            <summary>
+            Gets or sets whether the device registration was successful
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationResponse.Puid">
+            <summary>
+            Gets or sets the device registration puid
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationResponse.Error">
+            <summary>
+            Gets or sets the device registration error
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationResponse.ErrorSubCode">
+            <summary>
+            Gets or sets the device registration error sub code
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.DeviceRegistrationResponseError">
+            <summary>
+            Device registration response error
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceRegistrationResponseError.Code">
+            <summary>
+            Gets or sets the device registration error code
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.LiveDevice">
+            <summary>
+            Live device
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.LiveDevice.Version">
+            <summary>
+            Gets or sets the device version
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.LiveDevice.User">
+            <summary>
+            Gets or sets the device user name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.LiveDevice.Token">
+            <summary>
+            Gets or sets the device token
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.LiveDevice.Expiry">
+            <summary>
+            Gets or sets the device token expiry
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.LiveDevice.ClockSkew">
+            <summary>
+            Gets or sets the device clock skew
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.DeviceUserName">
+            <summary>
+            Device user name
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.DeviceUserName.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceUserName.DeviceName">
+            <summary>
+            Gets or sets the device user name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceUserName.UserNameType">
+            <summary>
+            Gets or sets the device user type
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceUserName.EncryptedPassword">
+            <summary>
+            Gets or sets the device user password
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceUserName.DeviceId">
+            <summary>
+            Gets or sets the device id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.Services.Utility.DeviceUserName.DecryptedPassword">
+            <summary>
+            Gets or sets the device user's decrypted password
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.DeviceUserName.ToClientCredentials">
+            <summary>
+            Creates client credentials for the device user
+            </summary>
+            <returns>An instance of ClientCredentials</returns>
+        </member>
+        <member name="T:Microsoft.Crm.Services.Utility.IMetadataProviderQueryService">
+            <summary>
+            Interface for metadata provider query service
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.IMetadataProviderQueryService.RetrieveEntities(Microsoft.Xrm.Sdk.IOrganizationService)">
+            <summary>
+            Retrieves entities for the given service
+            </summary>
+            <param name="service">Service to query</param>
+            <returns>An EntityMetadata array</returns>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.IMetadataProviderQueryService.RetrieveOptionSets(Microsoft.Xrm.Sdk.IOrganizationService)">
+            <summary>
+            Retrieves option sets for the given service
+            </summary>
+            <param name="service">Service to query</param>
+            <returns>An OptionSetMetadataBase array</returns>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.IMetadataProviderQueryService.RetrieveSdkRequests(Microsoft.Xrm.Sdk.IOrganizationService)">
+            <summary>
+            Retrieves SDK requests for the given service
+            </summary>
+            <param name="service">Service to query</param>
+            <returns>SdkMessages</returns>
+        </member>
         <member name="T:Microsoft.Crm.Services.Utility.StaticNamingService">
             <summary>
             Special class to hold hardcoded entity and attribute name mappings.
@@ -326,6 +963,46 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Microsoft.Crm.Services.Utility.CodeGenerationType">
+            <summary>
+            Type of code to generate
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Class">
+            <summary>
+            Type Class
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Enum">
+            <summary>
+            Type Enum
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Field">
+            <summary>
+            Type Field
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Method">
+            <summary>
+            Type Method
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Property">
+            <summary>
+            Type Property
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Struct">
+            <summary>
+            Type Struct
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.Services.Utility.CodeGenerationType.Parameter">
+            <summary>
+            Type Parameter
+            </summary>
+        </member>
         <member name="T:Microsoft.Crm.Services.Utility.ICodeGenerationService">
             <summary>
             Interface that provides the ability to generate code based on organization metadata.
@@ -336,9 +1013,10 @@
             Writes code based on the organization metadata.
             </summary>
             <param name="organizationMetadata">Organization metadata to generate the code for.</param>
+            <param name="language">Laguage to generate</param>
             <param name="outputFile">Output file to write the generated code to.</param>
             <param name="targetNamespace">Target namespace for the generated code.</param>
-            <param name="serviceProvider">ServiceProvider to query for additional services that can be used during code generation.</param>
+            <param name="services">ServiceProvider to query for additional services that can be used during code generation.</param>
         </member>
         <member name="M:Microsoft.Crm.Services.Utility.ICodeGenerationService.GetTypeForOptionSet(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.OptionSetMetadataBase,System.IServiceProvider)">
             <summary>
@@ -410,6 +1088,11 @@
             Returns true to generate code for the data context and false otherwise.
             </summary>
         </member>
+        <member name="T:Microsoft.Crm.Services.Utility.ICodeWriterMessageFilterService">
+            <summary>
+            Interface for code writer message filter service
+            </summary>
+        </member>
         <member name="M:Microsoft.Crm.Services.Utility.ICodeWriterMessageFilterService.GenerateSdkMessage(Microsoft.Crm.Services.Utility.SdkMessage,System.IServiceProvider)">
             <summary>
             Returns true to generate code for the SDK Message and false otherwise.
@@ -441,6 +1124,18 @@
             return the same set of information on the IOrganizationMetadata object.
             </summary>
         </member>
+        <member name="T:Microsoft.Crm.Services.Utility.IMetadataProviderService2">
+            <summary>
+            Interface that provides metadata for a given organization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.Services.Utility.IMetadataProviderService2.LoadMetadata(System.IServiceProvider)">
+            <summary>
+            Loads metadata for the given service
+            </summary>
+            <param name="service">Service to query</param>
+            <returns>IOrganizationMetadata</returns>
+        </member>
         <member name="T:Microsoft.Crm.Services.Utility.INamingService">
             <summary>
             Used by the ICodeGenerationService to retrieve names for the CodeDOM objects being created.
@@ -470,7 +1165,6 @@
             <summary>
             Retrieves a name for the 1:N, N:N, or N:1 relationship being generated.
             </summary>
-            <param name="reflexiveRole">The nature of the reflexive relationship or null if not reflexive.</param>
         </member>
         <member name="M:Microsoft.Crm.Services.Utility.INamingService.GetNameForServiceContext(System.IServiceProvider)">
             <summary>
@@ -659,6 +1353,11 @@
         <member name="E:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.ConnectionToCrmCompleted">
             <summary>
             Raised when a connection to CRM has completed. 
+            </summary>
+        </member>
+        <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.#ctor">
+            <summary>
+            Default constructor
             </summary>
         </member>
         <member name="M:CrmSvcUtil.InteractiveLogin.CRMInteractiveLogin.Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
