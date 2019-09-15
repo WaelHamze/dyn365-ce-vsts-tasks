@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "12"
+    "Patch": "14"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Check Solution",
@@ -60,6 +60,18 @@
       "helpMarkDown": "The application secret used for connection."
     },
     {
+      "name": "ruleType",
+      "type": "pickList",
+      "label": "Rule Type",
+      "defaultValue": "RuleSet",
+      "options": {
+        "RuleSet": "Standard Rule Set",
+        "Rules": "Specific Rules"
+      },
+      "required": true,
+      "helpMarkDown": "The"
+    },
+    {
       "name": "ruleset",
       "type": "pickList",
       "label": "Ruleset",
@@ -69,7 +81,25 @@
         "AppSource Certification": "AppSource Certification"
       },
       "required": true,
-      "helpMarkDown": "The ruleset to use for checking the solution "
+      "helpMarkDown": "The ruleset to use for checking the solution",
+      "visibleRule": "ruleType = RuleSet"
+    },
+    {
+      "name": "ruleCodes",
+      "type": "multiLine",
+      "label": "Rule Codes (json array)",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The rules to use for checking. FORMAT e.g.: ['il-specify-column','meta-remove-inactive']",
+      "visibleRule": "ruleType = Rules"
+    },
+    {
+      "name": "excludedFiles",
+      "type": "multiLine",
+      "label": "Excluded File/Patterns (json array)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The files or patterns to be excluded. FORMAT e.g.: ['form.js','*plugins*']"
     },
     {
       "name": "geography",

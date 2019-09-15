@@ -12,7 +12,10 @@ $outputPath = Get-VstsInput -Name outputPath -Require
 $tenantId = Get-VstsInput -Name tenantId -Require
 $applicationId = Get-VstsInput -Name applicationId -Require
 $applicationSecret = Get-VstsInput -Name applicationSecret -Require
-$ruleset = Get-VstsInput -Name ruleset -Require
+$ruleType = Get-VstsInput -Name ruleType -Require
+$ruleset = Get-VstsInput -Name ruleset
+$ruleCodes = Get-VstsInput -Name ruleCodes
+$excludedFiles = Get-VstsInput -Name excludedFiles
 $geography = Get-VstsInput -Name geography -Require
 $enableThresholds = Get-VstsInput -Name enableThresholds -Require -AsBool
 $thresholdAction = Get-VstsInput -Name thresholdAction -Require
@@ -59,7 +62,6 @@ $CheckParams = @{
 	TenantId = "$tenantId"
 	ApplicationId = "$applicationId"
 	ApplicationSecret = "$applicationSecret"
-	Ruleset = "$ruleset"
 	Geography = "$geography"
 	PowerAppsCheckerPath = "$mscrmToolsPath\Microsoft.PowerApps.Checker.PowerShell\1.0.2"
 	EnableThresholds = $enableThresholds
@@ -67,6 +69,19 @@ $CheckParams = @{
 	HighThreshold = $highThreshold
 	MediumThreshold = $mediumThreshold
 	LowThreshold = $lowThreshold
+}
+
+if ($ruleType -eq 'RuleSet')
+{
+	$CheckParams.Ruleset = "$ruleset"
+}
+if ($ruleType -eq 'Rules')
+{
+	$CheckParams.RuleCodes = ConvertFrom-Json -InputObject "$ruleCodes"
+}
+if ($excludedFiles)
+{
+	$CheckParams.ExcludedFiles = ConvertFrom-Json -InputObject "$excludedFiles"
 }
 
 try
