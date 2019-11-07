@@ -62,7 +62,7 @@ if (-not $mscrmToolsPath)
 }
 
 $PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
-$AzureADModulePath = "$mscrmToolsPath\AzureAD\2.0.2.16"
+$AzureADModulePath = "$mscrmToolsPath\AzureAD"
 
 $templateNames = [string[]] @()
 if ($sales)

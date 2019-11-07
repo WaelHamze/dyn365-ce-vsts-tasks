@@ -160,6 +160,7 @@
     <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.cat" />
     <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.psd1" />
     <Content Include="Lib\Microsoft.Xrm.OnlineManagementAPI\1.1.0\Microsoft.Xrm.OnlineManagementAPI.psm1" />
+    <Content Include="DownloadTools.ps1" />
     <None Include="packages.config" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\MSCRMBackupOnlineInstance.ps1" />
     <Content Include="Tasks\MSCRMBackupOnlineInstance\task.json" />

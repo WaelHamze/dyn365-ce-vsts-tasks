@@ -27,7 +27,7 @@ if (-not $mscrmToolsPath)
 }
 
 $PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
-$AzureADModulePath = "$mscrmToolsPath\AzureAD\2.0.2.16"
+$AzureADModulePath = "$mscrmToolsPath\AzureAD"
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\CopyOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -sourceInstanceName $sourceInstanceName  -targetInstanceName $targetInstanceName -copyType $copyType -friendlyName "$friendlyName" -securityGroupName "$securityGroupName" -PSModulePath $PSModulePath -azureADModulePath "$AzureADModulePath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 

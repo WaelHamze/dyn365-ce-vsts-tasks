@@ -29,7 +29,7 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.0.0"
+$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\DeleteOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password  -InstanceName $InstanceName -PSModulePath $PSModulePath -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 

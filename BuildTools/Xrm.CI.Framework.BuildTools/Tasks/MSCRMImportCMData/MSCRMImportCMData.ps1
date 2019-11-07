@@ -55,8 +55,8 @@ $params = @{
 	dataFile = "$dataFile"
 	concurrentThreads = $concurrentThreads
 	logsDirectory = "$logsDirectory"
-	configurationMigrationModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.ConfigurationMigration\1.0.0.12"
-	toolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell\3.3.0.857"
+	configurationMigrationModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.ConfigurationMigration"
+	toolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell"
 	userMapFile = "$userMapFile"
 }
 

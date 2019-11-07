@@ -25,7 +25,7 @@ Write-Host "Using Tools Path: $toolPath"
 $frameworkCache = $toolPath + "\MSCRMBuildTools"
 Write-Verbose "Framework Cache: $frameworkCache"
 
-$currentVersion = '9.0.23'
+$currentVersion = '9.1.0'
 $currentVersionPath = "$frameworkCache\$currentVersion"
 
 Write-Host "Tools Version: $currentVersion"
