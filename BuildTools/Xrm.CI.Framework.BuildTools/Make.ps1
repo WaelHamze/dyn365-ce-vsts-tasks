@@ -62,18 +62,17 @@ Copy-Item -Path .\Lib\xRMCIFramework\9.0.0\*.* -Destination "$OutputDir\Tasks\$t
 New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\8.2.0\SolutionPackager.exe -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -ItemType directory | Out-Null
-Copy-Item -Path .\Tools\CoreTools\SolutionPackager.exe -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
-Copy-Item -Path .\Tools\CoreTools\SolutionPackager.exe.config -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
-Copy-Item -Path .\Tools\CoreTools\System.ValueTuple.dll -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
-Copy-Item -Path .\Tools\CoreTools\SolutionPackagerLib.dll -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0"
+Copy-Item -Path .\Tools\CoreTools\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -Recurse -Exclude "Microsoft.Xrm.Tooling.CrmConnectControl.dll","Other Redistributable.txt"
 New-Item "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.1.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Tools\OnlineManagementAPI\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.1.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell\8.2.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0" -ItemType directory | Out-Null
-Copy-Item -Path .\Tools\PackageDeployment.Powershell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0"
+Copy-Item -Path .\Lib\Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.0.0"
+New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.1.0" -ItemType directory | Out-Null
+Copy-Item -Path .\Tools\PackageDeployment.Powershell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.1.0" -Recurse
 New-Item "$OutputDir\Tasks\$taskName\Lib\AzureAD" -ItemType directory | Out-Null
-Copy-Item -Path .\Tools\AAD\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\AzureAD" -Recurse
+Copy-Item -Path .\Tools\AAD\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\AzureAD" -Recurse -Exclude "*.pdb","*.xml","System.Management.Automation.dll"
 New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2" -ItemType directory | Out-Null
 Copy-Item -Path .\Tools\PowerAppsChecker.PowerShell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2" -Recurse
 New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.ConfigurationMigration" -ItemType directory | Out-Null
