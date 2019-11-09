@@ -29,6 +29,12 @@ if (-not $mscrmToolsPath)
 }
 
 $PackageDeploymentPath = "$mscrmToolsPath\PackageDeployment\$crmSdkVersion"
+$ToolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell"
+
+if ($crmSdkVersion -ne '9.1.0')
+{
+	$ToolingConnectorModulePath = $PackageDeploymentPath
+}
 
 $tempFolder =  "$packageDirectory\$(New-Guid)"
 Write-Verbose "Creating Temp Logs Folder: $tempFolder"
@@ -36,7 +42,7 @@ New-Item $tempFolder -ItemType directory | Out-Null
 
 try
 {
-	& "$mscrmToolsPath\xRMCIFramework\$crmSdkVersion\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $tempFolder -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -crmConnectionTimeout $crmConnectionTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings
+	& "$mscrmToolsPath\xRMCIFramework\9.0.0\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $tempFolder -toolingConnectorModulePath $ToolingConnectorModulePath -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -crmConnectionTimeout $crmConnectionTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings
 }
 finally
 {

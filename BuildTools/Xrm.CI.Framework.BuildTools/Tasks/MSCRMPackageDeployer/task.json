@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "22"
+    "Patch": "27"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Package Deployer: $(packageName)",
@@ -27,7 +27,8 @@
       "required": true,
       "options": {
         "8.2.0": "8.2",
-        "9.0.0": "9.0"
+        "9.0.0": "9.0",
+        "9.1.0": "9.1"
       },
       "helpMarkDown": "The Crm SDK version to use for executing Package Deployment Powershell"
     },
