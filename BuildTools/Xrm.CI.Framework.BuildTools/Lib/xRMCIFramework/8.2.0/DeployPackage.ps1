@@ -8,7 +8,9 @@ param(
 [string]$PackageDirectory,
 [string]$LogsDirectory = '',
 [string]$PackageDeploymentPath,
+[string]$ToolingConnectorModulePath,
 [string]$Timeout = '00:30:00', #optional timeout for Import-CrmPackage, default to 1 hour and 20 min. See https://technet.microsoft.com/en-us/library/dn756301.aspx
+[int]$CrmConnectionTimeout = 2, 
 [string]$RuntimePackageSettings,
 [string]$UnpackFilesDirectory
 )
@@ -22,8 +24,10 @@ Write-Verbose "CrmConnectionString = $CrmConnectionString"
 Write-Verbose "PackageName = $PackageName"
 Write-Verbose "PackageDirectory = $PackageDirectory"
 Write-Verbose "LogsDirectory = $LogsDirectory"
+Write-Verbose "ToolingConnectorModulePath = $ToolingConnectorModulePath"
 Write-Verbose "PackageDeploymentPath = $PackageDeploymentPath"
 Write-Verbose "Timeout = $Timeout"
+Write-Verbose "CrmConnectionTimeout = $CrmConnectionTimeout"
 Write-Verbose "RuntimePackageSettings = $RuntimePackageSettings"
 Write-Verbose "UnpackFilesDirectory = $UnpackFilesDirectory"
 
@@ -32,27 +36,20 @@ $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
 Write-Verbose "Script Path: $scriptPath"
 
 #Set Security Protocol
-$currentProtocol = [System.Net.ServicePointManager]::SecurityProtocol
-Write-Verbose "Current Security Protocol: $currentProtocol"
-if (-not $currentProtocol.HasFlag([System.Net.SecurityProtocolType]::Tls11))
-{
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol  -bor [System.Net.SecurityProtocolType]::Tls11;
-}
-if (-not $currentProtocol.HasFlag([System.Net.SecurityProtocolType]::Tls12))
-{
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol  -bor [System.Net.SecurityProtocolType]::Tls12;
-}
-$currentProtocol = [System.Net.ServicePointManager]::SecurityProtocol
-Write-Verbose "Modified Security Protocol: $currentProtocol"
+& "$scriptPath\SetTlsVersion.ps1"
 
 #Load XRM Tooling
 
 $crmToolingConnector = $scriptPath + "\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll"
 $crmToolingDeployment = $scriptPath + "\Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll"
 
+
+if($ToolingConnectorModulePath)
+{
+	$crmToolingConnector = $ToolingConnectorModulePath + "\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll"
+}
 if ($PackageDeploymentPath)
 {
-	$crmToolingConnector = $PackageDeploymentPath + "\Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll"
 	$crmToolingDeployment = $PackageDeploymentPath + "\Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll"
 }
 
@@ -64,6 +61,9 @@ Write-Verbose "Importing: $crmToolingDeployment"
 Import-Module $crmToolingDeployment
 Write-Verbose "Imported: $crmToolingDeployment"
 
+Write-Host "Microsoft.Xrm.Tooling.CrmConnector.Powershell.dll - Version: $([System.Diagnostics.FileVersionInfo]::GetVersionInfo($crmToolingConnector).FileVersion)"
+Write-Host "Microsoft.Xrm.Tooling.PackageDeployment.Powershell.dll - Version: $([System.Diagnostics.FileVersionInfo]::GetVersionInfo($crmToolingDeployment).FileVersion)"
+
 #Check Logs Directory
 if ($LogsDirectory -eq '')
 {
@@ -72,15 +72,15 @@ if ($LogsDirectory -eq '')
 
 #Create Connection
 
-$CRMConn = Get-CrmConnection -ConnectionString $CrmConnectionString -Verbose
+$CRMConn = Get-CrmConnection -ConnectionString "$CrmConnectionString" -LogWriteDirectory "$LogsDirectory" -MaxCrmConnectionTimeOutMinutes $CrmConnectionTimeout -Verbose
 
 #Deploy Package
 
 $PackageParams = @{
 	CrmConnection = $CRMConn
-	PackageDirectory = $PackageDirectory
+	PackageDirectory = "$PackageDirectory"
 	PackageName = $PackageName
-	LogWriteDirectory = $LogsDirectory
+	LogWriteDirectory = "$LogsDirectory"
 	Timeout = $Timeout
 }
 
@@ -94,6 +94,6 @@ if ($RuntimePackageSettings)
 	$PackageParams.RuntimePackageSettings = $RuntimePackageSettings
 }
 
-Import-CrmPackage -Verbose @PackageParams
+Import-CrmPackage @PackageParams -Verbose
 
 Write-Verbose 'Leaving DeployPackage.ps1'
