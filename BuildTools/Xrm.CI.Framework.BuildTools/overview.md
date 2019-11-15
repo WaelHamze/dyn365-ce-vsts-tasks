@@ -185,7 +185,9 @@ Added tasks to export/import Configuration Migration Data
 Added tasks to extract/pack Configuration Migration data for version control management  
 
 **9.11.x**  
-Updated Solution Packager to SDK 9.1.0.13  
+Updated to the latest SDK Libraries (v9.1)  
+Ability to use clientsecret authentication method in connection strings  
+Added v9.1 in the SDK Version selection in Package Deployer Task  
 Updated Check Solution Task to allow checking based on specific rules and exclude files/patterns from checks  
 
 For more information on changes between versions, check the commits and releases on GitHub
