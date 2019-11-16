@@ -59,6 +59,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Import Config Migration Data** (preview) |  Data | Import data exported using Configuration Migration Tool into a CRM instance |
 | **MSCRM Get Configuration Record** (preview) | Data | Retrieves a configuration entity record value using a unique lookup value |
 | **MSCRM Update Configuration Records** (preview) | Data | Upserts a configuration entity records using lookup/value pairs |
+| **MSCRM Get Environment Variable** (preview) | Data | Retrieves the current environment variable value from a CDS instance |
 | **MSCRM Package Deployer** | Package Deployer | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
 | **MSCRM Plugin Registration** (preview) | Plug-ins | Upsert Dynamics 365 plugin/workflow activity assembly/types/steps |
 | **MSCRM Split Plugin Assembly** (preview) | Plug-ins | Splits the plugin assembly into multiple plugin assemblies |

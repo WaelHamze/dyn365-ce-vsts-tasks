@@ -199,6 +199,9 @@
     },
     {
       "path": "Tasks/MSCRMGetConfigurationRecord"
+    },
+    {
+      "path": "Tasks/MSCRMGetEnvironmentVariable"
     }
   ],
   "contributions": [
@@ -650,6 +653,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMGetConfigurationRecord"
+      }
+    },
+    {
+      "id": "MSCRMGetEnvironmentVariable",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMGetEnvironmentVariable"
       }
     }
   ]

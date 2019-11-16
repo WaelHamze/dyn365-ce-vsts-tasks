@@ -1,0 +1,67 @@
+{
+  "id": "FE0D5B93-4223-46CD-B031-6D5B0A637D8F",
+  "name": "MSCRMGetEnvironmentVariable",
+  "friendlyName": "MSCRM Get Environment Variable",
+  "description": "Retrieves the current environment variable value from a CDS instance",
+  "author": "Wael Hamze",
+  "helpMarkDown": "",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "4"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Get Environment Variable: $(variableName)",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format check the [docs](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/xrm-tooling/use-connection-strings-xrm-tooling-connect)"
+    },
+    {
+      "name": "variableName",
+      "type": "string",
+      "label": "Variable Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The schema name of the environment variable definition"
+    },
+    {
+      "name": "valueVariableName",
+      "type": "string",
+      "label": "Value Variable Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the pipeline variable to be populated with the value of the environment variable"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "The Crm connection timeout in seconds"
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "ENVIRONMENTVARIABLE_VALUE",
+      "description": "The current value of the environment variable"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMGetEnvironmentVariable.ps1"
+    }
+  }
+}
