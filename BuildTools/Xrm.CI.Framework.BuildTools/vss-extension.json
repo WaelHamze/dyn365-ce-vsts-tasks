@@ -202,6 +202,9 @@
     },
     {
       "path": "Tasks/MSCRMGetEnvironmentVariable"
+    },
+    {
+      "path": "Tasks/MSCRMUpdateEnvironmentVariables"
     }
   ],
   "contributions": [
@@ -663,6 +666,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMGetEnvironmentVariable"
+      }
+    },
+    {
+      "id": "MSCRMUpdateEnvironmentVariables",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMUpdateEnvironmentVariables"
       }
     }
   ]

@@ -1,0 +1,50 @@
+{
+  "id": "BAB49C9C-FC9B-4D7C-9919-C4272A0930B7",
+  "name": "MSCRMUpdateEnvironmentVariables",
+  "friendlyName": "MSCRM Update Environment Variables",
+  "description": "Upserts environemnt variables current value record using name/value pairs",
+  "author": "Wael Hamze",
+  "helpMarkDown": "Reads a json array of name/value and upserts current environment variable values in CDS",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "2"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Update Environment Variables",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "environmentVariablesJson",
+      "type": "multiLine",
+      "label": "A json array of name/value pairs.",
+      "defaultValue": "[['name1','value1'],['name2','$(variable2)']]",
+      "required": true,
+      "helpMarkDown": "FORMAT: [['name1','value1'],['name2','$(variable2)']]"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMUpdateEnvironmentVariables.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}
