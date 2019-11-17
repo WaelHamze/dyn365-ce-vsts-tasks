@@ -12,6 +12,8 @@ $entityName = Get-VstsInput -Name entityName -Require
 $lookupFieldName = Get-VstsInput -Name lookupFieldName -Require
 $valueFieldName = Get-VstsInput -Name valueFieldName -Require
 $lookupValue = Get-VstsInput -Name lookupValue -Require
+$existsVariableName = Get-VstsInput -Name existsVariableName
+$valueVariableName = Get-VstsInput -Name valueVariableName
 
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
@@ -56,5 +58,15 @@ else
 
 Write-Host "##vso[task.setvariable variable=RECORD_EXISTS]$exists"
 Write-Host "##vso[task.setvariable variable=RECORD_VALUE]$recordValue"
+
+if ($existsVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$existsVariableName]$exists"
+}
+if ($valueVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$valueVariableName]$recordValue"
+}
+
 
 Write-Verbose 'Leaving MSCRMGetConfigurationRecord.ps1'

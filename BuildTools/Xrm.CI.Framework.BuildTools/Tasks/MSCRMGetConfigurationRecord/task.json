@@ -14,7 +14,7 @@
   "version": {
     "Major": "9",
     "Minor": "0",
-    "Patch": "2"
+    "Patch": "3"
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
@@ -59,6 +59,22 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "The value that uniquely identifies a configuration record"
+    },
+    {
+      "name": "existsVariableName",
+      "type": "string",
+      "label": "Exists Variable Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the pipeline variable to be populated with true if record exists"
+    },
+    {
+      "name": "valueVariableName",
+      "type": "string",
+      "label": "Value Variable Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the pipeline variable to be populated with the value of the record"
     }
   ],
   "OutputVariables": [
