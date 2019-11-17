@@ -248,6 +248,10 @@
     <Content Include="Tasks\MSCRMExtractCMData\task.json" />
     <Content Include="Tasks\MSCRMPackCMData\MSCRMPackCMData.ps1" />
     <Content Include="Tasks\MSCRMPackCMData\task.json" />
+    <Content Include="Tasks\MSCRMGetEnvironmentVariable\MSCRMGetEnvironmentVariable.ps1" />
+    <Content Include="Tasks\MSCRMGetEnvironmentVariable\task.json" />
+    <Content Include="Tasks\MSCRMCheckerQualityGate\MSCRMCheckerQualityGate.ps1" />
+    <Content Include="Tasks\MSCRMCheckerQualityGate\task.json" />
     <None Include="Tasks\MSCRMGetSolutionMissingDependencies\MSCRMGetSolutionMissingDependencies.ps1" />
     <Content Include="Tasks\MSCRMGetSolutionMissingDependencies\task.json" />
     <Content Include="Tasks\MSCRMResetOnlineInstance\MSCRMResetOnlineInstance.ps1" />
@@ -256,6 +260,8 @@
     <Content Include="Tasks\MSCRMCopyOnlineInstance\task.json" />
     <Content Include="Tasks\MSCRMGetConfigurationRecord\MSCRMGetConfigurationRecord.ps1" />
     <Content Include="Tasks\MSCRMGetConfigurationRecord\task.json" />
+    <Content Include="Tasks\MSCRMUpdateEnvironmentVariables\MSCRMUpdateEnvironmentVariables.ps1" />
+    <Content Include="Tasks\MSCRMUpdateEnvironmentVariables\task.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
