@@ -10,6 +10,9 @@ Write-Verbose 'Entering MSCRMGetSolution.ps1'
 $crmConnectionString = Get-VstsInput -Name crmConnectionString -Require
 $solutionName = Get-VstsInput -Name solutionName -Require
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
+$existsVariableName = Get-VstsInput -Name existsVariableName
+$versionVariableName = Get-VstsInput -Name versionVariableName
+$displayVariableName = Get-VstsInput -Name displayVariableName
 
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
@@ -34,7 +37,7 @@ if ($solution)
 	$version = $($solution.Version)
 	$display  = $($solution.FriendlyName)
 	
-	Write-Host "Solution Display Name: $display)"
+	Write-Host "Solution Display Name: $display"
 	Write-Host "Solution Version: $version"
 }
 else
@@ -50,6 +53,17 @@ Write-Host "##vso[task.setvariable variable=SOLUTION_EXISTS]$exists"
 Write-Host "##vso[task.setvariable variable=SOLUTION_VERSION]$version"
 Write-Host "##vso[task.setvariable variable=SOLUTION_DISPLAY_NAME]$display"
 
-
+if ($existsVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$existsVariableName]$exists"
+}
+if ($versionVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$versionVariableName]$version"
+}
+if ($displayVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$displayVariableName]$display"
+}
 
 Write-Verbose 'Leaving MSCRMGetSolution.ps1'
