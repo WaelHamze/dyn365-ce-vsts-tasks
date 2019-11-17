@@ -193,4 +193,10 @@ Ability to use clientsecret authentication method in connection strings
 Added v9.1 in the SDK Version selection in Package Deployer Task  
 Updated Check Solution Task to allow checking based on specific rules and exclude files/patterns from checks  
 
+**9.12.x**  
+Added tasks to manage Environment Variables (Get/Update)  
+PowerApps Checker is now split into 2 tasks: Check Solution (v.11) and Checker Quality Gate  
+Tasks that return values can be used in Task Groups through pipeline variables in addition to output parameters  
+Fix for issue with updating solution description for Patches  
+
 For more information on changes between versions, check the commits and releases on GitHub
