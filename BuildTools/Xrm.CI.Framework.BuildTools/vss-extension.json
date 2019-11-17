@@ -205,6 +205,9 @@
     },
     {
       "path": "Tasks/MSCRMUpdateEnvironmentVariables"
+    },
+    {
+      "path": "Tasks/MSCRMCheckerQualityGate"
     }
   ],
   "contributions": [
@@ -676,6 +679,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMUpdateEnvironmentVariables"
+      }
+    },
+    {
+      "id": "MSCRMCheckerQualityGate",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMCheckerQualityGate"
       }
     }
   ]

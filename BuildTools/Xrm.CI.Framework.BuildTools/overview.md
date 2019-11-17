@@ -45,6 +45,7 @@ Below is a list of tasks that are included with this extension.
 | **MSCRM Remove Solution Components** | Solution | Removes all components from a given CRM Solution |
 | **MSCRM Publish Customizations** | Solution | Publishes all CRM customizations |
 | **MSCRM Check Solution** | Solution | Uses PowerApps Checker API to validate your solution against a list of known issues |
+| **MSCRM Checker Quality Gate** | Solution | Validates PowerApps Checker scan results against defined thresholds |
 | **MSCRM Get Online Instance By Name** | Environment | Gets an Online instance ID based on the name of the instance. |
 | **MSCRM Provision Online Instance** | Environment | Creates a new Dynamics 365 Customer Engagement Online Instance |
 | **MSCRM Backup Online Instance** | Environment | Creates a backup of a Dynamics 365 Customer Engagement Online Instance |

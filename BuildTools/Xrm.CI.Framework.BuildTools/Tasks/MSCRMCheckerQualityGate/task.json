@@ -1,0 +1,81 @@
+{
+  "id": "CEDB0F77-06AD-49E9-9888-71EA066E09DC",
+  "name": "MSCRMCheckerQualityGate",
+  "friendlyName": "MSCRM Checker Quality Gate",
+  "description": "Validates PowerApps Checker scan results against defined thresholds",
+  "author": "Wael Hamze",
+  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/use-powerapps-checker",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "3"
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Checker Quality Gate",
+  "inputs": [
+    {
+      "name": "resultsFile",
+      "type": "filePath",
+      "label": "Checker Results File",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The absolute path to the Checker results zip on the agent machine. If not provided this will use results from most previous Check Solution task"
+    },
+    {
+      "name": "thresholdAction",
+      "type": "pickList",
+      "label": "Threshold Action",
+      "defaultValue": "Warn",
+      "options": {
+        "Warn": "Warn",
+        "Error": "Error"
+      },
+      "required": true,
+      "helpMarkDown": "The type of action to generate when number of issues exceeds threshold limit"
+    },
+    {
+      "name": "criticalThreshold",
+      "type": "string",
+      "label": "Critical Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of critical severity issues"
+    },
+    {
+      "name": "highThreshold",
+      "type": "string",
+      "label": "High Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of high severity issues"
+    },
+    {
+      "name": "mediumThreshold",
+      "type": "string",
+      "label": "Medium Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of medium severity issues"
+    },
+    {
+      "name": "lowThreshold",
+      "type": "string",
+      "label": "Low Threshold",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Number of low severity issues"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMCheckerQualityGate.ps1"
+    }
+  }
+}

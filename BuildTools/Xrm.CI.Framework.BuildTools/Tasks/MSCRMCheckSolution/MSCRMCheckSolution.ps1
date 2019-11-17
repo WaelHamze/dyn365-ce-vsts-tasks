@@ -8,7 +8,7 @@ Write-Verbose 'Entering MSCRMCheckSolution.ps1'
 
 #Get Parameters
 $solutionFile = Get-VstsInput -Name solutionFile -Require
-$outputPath = Get-VstsInput -Name outputPath -Require
+$resultsVariableName = Get-VstsInput -Name resultsVariableName
 $tenantId = Get-VstsInput -Name tenantId -Require
 $applicationId = Get-VstsInput -Name applicationId -Require
 $applicationSecret = Get-VstsInput -Name applicationSecret -Require
@@ -17,12 +17,6 @@ $ruleset = Get-VstsInput -Name ruleset
 $ruleCodes = Get-VstsInput -Name ruleCodes
 $excludedFiles = Get-VstsInput -Name excludedFiles
 $geography = Get-VstsInput -Name geography -Require
-$enableThresholds = Get-VstsInput -Name enableThresholds -Require -AsBool
-$thresholdAction = Get-VstsInput -Name thresholdAction -Require
-$criticalThreshold = Get-VstsInput -Name criticalThreshold -Require -AsInt
-$highThreshold = Get-VstsInput -Name highThreshold -Require -AsInt
-$mediumThreshold = Get-VstsInput -Name mediumThreshold -Require -AsInt
-$lowThreshold = Get-VstsInput -Name lowThreshold -Require -AsInt
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -43,14 +37,11 @@ if (-not $mscrmToolsPath)
 }
 
 #Logs
-if (-not $outputPath)
-{
-	Write-Verbose "outputPath not supplied"
+Write-Verbose "outputPath not supplied"
 	
-	$outputPath = $env:System_DefaultWorkingDirectory
+$outputPath = $env:System_DefaultWorkingDirectory
 
-	Write-Verbose "outputPath set to $outputPath"
-}
+Write-Verbose "outputPath set to $outputPath"
 
 $tempFolder =  "$outputPath\$(New-Guid)"
 Write-Verbose "Creating Temp Results Folder: $tempFolder"
@@ -64,11 +55,6 @@ $CheckParams = @{
 	ApplicationSecret = "$applicationSecret"
 	Geography = "$geography"
 	PowerAppsCheckerPath = "$mscrmToolsPath\Microsoft.PowerApps.Checker.PowerShell\1.0.2"
-	EnableThresholds = $enableThresholds
-	ThresholdAction = $thresholdAction
-	HighThreshold = $highThreshold
-	MediumThreshold = $mediumThreshold
-	LowThreshold = $lowThreshold
 }
 
 if ($ruleType -eq 'RuleSet')
@@ -104,6 +90,13 @@ finally
 
 		Write-Host "##vso[task.setvariable variable=SOLUTION_CHECK_RESULT_FILE]$outputFile"
 
+		Write-Host "##vso[task.setvariable variable=LAST_SOLUTION_CHECK_RESULT_FILE]$outputFile"
+
+		if ($resultsVariableName)
+		{
+			Write-Host "##vso[task.setvariable variable=$resultsVariableName]$outputFile"
+		}
+
 		Write-Verbose "Check result uploaded"
 
 		Remove-Item $tempFolder -Force -Recurse
@@ -114,4 +107,4 @@ finally
 	}
 }
 
-Write-Verbose 'Leaving MSCRMExportSolution.ps1'
+Write-Verbose 'Leaving MSCRMCheckSolution.ps1'
