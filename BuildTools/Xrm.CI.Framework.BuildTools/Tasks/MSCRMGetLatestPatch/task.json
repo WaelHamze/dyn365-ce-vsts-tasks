@@ -14,7 +14,7 @@
   "version": {
     "Major": "9",
     "Minor": "0",
-    "Patch": "4"
+    "Patch": "6"
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
@@ -43,6 +43,22 @@
       "defaultValue": "120",
       "required": false,
       "helpMarkDown": "The Crm connection timeout in seconds"
+    },
+    {
+      "name": "existsVariableName",
+      "type": "string",
+      "label": "Exists Variable Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the pipeline variable to be populated with true if patch exists"
+    },
+    {
+      "name": "patchVariableName",
+      "type": "string",
+      "label": "Patch Variable Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the pipeline variable to be populated with patch name"
     }
   ],
   "OutputVariables": [

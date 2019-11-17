@@ -10,6 +10,8 @@ Write-Verbose 'Entering MSCRMGetLatest.ps1'
 $crmConnectionString = Get-VstsInput -Name crmConnectionString -Require
 $solutionName = Get-VstsInput -Name solutionName -Require
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
+$existsVariableName = Get-VstsInput -Name existsVariableName
+$patchVariableName = Get-VstsInput -Name patchVariableName
 
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
@@ -48,6 +50,13 @@ else
 Write-Host "##vso[task.setvariable variable=PATCH_EXISTS]$exists"
 Write-Host "##vso[task.setvariable variable=PATCH_NAME]$name"
 
-
+if ($existsVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$existsVariableName]$exists"
+}
+if ($patchVariableName)
+{
+	Write-Host "##vso[task.setvariable variable=$patchVariableName]$name"
+}
 
 Write-Verbose 'Leaving MSCRMGetLatest.ps1'
