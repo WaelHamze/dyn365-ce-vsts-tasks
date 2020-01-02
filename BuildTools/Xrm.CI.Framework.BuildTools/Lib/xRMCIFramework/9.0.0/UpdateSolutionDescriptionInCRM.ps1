@@ -60,7 +60,6 @@ Write-Host "$updatedDescriptionValue"
 
 $updateSolution = New-XrmEntity -EntityName "solution"
 $updateSolution.Id = $solution.Id
-#$solution.EntityState = "Changed"
 $updateSolution["description"] = $updatedDescriptionValue
 Set-XrmEntity -ConnectionString $CrmConnectionString -EntityObject $updateSolution
 Write-Host "Solution description updated"
