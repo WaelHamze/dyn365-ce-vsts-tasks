@@ -14,7 +14,7 @@
   "version": {
     "Major": "9",
     "Minor": "0",
-    "Patch": "3"
+    "Patch": "4"
   },
   "preview": "true",
   "minimumAgentVersion": "1.95.0",
@@ -53,6 +53,23 @@
       "defaultValue": "0",
       "required": false,
       "helpMarkDown": "The user mapping xml file for mapping users during import (on-premise)"
+    },
+    {
+      "name": "enabledBatchMode",
+      "type": "boolean",
+      "label": "Enabled Batch Mode",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Instructs CMT to import into CDS using batches (default size of 600 records).  Note this does work in conjunction with multiple connections,  thus 2 connections creates 2 batches of 600 records."
+    },
+    {
+      "name": "batchSize",
+      "type": "string",
+      "label": "Batch Size",
+      "defaultValue": "600",
+      "required": false,
+      "helpMarkDown": "Allows you to override the default batch size.",
+      "visibleRule": "enabledBatchMode = true"
     },
     {
       "name": "crmConnectionTimeout",

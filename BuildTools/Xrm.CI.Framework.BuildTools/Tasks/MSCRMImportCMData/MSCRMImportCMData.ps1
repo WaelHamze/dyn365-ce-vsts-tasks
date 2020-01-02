@@ -14,6 +14,8 @@ $dataFile = Get-VstsInput -Name dataFile -Require
 $logsDirectory = Get-VstsInput -Name logsDirectory
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
 $userMapFile = Get-VstsInput -Name userMapFile
+$enabledBatchMode = Get-VstsInput -Name enabledBatchMode -Require -AsBool
+$batchSize = Get-VstsInput -Name batchSize -Require -AsInt
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -58,6 +60,8 @@ $params = @{
 	configurationMigrationModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.ConfigurationMigration"
 	toolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell"
 	userMapFile = "$userMapFile"
+	enabledBatchMode = $enabledBatchMode
+	batchSize = $batchSize
 }
 
 try
