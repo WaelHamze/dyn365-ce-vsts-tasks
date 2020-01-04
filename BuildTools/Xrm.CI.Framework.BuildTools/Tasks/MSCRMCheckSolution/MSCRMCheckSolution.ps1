@@ -16,6 +16,7 @@ $ruleType = Get-VstsInput -Name ruleType -Require
 $ruleset = Get-VstsInput -Name ruleset
 $ruleCodes = Get-VstsInput -Name ruleCodes
 $excludedFiles = Get-VstsInput -Name excludedFiles
+$ruleLevelOverrides = Get-VstsInput -Name ruleLevelOverrides
 $geography = Get-VstsInput -Name geography -Require
 
 #TFS Build Parameters
@@ -37,15 +38,15 @@ if (-not $mscrmToolsPath)
 }
 
 #Logs
-Write-Verbose "outputPath not supplied"
 	
 $outputPath = $env:System_DefaultWorkingDirectory
-
 Write-Verbose "outputPath set to $outputPath"
 
 $tempFolder =  "$outputPath\$(New-Guid)"
 Write-Verbose "Creating Temp Results Folder: $tempFolder"
 New-Item $tempFolder -ItemType directory | Out-Null
+
+#Checker
 
 $CheckParams = @{
 	SolutionFile = "$solutionFile"
@@ -54,7 +55,8 @@ $CheckParams = @{
 	ApplicationId = "$applicationId"
 	ApplicationSecret = "$applicationSecret"
 	Geography = "$geography"
-	PowerAppsCheckerPath = "$mscrmToolsPath\Microsoft.PowerApps.Checker.PowerShell\1.0.2"
+	PowerAppsCheckerPath = "$mscrmToolsPath\Microsoft.PowerApps.Checker.PowerShell"
+	RuleOverridesJson = $ruleLevelOverrides
 }
 
 if ($ruleType -eq 'RuleSet')
@@ -78,8 +80,23 @@ finally
 {
 	$resultFile = Get-ChildItem -Path "$tempFolder" -Filter "*.zip"
 
+	$mdFile = Get-ChildItem -Path "$tempFolder" -Filter "*.md"
+
+	if ($mdFile)
+	{	
+		Copy-Item -Path $tempFolder\*.md -Destination "$OutputPath"
+
+		$outputFile = "$OutputPath\$($mdFile.Name)"
+
+		Write-Host "Uploading check summary file: $outputFile"
+		
+		Write-Host "##vso[task.addattachment type=Distributedtask.Core.Summary;name=MSCRM Checker Summary;]$outputFile"
+
+		Write-Verbose "Check summary uploaded"
+	}
+
 	if ($resultFile)
-	{
+	{	
 		Copy-Item -Path $tempFolder\*.zip -Destination "$OutputPath"
 
 		$outputFile = "$OutputPath\$($resultFile.Name)"
@@ -98,13 +115,13 @@ finally
 		}
 
 		Write-Verbose "Check result uploaded"
-
-		Remove-Item $tempFolder -Force -Recurse
 	}
 	else
 	{
 		Write-Verbose "Result file not found in $OutputPath"
 	}
+
+	Remove-Item $tempFolder -Force -Recurse
 }
 
 Write-Verbose 'Leaving MSCRMCheckSolution.ps1'

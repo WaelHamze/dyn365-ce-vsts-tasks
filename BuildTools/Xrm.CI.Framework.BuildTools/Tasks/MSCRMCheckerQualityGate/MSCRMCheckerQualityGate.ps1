@@ -31,6 +31,14 @@ if (-not $mscrmToolsPath)
 {
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
+#Logs
+
+$outputPath = $env:System_DefaultWorkingDirectory
+Write-Verbose "outputPath set to $outputPath"
+
+$tempFolder =  "$outputPath\$(New-Guid)"
+Write-Verbose "Creating Temp Results Folder: $tempFolder"
+New-Item $tempFolder -ItemType directory | Out-Null
 
 #Check File
 $analysisFile = ''
@@ -57,8 +65,30 @@ $CheckParams = @{
 	HighThreshold = $highThreshold
 	MediumThreshold = $mediumThreshold
 	LowThreshold = $lowThreshold
+	OutputPath = "$tempFolder"
 }
+try
+{
+	& "$mscrmToolsPath\xRMCIFramework\9.0.0\CheckerQualityGate.ps1" @CheckParams
+}
+finally
+{
+	$mdFile = Get-ChildItem -Path "$tempFolder" -Filter "*.md"
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\CheckerQualityGate.ps1" @CheckParams
+	if ($mdFile)
+	{	
+		Copy-Item -Path $tempFolder\*.md -Destination "$OutputPath"
+
+		$outputFile = "$OutputPath\$($mdFile.Name)"
+
+		Write-Host "Uploading check summary file: $outputFile"
+		
+		Write-Host "##vso[task.addattachment type=Distributedtask.Core.Summary;name=MSCRM Quality Gate Summary;]$outputFile"
+
+		Write-Verbose "Check summary uploaded"
+	}
+
+	Remove-Item $tempFolder -Force -Recurse
+}
 
 Write-Verbose 'Leaving MSCRMCheckerQualityGate.ps1'

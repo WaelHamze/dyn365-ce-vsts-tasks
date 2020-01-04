@@ -73,8 +73,8 @@ New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.1.0" -ItemType dire
 Copy-Item -Path .\Tools\PackageDeployment.Powershell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\9.1.0" -Recurse
 New-Item "$OutputDir\Tasks\$taskName\Lib\AzureAD" -ItemType directory | Out-Null
 Copy-Item -Path .\Tools\AAD\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\AzureAD" -Recurse -Exclude "*.pdb","*.xml","System.Management.Automation.dll"
-New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2" -ItemType directory | Out-Null
-Copy-Item -Path .\Tools\PowerAppsChecker.PowerShell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell\1.0.2" -Recurse
+New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell" -ItemType directory | Out-Null
+Copy-Item -Path .\Tools\PowerAppsChecker.PowerShell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.PowerApps.Checker.PowerShell" -Recurse
 New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.ConfigurationMigration" -ItemType directory | Out-Null
 Copy-Item -Path .\Tools\ConfigurationMigration.Powershell\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.ConfigurationMigration" -Recurse
 New-Item "$OutputDir\Tasks\$taskName\Lib\Microsoft.Xrm.Tooling.CrmConnector.PowerShell" -ItemType directory | Out-Null

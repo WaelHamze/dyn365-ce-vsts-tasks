@@ -13,8 +13,8 @@
   "demands": [],
   "version": {
     "Major": "11",
-    "Minor": "0",
-    "Patch": "2"
+    "Minor": "1",
+    "Patch": "8"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Check Solution",
@@ -102,6 +102,14 @@
       "helpMarkDown": "The files or patterns to be excluded. FORMAT e.g.: ['form.js','*plugins*']"
     },
     {
+      "name": "ruleLevelOverrides",
+      "type": "multiLine",
+      "label": "Rule Level Overrides (json array)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Use this to treat violations of a rule as a higher or lower severity level. FORMAT e.g.: [['meta-avoid-silverlight','High'],['il-specify-column','Low']]"
+    },
+    {
       "name": "geography",
       "type": "pickList",
       "label": "geography",
@@ -115,7 +123,8 @@
         "India": "India",
         "Canada": "Canada",
         "South America": "South America",
-        "United Kingdom": "United Kingdom"
+        "United Kingdom": "United Kingdom",
+        "France": "France"
       },
       "required": true,
       "helpMarkDown": "The region where the scan will be executed"
