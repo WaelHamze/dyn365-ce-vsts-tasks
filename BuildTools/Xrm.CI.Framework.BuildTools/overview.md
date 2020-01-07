@@ -199,4 +199,11 @@ PowerApps Checker is now split into 2 tasks: Check Solution (v.11) and Checker Q
 Tasks that return values can be used in Task Groups through pipeline variables in addition to output parameters  
 Fix for issue with updating solution description for Patches  
 
+**9.13.x**  
+PowerApps Checker task now supports rule level overrides  
+PowerApps Checker/Quality Gate tasks now publishes results summary into build summary view  
+Configuration Migration Import task now supports batching  
+Configuration Migration Import/Export task now supports schemas containing fetch xml  
+Updated Nuget Libraries/PS Modules to latest versions  
+
 For more information on changes between versions, check the commits and releases on GitHub
