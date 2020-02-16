@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "3"
+    "Patch": "5"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Restore $(TargetInstanceName)",
@@ -49,15 +49,37 @@
       "label": "Source Instance Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "Name (i.e. [instancename] only) used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
     },
-      {
+    {
+      "name": "restoreType",
+      "type": "pickList",
+      "label": "Restore Using",
+      "defaultValue": "label",
+      "required": true,
+      "options": {
+        "label": "Manual Backup Label",
+        "time": "Timestamp"
+      },
+      "helpMarkDown": "Restore a specific timestamp or use a backup label to retrieve the timestamp"
+    },
+    {
       "name": "backupLabel",
       "type": "string",
-      "label": "Backup Label",
+      "label": "Label",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The label of the backup from the source instance to be used for restore into target instance"
+      "helpMarkDown": "The label of the manual backup to restore. Task will retrieve the last backup using this label and use it's timestamp.",
+      "visibleRule": "restoreType = label"
+    },
+    {
+      "name": "restoreTimestamp",
+      "type": "string",
+      "label": "Restore Timestamp (UTC)",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The restore time in UTC e.g.: 2020-02-15T20:08:18Z (Must be within backup retention period)",
+      "visibleRule": "restoreType = time"
     },
     {
       "name": "targetInstanceName",
@@ -65,7 +87,23 @@
       "label": "Target Instance Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "Name (i.e. [instancename] only) used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+    },
+    {
+      "name": "friendlyName",
+      "type": "string",
+      "label": "Friendly Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The new friendly name of the instance (optional)"
+    },
+    {
+      "name": "securityGroupName",
+      "type": "string",
+      "label": "Security Group Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the Azure security group to be associated with this instance after restore (optional)"
     },
     {
       "name": "waitForCompletion",
