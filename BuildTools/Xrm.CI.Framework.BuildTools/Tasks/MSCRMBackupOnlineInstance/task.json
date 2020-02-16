@@ -14,7 +14,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "3"
+    "Patch": "6"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Backup $(instanceName)",
@@ -75,43 +75,17 @@
       "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance"
     },
     {
-      "name": "isAzureBackup",
-      "type": "boolean",
-      "label": "Is Azure Backup",
-      "defaultValue": "false",
+      "name": "backupExistsAction",
+      "type": "pickList",
+      "label": "Backup already exists action",
+      "defaultValue": "Error",
       "required": true,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance",
-      "groupName": "azureStorageInfo"
-    },
-    {
-      "name": "containerName",
-      "type": "string",
-      "label": "Container Name",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance",
-      "groupName": "azureStorageInfo",
-      "visibleRule": "isAzureBackup = true"
-    },
-    {
-      "name": "storageAccountKey",
-      "type": "string",
-      "label": "Storage Account Key",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance",
-      "groupName": "azureStorageInfo",
-      "visibleRule": "isAzureBackup = true"
-    },
-    {
-      "name": "storageAccountName",
-      "type": "string",
-      "label": "Storage Account Name",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance",
-      "groupName": "azureStorageInfo",
-      "visibleRule": "isAzureBackup = true"
+      "options": {
+        "Error": "Error - Attempt to stop the pipeline",
+        "Skip": "Skip - Don't take another backup",
+        "Continue": "Continue - Attempt to take another backup"
+      },
+      "helpMarkDown": "Action to take if a backup with same label already exists for this instance. Can sometimes occur if re-running pipeline after backup already taken."
     },
     {
       "name": "waitForCompletion",
