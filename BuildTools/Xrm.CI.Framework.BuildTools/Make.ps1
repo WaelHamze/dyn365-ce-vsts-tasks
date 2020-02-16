@@ -62,7 +62,7 @@ Copy-Item -Path .\Lib\xRMCIFramework\9.0.0\*.* -Destination "$OutputDir\Tasks\$t
 New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Microsoft.CrmSdk.CoreTools\8.2.0\SolutionPackager.exe -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -ItemType directory | Out-Null
-Copy-Item -Path .\Tools\CoreTools\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -Recurse -Exclude "Microsoft.Xrm.Tooling.CrmConnectControl.dll","Other Redistributable.txt"
+Copy-Item -Path .\Tools\CoreTools\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\CoreTools\9.0.0" -Recurse -Exclude "Microsoft.Xrm.Tooling.CrmConnectControl.dll","Other Redistributable.txt","Microsoft.Xrm*","CrmSvcUtil*","Microsoft.Crm*","Microsoft.Rest*"
 New-Item "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.1.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Tools\OnlineManagementAPI\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\OnlineManagementAPI\1.1.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\PackageDeployment\8.2.0" -ItemType directory | Out-Null

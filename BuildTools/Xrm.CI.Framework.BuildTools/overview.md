@@ -106,7 +106,7 @@ For more documentation and source code, check out Github using the links on this
 
 ## Known Issues
 
-MSCRM Restore Online Instance: May return 'internval server error' due to issue at vendor platform
+N/A  
 
 ## Version History
 
@@ -206,4 +206,9 @@ Configuration Migration Import task now supports batching
 Configuration Migration Import/Export task now supports schemas containing fetch xml  
 Updated Nuget Libraries/PS Modules to latest versions  
 
-For more information on changes between versions, check the commits and releases on GitHub
+**9.14.x**  
+Ability to restore an online instance using timestamp. Task now supports friendlyname and security group  
+Backup instance task uses new API which is a lot faster now. Task now supports skipping if existing backup found  
+Update PS modules and Nuget packages to latest versions  
+
+For more information on changes between versions, check the milestones and releases on GitHub
