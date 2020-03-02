@@ -262,6 +262,10 @@
     <Content Include="Tasks\MSCRMGetConfigurationRecord\task.json" />
     <Content Include="Tasks\MSCRMUpdateEnvironmentVariables\MSCRMUpdateEnvironmentVariables.ps1" />
     <Content Include="Tasks\MSCRMUpdateEnvironmentVariables\task.json" />
+    <Content Include="Tasks\MSCRMToolInstaller\MSCRMToolsFunctions.ps1" />
+    <Content Include="Tasks\MSCRMToolInstaller\nuget.config" />
+    <Content Include="Tasks\MSCRMToolInstaller\ps.nuget.config" />
+    <Content Include="Tasks\MSCRMToolInstaller\Tools.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

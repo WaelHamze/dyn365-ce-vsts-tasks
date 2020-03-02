@@ -17,13 +17,143 @@
     "mscrmtools"
   ],
   "version": {
-    "Major": "9",
-    "Minor": "1",
-    "Patch": "48"
+    "Major": "10",
+    "Minor": "0",
+    "Patch": "33"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Tool Installer",
+  "groups": [
+    {
+      "name": "nugetFeed",
+      "displayName": "Nuget.org Feed",
+      "isExpanded": true
+    },
+    {
+      "name": "psFeed",
+      "displayName": "PowerShell Gallery Feed",
+      "isExpanded": true
+    },
+    {
+      "name": "tools",
+      "displayName": "Tools",
+      "isExpanded": true
+    }
+  ],
   "inputs": [
+    {
+      "name": "nugetFeed",
+      "type": "pickList",
+      "label": "Nuget Package Feed",
+      "defaultValue": "official",
+      "required": true,
+      "options": {
+        "official": "Official Nuget",
+        "custom": "Custom Feed"
+      },
+      "helpMarkDown": "",
+      "groupName": "nugetFeed"
+    },
+    {
+      "name": "nugetSource",
+      "type": "string",
+      "label": "Nuget Feed Source",
+      "defaultValue": "https://api.nuget.org/v3/index.json",
+      "required": true,
+      "helpMarkDown": "",
+      "groupName": "nugetFeed",
+      "visibleRule": "nugetFeed = custom"
+    },
+    {
+      "name": "nugetUsername",
+      "type": "string",
+      "label": "Nuget Feed Username",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "nugetFeed",
+      "visibleRule": "nugetFeed = custom"
+    },
+    {
+      "name": "nugetPassword",
+      "type": "string",
+      "label": "Nuget Feed Password/APIKey",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "nugetFeed",
+      "visibleRule": "nugetFeed = custom"
+    },
+    {
+      "name": "nugetUseProxy",
+      "type": "boolean",
+      "label": "Use Agent Proxy for Nuget Feed",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "Set to true to use agent proxy (if configured) to connect to the nuget feed",
+      "groupName": "nugetFeed"
+    },
+    {
+      "name": "psFeed",
+      "type": "pickList",
+      "label": "PowerShell Gallery Feed",
+      "defaultValue": "official",
+      "required": true,
+      "options": {
+        "official": "Official PowerShell Gallery",
+        "custom": "Custom Feed"
+      },
+      "helpMarkDown": "",
+      "groupName": "psFeed"
+    },
+    {
+      "name": "psSource",
+      "type": "string",
+      "label": "PowerShell Gallery Feed Source",
+      "defaultValue": "https://www.powershellgallery.com/api/v2",
+      "required": true,
+      "helpMarkDown": "",
+      "groupName": "psFeed",
+      "visibleRule": "psFeed = custom"
+    },
+    {
+      "name": "psUsername",
+      "type": "string",
+      "label": "PowerShell Gallery Feed Username",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "psFeed",
+      "visibleRule": "psFeed = custom"
+    },
+    {
+      "name": "psPassword",
+      "type": "string",
+      "label": "PowerShell Gallery Feed Password/APIKey",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "psFeed",
+      "visibleRule": "psFeed = custom"
+    },
+    {
+      "name": "psUseProxy",
+      "type": "boolean",
+      "label": "Use Agent Proxy for PowerShell Gallery Feed",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "Set to true to use agent proxy (if configured) to connect to the PowerShell Gallery feed",
+      "groupName": "psFeed"
+    },
+    {
+      "name": "coreToolsVersion",
+      "type": "string",
+      "label": "Microsoft.CrmSdk.CoreTools Version (Nuget)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "tools"
+    }
   ],
   "execution": {
     "PowerShell3": {
