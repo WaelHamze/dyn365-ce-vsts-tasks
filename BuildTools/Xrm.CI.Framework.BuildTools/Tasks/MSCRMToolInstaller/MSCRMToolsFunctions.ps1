@@ -28,7 +28,7 @@ function Execute-Nuget
 	}
 }
 
-Function Set-Nuget-ConfigValue
+Function Set-NugetConfigValue
 {
 	param(
 		[string]$nugetPath,
@@ -97,21 +97,42 @@ function Configure-Nuget
 	#Set Proxy
 	if ($nugetProxyUrl)
 	{
-		Set-Nuget-ConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY" -value "$nugetProxyUrl"
+		Set-NugetConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY" -value "$nugetProxyUrl"
 
 		if ($nugetProxyUsername)
 		{
-			Set-Nuget-ConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY.USER" -value "$nugetProxyUsername"
+			Set-NugetConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY.USER" -value "$nugetProxyUsername"
 
 			if ($nugetProxyPassword)
 			{
-				Set-Nuget-ConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY.PASSWORD" -value "$nugetProxyPassword"
+				Set-NugetConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY.PASSWORD" -value "$nugetProxyPassword"
 			}
 		}
 	}
 }
 
-function Get-MSCRMTool-VersionVariable
+function Set-MSCRMToolVersionVariable
+{
+	param(
+		[string]$toolName,
+		[string]$version
+    )
+
+	if ($version)
+	{
+		Write-Verbose "Setting override version $version for $toolName"
+
+		$variable = Get-MSCRMToolVersionVariable -toolName $toolName
+
+		Write-Host "##vso[task.setvariable variable=$variable]$version"
+	}
+	else
+	{
+		Write-Verbose "Skipping - No override version provided for $toolName"
+	}
+}
+
+function Get-MSCRMToolVersionVariable
 {
 	param(
 		[string]$toolName
@@ -120,7 +141,7 @@ function Get-MSCRMTool-VersionVariable
 	return "MSCRM_$($toolName.replace('.', '_'))_Version"
 }
 
-function Get-MSCRMToolInfo
+function Get-MSCRMToolFromConfig
 {
 	param(
 		[string]$toolName
@@ -144,7 +165,7 @@ function Get-MSCRMToolInfo
 	}
 }
 
-function Get-MSCRMTool-Path
+function Get-MSCRMToolPath
 {
 	param(
 		[string]$toolName,
@@ -163,43 +184,39 @@ function Get-MSCRMTool-Path
 	return "$mscrmToolsPath\$toolName.$version"
 }
 
-function Get-MSCRMTool-Version
+function Get-MSCRMToolInfo
 {
     param(
-		[string]$toolName,
-		[string]$version
+		[string]$toolName
     )
 	
-	$tool = Get-MSCRMTool-FromConfig -toolName "$toolName"
+	$tool = Get-MSCRMToolFromConfig -toolName "$toolName"
+
+	$versionVariable = Get-MSCRMToolVersionVariable -toolName "$toolName"
+
+	$version = iex ('$env:' + $versionVariable)
 
 	if ($version)
 	{
-		Write-Verbose "Using version provided by specific task: $version"
+		Write-Verbose "Using version provided in tool installer task: $version"
+		
+		$tool.Version = $version
 	}
 	else
 	{
-		$versionVariable = Get-MSCRMTool-VersionVariable -toolName "$toolName"
+		$version = $tool.Version
 
-		$version = iex ('$env:' + $versionVariable)
-
-		if ($version)
+		if (-not $version)
 		{
-			Write-Verbose "Using version provided in tool installer task: $version"
+			throw "Couldn't find required version for tool: $toolName"
 		}
-		else
-		{
-			$version = $tool.Version
 
-			if (-not $version)
-			{
-				throw "Couldn't find required version for tool: $toolName"
-			}
-
-			Write-Verbose "Using default version: $version"
-		}
+		Write-Verbose "Using default version: $version"
 	}
 
-	return $version
+	$tool | Add-Member -MemberType NoteProperty -Name Path -Value $(Get-MSCRMToolPath -toolName $toolName -version $version)
+
+	return $tool
 }
 
 function Use-MSCRMTool
@@ -218,15 +235,13 @@ function Use-MSCRMTool
 		Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 	}
 
-	$tool = Get-MSCRMTool-FromConfig -toolName "$toolName"
+	$tool = Get-MSCRMToolFromConfig -toolName $toolName
 
-	$version = Get-MSCRMTool-Version -toolName $toolName -version $version
-
-	$toolFolder = "$mscrmToolsPath\$toolName.$version"
+	$toolFolder = Get-MSCRMToolPath -toolName $toolName -version $version
 
 	if (Test-Path -Path $toolFolder)
 	{
-		Write-Verbose "Tool already cached in $toolFolder"
+		Write-Host "$toolName $version already cached in $toolFolder"
 	}
 	else
 	{
@@ -239,7 +254,7 @@ function Use-MSCRMTool
 			$configPath = iex ('$env:' + $psConfigVariable)
 		}
 
-		Write-Host "Saving $toolName  version: $version to $mscrmToolsPath" -ForegroundColor Green
+		Write-Host "Downloading $toolName $version to: $mscrmToolsPath" -ForegroundColor Green
 
 		$nugetPath = "$mscrmToolsPath\Nuget\4.9.4\nuget.exe"
 
@@ -247,7 +262,8 @@ function Use-MSCRMTool
 			"install",
 			"$toolName",
 			"-OutputDirectory","$mscrmToolsPath",
-			"-ConfigFile", "$configPath"
+			"-ConfigFile", "$configPath",
+			"-Version", "$version"
 		)
 
 		Execute-Nuget -nugetPath $nugetPath -nugetArgList $nugetArgList
@@ -256,46 +272,39 @@ function Use-MSCRMTool
 	return $toolFolder
 }
 
-#function Get-MSCRMTool   
-#{
-#    param(
-#	[string]$nugetPath,
-#    [string]$toolName,
-#	[string]$version,
-#    [string]$folderName,
-#	[string]$nugetConfigPath,
-#	[string]$repository
-#    )
+function Require-ToolsTaskVersion
+{
+	param(
+		[int]$version
+    )
 
-#    Write-Host "Saving $toolName  version: $version to $folderName" -ForegroundColor Green
+	$currentVersion = $env:MSCRM_Tools_Task_Version
 
-#	$nugetArgList = @(
-#		"install",
-#		"$toolName",
-#		"-OutputDirectory","$folderName",
-#		"-ConfigFile", "$nugetConfigPath"
-#	)
+	if (-not $currentVersion)
+	{
+		Write-Error "MSCRM_Tools_Path_Version not found. Add 'MSCRM Tool Installer' (ver. >= 10) before this task."
+	}
 
-#	#Write-Verbose "Nuget command: $nugetPath $nugetArgList"
+	$currentVersion = $currentVersion -as [int]
 
-#	#& $nugetPath $nugetArgList
+	if ($version -ne $currentVersion)
+	{
+		Write-Error "'MSCRM Tool Installer' version $version is required for this task version"
+	}
+}
 
-#	Execute-Nuget -nugetPath $nugetPath -nugetArgList $nugetArgList
+function Require-ToolVersion
+{
+	param(
+		[string]$toolName,
+		[string]$version,
+		[string]$minVersion
+    )
 
-#	#Save-Package -Name $toolName -Path $folderName
-
-#	#if ($lastexitcode -ne 0)
-#	#{
-#	#	throw "Nuget.exe encountered an error: $lastexitcode"
-#	#}
-
-#    #md .\Tools\$folderName
-#    #Save-Module $moduleName -Path .\Tools -RequiredVersion $version
-
-#    #$moduleFile = Get-ChildItem -Recurse ./Tools | Where-Object {$_.Name -match "$moduleName.psd1"}
-#    #$moduleDir = $moduleFile.Directory.FullName
-#    #move $moduleDir\*.* .\Tools\$folderName
-#    #Remove-Item .\Tools\$moduleName -Force -Recurse
-#}
+	if ([System.Version]$version -lt [System.Version]$minVersion)
+	{
+		throw "$toolName minimum version $minVersion is required. Adjust version in 'MSCRM Tool Installer' task"
+	}
+}
 
 Write-Verbose 'Leaving MSCRMToolFunctions.ps1'

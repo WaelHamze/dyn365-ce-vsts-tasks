@@ -19,7 +19,7 @@
   "version": {
     "Major": "10",
     "Minor": "0",
-    "Patch": "33"
+    "Patch": "44"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Tool Installer",
@@ -148,7 +148,25 @@
     {
       "name": "coreToolsVersion",
       "type": "string",
-      "label": "Microsoft.CrmSdk.CoreTools Version (Nuget)",
+      "label": "Microsoft.CrmSdk.CoreTools - Version (Nuget)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "tools"
+    },
+    {
+      "name": "crmConnectorVersion",
+      "type": "string",
+      "label": "Microsoft.Xrm.Tooling.CrmConnector.PowerShell - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "tools"
+    },
+    {
+      "name": "packageDeploymentVersion",
+      "type": "string",
+      "label": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell - Version (PS Gallery)",
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "",

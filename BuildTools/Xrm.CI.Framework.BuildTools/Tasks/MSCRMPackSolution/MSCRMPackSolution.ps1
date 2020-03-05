@@ -32,18 +32,18 @@ if (-not $mscrmToolsPath)
 
 ."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
 
-$CoreToolsPath = Use-MSCRMTool -toolName 'Microsoft.CrmSdk.CoreTools'
+Require-ToolsTaskVersion -version 10
+
+$coreTools = 'Microsoft.CrmSdk.CoreTools'
+$coreToolsInfo = Get-MSCRMToolInfo -toolName $coreTools
+$coreToolsPath = "$($coreToolsInfo.Path)\content\bin\coretools"
+Use-MSCRMTool -toolName $coreTools -version $coreToolsInfo.Version
 
 if ($mappingFile -eq $sourcesDirectory)
 {
 	$mappingFile = $null
 }
 
-if ($updateVersion)
-{
-	$versionNumber = $buildNumber.Substring($buildNumber.IndexOf("_") + 1)
-}
-
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath "$CoreToolsPath\content\bin\coretools"
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath "$CoreToolsPath"
 
 Write-Verbose 'Leaving MSCRMPackSolution.ps1'

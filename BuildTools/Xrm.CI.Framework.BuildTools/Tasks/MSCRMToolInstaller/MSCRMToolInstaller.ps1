@@ -18,6 +18,8 @@ $psUsername = Get-VstsInput -Name psUsername
 $psPassword = Get-VstsInput -Name psPassword
 $psUseProxy = Get-VstsInput -Name psUseProxy -AsBool
 $coreToolsVersion = Get-VstsInput -Name coreToolsVersion
+$crmConnectorVersion = Get-VstsInput -Name crmConnectorVersion
+$packageDeploymentVersion = Get-VstsInput -Name packageDeploymentVersion
 
 #Script Location
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -46,10 +48,18 @@ Write-Host "Using Tools Path: $toolPath"
 $frameworkCache = $toolPath + "\MSCRMBuildTools"
 Write-Host "Framework Cache: $frameworkCache"
 
-$currentVersion = '9.1.3'
+$taskVersion = $(ConvertFrom-Json (Get-Content -Path .\task.json -Raw)).Version
+$taskFullVersion = "$($taskVersion.Major).$($taskVersion.Minor).$($taskVersion.Patch)"
+
+Write-Verbose "Current Task Version: $taskFullVersion"
+
+$currentVersion = $($taskVersion.Major)
 $currentVersionPath = "$frameworkCache\$currentVersion"
 
 Write-Host "Tools Version: $currentVersion"
+
+Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Path]$currentVersionPath"
+Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Task_Version]$currentVersion"
 
 if (Test-Path $frameworkCache)
 {
@@ -71,8 +81,6 @@ else
 
 	Write-Verbose "Lib Copy completed"
 }
-
-Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Path]$currentVersionPath"
 
 ."$scriptPath\MSCRMToolsFunctions.ps1"
 
@@ -193,9 +201,8 @@ Configure-Nuget @params
 Write-Host "##vso[task.setvariable variable=$nugetConfigVariable]$nugetConfigPath"
 Write-Host "##vso[task.setvariable variable=$psConfigVariable]$psConfigPath"
 
-
-#Get-MSCRMTool -toolName 'Microsoft.CrmSdk.CoreTools'
-
-#Get-MSCRMTool -toolName 'Microsoft.Xrm.OnlineManagementAPI'
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.CrmSdk.CoreTools' -version $coreToolsVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell' -version $crmConnectorVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.PackageDeployment.Powershell' -version $packageDeploymentVersion
 
 Write-Verbose 'Leaving MSCRMToolInstaller.ps1'
