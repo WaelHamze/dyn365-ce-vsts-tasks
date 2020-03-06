@@ -12,25 +12,13 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
+    "Major": "12",
     "Minor": "0",
-    "Patch": "4"
+    "Patch": "1"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Extract Solution",
   "inputs": [
-    {
-      "name": "crmSdkVersion",
-      "type": "pickList",
-      "label": "Crm Sdk Version",
-      "defaultValue": "9.0.0",
-      "required": true,
-      "options": {
-        "8.2.0": "8.2",
-        "9.0.0": "9.0"
-      },
-      "helpMarkDown": "The Crm SDK version to use for executing solutionpackager.exe"
-    },
     {
       "name": "unpackedFilesFolder",
       "type": "filePath",

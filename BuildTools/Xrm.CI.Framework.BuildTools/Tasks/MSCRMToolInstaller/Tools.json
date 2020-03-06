@@ -2,50 +2,41 @@
   {
     "Name": "Microsoft.CrmSdk.CoreTools",
     "Version": "9.1.0.38",
-    "Folder": "CoreTools",
-    "Path": "content\\bin\\coretools",
     "Source": "Nuget"
   },
   {
     "Name": "AzureAD",
     "Version": "2.0.2.52",
-    "Folder": "AAD",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.Tooling.CrmConnector.PowerShell",
     "Version": "3.3.0.886",
-    "Folder": "CrmConnector.PowerShell",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell",
     "Version": "3.3.0.879",
-    "Folder": "PackageDeployment.Powershell",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.Checker.PowerShell",
     "Version": "1.0.12",
-    "Folder": "PowerAppsChecker.PowerShell",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.Tooling.ConfigurationMigration",
     "Version": "1.0.0.26",
-    "Folder": "ConfigurationMigration.Powershell",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.OnlineManagementAPI",
     "Version": "1.2.0.1",
-    "Folder": "OnlineManagementAPI",
     "Source": "PSGallery"
   },
   {
     "Name": "Xrm.Framework.CI.PowerShell.Cmdlets",
     "Version": "9.0.0.42",
-    "Folder": "xRMCIFramework",
     "Source": "PSGallery"
   }
 ]
