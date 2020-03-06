@@ -12,11 +12,11 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
+    "Major": "12",
     "Minor": "0",
-    "Patch": "6"
+    "Patch": "5"
   },
-  "preview": true,
+  "preview": false,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Packs Solutions Using Config",
   "inputs": [
@@ -43,14 +43,6 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "The absolute path to the directory on agent server where logs will be placed. By default this will be $env:System_DefaultWorkingDirectory"
-    },
-    {
-      "name": "solutionpackagerpath",
-      "type": "filePath",
-      "label": "Solution Packager Path",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "Full path to solutionpackager.exe if not supplied the latest version included with tools will be used"
     }
   ],
   "execution": {
