@@ -32,6 +32,21 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
+
+Require-ToolsTaskVersion -version 10
+
+$configMigration = 'Microsoft.Xrm.Tooling.ConfigurationMigration'
+$configMigrationInfo = Get-MSCRMToolInfo -toolName $configMigration
+$configMigrationInfoPath = "$($configMigrationInfo.Path)"
+Require-ToolVersion -toolName $configMigration -version $configMigrationInfo.Version -minVersion '1.0.0.26'
+Use-MSCRMTool -toolName $configMigration -version $configMigrationInfo.Version
+
+$CrmConnector = 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell'
+$CrmConnectorInfo = Get-MSCRMToolInfo -toolName $CrmConnector
+$CrmConnectorPath = "$($CrmConnectorInfo.Path)"
+Use-MSCRMTool -toolName $CrmConnector -version $CrmConnectorInfo.Version
+
 #Logs
 if (-not $logsDirectory)
 {
@@ -48,8 +63,8 @@ $params = @{
 	dataFile = "$dataFile"
 	schemaFile = "$schemaFile"
 	logsDirectory = "$logsDirectory"
-	configurationMigrationModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.ConfigurationMigration\"
-	toolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell"
+	configurationMigrationModulePath = "$configMigrationInfoPath"
+	toolingConnectorModulePath = "$CrmConnectorPath"
 }
 
 try

@@ -12,11 +12,11 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
+    "Major": "12",
     "Minor": "0",
-    "Patch": "4"
+    "Patch": "1"
   },
-  "preview": "true",
+  "preview": "false",
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "MSCRM Import Configuration Migration Data",
   "groups": [
