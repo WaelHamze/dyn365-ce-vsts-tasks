@@ -26,9 +26,22 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
-$AzureADModulePath = "$mscrmToolsPath\AzureAD"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\CopyOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -sourceInstanceName $sourceInstanceName  -targetInstanceName $targetInstanceName -copyType $copyType -friendlyName "$friendlyName" -securityGroupName "$securityGroupName" -PSModulePath $PSModulePath -azureADModulePath "$AzureADModulePath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
+Require-ToolsTaskVersion -version 10
+
+$onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
+$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
+Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
+Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+
+$azureAD = 'AzureAD'
+$azureADInfo = Get-MSCRMToolInfo -toolName $azureAD
+$azureADPath = "$($azureADInfo.Path)"
+Require-ToolVersion -toolName $azureAD -version $azureADInfo.Version -minVersion '2.0.2.52'
+Use-MSCRMTool -toolName $azureAD -version $azureADInfo.Version
+
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\CopyOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -sourceInstanceName $sourceInstanceName  -targetInstanceName $targetInstanceName -copyType $copyType -friendlyName "$friendlyName" -securityGroupName "$securityGroupName" -PSModulePath $onlineAPIPath -azureADModulePath "$azureADPath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 
 Write-Verbose 'Leaving MSCRMRestoreOnlineInstance.ps1'
