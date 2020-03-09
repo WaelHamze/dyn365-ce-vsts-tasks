@@ -32,8 +32,16 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\SetOnlineInstanceAdminMode.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -Enable $enable -AllowBackgroundOperations $allowBackgroundOperations -NotificationText $notificationText -PSModulePath $PSModulePath -WaitForCompletion $true -SleepDuration 5
+Require-ToolsTaskVersion -version 10
+
+$onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
+$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
+Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
+Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\SetOnlineInstanceAdminMode.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -Enable $enable -AllowBackgroundOperations $allowBackgroundOperations -NotificationText $notificationText -PSModulePath $onlineAPIPath -WaitForCompletion $true -SleepDuration 5
 
 Write-Verbose 'Leaving MSCRMSetOnlineInstanceAdminMode.ps1'
