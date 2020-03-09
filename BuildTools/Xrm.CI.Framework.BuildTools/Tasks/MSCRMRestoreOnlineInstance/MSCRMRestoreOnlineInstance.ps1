@@ -28,8 +28,21 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
-$AzureADModulePath = "$mscrmToolsPath\AzureAD"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
+
+Require-ToolsTaskVersion -version 10
+
+$onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
+$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
+Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
+Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+
+$azureAD = 'AzureAD'
+$azureADInfo = Get-MSCRMToolInfo -toolName $azureAD
+$azureADPath = "$($azureADInfo.Path)"
+Require-ToolVersion -toolName $azureAD -version $azureADInfo.Version -minVersion '2.0.2.52'
+Use-MSCRMTool -toolName $azureAD -version $azureADInfo.Version
 
 if ($restoreType -eq 'label')
 {
@@ -40,6 +53,6 @@ else
 	$backupLabel = $null
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\RestoreOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -sourceInstanceName $sourceInstanceName  -BackupLabel $backupLabel -RestoreTimeUtc $restoreTimestamp -targetInstanceName $targetInstanceName -FriendlyName "$friendlyName" -SecurityGroupName "$securityGroupName" -PSModulePath $PSModulePath -AzureADModulePath $AzureADModulePath -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\RestoreOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -sourceInstanceName $sourceInstanceName  -BackupLabel $backupLabel -RestoreTimeUtc $restoreTimestamp -targetInstanceName $targetInstanceName -FriendlyName "$friendlyName" -SecurityGroupName "$securityGroupName" -PSModulePath $onlineAPIPath -AzureADModulePath $azureADPath -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 
 Write-Verbose 'Leaving MSCRMRestoreOnlineInstance.ps1'
