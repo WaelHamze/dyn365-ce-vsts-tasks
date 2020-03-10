@@ -57,8 +57,8 @@ foreach($task in $tasks)
 $taskName = "MSCRMToolInstaller"
 New-Item "$OutputDir\Tasks\$taskName\Lib\Nuget\4.9.4" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\Nuget\4.9.4\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\Nuget\4.9.4"
-New-Item "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\8.2.0" -ItemType directory | Out-Null
-Copy-Item -Path .\Lib\xRMCIFramework\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\8.2.0"
+#New-Item "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\8.2.0" -ItemType directory | Out-Null
+#Copy-Item -Path .\Lib\xRMCIFramework\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\8.2.0"
 New-Item "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\9.0.0" -ItemType directory | Out-Null
 Copy-Item -Path .\Lib\xRMCIFramework\9.0.0\*.* -Destination "$OutputDir\Tasks\$taskName\Lib\xRMCIFramework\9.0.0"
 #New-Item "$OutputDir\Tasks\$taskName\Lib\CoreTools\8.2.0" -ItemType directory | Out-Null

@@ -33,11 +33,5 @@
     "Name": "Microsoft.Xrm.OnlineManagementAPI",
     "Version": "1.2.0.1",
     "Source": "PSGallery"
-  },
-  {
-    "Name": "Xrm.Framework.CI.PowerShell.Cmdlets",
-    "Version": "9.0.0.42",
-    "Source": "PSGallery"
   }
 ]
-

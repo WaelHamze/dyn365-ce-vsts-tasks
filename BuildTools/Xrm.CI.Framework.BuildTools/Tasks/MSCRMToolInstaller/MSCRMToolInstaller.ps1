@@ -20,6 +20,9 @@ $psUseProxy = Get-VstsInput -Name psUseProxy -AsBool
 $coreToolsVersion = Get-VstsInput -Name coreToolsVersion
 $crmConnectorVersion = Get-VstsInput -Name crmConnectorVersion
 $packageDeploymentVersion = Get-VstsInput -Name packageDeploymentVersion
+$onlineAPIVersion = Get-VstsInput -Name onlineAPIVersion
+$checkerVersion = Get-VstsInput -Name checkerVersion
+$configMigrationVersion = Get-VstsInput -Name configMigrationVersion
 
 #Script Location
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -46,7 +49,7 @@ else
 Write-Host "Using Tools Path: $toolPath"
 
 $frameworkCache = $toolPath + "\MSCRMBuildTools"
-Write-Host "Framework Cache: $frameworkCache"
+Write-Verbose "Framework Cache: $frameworkCache"
 
 $taskVersion = $(ConvertFrom-Json (Get-Content -Path .\task.json -Raw)).Version
 $taskFullVersion = "$($taskVersion.Major).$($taskVersion.Minor).$($taskVersion.Patch)"
@@ -54,9 +57,9 @@ $taskFullVersion = "$($taskVersion.Major).$($taskVersion.Minor).$($taskVersion.P
 Write-Verbose "Current Task Version: $taskFullVersion"
 
 $currentVersion = $($taskVersion.Major)
-$currentVersionPath = "$frameworkCache\$currentVersion"
+$currentVersionPath = "$frameworkCache\$taskFullVersion"
 
-Write-Host "Tools Version: $currentVersion"
+Write-Host "Tools Directory: $currentVersionPath"
 
 Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Path]$currentVersionPath"
 Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Task_Version]$currentVersion"
@@ -204,5 +207,8 @@ Write-Host "##vso[task.setvariable variable=$psConfigVariable]$psConfigPath"
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.CrmSdk.CoreTools' -version $coreToolsVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell' -version $crmConnectorVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.PackageDeployment.Powershell' -version $packageDeploymentVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.OnlineManagementAPI' -version $onlineAPIVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.Checker.PowerShell' -version $checkerVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.ConfigurationMigration' -version $configMigrationVersion
 
 Write-Verbose 'Leaving MSCRMToolInstaller.ps1'
