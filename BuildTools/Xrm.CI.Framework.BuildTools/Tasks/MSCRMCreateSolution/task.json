@@ -1,10 +1,10 @@
 {
   "id": "7F08480D-87C0-425A-BC7B-6FF2700C0632",
   "name": "MSCRMCreateSolution",
-  "friendlyName": "MSCRM Create Solution",
-  "description": "Creates an unmanaged CRM Solution",
+  "friendlyName": "Create Solution",
+  "description": "Creates an unmanaged Solution",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/customize/create-solution",
+  "helpMarkDown": "More information on creation solutions can be found [here](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/customize/create-solution)",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Create Solution: $(uniqueName)",
+  "instanceNameFormat": "Create Solution: $(uniqueName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "uniqueName",
@@ -70,10 +70,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

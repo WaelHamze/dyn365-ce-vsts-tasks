@@ -1,10 +1,10 @@
 {
   "id": "48834E5A-A932-49AF-A7FD-A805B5E1CFB5",
   "name": "MSCRMExtractSolution",
-  "friendlyName": "MSCRM Extract Solution",
-  "description": "Extracts CRM Solution xml files from CRM Solution zip using SolutionPackager.exe",
+  "friendlyName": "Extract Solution",
+  "description": "Unpacks a PowerApps/CDS/Dynamics 365 Solution zip into mutiple files using SolutionPackager.exe",
   "author": "Wael Hamze",
-  "helpMarkDown": "Solution zip file(s) must be provided",
+  "helpMarkDown": "You can control the version using of the SolutionPackager used using the Tools Installer Task",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,12 +12,12 @@
   ],
   "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Extract Solution",
+  "instanceNameFormat": "Extract Solution",
   "inputs": [
     {
       "name": "unpackedFilesFolder",

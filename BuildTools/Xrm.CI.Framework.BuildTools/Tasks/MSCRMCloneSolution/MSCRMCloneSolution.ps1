@@ -19,7 +19,7 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\CloneSolution.ps1"  -CrmConnectionString $crmConnectionString -ParentSolutionUniqueName $UniqueName -DisplayName "$DisplayName" -VersionNumber "$VersionNumber" -Timeout $crmConnectionTimeout

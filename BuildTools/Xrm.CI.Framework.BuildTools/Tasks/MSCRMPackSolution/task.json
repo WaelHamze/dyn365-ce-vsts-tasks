@@ -1,23 +1,23 @@
 {
   "id": "ebec2a90-ce1f-11e6-ae21-c1fb031659ee",
   "name": "MSCRMPackSolution",
-  "friendlyName": "MSCRM Pack Solution",
-  "description": "Packages a CRM Solution using SolutionPackager.exe",
+  "friendlyName": "Pack Solution",
+  "description": "Generates a PowerApps/CDS/Dynamics 365 Solution zip from previously extracted files using SolutionPackager.exe",
   "author": "Wael Hamze",
-  "helpMarkDown": "Solution files must be checked-in to source control",
+  "helpMarkDown": "You can control the version using of the SolutionPackager used using the Tools Installer Task",
   "category": "Build",
   "visibility": [
     "Build",
     "Release"
   ],
-  "demands": [ ],
+  "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Pack Solution",
+  "instanceNameFormat": "Pack Solution",
   "inputs": [
     {
       "name": "unpackedFilesFolder",

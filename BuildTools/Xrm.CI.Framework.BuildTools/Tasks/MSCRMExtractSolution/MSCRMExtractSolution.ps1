@@ -33,12 +33,12 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
 ."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
 
-Require-ToolsTaskVersion -version 10
+Require-ToolsTaskVersion -version 12
 
 $coreTools = 'Microsoft.CrmSdk.CoreTools'
 $coreToolsInfo = Get-MSCRMToolInfo -toolName $coreTools

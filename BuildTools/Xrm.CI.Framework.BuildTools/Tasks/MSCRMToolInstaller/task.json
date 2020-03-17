@@ -1,10 +1,10 @@
 {
   "id": "04AD1C72-5E49-4686-8A3A-DDA6948B0FCD",
   "name": "MSCRMToolInstaller",
-  "friendlyName": "MSCRM Tool Installer",
-  "description": "Installs the Dynamics 365 tools required by all of the tasks",
+  "friendlyName": "Power DevOps Tool Installer",
+  "description": "Configures the tools/dependencies required by all of the tasks",
   "author": "Wael Hamze",
-  "helpMarkDown": "Tools are installed under {agentroot}/_work/tools. e.g 'D:\\Agent1_work\\tools\\MSCRMBuildTools\\9.0.1'",
+  "helpMarkDown": "This task must be added at least once before other tasks in each agent phase for all other tasks to work.",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -17,12 +17,12 @@
     "mscrmtools"
   ],
   "version": {
-    "Major": 10,
+    "Major": 12,
     "Minor": 0,
-    "Patch": 46
+    "Patch": 7
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Tool Installer",
+  "instanceNameFormat": "Tool Installer",
   "groups": [
     {
       "name": "nugetFeed",

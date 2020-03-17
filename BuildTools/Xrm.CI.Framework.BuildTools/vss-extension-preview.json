@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks-preview",
-  "name": "Dynamics 365 Build Tools (Preview)",
+  "name": "Power DevOps Tools (Preview)",
   "public":  false
 }

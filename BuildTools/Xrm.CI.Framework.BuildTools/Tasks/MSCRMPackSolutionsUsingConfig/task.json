@@ -1,10 +1,10 @@
 {
   "id": "33DBB312-A641-4111-8C3E-81F589B41A74",
   "name": "MSCRMPackSolutionsUsingConfig",
-  "friendlyName": "MSCRM Pack Solutions Using Config",
-  "description": "Packs Dynamics 365 Solutions using a json configuration",
+  "friendlyName": "Pack Solutions Using Config",
+  "description": "Generates PowerApps/CDS/Dynamics 365 Solution zips(s) from previously extracted files using a json config and SolutionPackager.exe",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses solutionpackger.exe",
+  "helpMarkDown": "You can control the version using of the SolutionPackager used using the Tools Installer Task",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,13 +12,13 @@
   ],
   "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "5"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 7
   },
   "preview": false,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Packs Solutions Using Config",
+  "instanceNameFormat": "Packs Solutions Using Config",
   "inputs": [
     {
       "name": "configFilePath",

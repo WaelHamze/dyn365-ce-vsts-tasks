@@ -29,7 +29,7 @@ $taskMetadata = Get-Content -Raw -Path .\Tasks\$selectedTask\task.json | Convert
 
 $newVersion = ([int]$taskMetadata.version.Patch + 1)
 
-(Get-Content .\Tasks\$selectedTask\task.json).replace('"Patch": "' + $taskMetadata.version.Patch + '"', '"Patch": "' + $newVersion + '"') | Set-Content .\Tasks\$selectedTask\task.json
+(Get-Content .\Tasks\$selectedTask\task.json).replace('"Patch": ' + $taskMetadata.version.Patch , '"Patch": ' + $newVersion) | Set-Content .\Tasks\$selectedTask\task.json
 
 Write-Host ("Version: " + $taskMetadata.version.Major + "." + $taskMetadata.version.Minor + "." + $newVersion) -ForegroundColor Yellow
 

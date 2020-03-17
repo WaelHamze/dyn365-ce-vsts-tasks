@@ -1,10 +1,10 @@
 {
   "id": "F63A7F0B-A432-4B2B-8EC3-A2A9E089CDF2",
   "name": "MSCRMExtractCMData",
-  "friendlyName": "MSCRM Extract Config Migration Data",
+  "friendlyName": "Extract Config Migration Data",
   "description": "Extracts the data zip exported using Configuration Migration Tool into folder with the option split and sort the data.xml",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/administering-dynamics-365/dn647421(v=crm.8)",
+  "helpMarkDown": "More information on Configuration Migration Tools can be found [here](https://docs.microsoft.com/en-us/power-platform/admin/manage-configuration-data)",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,13 +12,13 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "4"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 5
   },
   "preview": "true",
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Extract Configuration Migration Data",
+  "instanceNameFormat": "Extract Configuration Migration Data",
   "groups": [
   ],
   "inputs": [

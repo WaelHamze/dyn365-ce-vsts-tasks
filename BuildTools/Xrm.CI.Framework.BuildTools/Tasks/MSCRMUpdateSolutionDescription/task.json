@@ -1,10 +1,10 @@
 {
   "id": "F7E23DE4-4BBE-42BD-A75C-9BC939A7CA44",
   "name": "MSCRMUpdateSolutionDescription",
-  "friendlyName": "MSCRM Update Solution Description",
-  "description": "Updates the description of a given CRM Solution",
+  "friendlyName": "Update Solution Description",
+  "description": "Updates the description of a given Solution in a PowerApps/CDS/Dynamics 365 environment",
   "author": "Andrew Godfroy",
-  "helpMarkDown": "Updates the description of a given CRM Solution",
+  "helpMarkDown": "Updates the description of a given Solution",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "4"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 6
   },
-  "preview": true,
+  "preview": false,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Update solution Description: $(solutionName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "solutionName",
@@ -39,10 +39,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     },
     {
       "name": "newDescription",

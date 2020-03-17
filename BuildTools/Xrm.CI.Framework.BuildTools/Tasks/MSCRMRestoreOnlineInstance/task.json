@@ -1,10 +1,10 @@
 {
   "id": "A6EB6B39-F378-4328-B533-D88F36BE7A2A",
   "name": "MSCRMRestoreOnlineInstance",
-  "friendlyName": "MSCRM Restore Instance",
-  "description": "Restores an online instance from a previous backup",
+  "friendlyName": "Restore Online Instance",
+  "description": "Restores PowerApps/CDS/Dynamcics 365 environment from a previous backup using a timestamp or label",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI",
+  "helpMarkDown": "This task uses the (Microsoft.Xrm.OnlineManagementAPI)[https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI]",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,9 +12,9 @@
   ],
   "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Restore $(TargetInstanceName)",
@@ -25,7 +25,7 @@
       "label": "ApiUrl",
       "defaultValue": "https://admin.services.crm[n].dynamics.com",
       "required": true,
-      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+      "helpMarkDown": "Use the Service Url for your environment region as per (documentation)[https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api]"
     },
     {
       "name": "username",
@@ -33,7 +33,7 @@
       "label": "Username",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 username"
+      "helpMarkDown": "The environment username"
     },
     {
       "name": "Password",
@@ -41,7 +41,7 @@
       "label": "Password",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 password"
+      "helpMarkDown": "The environment password"
     },
     {
       "name": "sourceInstanceName",
@@ -49,7 +49,7 @@
       "label": "Source Instance Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Name (i.e. [instancename] only) used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "The unique instance name. E.g. for :https://contoso.crm.dynamics.com, the value would be: contoso"
     },
     {
       "name": "restoreType",
@@ -87,7 +87,7 @@
       "label": "Target Instance Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Name (i.e. [instancename] only) used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "The unique instance name. E.g. for :https://contoso.crm.dynamics.com, the value would be: contoso"
     },
     {
       "name": "friendlyName",
@@ -95,7 +95,7 @@
       "label": "Friendly Name",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "The new friendly name of the instance (optional)"
+      "helpMarkDown": "The new friendly name of the instance"
     },
     {
       "name": "securityGroupName",
@@ -103,7 +103,7 @@
       "label": "Security Group Name",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "The name of the Azure security group to be associated with this instance after restore (optional)"
+      "helpMarkDown": "The name of the security group to be applied to target instance after copy. If Id is provided, this value is not used"
     },
     {
       "name": "waitForCompletion",

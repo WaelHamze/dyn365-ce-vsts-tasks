@@ -1,10 +1,10 @@
 {
   "id": "BAB49C9C-FC9B-4D7C-9919-C4272A0930B7",
   "name": "MSCRMUpdateEnvironmentVariables",
-  "friendlyName": "MSCRM Update Environment Variables",
-  "description": "Upserts environemnt variables current value record using name/value pairs",
+  "friendlyName": "Update Environment Variables",
+  "description": "Upserts environemnt variables current value record using name/value pairs in a target PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "Reads a json array of name/value and upserts current environment variable values in CDS",
+  "helpMarkDown": "Reads a json array of name/value and upserts current environment variable values in target environment",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Update Environment Variables",
+  "instanceNameFormat": "Update Environment Variables",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "environmentVariablesJson",

@@ -1,10 +1,10 @@
 {
   "id": "0BE5756E-887C-41DD-AA63-E52C293B2AD4",
   "name": "MSCRMExportCMData",
-  "friendlyName": "MSCRM Export Config Migration Data",
-  "description": "Exports data from a CRM instance using a Configuration Migration schema file",
+  "friendlyName": "Export Config Migration Data",
+  "description": "Exports data from a PowerApps/CDS/Dynamics 365 instance using a Configuration Migration schema file",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/administering-dynamics-365/dn647421(v=crm.8)",
+  "helpMarkDown": "More information on Configuration Migration Tools can be found [here](https://docs.microsoft.com/en-us/power-platform/admin/manage-configuration-data)",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,23 +12,23 @@
   ],
   "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 4
   },
-  "preview": "false",
+  "preview": false,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Export Configuration Migration Data",
+  "instanceNameFormat": "Export Configuration Migration Data",
   "groups": [
   ],
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "schemaFile",
@@ -49,7 +49,7 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "2",
       "required": false,
       "helpMarkDown": "The Crm connection timeout in minutes"

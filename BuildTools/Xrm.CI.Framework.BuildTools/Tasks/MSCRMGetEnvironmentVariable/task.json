@@ -1,8 +1,8 @@
 {
   "id": "FE0D5B93-4223-46CD-B031-6D5B0A637D8F",
   "name": "MSCRMGetEnvironmentVariable",
-  "friendlyName": "MSCRM Get Environment Variable",
-  "description": "Retrieves the current environment variable value from a CDS instance",
+  "friendlyName": "Get Environment Variable",
+  "description": "Retrieves the current environment variable value from a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
   "helpMarkDown": "",
   "category": "Deploy",
@@ -12,18 +12,18 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "4"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 5
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Get Environment Variable: $(variableName)",
+  "instanceNameFormat": "Get Environment Variable: $(variableName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "For more information on format check the [docs](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/xrm-tooling/use-connection-strings-xrm-tooling-connect)"
@@ -47,10 +47,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "OutputVariables": [

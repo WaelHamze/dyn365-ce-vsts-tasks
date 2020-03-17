@@ -1,20 +1,20 @@
 {
   "id": "77FB5553-32FE-471D-8E77-AE540BF7A32C",
   "name": "MSCRMSetOnlineInstanceAdminMode",
-  "friendlyName": "MSCRM Set Online Instance Admin Mode",
-  "description": "Enable/Disable administration mode on Online Instances",
+  "friendlyName": "Set Online Instance Admin Mode",
+  "description": "Enables/Disables Admin Mode for a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI",
+  "helpMarkDown": "This task uses the (Microsoft.Xrm.OnlineManagementAPI)[https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI]",
   "category": "Deploy",
   "visibility": [
     "Build",
     "Release"
   ],
-  "demands": [ ],
+  "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Set $(instanceName) Admin Mode: $(enable)",
@@ -25,7 +25,7 @@
       "label": "ApiUrl",
       "defaultValue": "https://admin.services.crm[n].dynamics.com",
       "required": true,
-      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+      "helpMarkDown": "Use the Service Url for your environment region as per (documentation)[https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api]"
     },
     {
       "name": "username",
@@ -33,7 +33,7 @@
       "label": "Username",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 username"
+      "helpMarkDown": "The environment username"
     },
     {
       "name": "password",
@@ -41,7 +41,7 @@
       "label": "Password",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 password"
+      "helpMarkDown": "The environment password"
     },
     {
       "name": "instanceName",
@@ -57,7 +57,7 @@
       "label": "Enable",
       "defaultValue": "false",
       "required": true,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/disable-crmadminmode?view=dynamics365ce-ps"
+      "helpMarkDown": "Select to put instance in admin mode. if not selected, admin mode is taken off."
     },
     {
       "name": "allowBackgroundOperations",
@@ -65,7 +65,7 @@
       "label": "Allow Background Operations",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/enable-crmadminmode?view=dynamics365ce-ps",
+      "helpMarkDown": "Determines whether the environment can run background operations. Background operations are asynchronous operations, such as workflows and synchronization with Microsoft Exchange.",
       "visibleRule": "enable = true"
     },
     {
@@ -74,7 +74,7 @@
       "label": "Notification Text",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/powershell/module/microsoft.xrm.onlinemanagementapi/enable-crmadminmode?view=dynamics365ce-ps",
+      "helpMarkDown": "The message to diplay when any user attempts to sign in to the environment.",
       "visibleRule": "enable = true"
     }
   ],

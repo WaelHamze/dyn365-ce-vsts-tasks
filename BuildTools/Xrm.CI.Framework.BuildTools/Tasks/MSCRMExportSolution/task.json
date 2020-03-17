@@ -1,23 +1,23 @@
 {
   "id": "015E2E58-9C77-4CBC-A9C1-A28158165365",
   "name": "MSCRMExportSolution",
-  "friendlyName": "MSCRM Export Solution",
-  "description": "Exports a CRM Solution from the source CRM environment",
+  "friendlyName": "Export Solution",
+  "description": "Exports a PowerApps/CDS/Dynamics 365 Solution from the source environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.exportsolutionrequest.aspx",
+  "helpMarkDown": "This task uses [ExportSolutionRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.crm.sdk.messages.exportsolutionrequest?view=dynamics-general-ce-9)",
   "category": "Build",
   "visibility": [
     "Build",
     "Release"
   ],
-  "demands": [ ],
+  "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Export Solution: $(solutionName)",
+  "instanceNameFormat": "Export Solution: $(solutionName)",
   "groups": [
     {
       "name": "exportOptions",
@@ -29,10 +29,10 @@
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "solutionName",
@@ -67,14 +67,6 @@
       "helpMarkDown": "Check task help for more information"
     },
     {
-      "name": "updateVersion",
-      "type": "boolean",
-      "label": "Update Version (Deprecated) use task Set Version instead",
-      "defaultValue": "false",
-      "required": false,
-      "helpMarkDown": "Sets the solution version in the source environment to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'"
-    },
-    {
       "name": "includeVersionInSolutionFile",
       "type": "boolean",
       "label": "Include Version in Filename",
@@ -93,10 +85,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     },
     {
       "name": "exportAutoNumberingSettings",

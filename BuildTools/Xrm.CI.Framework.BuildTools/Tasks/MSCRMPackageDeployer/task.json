@@ -1,10 +1,10 @@
 {
   "id": "F41BA110-0B12-45BC-94C9-67655CB59323",
   "name": "MSCRMPackageDeployer",
-  "friendlyName": "MSCRM Package Deployer",
+  "friendlyName": "Package Deployer",
   "description": "Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets",
   "author": "Wael Hamze",
-  "helpMarkDown": "For more information on CRM Package Deployer: https://technet.microsoft.com/en-us/library/dn647420.aspx",
+  "helpMarkDown": "More information on CRM Package Deployer can be found [here](https://technet.microsoft.com/en-us/library/dn647420.aspx)",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "4"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 6
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Package Deployer: $(packagePath)",
+  "instanceNameFormat": "Package Deployer: $(packagePath)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "packagePath",
@@ -46,7 +46,7 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "2",
       "required": false,
       "helpMarkDown": "The Crm connection timeout in minutes"

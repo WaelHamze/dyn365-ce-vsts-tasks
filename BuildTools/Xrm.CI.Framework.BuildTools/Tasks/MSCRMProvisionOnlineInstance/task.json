@@ -1,20 +1,20 @@
 {
   "id": "75B16512-23B8-49BD-9F31-C56D491207AD",
   "name": "MSCRMProvisionOnlineInstance",
-  "friendlyName": "MSCRM Provision Online Instance",
-  "description": "Creates a new Dynamics 365 Customer Engagement Online Instance",
+  "friendlyName": "Provision Online Instance",
+  "description": "Creates a new PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI",
+  "helpMarkDown": "This task uses the (Microsoft.Xrm.OnlineManagementAPI)[https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI]",
   "category": "Deploy",
   "visibility": [
     "Build",
     "Release"
   ],
-  "demands": [ ],
+  "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 6
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Provision $(domainName)",
@@ -37,7 +37,7 @@
       "label": "ApiUrl",
       "defaultValue": "https://admin.services.crm[n].dynamics.com",
       "required": true,
-      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+      "helpMarkDown": "Use the Service Url for your environment region as per (documentation)[https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api]"
     },
     {
       "name": "username",
@@ -45,7 +45,7 @@
       "label": "Username",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 username"
+      "helpMarkDown": "The environment username"
     },
     {
       "name": "password",
@@ -53,7 +53,7 @@
       "label": "Password",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 password"
+      "helpMarkDown": "The environment password"
     },
     {
       "name": "domainName",
@@ -61,7 +61,7 @@
       "label": "Domain Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The unique instance name. E.g. for :https://contoso.crm.dynamics.com, the value would be: contoso"
     },
     {
       "name": "friendlyName",
@@ -69,7 +69,7 @@
       "label": "Friendly Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The friendly name of the instance"
     },
     {
       "name": "purpose",
@@ -77,7 +77,7 @@
       "label": "Purpose",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The purpose of the instance"
     },
     {
       "name": "initialUserEmail",
@@ -85,7 +85,7 @@
       "label": "Initial User Email",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The email of the user creating the instance"
     },
     {
       "name": "instanceType",
@@ -96,18 +96,19 @@
       "options": {
         "None": "None",
         "Production": "Production",
+        "Developer": "Developer",
         "Sandbox": "Sandbox",
         "Support": "Support",
         "Preview": "Preview",
         "Trial": "Trial"
       },
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The type of the instance you want provisioned"
     },
     {
       "name": "serviceVersion",
       "type": "pickList",
       "label": "Service Version",
-      "defaultValue": "31cafafe-c6b1-4c0a-bb53-73927841bc5c",
+      "defaultValue": "bce9abbf-90fd-42e7-b0e5-1ced6df22fa1",
       "required": true,
       "options": {
         "bce9abbf-90fd-42e7-b0e5-1ced6df22fa1": "Dynamics 365, version 9.0",
@@ -116,7 +117,7 @@
         "015e6a5c-2fa5-e411-80ce-00155db07c21": "Dynamics CRM Online, version 8.0",
         "9f2caf05-45b9-e411-80ec-6c3be5a88dd4": "Dynamics CRM Online, version 7.1"
       },
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The service version."
     },
     {
       "name": "sales",
@@ -124,16 +125,16 @@
       "label": "Sales",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "Select to install the Sales module",
       "groupName": "templates"
     },
     {
       "name": "customerService",
       "type": "boolean",
-      "label": "CustomerService",
+      "label": "Customer Service",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "Select to install the Customer Service module",
       "groupName": "templates"
     },
     {
@@ -142,7 +143,7 @@
       "label": "Field Service",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "Select to install the Field Service module",
       "groupName": "templates"
     },
     {
@@ -151,7 +152,7 @@
       "label": "Project Service",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "Select to install the Project Service module",
       "groupName": "templates"
     },
     {
@@ -160,7 +161,7 @@
       "label": "Language Id",
       "defaultValue": "1033",
       "required": true,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The base language id of the instance"
     },
     {
       "name": "currencyCode",
@@ -168,7 +169,7 @@
       "label": "Code",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "The code of the currency. e.g. GBP",
       "groupName": "currencyInfo"
     },
     {
@@ -177,7 +178,7 @@
       "label": "Name",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "The name of the currency. e.g. Pound Sterling",
       "groupName": "currencyInfo"
     },
     {
@@ -186,7 +187,7 @@
       "label": "Precision",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "The precision of the currency. e.g. 2",
       "groupName": "currencyInfo"
     },
     {
@@ -195,7 +196,7 @@
       "label": "Symbol",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance",
+      "helpMarkDown": "The symbol of the currency. e.g. &pound;",
       "groupName": "currencyInfo"
     },
     {
@@ -204,7 +205,7 @@
       "label": "Security Group Id",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/provisioninstance"
+      "helpMarkDown": "The Id of the security group to be applied to target instance after copy"
     },
     {
       "name": "securityGroupName",
@@ -212,7 +213,7 @@
       "label": "Security Group Name",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "You can provide this instead of Security Group Id. Note you will need AzureAD PowerShell Module installed on the Agent"
+      "helpMarkDown": "The name of the security group to be applied to target instance after copy. If Id is provided, this value is not used"
     },
     {
       "name": "waitForCompletion",

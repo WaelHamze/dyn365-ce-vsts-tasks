@@ -1,8 +1,8 @@
 {
   "id": "24EAAFB6-ECE6-404E-8FEA-6B7C73A02ECA",
   "name": "MSCRMGetSolutionMissingComponents",
-  "friendlyName": "MSCRM Get Solution Missing Components",
-  "description": "Retrieves missing components for a solution from a target instance",
+  "friendlyName": "Get Solution Missing Components",
+  "description": "Retrieves missing components for a solution from a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
   "helpMarkDown": "This task uses [RetrieveMissingComponentsRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.crm.sdk.messages.retrievemissingcomponentsrequest?view=dynamics-general-ce-9).",
   "category": "Deploy",
@@ -12,18 +12,18 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "3"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 4
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Get Missing Components For Solution",
+  "instanceNameFormat": "Get Missing Components For Solution",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "For more information on format check the [docs](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/xrm-tooling/use-connection-strings-xrm-tooling-connect)"
@@ -55,10 +55,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

@@ -1,8 +1,8 @@
 {
   "id": "a48748ef-a5d6-4af5-a9be-589847132134",
   "name": "MSCRMUpdateSecureConfiguration",
-  "friendlyName": "MSCRM Update Secure Configuration",
-  "description": "A task that updates Dynamics 365 plugin secure configuration",
+  "friendlyName": "Update Secure Configuration",
+  "description": "A task that updates plugin secure configuration in a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
   "helpMarkDown": "Reads a json array of guid/value to update plugin secure configuration",
   "category": "Utility",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 2
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Update Secure Configuration",
+  "instanceNameFormat": "Update Secure Configuration",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "secureConfiguration",

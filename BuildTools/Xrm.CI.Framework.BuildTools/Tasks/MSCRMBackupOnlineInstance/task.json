@@ -1,10 +1,10 @@
 {
   "id": "0C3E661C-D316-443E-9A77-470989DA8E29",
   "name": "MSCRMBackupOnlineInstance",
-  "friendlyName": "MSCRM Backup Online Instance",
-  "description": "Creates a backup of a Dynamics 365 Customer Engagement Online Instance",
+  "friendlyName": "Backup Online Instance",
+  "description": "Creates a backup of a PowerApps/CDS/Dynamics 365 Environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI",
+  "helpMarkDown": "This task uses the (Microsoft.Xrm.OnlineManagementAPI)[https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI]",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,18 +12,13 @@
   ],
   "demands": [ ],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Backup $(instanceName)",
   "groups": [
-    {
-      "name": "azureStorageInfo",
-      "displayName": "Azure Storage Info",
-      "isExpanded": false
-    }
   ],
   "inputs": [
     {
@@ -32,7 +27,7 @@
       "label": "ApiUrl",
       "defaultValue": "https://admin.services.crm[n].dynamics.com",
       "required": true,
-      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+      "helpMarkDown": "Use the Service Url for your environment region as per (documentation)[https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api]"
     },
     {
       "name": "username",
@@ -40,7 +35,7 @@
       "label": "Username",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 username"
+      "helpMarkDown": "The environment username"
     },
     {
       "name": "Password",
@@ -48,7 +43,7 @@
       "label": "Password",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 password"
+      "helpMarkDown": "The environment password"
     },
     {
       "name": "instanceName",
@@ -56,7 +51,7 @@
       "label": "Instance Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "The unique instance name. E.g. for :https://contoso.crm.dynamics.com, the value would be: contoso"
     },
     {
       "name": "backupLabel",
@@ -64,7 +59,7 @@
       "label": "Label",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance"
+      "helpMarkDown": "The label of the backup"
     },
     {
       "name": "notes",
@@ -72,7 +67,7 @@
       "label": "Notes",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "As per documentation: https://docs.microsoft.com/en-us/rest/api/admin.services.crm.dynamics.com/backupinstance"
+      "helpMarkDown": "The notes you want included with the backup"
     },
     {
       "name": "backupExistsAction",

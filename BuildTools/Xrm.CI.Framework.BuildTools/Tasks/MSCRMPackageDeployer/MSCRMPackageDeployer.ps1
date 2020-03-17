@@ -23,7 +23,7 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
 ."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
@@ -39,7 +39,7 @@ $packageName = Split-Path $packagePath -leaf
 Write-Host "Package Directory: $packageDirectory"
 Write-Host "Package Name: $packageName"
 
-Require-ToolsTaskVersion -version 10
+Require-ToolsTaskVersion -version 12
 
 $PackageDeployment = 'Microsoft.Xrm.Tooling.PackageDeployment.Powershell'
 $PackageDeploymentInfo = Get-MSCRMToolInfo -toolName $PackageDeployment

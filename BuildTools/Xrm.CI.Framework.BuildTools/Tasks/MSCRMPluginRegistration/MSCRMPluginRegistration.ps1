@@ -32,7 +32,7 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\PluginRegistration.ps1" -CrmConnectionString $crmConnectionString -RegistrationType $registrationType -AssemblyPath $assemblyPath -MappingFile $MappingFile -SolutionName $solutionName -useSplitAssembly $useSplitAssembly -projectFilePath $projectFilePath -Timeout $crmConnectionTimeout

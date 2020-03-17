@@ -1,10 +1,10 @@
 {
   "id": "4455576D-D40A-4234-AD75-3D7FF40EC76E",
   "name": "MSCRMImportSolution",
-  "friendlyName": "MSCRM Import Solution",
-  "description": "Import a Dynamics CRM Solution package",
+  "friendlyName": "Import Solution",
+  "description": "Import a Solution into a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task invokes ImportSolutionRequest in Async mode",
+  "helpMarkDown": "This task invokes [ImportSolutionRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.crm.sdk.messages.importsolutionrequest?view=dynamics-general-ce-9)",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "11",
-    "Minor": "0",
-    "Patch": "4"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 5
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Import Solution",
+  "instanceNameFormat": "Import Solution",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "solutionFile",
@@ -41,7 +41,7 @@
       "label": "Publish Workflows",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per ImportSolutionRequest. See https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.importsolutionrequest.aspx"
+      "helpMarkDown": "Gets or sets whether any processes (workflows) included in the solution should be activated after they are imported."
     },
     {
       "name": "overwriteUnmanagedCustomizations",
@@ -49,7 +49,7 @@
       "label": "Overwrite Unmanaged Customizations",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per ImportSolutionRequest. See https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.importsolutionrequest.aspx"
+      "helpMarkDown": "Gets or sets whether any unmanaged customizations that have been applied over existing managed solution components should be overwritten."
     },
     {
       "name": "skipProductUpdateDependencies",
@@ -57,7 +57,7 @@
       "label": "Skip Product Update Dependencies",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per ImportSolutionRequest. See https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.importsolutionrequest.aspx"
+      "helpMarkDown": "Gets or sets whether enforcement of dependencies related to product updates should be skipped."
     },
     {
       "name": "convertToManaged",
@@ -65,7 +65,7 @@
       "label": "Convert To Managed",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per ImportSolutionRequest. See https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.importsolutionrequest.aspx"
+      "helpMarkDown": "Direct the system to convert any matching unmanaged customizations into your managed solution."
     },
     {
       "name": "holdingSolution",
@@ -73,7 +73,7 @@
       "label": "Holding Solution",
       "defaultValue": "false",
       "required": false,
-      "helpMarkDown": "As per ImportSolutionRequest. See https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.importsolutionrequest.aspx"
+      "helpMarkDown": "Select this to perform a stage for upgrade. You can use the Apply Solution Task after this to complete the upgrade."
     },
     {
       "name": "override",
@@ -118,16 +118,16 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "OutputVariables": [
     {
       "name": "SOLUTION_IMPORT_LOG_FILE",
-      "description":  "The absolute path to solution import log file on the agent server"
+      "description": "The absolute path to solution import log file on the agent server"
     }
   ],
   "execution": {

@@ -178,7 +178,7 @@ function Get-MSCRMToolPath
 
 	if (-not $mscrmToolsPath)
 	{
-		Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+		Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 	}
 
 	return "$mscrmToolsPath\$toolName.$version"
@@ -232,7 +232,7 @@ function Use-MSCRMTool
 
 	if (-not $mscrmToolsPath)
 	{
-		Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+		Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 	}
 
 	$tool = Get-MSCRMToolFromConfig -toolName $toolName
@@ -282,14 +282,14 @@ function Require-ToolsTaskVersion
 
 	if (-not $currentVersion)
 	{
-		Write-Error "MSCRM_Tools_Path_Version not found. Add 'MSCRM Tool Installer' (ver. >= 10) before this task."
+		Write-Error "MSCRM_Tools_Path_Version not found. Add 'Power DevOps Tool Installer' (ver. >= 12) before this task."
 	}
 
 	$currentVersion = $currentVersion -as [int]
 
-	if ($version -ne $currentVersion)
+	if ($currentVersion -lt $version)
 	{
-		Write-Error "'MSCRM Tool Installer' version $version is required for this task version"
+		Write-Error "'Power DevOps Tool Installer' version $version is required for this task version"
 	}
 }
 
@@ -303,7 +303,7 @@ function Require-ToolVersion
 
 	if ([System.Version]$version -lt [System.Version]$minVersion)
 	{
-		throw "$toolName minimum version $minVersion is required. Adjust version in 'MSCRM Tool Installer' task"
+		throw "$toolName minimum version $minVersion is required. Adjust version in 'Power DevOps Tool Installer' task"
 	}
 }
 

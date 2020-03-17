@@ -1,10 +1,10 @@
 {
   "id": "FF6A3ADC-A2D1-4DDC-AF87-9139CBD74BF1",
   "name": "MSCRMUpdateConfigurationRecords",
-  "friendlyName": "MSCRM Update Configuration Records",
-  "description": "Upserts a configuration entity records using lookup/value pairs",
+  "friendlyName": "Update Configuration Records",
+  "description": "Upserts a configuration entity records using lookup/value pairs in a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "Reads a json array of lookup/value and upserts records in CRM",
+  "helpMarkDown": "Reads a json array of lookup/value and upserts records target environment",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "12"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 13
   },
-  "preview":  true,
+  "preview":  false,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Update Configuration Records: $(entityName)",
+  "instanceNameFormat": "Update Configuration Records: $(entityName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "entityName",

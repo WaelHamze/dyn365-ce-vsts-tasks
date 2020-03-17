@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
-  "name": "Dynamics 365 Build Tools",
-  "version": "9.14.2",
+  "name": "Power DevOps Tools",
+  "version": "9.15.1",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -130,9 +130,6 @@
     },
     {
       "path": "Tasks/MSCRMSetOnlineInstanceAdminMode"
-    },
-    {
-      "path": "Tasks/MSCRMUpdatePluginAssembly"
     },
     {
       "path": "Tasks/MSCRMUpdateWebResources"
@@ -429,16 +426,6 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMSetOnlineInstanceAdminMode"
-      }
-    },
-    {
-      "id": "MSCRMUpdatePluginAssembly",
-      "type": "ms.vss-distributed-task.task",
-      "targets": [
-        "ms.vss-distributed-task.tasks"
-      ],
-      "properties": {
-        "name": "Tasks/MSCRMUpdatePluginAssembly"
       }
     },
     {

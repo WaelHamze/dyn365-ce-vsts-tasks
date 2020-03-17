@@ -1,10 +1,10 @@
 {
   "id": "76DA6C87-B541-476B-8294-D47DC5679312",
   "name": "MSCRMRemoveSolutionComponents",
-  "friendlyName": "MSCRM Remove Solution Components",
-  "description": "Removes all components from a given CRM Solution",
+  "friendlyName": "Remove Solution Components",
+  "description": "Removes all components from a given Solution in PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "Removes all components from a given CRM Solution",
+  "helpMarkDown": "This can be used to recycle a transport solution",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,9 +12,9 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 2
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Remove components from solution: $(solutionName)",
@@ -22,10 +22,10 @@
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "solutionName",
@@ -33,15 +33,15 @@
       "label": "Solution Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The unique name of the solution you want to apply"
+      "helpMarkDown": "The unique name of the solution you want to remove components from."
     },
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {
