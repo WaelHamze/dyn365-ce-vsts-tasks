@@ -1,10 +1,10 @@
 {
   "id": "F08CACCB-E6CD-4857-9E69-410C8ADB7EB8",
   "name": "MSCRMApplySolution",
-  "friendlyName": "MSCRM Apply Solution Upgrade",
+  "friendlyName": "Apply Solution Upgrade",
   "description": "Applies a solution upgrade after solution is import using stage for upgrade option",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task invokes DeleteAndPromoteRequest in Async mode",
+  "helpMarkDown": "This task invokes DeleteAndPromoteRequest",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "1",
-    "Patch": "5"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 1
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Apply Solution: $(solutionName)",
+  "instanceNameFormat": "Apply Solution: $(solutionName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "solutionName",
@@ -54,10 +54,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "900",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {
