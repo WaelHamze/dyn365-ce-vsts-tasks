@@ -1,10 +1,10 @@
 {
   "id": "28C0A6D8-B0D0-407F-ADFE-8C901142A6D0",
   "name": "MSCRMCheckSolution",
-  "friendlyName": "MSCRM Check Solution",
+  "friendlyName": "Check Solution",
   "description": "Uses PowerApps Checker API to validate your solution against a list of known issues",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/use-powerapps-checker",
+  "helpMarkDown": "More information on PowerApps Checker can be found [here](https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/use-powerapps-checker)",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,12 +12,12 @@
   ],
   "demands": [],
   "version": {
-    "Major": "12",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Check Solution",
+  "instanceNameFormat": "Check Solution",
   "inputs": [
     {
       "name": "solutionFile",
@@ -25,7 +25,7 @@
       "label": "Solution(s) File",
       "defaultValue": "$(System.DefaultWorkingDirectory)/<BuildName>/<ArtifactName>/<SolutionFile>.zip",
       "required": false,
-      "helpMarkDown": "The absolute path to the CRM solution(s) zip file on the agent machine"
+      "helpMarkDown": "The absolute path to the solution(s) zip file on the agent machine"
     },
     {
       "name": "resultsVariableName",
@@ -69,7 +69,7 @@
         "Rules": "Specific Rules"
       },
       "required": true,
-      "helpMarkDown": "The"
+      "helpMarkDown": "Select whether you want to check your solution against standard rulesets or you want to provide specific rules."
     },
     {
       "name": "ruleset",
