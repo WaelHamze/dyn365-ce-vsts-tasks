@@ -15,16 +15,26 @@ function Execute-Nuget
 {
 	param(
 		[string]$nugetPath,
-		[string[]]$nugetArgList
+		[string[]]$nugetArgList,
+		[switch]$returnOutput
 	)
 
 	Write-Verbose "Nuget command: $nugetPath $nugetArgList"
 
-	& $nugetPath $nugetArgList
+	if ($returnOutput)
+	{
+		$output = & $nugetPath $nugetArgList
+
+		Write-Output $output
+	}
+	else
+	{
+		& $nugetPath $nugetArgList
+	}
 
 	if ($lastexitcode -ne 0)
 	{
-		throw "Nuget.exe encountered an error: $lastexitcode"
+		throw "Nuget.exe encountered an error: $lastexitcode $output"
 	}
 }
 
@@ -70,11 +80,15 @@ function Configure-Nuget
 
 	if ($username)
 	{
+		Write-Verbose "Setting Nuget Username to: $username"
+		
 		$nugetArgList += "-Username"
 		$nugetArgList += "$username"
 
 		if ($password)
 		{
+			Write-Verbose "Setting Nuget Password"
+			
 			$nugetArgList += "-Password"
 			$nugetArgList += "$password"
 		}
@@ -85,6 +99,8 @@ function Configure-Nuget
 	#Set APIKey
 	if ($password -and (-not $username))
 	{
+		Write-Verbose "Setting Nuget API Key"
+		
 		$nugetArgList = @(
 			"setapikey","$password",
 			"-Source", "$source",
@@ -97,6 +113,8 @@ function Configure-Nuget
 	#Set Proxy
 	if ($nugetProxyUrl)
 	{
+		Write-Verbose "Seting Nuget proxy to Url= $nugetProxyUrl | User=$nugetProxyUsername"
+		
 		Set-NugetConfigValue -nugetPath "$nugetPath" -nugetConfigPath $nugetConfigPath -name "HTTP_PROXY" -value "$nugetProxyUrl"
 
 		if ($nugetProxyUsername)
@@ -118,17 +136,24 @@ function Set-MSCRMToolVersionVariable
 		[string]$version
     )
 
+	$tool = Get-MSCRMToolFromConfig -toolName $toolName
+
 	if ($version)
 	{
-		Write-Verbose "Setting override version $version for $toolName"
+		Write-Host "Override version for $toolName : $version"
 
 		$variable = Get-MSCRMToolVersionVariable -toolName $toolName
+
+		if ($version -eq 'latest')
+		{
+			$version = Get-LatestToolVersion -toolName $toolName
+		}
 
 		Write-Host "##vso[task.setvariable variable=$variable]$version"
 	}
 	else
 	{
-		Write-Verbose "Skipping - No override version provided for $toolName"
+		Write-Host "Using default version for  $toolName : $($tool.Version)"
 	}
 }
 
@@ -219,6 +244,72 @@ function Get-MSCRMToolInfo
 	return $tool
 }
 
+function Get-LatestToolVersion
+{
+	param(
+		[string]$toolName
+		)
+
+	Write-Verbose "Finding latest version for tool: $toolName"
+
+	#MSCRM Tools
+	$mscrmToolsPath = $env:MSCRM_Tools_Path
+	Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
+
+	if (-not $mscrmToolsPath)
+	{
+		Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
+	}
+	
+	$tool = Get-MSCRMToolFromConfig -toolName $toolName
+
+	if ($tool.Source -eq 'Nuget')
+	{
+		$configPath = iex ('$env:' + $nugetConfigVariable)
+	}
+	elseif ($tool.Source -eq 'PSGallery')
+	{
+		$configPath = iex ('$env:' + $psConfigVariable)
+	}
+
+	$nugetPath = "$mscrmToolsPath\Nuget\4.9.4\nuget.exe"
+
+	$nugetArgList = @(
+		"list",
+		"$toolName",
+		"-ConfigFile", "$configPath",
+		"-NonInteractive"
+	)
+
+	$output = Execute-Nuget -nugetPath $nugetPath -nugetArgList $nugetArgList -returnOutput
+
+	$toolMatches = $output | Select-String "$toolName \d+(\.\d+)+"
+
+	if ($toolMatches)
+	{
+		$toolMatch = $toolMatches.Matches.Value
+
+		$versionMatch = $toolMatch | Select-String '\d+(\.\d+)+'
+
+		if ($versionMatch)
+		{
+			$version = $versionMatch.matches.Value
+
+			Write-Host "Latest Version of $toolName is: $version"
+
+			Write-Output $version
+		}
+		else
+		{
+			throw "Couldn't extract version. Try to specify an exact version or leave blank. $output"
+		}
+	}
+	else
+	{
+		throw "Couldn't extract version. Try to specify an exact version or leave blank. $output"
+	}
+}
+
 function Use-MSCRMTool
 {
     param(
@@ -263,7 +354,8 @@ function Use-MSCRMTool
 			"$toolName",
 			"-OutputDirectory","$mscrmToolsPath",
 			"-ConfigFile", "$configPath",
-			"-Version", "$version"
+			"-Version", "$version",
+			"-NonInteractive"
 		)
 
 		Execute-Nuget -nugetPath $nugetPath -nugetArgList $nugetArgList

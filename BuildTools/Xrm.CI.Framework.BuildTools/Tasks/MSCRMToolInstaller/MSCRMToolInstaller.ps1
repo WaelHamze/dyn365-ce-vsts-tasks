@@ -62,6 +62,7 @@ $currentVersionPath = "$frameworkCache\$taskFullVersion"
 Write-Host "Tools Directory: $currentVersionPath"
 
 Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Path]$currentVersionPath"
+$env:MSCRM_Tools_Path = $currentVersionPath
 Write-Host "##vso[task.setvariable variable=MSCRM_Tools_Task_Version]$currentVersion"
 
 if (Test-Path $frameworkCache)
@@ -194,15 +195,18 @@ $params = @{
 	source = "$psSource"
 	username = "$psUsername"
 	password = "$psPassword"
-	psProxyUrl = "$psProxyUrl"
-	psProxyUsername = "$psProxyUsername"
-	psProxyPassword = "$psProxyPassword"
+	nugetProxyUrl = "$psProxyUrl"
+	nugetProxyUsername = "$psProxyUsername"
+	nugetProxyPassword = "$psProxyPassword"
 }
 
 Configure-Nuget @params
 
 Write-Host "##vso[task.setvariable variable=$nugetConfigVariable]$nugetConfigPath"
 Write-Host "##vso[task.setvariable variable=$psConfigVariable]$psConfigPath"
+
+$env:MSCRM_Tools_NugetConfig_Path = $nugetConfigPath
+$env:MSCRM_Tools_PSGalleryConfig_Path = $psConfigPath
 
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.CrmSdk.CoreTools' -version $coreToolsVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell' -version $crmConnectorVersion
