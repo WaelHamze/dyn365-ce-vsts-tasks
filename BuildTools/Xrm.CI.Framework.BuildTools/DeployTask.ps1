@@ -16,7 +16,14 @@ $counter = 1
 
 foreach($task in $tasks)
 {
-    Write-Host ('' + $counter + ' - ' + $task)
+    if ($counter%2 -eq 0)
+	{
+		Write-Host ('' + $counter + ' - ' + $task) -ForegroundColor Yellow
+	}
+	else
+	{
+		Write-Host ('' + $counter + ' - ' + $task)
+	}
     $counter++
 }
 
