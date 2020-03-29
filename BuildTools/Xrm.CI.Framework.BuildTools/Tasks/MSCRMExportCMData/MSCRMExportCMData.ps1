@@ -37,15 +37,13 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $configMigration = 'Microsoft.Xrm.Tooling.ConfigurationMigration'
-$configMigrationInfo = Get-MSCRMToolInfo -toolName $configMigration
+$configMigrationInfo = Get-MSCRMTool -toolName $configMigration
 $configMigrationInfoPath = "$($configMigrationInfo.Path)"
 Require-ToolVersion -toolName $configMigration -version $configMigrationInfo.Version -minVersion '1.0.0.26'
-Use-MSCRMTool -toolName $configMigration -version $configMigrationInfo.Version
 
 $CrmConnector = 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell'
-$CrmConnectorInfo = Get-MSCRMToolInfo -toolName $CrmConnector
+$CrmConnectorInfo = Get-MSCRMTool -toolName $CrmConnector
 $CrmConnectorPath = "$($CrmConnectorInfo.Path)"
-Use-MSCRMTool -toolName $CrmConnector -version $CrmConnectorInfo.Version
 
 #Logs
 if (-not $logsDirectory)

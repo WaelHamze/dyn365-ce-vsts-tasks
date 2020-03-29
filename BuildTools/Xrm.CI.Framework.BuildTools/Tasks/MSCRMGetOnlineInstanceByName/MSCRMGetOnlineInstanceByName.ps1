@@ -32,10 +32,9 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
-$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
-$onlineAPIPath = "$($onlineAPIInfo.Path)"
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
 Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
-Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
 
 #Load Online Management Module
 

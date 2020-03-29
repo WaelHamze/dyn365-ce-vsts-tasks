@@ -35,9 +35,8 @@ if (-not $logsDirectory)
 Require-ToolsTaskVersion -version 12
 
 $coreTools = 'Microsoft.CrmSdk.CoreTools'
-$coreToolsInfo = Get-MSCRMToolInfo -toolName $coreTools
+$coreToolsInfo = Get-MSCRMTool -toolName $coreTools
 $coreToolsPath = "$($coreToolsInfo.Path)\content\bin\coretools"
-Use-MSCRMTool -toolName $coreTools -version $coreToolsInfo.Version
 
 #Import
 try

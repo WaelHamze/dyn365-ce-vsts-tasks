@@ -41,9 +41,8 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $coreTools = 'Microsoft.CrmSdk.CoreTools'
-$coreToolsInfo = Get-MSCRMToolInfo -toolName $coreTools
+$coreToolsInfo = Get-MSCRMTool -toolName $coreTools
 $coreToolsPath = "$($coreToolsInfo.Path)\content\bin\coretools"
-Use-MSCRMTool -toolName $coreTools -version $coreToolsInfo.Version
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\ExtractSolution.ps1" -UnpackedFilesFolder "$unpackedFilesFolder" -MappingFile "$mappingFile" -PackageType $packageType -solutionFile "$solutionFile" -TreatUnpackWarningsAsErrors $treatUnpackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath "$coreToolsPath"
 

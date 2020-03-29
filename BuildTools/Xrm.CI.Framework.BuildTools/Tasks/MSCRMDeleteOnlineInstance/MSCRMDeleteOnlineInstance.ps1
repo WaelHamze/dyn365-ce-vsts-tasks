@@ -35,10 +35,9 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
-$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
-$onlineAPIPath = "$($onlineAPIInfo.Path)"
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
 Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
-Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\DeleteOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password  -InstanceName $InstanceName -PSModulePath $onlineAPIPath -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 

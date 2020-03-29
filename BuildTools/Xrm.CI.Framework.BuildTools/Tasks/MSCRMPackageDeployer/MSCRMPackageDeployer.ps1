@@ -42,14 +42,12 @@ Write-Host "Package Name: $packageName"
 Require-ToolsTaskVersion -version 12
 
 $PackageDeployment = 'Microsoft.Xrm.Tooling.PackageDeployment.Powershell'
-$PackageDeploymentInfo = Get-MSCRMToolInfo -toolName $PackageDeployment
+$PackageDeploymentInfo = Get-MSCRMTool -toolName $PackageDeployment
 $PackageDeploymentPath = "$($PackageDeploymentInfo.Path)"
-Use-MSCRMTool -toolName $PackageDeployment -version $PackageDeploymentInfo.Version
 
 $CrmConnector = 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell'
-$CrmConnectorInfo = Get-MSCRMToolInfo -toolName $CrmConnector
+$CrmConnectorInfo = Get-MSCRMTool -toolName $CrmConnector
 $CrmConnectorPath = "$($CrmConnectorInfo.Path)"
-Use-MSCRMTool -toolName $CrmConnector -version $CrmConnectorInfo.Version
 
 #Temp Directory
 if ($env:AGENT_TEMPDIRECTORY)

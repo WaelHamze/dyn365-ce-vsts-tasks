@@ -144,11 +144,6 @@ function Set-MSCRMToolVersionVariable
 
 		$variable = Get-MSCRMToolVersionVariable -toolName $toolName
 
-		if ($version -eq 'latest')
-		{
-			$version = Get-LatestToolVersion -toolName $toolName
-		}
-
 		Write-Host "##vso[task.setvariable variable=$variable]$version"
 	}
 	else
@@ -239,8 +234,6 @@ function Get-MSCRMToolInfo
 		Write-Verbose "Using default version: $version"
 	}
 
-	$tool | Add-Member -MemberType NoteProperty -Name Path -Value $(Get-MSCRMToolPath -toolName $toolName -version $version)
-
 	return $tool
 }
 
@@ -308,6 +301,87 @@ function Get-LatestToolVersion
 	{
 		throw "Couldn't extract version. Try to specify an exact version or leave blank. $output"
 	}
+}
+
+function Get-MSCRMTool
+{
+	param(
+		[string]$toolName
+	)
+
+	#MSCRM Tools
+	$mscrmToolsPath = $env:MSCRM_Tools_Path
+	Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
+
+	if (-not $mscrmToolsPath)
+	{
+		Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
+	}
+
+	$tool = Get-MSCRMToolInfo -toolName $toolName
+
+	if ($tool.Source -eq 'Nuget')
+	{
+		$configPath = iex ('$env:' + $nugetConfigVariable)
+	}
+	elseif ($tool.Source -eq 'PSGallery')
+	{
+		$configPath = iex ('$env:' + $psConfigVariable)
+	}
+
+	Write-Host "Downloading $toolName $($tool.Version) to: $mscrmToolsPath" -ForegroundColor Green
+
+	$nugetPath = "$mscrmToolsPath\Nuget\4.9.4\nuget.exe"
+
+	$nugetArgList = @(
+		"install",
+		"$toolName",
+		"-OutputDirectory","$mscrmToolsPath",
+		"-ConfigFile", "$configPath",
+		"-NonInteractive"
+	)
+
+	if ($tool.Version -ne 'latest')
+	{
+		$nugetArgList += "-Version"
+		$nugetArgList += "$($tool.Version)"
+	}
+
+	$output = Execute-Nuget -nugetPath $nugetPath -nugetArgList $nugetArgList -returnOutput
+
+	if ($tool.Version -eq 'latest')
+	{
+		$latestDir = Get-ChildItem -Path $mscrmToolsPath | Where-Object {$_.Name -like "$toolName.*"} | Sort Name -Descending | Select-Object -First 1
+
+		if ($latestDir)
+		{
+			$versionMatch = $latestDir | Select-String "\d+(\.\d+)+"
+
+			if ($versionMatch)
+			{
+				$version = $versionMatch.matches.Value
+
+				Write-Host "Latest Version of $toolName is: $version"
+
+				$tool.Version = $version
+			}
+			else
+			{
+				throw "Couldn't extract version. Try to specify an exact version or leave blank."
+			}
+
+		}
+		else
+		{
+			throw "Can't find $toolName in $mscrmToolsPath. Try to specify an exact version or leave blank. $output"
+		}
+	}
+
+	$toolFolder = Get-MSCRMToolPath -toolName $toolName -version $tool.Version
+
+	$tool | Add-Member -MemberType NoteProperty -Name Path -Value $toolFolder
+
+	return $tool
 }
 
 function Use-MSCRMTool

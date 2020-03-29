@@ -42,10 +42,9 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $powerappChecker = 'Microsoft.PowerApps.Checker.PowerShell'
-$powerappCheckerInfo = Get-MSCRMToolInfo -toolName $powerappChecker
+$powerappCheckerInfo = Get-MSCRMTool -toolName $powerappChecker
 $powerappCheckerPath = "$($powerappCheckerInfo.Path)"
 Require-ToolVersion -toolName $powerappChecker -version $powerappCheckerInfo.Version -minVersion '1.0.0.26'
-Use-MSCRMTool -toolName $powerappChecker -version $powerappCheckerInfo.Version
 
 #Logs
 	

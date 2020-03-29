@@ -216,10 +216,11 @@ Backup instance task uses new API which is a lot faster now. Task now supports s
 Update PS modules and Nuget packages to latest versions  
 
 **9.15.x**
-Dependencies from Nuget/PS Gallery are no longer packaged with extension these are now downloaded at runtime. Power DevOps Tool Installer v12  
-Ability to select official sources for dependencies (nuget.prg/PS Gallery) or supply custom repositories. Power DevOps Tool Installer v12  
-Ability to override the default version of dependencies used (e.g. Solution Packager). Power DevOps Tool Installer v12  
+Dependencies from Nuget/PS Gallery are no longer packaged with extension these are now downloaded at runtime. (Power DevOps Tool Installer v12)  
+Ability to select official sources for dependencies (nuget.prg/PS Gallery) or supply custom repositories. (Power DevOps Tool Installer v12)  
+Ability to override the default version of dependencies used by supplying a specific version (e.g. Solution Packager). (Power DevOps Tool Installer v12)  
+Ability to select the latest version of a dependency package (e.g. Solution Packager). (Power DevOps Tool Installer v12)  
 To be able to use the above features you will need to use v12 of Power DevOps Tool Installer and v12 of other tasks  
-The previously deprecated feature to update the version of a solution while exporting has been removed now. Use Set Version task instead  
+The previously deprecated feature to update the version of a solution in the export task has been removed now. Use Set Version task instead  
 
 For more information on changes between versions, check the milestones and releases on GitHub

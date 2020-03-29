@@ -37,10 +37,9 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
-$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
-$onlineAPIPath = "$($onlineAPIInfo.Path)"
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
 Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
-Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\SetOnlineInstanceAdminMode.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -Enable $enable -AllowBackgroundOperations $allowBackgroundOperations -NotificationText $notificationText -PSModulePath $onlineAPIPath -WaitForCompletion $true -SleepDuration 5
 

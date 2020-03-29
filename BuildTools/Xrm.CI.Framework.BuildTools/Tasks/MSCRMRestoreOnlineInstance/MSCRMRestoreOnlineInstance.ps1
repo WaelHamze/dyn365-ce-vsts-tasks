@@ -33,16 +33,14 @@ if (-not $mscrmToolsPath)
 Require-ToolsTaskVersion -version 12
 
 $onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
-$onlineAPIInfo = Get-MSCRMToolInfo -toolName $onlineAPI
-$onlineAPIPath = "$($onlineAPIInfo.Path)"
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
 Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
-Use-MSCRMTool -toolName $onlineAPI -version $onlineAPIInfo.Version
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
 
 $azureAD = 'AzureAD'
-$azureADInfo = Get-MSCRMToolInfo -toolName $azureAD
-$azureADPath = "$($azureADInfo.Path)"
+$azureADInfo = Get-MSCRMTool -toolName $azureAD
 Require-ToolVersion -toolName $azureAD -version $azureADInfo.Version -minVersion '2.0.2.52'
-Use-MSCRMTool -toolName $azureAD -version $azureADInfo.Version
+$azureADPath = "$($azureADInfo.Path)"
 
 if ($restoreType -eq 'label')
 {
