@@ -1,8 +1,8 @@
 {
   "id": "4DF3C114-E3C6-4C5B-8D9D-6D974BD27BD5",
   "name": "MSCRMGetLatestPatch",
-  "friendlyName": "MSCRM Get Latest Patch",
-  "description": "Retrieves the latest patch for a given solution",
+  "friendlyName": "Get Latest Patch",
+  "description": "Retrieves the latest patch for a given solution from a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
   "helpMarkDown": "",
   "category": "Deploy",
@@ -12,18 +12,18 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "6"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 7
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Get Latest Patch: $(solutionName)",
+  "instanceNameFormat": "Get Latest Patch: $(solutionName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "For more information on format check the [docs](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/xrm-tooling/use-connection-strings-xrm-tooling-connect)"
@@ -34,15 +34,15 @@
       "label": "Solution Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The unique name of the solution you want to check"
+      "helpMarkDown": "The unique name of the solution you want to get the patch for"
     },
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     },
     {
       "name": "existsVariableName",

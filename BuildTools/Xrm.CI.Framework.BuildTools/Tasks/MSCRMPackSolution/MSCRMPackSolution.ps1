@@ -10,11 +10,9 @@ Write-Verbose 'Entering MSCRMPackSolution.ps1'
 $unpackedFilesFolder = Get-VstsInput -Name unpackedFilesFolder -Require
 $mappingFile = Get-VstsInput -Name mappingFile
 $packageType = Get-VstsInput -Name packageType -Require
-$updateVersion = Get-VstsInput -Name updateVersion -AsBool
 $includeVersionInSolutionFile = Get-VstsInput -Name includeVersionInSolutionFile -AsBool
 $outputPath = Get-VstsInput -Name outputPath
 $treatPackWarningsAsErrors = Get-VstsInput -Name treatPackWarningsAsErrors -AsBool
-$crmSdkVersion = Get-VstsInput -Name crmSdkVersion -Require
 $sourceLoc = Get-VstsInput -Name sourceLoc
 $localize = Get-VstsInput -Name localize -AsBool
 
@@ -22,18 +20,13 @@ $localize = Get-VstsInput -Name localize -AsBool
 $buildNumber = $env:BUILD_BUILDNUMBER
 $sourcesDirectory = $env:BUILD_SOURCESDIRECTORY
 $binariesDirectory = $env:BUILD_BINARIESDIRECTORY
+$defaultDirectory = $env:System_DefaultWorkingDirectory
 
-#Print Verbose
-Write-Verbose "unpackedFilesFolder = $unpackedFilesFolder"
-Write-Verbose "mappingFile = $mappingFile"
-Write-Verbose "packageType = $packageType"
-Write-Verbose "updateVersion = $updateVersion"
-Write-Verbose "includeVersionInSolutionFile = $includeVersionInSolutionFile"
-Write-Verbose "treatPackWarningsAsErrors = $treatPackWarningsAsErrors"
-Write-Verbose "buildNumber = $buildNumber"
-Write-Verbose "sourcesDirectory = $sourcesDirectory"
-Write-Verbose "binariesDirectory = $binariesDirectory"
-Write-Verbose "crmSdkVersion = $crmSdkVersion"
+if ($mappingFile -eq $sourcesDirectory -or $mappingFile -eq $defaultDirectory)
+{
+	Write-Verbose "Setting mapping file to null as matches a pipeline directory"
+	$mappingFile = $null
+}
 
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
@@ -41,21 +34,17 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
-$CoreToolsPath = "$mscrmToolsPath\CoreTools\$crmSdkVersion"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
 
-if ($mappingFile -eq $sourcesDirectory)
-{
-	$mappingFile = $null
-}
+Require-ToolsTaskVersion -version 12
 
-if ($updateVersion)
-{
-	$versionNumber = $buildNumber.Substring($buildNumber.IndexOf("_") + 1)
-}
+$coreTools = 'Microsoft.CrmSdk.CoreTools'
+$coreToolsInfo = Get-MSCRMTool -toolName $coreTools
+$coreToolsPath = "$($coreToolsInfo.Path)\content\bin\coretools"
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -UpdateVersion $updateVersion -RequiredVersion $versionNumber -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath $CoreToolsPath
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\PackSolution.ps1" -UnpackedFilesFolder $unpackedFilesFolder -MappingFile $mappingFile -PackageType $packageType -IncludeVersionInSolutionFile $includeVersionInSolutionFile -OutputPath $outputPath -TreatPackWarningsAsErrors $treatPackWarningsAsErrors -sourceLoc "$sourceLoc" -localize $localize -CoreToolsPath "$CoreToolsPath"
 
 Write-Verbose 'Leaving MSCRMPackSolution.ps1'

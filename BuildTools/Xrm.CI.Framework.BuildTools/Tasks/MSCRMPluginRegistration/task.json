@@ -1,8 +1,8 @@
 {
   "id": "a48708ef-a5d6-4af5-a9be-589847132834",
   "name": "MSCRMPluginRegistration",
-  "friendlyName": "MSCRM Plugin Registration",
-  "description": "Upsert Dynamics 365 plugin/workflow activity assembly/types/steps",
+  "friendlyName": "Plugin Registration",
+  "description": "Updates a CDS Plugin/Workflow activity assembly/types/steps in a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
   "helpMarkDown": "Upsert plugin/workflow assembly, types and steps",
   "category": "Utility",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "11",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 5
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Plugin Registration",
+  "instanceNameFormat": "Plugin Registration",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "registrationType",
@@ -61,7 +61,7 @@
       "name": "useSplitAssembly",
       "type": "boolean",
       "label": "Split Plugin Assembly",
-      "defaultValue": 0,
+      "defaultValue": false,
       "required": true,
       "helpMarkDown": "Set to true to split plugin assembly."
     },
@@ -80,15 +80,15 @@
       "label": "Mapping File Path",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Plugin registration json/xml mapping used to register assembly/types/steps.</br> Mapping json(PluginRegistrationMappingExample.json)/xml file sample can be found here: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration. </br> JSON schema which will help you to generate plugin registration mapping can be found here: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration/PluginRegistrationSchema.json . </br> How to use schema can be found here: https://blogs.msdn.microsoft.com/webdev/2014/04/10/intellisense-for-json-schema-in-the-json-editor/. </br> To generate plugin registration JSON mapping from existing assembly/type/steps from a specific solution, please use cmdlet: https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/GetPluginRegistration.ps1 </br>"
+      "helpMarkDown": "Plugin registration json/xml mapping used to register assembly/types/steps.  Mapping json PluginRegistrationMappingExample.json/xml file sample can be found [here](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration).  JSON schema which will help you to generate plugin registration mapping can be found [here](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Cmdlets/PluginRegistration/PluginRegistrationSchema.json).  How to use schema can be found [here](https://blogs.msdn.microsoft.com/webdev/2014/04/10/intellisense-for-json-schema-in-the-json-editor/).  To generate plugin registration JSON mapping from existing assembly/type/steps from a specific solution, please use this [script](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/GetPluginRegistration.ps1)."
     },
     {
       "name": "crmConnectionTimeout",
-      "type": "int",
-      "label": "Crm Connection Timeout",
-      "defaultValue": 360,
+      "type": "string",
+      "label": "Connection Timeout",
+      "defaultValue": "360",
       "required": true,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

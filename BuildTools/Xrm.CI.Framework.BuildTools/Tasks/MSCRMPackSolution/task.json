@@ -1,36 +1,24 @@
 {
   "id": "ebec2a90-ce1f-11e6-ae21-c1fb031659ee",
   "name": "MSCRMPackSolution",
-  "friendlyName": "MSCRM Pack Solution",
-  "description": "Packages a CRM Solution using SolutionPackager.exe",
+  "friendlyName": "Pack Solution",
+  "description": "Generates a PowerApps/CDS/Dynamics 365 Solution zip from previously extracted files using SolutionPackager.exe",
   "author": "Wael Hamze",
-  "helpMarkDown": "Solution files must be checked-in to source control",
+  "helpMarkDown": "You can control the version using of the SolutionPackager used using the Tools Installer Task",
   "category": "Build",
   "visibility": [
     "Build",
     "Release"
   ],
-  "demands": [ ],
+  "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "5"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 4
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Pack Solution",
+  "instanceNameFormat": "Pack Solution",
   "inputs": [
-    {
-      "name": "crmSdkVersion",
-      "type": "pickList",
-      "label": "Crm Sdk Version",
-      "defaultValue": "9.0.0",
-      "required": true,
-      "options": {
-        "8.2.0": "8.2",
-        "9.0.0": "9.0"
-      },
-      "helpMarkDown": "The Crm SDK version to use for executing solutionpackager.exe"
-    },
     {
       "name": "unpackedFilesFolder",
       "type": "filePath",
@@ -59,14 +47,6 @@
         "Managed": "Managed",
         "Both": "Both"
       }
-    },
-    {
-      "name": "updateVersion",
-      "type": "boolean",
-      "label": "Update Version (Deprecated) use task Set Version instead",
-      "defaultValue": "false",
-      "required": false,
-      "helpMarkDown": "Sets the packaged solution version to the build number. build number format must end with '_x.x.x.x' e.g. '$(BuildDefinitionName)_5.0.0$(Rev:.r)'. This has been deprecated. Use "
     },
     {
       "name": "includeVersionInSolutionFile",

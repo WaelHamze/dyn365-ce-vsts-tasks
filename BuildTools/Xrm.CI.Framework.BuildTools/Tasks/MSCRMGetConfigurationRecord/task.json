@@ -1,8 +1,8 @@
 {
   "id": "0969E8A7-CC41-4B68-A78E-522C285702A5",
   "name": "MSCRMGetConfigurationRecord",
-  "friendlyName": "MSCRM Get Configuration Record",
-  "description": "Retrieves a configuration entity record value using a lookup",
+  "friendlyName": "Get Configuration Record",
+  "description": "Retrieves a configuration entity record value using a lookup from a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
   "helpMarkDown": "Retrieves a configuration entity record value using a unique lookup value",
   "category": "Utility",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "3"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 4
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Get Configuration Record: $(lookupValue)",
+  "instanceNameFormat": "Get Configuration Record: $(lookupValue)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "entityName",

@@ -1,10 +1,10 @@
 {
   "id": "33C2D0CA-7945-4A03-ABDB-9C2E1B2DEEE9",
   "name": "MSCRMRemoveSolution",
-  "friendlyName": "MSCRM Remove Solution",
-  "description": "Removes the given CRM Solution",
+  "friendlyName": "Remove Solution",
+  "description": "Deletes a managed/unmanaged Solution from a PowerApps/CDS/Dynamics 365 environment",
   "author": "Bob Guidinger",
-  "helpMarkDown": "Deletes a Dynamics CRM managed/unmanaged Solution",
+  "helpMarkDown": "Note this is a sync operation and may timeout, adjust timeout accordingly",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "4"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 6
   },
-  "preview": true,
+  "preview": false,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Remove Solution: $(solutionName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "solutionName",
@@ -39,10 +39,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

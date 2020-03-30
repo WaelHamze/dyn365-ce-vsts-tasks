@@ -1,11 +1,12 @@
 {
   "id": "d8587a60-cd25-11e6-a324-f3fd298c325e",
   "name": "MSCRMPing",
-  "friendlyName": "MSCRM Ping",
-  "description": "A sample task that checks connectivity to a Dynamics 365 environment",
+  "friendlyName": "Ping Environment",
+  "description": "Use this task to test connectivity to a PowerApps/CDS/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "Performs a WhoAmIRequest against the target CRM environment",
+  "helpMarkDown": "Performs a WhoAmIRequest against the target environment",
   "category": "Utility",
+  "helpUrl": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/toolinstaller/Docs/MSCRMPing/Overview.md",
   "visibility": [
     "Build",
     "Release"
@@ -15,20 +16,20 @@
     "mscrmtools"
   ],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "6"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 9
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM CRM Ping",
+  "instanceNameFormat": "Ping Environment",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     }
   ],
   "execution": {

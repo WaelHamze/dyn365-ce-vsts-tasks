@@ -1,10 +1,10 @@
 {
   "id": "aa1a23f4-49e6-4a09-96f7-ee57a3f84d21",
   "name": "MSCRMGetOnlineInstanceByName",
-  "friendlyName": "MSCRM Get Online Instance By Name",
-  "description": "Gets an Online instance ID based on the name of the instance.",
+  "friendlyName": "Get Online Instance By Name",
+  "description": "Gets PowerApps/CDS/Dynamics 365 environment Id based on the name of the environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses the Microsoft.Xrm.OnlineManagementAPI: https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI",
+  "helpMarkDown": "This task uses the (Microsoft.Xrm.OnlineManagementAPI)[https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI]",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,12 +12,12 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 5
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Get Online Instance By Name",
+  "instanceNameFormat": "Get Online Instance By Name",
   "inputs": [
     {
       "name": "apiUrl",
@@ -25,7 +25,7 @@
       "label": "ApiUrl",
       "defaultValue": "https://admin.services.crm[n].dynamics.com",
       "required": true,
-      "helpMarkDown": "Use the Service Url as per documentation: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api"
+      "helpMarkDown": "Use the Service Url for your environment region as per (documentation)[https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api]"
     },
     {
       "name": "username",
@@ -33,7 +33,7 @@
       "label": "Username",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 username"
+      "helpMarkDown": "The environment username"
     },
     {
       "name": "Password",
@@ -41,7 +41,7 @@
       "label": "Password",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The Dynamics 365 password"
+      "helpMarkDown": "The environment password"
     },
     {
       "name": "instanceName",
@@ -49,7 +49,7 @@
       "label": "InstanceName",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "The unique instance name. E.g. for :https://contoso.crm.dynamics.com, the value would be: contoso"
     },
     {
       "name": "vstsInstanceIdOutputVariableName",

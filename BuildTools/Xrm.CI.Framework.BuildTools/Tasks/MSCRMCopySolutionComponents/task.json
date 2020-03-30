@@ -1,10 +1,10 @@
 {
   "id": "E89BE8B0-D102-4533-87AF-8F8F1206DD78",
   "name": "MSCRMCopySolutionComponents",
-  "friendlyName": "MSCRM Copy Solution Components",
-  "description": "Add components from a given solution to another solution if not present",
+  "friendlyName": "Copy Solution Components",
+  "description": "Adds components from a given solution to another solution if not present",
   "author": "Wael Hamze",
-  "helpMarkDown": "Add components from a given solution to another solution if not present",
+  "helpMarkDown": "This can be used to add components from a transfer solution to a main solution",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "1"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 2
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "Add components from solution: $(fromSolutionName)",
+  "instanceNameFormat": "Add components from : $(fromSolutionName) to $(toSolutionName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "fromSolutionName",
@@ -46,10 +46,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

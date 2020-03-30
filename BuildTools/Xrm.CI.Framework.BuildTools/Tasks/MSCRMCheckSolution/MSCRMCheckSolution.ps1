@@ -34,8 +34,17 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
+
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
+
+Require-ToolsTaskVersion -version 12
+
+$powerappChecker = 'Microsoft.PowerApps.Checker.PowerShell'
+$powerappCheckerInfo = Get-MSCRMTool -toolName $powerappChecker
+$powerappCheckerPath = "$($powerappCheckerInfo.Path)"
+Require-ToolVersion -toolName $powerappChecker -version $powerappCheckerInfo.Version -minVersion '1.0.0.26'
 
 #Logs
 	
@@ -55,7 +64,7 @@ $CheckParams = @{
 	ApplicationId = "$applicationId"
 	ApplicationSecret = "$applicationSecret"
 	Geography = "$geography"
-	PowerAppsCheckerPath = "$mscrmToolsPath\Microsoft.PowerApps.Checker.PowerShell"
+	PowerAppsCheckerPath = "$powerappCheckerPath"
 	RuleOverridesJson = $ruleLevelOverrides
 }
 

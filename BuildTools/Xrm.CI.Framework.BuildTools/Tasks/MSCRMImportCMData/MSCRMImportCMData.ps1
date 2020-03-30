@@ -33,8 +33,22 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
+
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
+
+Require-ToolsTaskVersion -version 12
+
+$configMigration = 'Microsoft.Xrm.Tooling.ConfigurationMigration'
+$configMigrationInfo = Get-MSCRMTool -toolName $configMigration
+$configMigrationInfoPath = "$($configMigrationInfo.Path)"
+Require-ToolVersion -toolName $configMigration -version $configMigrationInfo.Version -minVersion '1.0.0.26'
+
+$CrmConnector = 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell'
+$CrmConnectorInfo = Get-MSCRMTool -toolName $CrmConnector
+$CrmConnectorPath = "$($CrmConnectorInfo.Path)"
+Use-MSCRMTool -toolName $CrmConnector -version $CrmConnectorInfo.Version
 
 #Logs
 if (-not $logsDirectory)
@@ -57,8 +71,8 @@ $params = @{
 	dataFile = "$dataFile"
 	concurrentThreads = $concurrentThreads
 	logsDirectory = "$logsDirectory"
-	configurationMigrationModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.ConfigurationMigration"
-	toolingConnectorModulePath = "$mscrmToolsPath\Microsoft.Xrm.Tooling.CrmConnector.PowerShell"
+	configurationMigrationModulePath = "$configMigrationInfoPath"
+	toolingConnectorModulePath = "$CrmConnectorPath"
 	userMapFile = "$userMapFile"
 	enabledBatchMode = $enabledBatchMode
 	batchSize = $batchSize

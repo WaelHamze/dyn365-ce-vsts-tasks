@@ -1,10 +1,10 @@
 {
   "id": "04AD1C72-5E49-4686-8A3A-DDA6948B0FCD",
   "name": "MSCRMToolInstaller",
-  "friendlyName": "MSCRM Tool Installer",
-  "description": "Installs the Dynamics 365 tools required by all of the tasks",
+  "friendlyName": "Power DevOps Tool Installer",
+  "description": "Configures the tools/dependencies required by all of the tasks",
   "author": "Wael Hamze",
-  "helpMarkDown": "Tools are installed under {agentroot}/_work/tools. e.g 'D:\\Agent1_work\\tools\\MSCRMBuildTools\\9.0.1'",
+  "helpMarkDown": "This task must be added at least once before other tasks in each agent phase for all other tasks to work.",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -17,13 +17,188 @@
     "mscrmtools"
   ],
   "version": {
-    "Major": "9",
-    "Minor": "1",
-    "Patch": "48"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 28
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Tool Installer",
+  "instanceNameFormat": "Power DevOps Tool Installer",
+  "groups": [
+    {
+      "name": "nugetFeed",
+      "displayName": "Nuget.org Feed",
+      "isExpanded": true
+    },
+    {
+      "name": "psFeed",
+      "displayName": "PowerShell Gallery Feed",
+      "isExpanded": true
+    },
+    {
+      "name": "tools",
+      "displayName": "Tool Versions (Use to override versions of specific tools)",
+      "isExpanded": false
+    }
+  ],
   "inputs": [
+    {
+      "name": "nugetFeed",
+      "type": "pickList",
+      "label": "Nuget Package Feed",
+      "defaultValue": "official",
+      "required": true,
+      "options": {
+        "official": "Official Nuget",
+        "custom": "Custom Feed"
+      },
+      "helpMarkDown": "",
+      "groupName": "nugetFeed"
+    },
+    {
+      "name": "nugetSource",
+      "type": "string",
+      "label": "Nuget Feed Source",
+      "defaultValue": "https://api.nuget.org/v3/index.json",
+      "required": true,
+      "helpMarkDown": "",
+      "groupName": "nugetFeed",
+      "visibleRule": "nugetFeed = custom"
+    },
+    {
+      "name": "nugetUsername",
+      "type": "string",
+      "label": "Nuget Feed Username",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "nugetFeed",
+      "visibleRule": "nugetFeed = custom"
+    },
+    {
+      "name": "nugetPassword",
+      "type": "string",
+      "label": "Nuget Feed Password/APIKey",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "nugetFeed",
+      "visibleRule": "nugetFeed = custom"
+    },
+    {
+      "name": "nugetUseProxy",
+      "type": "boolean",
+      "label": "Use Agent Proxy for Nuget Feed",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "Set to true to use agent proxy (if configured) to connect to the nuget feed",
+      "groupName": "nugetFeed"
+    },
+    {
+      "name": "psFeed",
+      "type": "pickList",
+      "label": "PowerShell Gallery Feed",
+      "defaultValue": "official",
+      "required": true,
+      "options": {
+        "official": "Official PowerShell Gallery",
+        "custom": "Custom Feed"
+      },
+      "helpMarkDown": "",
+      "groupName": "psFeed"
+    },
+    {
+      "name": "psSource",
+      "type": "string",
+      "label": "PowerShell Gallery Feed Source",
+      "defaultValue": "https://www.powershellgallery.com/api/v2",
+      "required": true,
+      "helpMarkDown": "",
+      "groupName": "psFeed",
+      "visibleRule": "psFeed = custom"
+    },
+    {
+      "name": "psUsername",
+      "type": "string",
+      "label": "PowerShell Gallery Feed Username",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "psFeed",
+      "visibleRule": "psFeed = custom"
+    },
+    {
+      "name": "psPassword",
+      "type": "string",
+      "label": "PowerShell Gallery Feed Password/APIKey",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "",
+      "groupName": "psFeed",
+      "visibleRule": "psFeed = custom"
+    },
+    {
+      "name": "psUseProxy",
+      "type": "boolean",
+      "label": "Use Agent Proxy for PowerShell Gallery Feed",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "Set to true to use agent proxy (if configured) to connect to the PowerShell Gallery feed",
+      "groupName": "psFeed"
+    },
+    {
+      "name": "coreToolsVersion",
+      "type": "string",
+      "label": "Microsoft.CrmSdk.CoreTools - Version (Nuget)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [9.1.0.39](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/9.1.0.39) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "crmConnectorVersion",
+      "type": "string",
+      "label": "Microsoft.Xrm.Tooling.CrmConnector.PowerShell - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [3.3.0.886](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.CrmConnector.PowerShell/3.3.0.886) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "packageDeploymentVersion",
+      "type": "string",
+      "label": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [3.3.0.879](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.PackageDeployment.Powershell/3.3.0.879) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "onlineAPIVersion",
+      "type": "string",
+      "label": "Microsoft.Xrm.OnlineManagementAPI - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.2.0.1](https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI/1.2.0.1) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "checkerVersion",
+      "type": "string",
+      "label": "Microsoft.PowerApps.Checker.PowerShell - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.0.12](https://www.powershellgallery.com/packages/Microsoft.PowerApps.Checker.PowerShell/1.0.12) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "configMigrationVersion",
+      "type": "string",
+      "label": "Microsoft.Xrm.Tooling.ConfigurationMigration - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.0.0.26](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.ConfigurationMigration/1.0.0.26) Type latest to use the latest version available",
+      "groupName": "tools"
+    }
   ],
   "execution": {
     "PowerShell3": {

@@ -30,39 +30,28 @@ $securityGroupName = Get-VstsInput -Name securityGroupName
 $waitForCompletion = Get-VstsInput -Name waitForCompletion -AsBool
 $sleepDuration = Get-VstsInput -Name sleepDuration -AsInt
 
-#Print Verbose
-Write-Verbose "apiUrl = $apiUrl"
-Write-Verbose "username = $username"
-Write-Verbose "domainName = $domainName"
-Write-Verbose "friendlyName = $friendlyName"
-Write-Verbose "purpose = $purpose"
-Write-Verbose "initialUserEmail = $initialUserEmail"
-Write-Verbose "instanceType = $instanceType"
-Write-Verbose "serviceVersion = $serviceVersion"
-Write-Verbose "customerService = $customerService"
-Write-Verbose "fieldService = $fieldService"
-Write-Verbose "projectService = $projectService"
-Write-Verbose "languageId = $languageId"
-Write-Verbose "currencyCode = $currencyCode"
-Write-Verbose "currencyName = $currencyName"
-Write-Verbose "currencyPrecision = $currencyPrecision"
-Write-Verbose "currencySymbol = $currencySymbol"
-Write-Verbose "securityGroupId = $securityGroupId"
-Write-Verbose "securityGroupName = $securityGroupName"
-Write-Verbose "waitForCompletion = $waitForCompletion"
-Write-Verbose "sleepDuration = $sleepDuration"
-
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
 Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
-$AzureADModulePath = "$mscrmToolsPath\AzureAD"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
+
+Require-ToolsTaskVersion -version 12
+
+$onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
+Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
+
+$azureAD = 'AzureAD'
+$azureADInfo = Get-MSCRMTool -toolName $azureAD
+Require-ToolVersion -toolName $azureAD -version $azureADInfo.Version -minVersion '2.0.2.52'
+$azureADPath = "$($azureADInfo.Path)"
 
 $templateNames = [string[]] @()
 if ($sales)
@@ -83,6 +72,6 @@ if ($projectService)
 }
 
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\ProvisionOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password  -DomainName $domainName -FriendlyName $friendlyName -Purpose $purpose -InitialUserEmail $initialUserEmail -InstanceType $instanceType -ReleaseId $serviceVersion -TemplateNames $templateNames -LanguageId $languageId -CurrencyCode $currencyCode -CurrencyName $currencyName -CurrencyPrecision $currencyPrecision -CurrencySymbol $currencySymbol -SecurityGroupId $securityGroupId -SecurityGroupName "$securityGroupName" -PSModulePath "$PSModulePath" -azureADModulePath "$AzureADModulePath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ProvisionOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password  -DomainName $domainName -FriendlyName $friendlyName -Purpose $purpose -InitialUserEmail $initialUserEmail -InstanceType $instanceType -ReleaseId $serviceVersion -TemplateNames $templateNames -LanguageId $languageId -CurrencyCode $currencyCode -CurrencyName $currencyName -CurrencyPrecision $currencyPrecision -CurrencySymbol $currencySymbol -SecurityGroupId $securityGroupId -SecurityGroupName "$securityGroupName" -PSModulePath "$onlineAPIPath" -azureADModulePath "$azureADPath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 
 Write-Verbose 'Leaving MSCRMProvisionOnlineInstance.ps1'

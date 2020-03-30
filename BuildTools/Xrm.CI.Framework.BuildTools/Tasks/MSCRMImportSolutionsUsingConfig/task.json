@@ -1,10 +1,10 @@
 {
   "id": "EE3C3FAB-FDA0-4F27-8535-EB0B7771C5BE",
   "name": "MSCRMImportSolutionsUsingConfig",
-  "friendlyName": "MSCRM Import Solutions Using Config",
-  "description": "Imports Dynamics 365 Solutions using a json configuration",
+  "friendlyName": "Import Solutions Using Config",
+  "description": "Imports PowerApps/CDS/Dynamics 365 Solutions using a json configuration",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task invokes ImportSolutionRequest",
+  "helpMarkDown": "This task invokes [ImportSolutionRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.crm.sdk.messages.importsolutionrequest?view=dynamics-general-ce-9)",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,21 +12,21 @@
   ],
   "demands": [],
   "version": {
-    "Major": "9",
-    "Minor": "0",
-    "Patch": "13"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 14
   },
   "preview": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Import Solutions Using Config",
+  "instanceNameFormat": "Import Solutions Using Config",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "configFilePath",
@@ -47,10 +47,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

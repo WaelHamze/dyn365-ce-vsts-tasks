@@ -36,11 +36,22 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
-$AzureADModulePath = "$mscrmToolsPath\AzureAD"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
+
+Require-ToolsTaskVersion -version 12
+
+$onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
+Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
+
+$azureAD = 'AzureAD'
+$azureADInfo = Get-MSCRMTool -toolName $azureAD
+Require-ToolVersion -toolName $azureAD -version $azureADInfo.Version -minVersion '2.0.2.52'
+$azureADPath = "$($azureADInfo.Path)"
 
 $templateNames = [string[]] @()
 if ($sales)
@@ -61,6 +72,6 @@ if ($projectService)
 }
 
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\ResetOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -DomainName $domainName -FriendlyName $friendlyName -Purpose $purpose -TargetReleaseName $targetReleaseName -TemplateNames $templateNames -LanguageId $languageId -PreferredCulture $preferredCulture -CurrencyCode $currencyCode -CurrencyName $currencyName -CurrencyPrecision $currencyPrecision -CurrencySymbol $currencySymbol -SecurityGroupId $securityGroupId -SecurityGroupName $securityGroupName -PSModulePath $PSModulePath -azureADModulePath "$AzureADModulePath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ResetOnlineInstance.ps1" -ApiUrl $apiUrl -Username $username -Password $password -InstanceName $instanceName  -DomainName $domainName -FriendlyName $friendlyName -Purpose $purpose -TargetReleaseName $targetReleaseName -TemplateNames $templateNames -LanguageId $languageId -PreferredCulture $preferredCulture -CurrencyCode $currencyCode -CurrencyName $currencyName -CurrencyPrecision $currencyPrecision -CurrencySymbol $currencySymbol -SecurityGroupId $securityGroupId -SecurityGroupName $securityGroupName -PSModulePath $onlineAPIPath -azureADModulePath "$azureADPath" -WaitForCompletion $WaitForCompletion -SleepDuration $sleepDuration
 
 Write-Verbose 'Leaving MSCRMResetOnlineInstance.ps1'

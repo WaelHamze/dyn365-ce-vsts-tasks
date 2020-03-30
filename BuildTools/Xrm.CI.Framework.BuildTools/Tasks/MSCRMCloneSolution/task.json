@@ -1,10 +1,10 @@
 {
   "id": "ABA6B43B-589D-4D88-A91B-19D9681913A1",
   "name": "MSCRMCloneSolution",
-  "friendlyName": "MSCRM Clone Solution",
-  "description": "Clones a CRM unmanaged Solution",
+  "friendlyName": "Clone Solution",
+  "description": "Clones a PowerApps/CDS/Dynamics 365 unmanaged Solution",
   "author": "Wael Hamze",
-  "helpMarkDown": "More information here: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/customize/use-segmented-solutions-patches-simplify-updates#clone-a-solution",
+  "helpMarkDown": "More information on cloning a solution can be found [here](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/customize/use-segmented-solutions-patches-simplify-updates#clone-a-solution)",
   "category": "Build",
   "visibility": [
     "Build",
@@ -12,20 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 1
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Clone Solution: $(uniqueName)",
+  "instanceNameFormat": "Clone Solution: $(uniqueName)",
   "inputs": [
     {
       "name": "crmConnectionString",
       "type": "string",
-      "label": "CRM Connection String",
+      "label": "Connection String",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "uniqueName",
@@ -54,10 +54,10 @@
     {
       "name": "crmConnectionTimeout",
       "type": "string",
-      "label": "Crm Connection Timeout",
+      "label": "Connection Timeout",
       "defaultValue": "120",
       "required": false,
-      "helpMarkDown": "The Crm connection timeout in seconds"
+      "helpMarkDown": "The connection timeout in seconds"
     }
   ],
   "execution": {

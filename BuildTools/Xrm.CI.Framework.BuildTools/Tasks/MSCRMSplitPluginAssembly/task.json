@@ -1,8 +1,8 @@
 {
   "id": "a48708ef-a5d6-40f5-a9be-589847132834",
   "name": "MSCRMSplitPluginAssebly",
-  "friendlyName": "MSCRM Split Plugin Assembly",
-  "description": "Splits the plugin assembly into multiple plugin assemblies",
+  "friendlyName": "Split Plugin Assembly",
+  "description": "Splits a PowerApps/CDS/Dynamics 365 plugin assembly into multiple plugin assemblies",
   "author": "Wael Hamze",
   "helpMarkDown": "This task splits the plugin assembly into multiple plugin assemblies based on class files filtered by regex.",
   "category": "Utility",
@@ -12,13 +12,14 @@
   ],
   "demands": [],
   "version": {
-    "Major": "10",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 3
   },
   "preview": true,
+  "deprecated": true,
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "MSCRM Split Plugin Assembly",
+  "instanceNameFormat": "Split Plugin Assembly",
   "inputs": [
     {
       "name": "projectFilePath",

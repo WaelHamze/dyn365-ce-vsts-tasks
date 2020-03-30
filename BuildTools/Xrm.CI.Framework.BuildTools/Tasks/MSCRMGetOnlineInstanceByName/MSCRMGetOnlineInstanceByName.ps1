@@ -24,13 +24,21 @@ Write-Verbose "MSCRM Tools Path: $mscrmToolsPath"
 
 if (-not $mscrmToolsPath)
 {
-	Write-Error "MSCRM_Tools_Path not found. Add 'MSCRM Tool Installer' before this task."
+	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
-#Load Online Management Module
-$PSModulePath = "$mscrmToolsPath\OnlineManagementAPI\1.1.0"
+."$mscrmToolsPath\MSCRMToolsFunctions.ps1"
 
-$xrmOnlineModule = $PSModulePath + "\Microsoft.Xrm.OnlineManagementAPI.dll"
+Require-ToolsTaskVersion -version 12
+
+$onlineAPI = 'Microsoft.Xrm.OnlineManagementAPI'
+$onlineAPIInfo = Get-MSCRMTool -toolName $onlineAPI 
+Require-ToolVersion -toolName $onlineAPI -version $onlineAPIInfo.Version -minVersion '1.2.0.1'
+$onlineAPIPath = "$($onlineAPIInfo.Path)"
+
+#Load Online Management Module
+
+$xrmOnlineModule = $onlineAPIPath + "\Microsoft.Xrm.OnlineManagementAPI.dll"
 
 Write-Verbose "Importing Online Management Module: $xrmOnlineModule"
 Import-Module $xrmOnlineModule
