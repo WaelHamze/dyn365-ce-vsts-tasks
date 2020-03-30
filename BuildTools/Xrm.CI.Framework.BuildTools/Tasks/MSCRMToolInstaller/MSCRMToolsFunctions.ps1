@@ -25,6 +25,14 @@ function Execute-Nuget
 	{
 		$output = & $nugetPath $nugetArgList
 
+		if ($output)
+		{
+			foreach ($line in $output)
+			{
+				Write-Verbose $line
+			}
+		}
+
 		Write-Output $output
 	}
 	else
@@ -34,7 +42,7 @@ function Execute-Nuget
 
 	if ($lastexitcode -ne 0)
 	{
-		throw "Nuget.exe encountered an error: $lastexitcode $output"
+		throw "Nuget.exe encountered an error. exitcode: $lastexitcode Check logs for more information"
 	}
 }
 
