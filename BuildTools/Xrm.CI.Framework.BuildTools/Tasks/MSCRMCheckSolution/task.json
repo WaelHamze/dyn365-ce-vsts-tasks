@@ -112,18 +112,18 @@
     {
       "name": "geography",
       "type": "pickList",
-      "label": "geography",
+      "label": "Geography",
       "defaultValue": "Europe",
       "options": {
-        "United States": "United States",
+        "UnitedStates": "United States",
         "Europe": "Europe",
         "Asia": "Asia",
         "Australia": "Australia",
         "Japan": "Japan",
         "India": "India",
         "Canada": "Canada",
-        "South America": "South America",
-        "United Kingdom": "United Kingdom",
+        "SouthAmerica": "South America",
+        "UnitedKingdom": "United Kingdom",
         "France": "France"
       },
       "required": true,
