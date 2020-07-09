@@ -18,6 +18,10 @@ $ruleCodes = Get-VstsInput -Name ruleCodes
 $excludedFiles = Get-VstsInput -Name excludedFiles
 $ruleLevelOverrides = Get-VstsInput -Name ruleLevelOverrides
 $geography = Get-VstsInput -Name geography -Require
+$localeName = Get-VstsInput -Name localeName -Require
+$maxStatusChecks = Get-VstsInput -Name maxStatusChecks -Require -AsInt
+$secondsBetweenChecks = Get-VstsInput -Name secondsBetweenChecks -Require -AsInt
+$maxConnectionTimeOutMinutes = Get-VstsInput -Name maxConnectionTimeOutMinutes -AsInt
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -66,6 +70,9 @@ $CheckParams = @{
 	Geography = "$geography"
 	PowerAppsCheckerPath = "$powerappCheckerPath"
 	RuleOverridesJson = $ruleLevelOverrides
+	LocaleName = "$localeName"
+	MaxStatusChecks = $maxStatusChecks
+	SecondsBetweenChecks = $secondsBetweenChecks
 }
 
 if ($ruleType -eq 'RuleSet')
@@ -79,6 +86,10 @@ if ($ruleType -eq 'Rules')
 if ($excludedFiles)
 {
 	$CheckParams.ExcludedFiles = ConvertFrom-Json -InputObject "$excludedFiles"
+}
+if ($maxConnectionTimeOutMinutes -ne 0)
+{
+	$CheckParams.MaxConnectionTimeOutMinutes = $maxConnectionTimeOutMinutes
 }
 
 try

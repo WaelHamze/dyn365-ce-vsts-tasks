@@ -14,7 +14,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 4
+    "Patch": 7
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Check Solution",
@@ -115,19 +115,52 @@
       "label": "geography",
       "defaultValue": "Europe",
       "options": {
-        "United States": "United States",
+        "PreviewUnitedStates": "Preview United States",
+        "UnitedStates": "United States",
         "Europe": "Europe",
         "Asia": "Asia",
         "Australia": "Australia",
         "Japan": "Japan",
         "India": "India",
         "Canada": "Canada",
-        "South America": "South America",
-        "United Kingdom": "United Kingdom",
+        "SouthAmerica": "South America",
+        "UnitedKingdom": "United Kingdom",
         "France": "France"
       },
       "required": true,
       "helpMarkDown": "The region where the scan will be executed"
+    },
+    {
+      "name": "localeName",
+      "type": "string",
+      "label": "Locale Name",
+      "defaultValue": "en",
+      "required": false,
+      "helpMarkDown": "Specifies the language code that determines how the results are listed, such as es, for Spanish. The languages that are supported are included in the validation set of the parameter. Accepted values: bg, ca, cs, da, de, el, en, es, et, eu, fi, fr, gl, hi, hr, hu, id, it, ja, kk, ko, lt, lv, ms, nb, nl, pl, pt-BR, pt-pt, ro, ru, sk, sl, sr-Cyrl-RS, sr-Latn-RS, sv, th, tr, uk, vi, zh-HANS, zh-HANT"
+    },
+    {
+      "name": "maxStatusChecks",
+      "type": "string",
+      "label": "Max Status Checks",
+      "defaultValue": "20",
+      "required": false,
+      "helpMarkDown": "Maximum number of times in which status calls are made to the service. The default number is 20, which in most cases is sufficient. If the threshold is exceeded, then a timeout exception is thrown."
+    },
+    {
+      "name": "secondsBetweenChecks",
+      "type": "string",
+      "label": "Seconds Between Checks",
+      "defaultValue": "15",
+      "required": false,
+      "helpMarkDown": "The number of seconds between status checks. The default is 15 seconds."
+    },
+    {
+      "name": "maxConnectionTimeOutMinutes",
+      "type": "string",
+      "label": "Max Connection Time Out Minutes",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Maximum number in minutes to wait before quitting a web based operation."
     }
   ],
   "OutputVariables": [
