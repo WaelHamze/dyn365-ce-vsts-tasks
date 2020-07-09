@@ -112,7 +112,7 @@
     {
       "name": "geography",
       "type": "pickList",
-      "label": "geography",
+      "label": "Geography",
       "defaultValue": "Europe",
       "options": {
         "PreviewUnitedStates": "Preview United States",
