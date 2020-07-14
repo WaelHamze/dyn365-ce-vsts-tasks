@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 29
+    "Patch": 31
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Power DevOps Tool Installer",
@@ -151,7 +151,7 @@
       "label": "Microsoft.CrmSdk.CoreTools - Version (Nuget)",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify a version to override the default version: [9.1.0.39](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/9.1.0.39) Type latest to use the latest version available",
+      "helpMarkDown": "Specify a version to override the default version: [9.1.0.46](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/9.1.0.46) Type latest to use the latest version available",
       "groupName": "tools"
     },
     {
@@ -160,7 +160,7 @@
       "label": "Microsoft.Xrm.Tooling.CrmConnector.PowerShell - Version (PS Gallery)",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify a version to override the default version: [3.3.0.886](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.CrmConnector.PowerShell/3.3.0.886) Type latest to use the latest version available",
+      "helpMarkDown": "Specify a version to override the default version: [3.3.0.894](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.CrmConnector.PowerShell/3.3.0.894) Type latest to use the latest version available",
       "groupName": "tools"
     },
     {
@@ -169,7 +169,7 @@
       "label": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell - Version (PS Gallery)",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify a version to override the default version: [3.3.0.879](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.PackageDeployment.Powershell/3.3.0.879) Type latest to use the latest version available",
+      "helpMarkDown": "Specify a version to override the default version: [3.3.0.895](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.PackageDeployment.Powershell/3.3.0.895) Type latest to use the latest version available",
       "groupName": "tools"
     },
     {
@@ -196,7 +196,7 @@
       "label": "Microsoft.Xrm.Tooling.ConfigurationMigration - Version (PS Gallery)",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify a version to override the default version: [1.0.0.26](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.ConfigurationMigration/1.0.0.26) Type latest to use the latest version available",
+      "helpMarkDown": "Specify a version to override the default version: [1.0.0.49](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.ConfigurationMigration/1.0.0.49) Type latest to use the latest version available",
       "groupName": "tools"
     }
   ],
