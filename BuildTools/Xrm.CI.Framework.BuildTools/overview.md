@@ -4,6 +4,7 @@
 This will allow you to setup a fully automated DevOps pipeline so you can deliver CRM more frequently in a consistent and reliable way.
 
 [Compatibility](#compatibility)  
+[Getting Started](#getting-started)  
 [Task Catalog](#task-catalogue)  
 [Version History](#version-history)  
 [More Information](#more-information)  
@@ -12,11 +13,15 @@ This will allow you to setup a fully automated DevOps pipeline so you can delive
 
 **Dynamics 365 (8.x.x)**  
 **Dynamics 365 (9.x.x)/CDS/PowerApps**  
-(Some tasks may work with previous versions of Dynamics CRM)
+(Many tasks may work with previous versions of Dynamics CRM)
 
 **Azure DevOps/Azure DevOps Server/TFS** For support and installation [instructions](https://docs.microsoft.com/en-us/vsts/marketplace/get-tfs-extensions)
 
 Works with Hosted Azure Agents
+
+## Getting Started
+
+Take a took at the getting started [video](https://github.com/WaelHamze/dyn365-ce-vsts-tasks#getting-started).  
 
 ## Task Catalog
 
@@ -212,7 +217,7 @@ Ability to restore an online instance using timestamp. Task now supports friendl
 Backup instance task uses new API which is a lot faster now. Task now supports skipping if existing backup found  
 Update PS modules and Nuget packages to latest versions  
 
-**9.15.x**
+**9.15.x**  
 Dependencies from Nuget/PS Gallery are no longer packaged with extension these are now downloaded at runtime. (Power DevOps Tool Installer v12)  
 Ability to select official sources for dependencies (nuget.prg/PS Gallery) or supply custom repositories. (Power DevOps Tool Installer v12)  
 Ability to override the default version of dependencies used by supplying a specific version (e.g. Solution Packager). (Power DevOps Tool Installer v12)  
@@ -222,5 +227,11 @@ The previously deprecated feature to update the version of a solution in the exp
 The Package Deployer task now takes full path to dll instead of dll name and path to dll (Package Deployer v12)  
 Extension name changed from "Dynamics 365 Build Tools" to "Power DevOps Tools"  
 v12 Tasks are no longer prefixed with MSCRM. Search by keywords (i.e. Import, Reset) depending on action or check the task list  
+
+**9.16.x**  
+Updated Nuget Libraries/PS Modules to latest versions  
+Update to import/export solution tasks to allow backwards compatibility with earlier versions of Dynamics  
+Fix issue when creating/retrieving patches in the scenario where parent solution has many patches  
+Added preview region to solution checker task and use the region when invoking the checker API  
 
 For more information on changes between versions, check the milestones and releases on GitHub
