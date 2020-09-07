@@ -14,7 +14,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 3
+    "Patch": 4
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Export Solution: $(solutionName)",
@@ -89,6 +89,22 @@
       "defaultValue": "120",
       "required": false,
       "helpMarkDown": "The connection timeout in seconds"
+    },
+    {
+      "name": "useAsyncMode",
+      "type": "boolean",
+      "label": "Use Async Mode",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "If set to true will perform operation in asynchronous mode using ExportSolutionAsync"
+    },
+    {
+      "name": "asyncWaitTimeout",
+      "type": "string",
+      "label": "Async Wait Timeout",
+      "defaultValue": "900",
+      "required": false,
+      "helpMarkDown": "The number of seconds to wait for async solution export to complete before timing out"
     },
     {
       "name": "exportAutoNumberingSettings",

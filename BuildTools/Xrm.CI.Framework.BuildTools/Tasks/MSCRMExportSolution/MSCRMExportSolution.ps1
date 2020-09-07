@@ -27,6 +27,8 @@ $exportMarketingSettings = Get-VstsInput -Name exportMarketingSettings -AsBool
 $exportOutlookSynchronizationSettings = Get-VstsInput -Name exportOutlookSynchronizationSettings -AsBool
 $exportRelationshipRoles = Get-VstsInput -Name exportRelationshipRoles -AsBool
 $exportSales = Get-VstsInput -Name exportSales -AsBool
+$useAsyncMode = Get-VstsInput -Name useAsyncMode -Require -AsBool
+$asyncWaitTimeout = Get-VstsInput -Name asyncWaitTimeout -Require -AsInt
 
 #TFS Build Parameters
 $buildNumber = $env:BUILD_BUILDNUMBER
@@ -48,6 +50,6 @@ if (-not $mscrmToolsPath)
 	Write-Error "MSCRM_Tools_Path not found. Add 'Power DevOps Tool Installer' before this task."
 }
 
-& "$mscrmToolsPath\xRMCIFramework\9.0.0\ExportSolution.ps1"  -CrmConnectionString $crmConnectionString -SolutionName $solutionName -ExportManaged $exportManaged -ExportUnmanaged $exportUnmanaged -ExportSolutionOutputPath $outputPath -TargetVersion $targetVersion -RequiredVersion $versionNumber -ExportIncludeVersionInSolutionName $includeVersionInSolutionFile -ExportAutoNumberingSettings $exportAutoNumberingSettings -ExportCalendarSettings $exportCalendarSettings -ExportCustomizationSettings $exportCustomizationSettings -ExportEmailTrackingSettings $exportEmailTrackingSettings -ExportExternalApplications $exportExternalApplications -ExportGeneralSettings $exportGeneralSettings -ExportMarketingSettings $exportMarketingSettings -ExportOutlookSynchronizationSettings $exportOutlookSynchronizationSettings -ExportIsvConfig $exportIsvConfig -ExportRelationshipRoles $exportRelationshipRoles -ExportSales $exportSales -Timeout $crmConnectionTimeout
+& "$mscrmToolsPath\xRMCIFramework\9.0.0\ExportSolution.ps1"  -CrmConnectionString $crmConnectionString -SolutionName $solutionName -ExportManaged $exportManaged -ExportUnmanaged $exportUnmanaged -ExportSolutionOutputPath $outputPath -TargetVersion $targetVersion -RequiredVersion $versionNumber -ExportIncludeVersionInSolutionName $includeVersionInSolutionFile -ExportAutoNumberingSettings $exportAutoNumberingSettings -ExportCalendarSettings $exportCalendarSettings -ExportCustomizationSettings $exportCustomizationSettings -ExportEmailTrackingSettings $exportEmailTrackingSettings -ExportExternalApplications $exportExternalApplications -ExportGeneralSettings $exportGeneralSettings -ExportMarketingSettings $exportMarketingSettings -ExportOutlookSynchronizationSettings $exportOutlookSynchronizationSettings -ExportIsvConfig $exportIsvConfig -ExportRelationshipRoles $exportRelationshipRoles -ExportSales $exportSales -Timeout $crmConnectionTimeout -ExportAsync $useAsyncMode -AsyncWaitTimeout $asyncWaitTimeout
 
 Write-Verbose 'Leaving MSCRMExportSolution.ps1'

@@ -234,4 +234,9 @@ Update to import/export solution tasks to allow backwards compatibility with ear
 Fix issue when creating/retrieving patches in the scenario where parent solution has many patches  
 Added preview region to solution checker task and use the region when invoking the checker API  
 
+**9.17.x**  
+Export solution(s) tasks now support the new async export API. Continue to use sync mode (default) if your environment doesn't support this API    
+Added more logging (including TrackingSessionId) when connecting to CDS to allow better troubleshooting of issues  
+Added more logging (including RequestId) for solution export/import to allow better troubleshooting of issues  
+
 For more information on changes between versions, check the milestones and releases on GitHub
