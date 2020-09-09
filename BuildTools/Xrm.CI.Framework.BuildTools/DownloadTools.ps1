@@ -51,14 +51,14 @@ Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
 Set-Alias nuget $targetNugetExe -Scope Global -Verbose
 
 # Download Nuget Packages
-Download-NugetPackage -packageName 'Microsoft.CrmSdk.CoreTools' -version '9.1.0.46' -folderName 'CoreTools' -packagePath 'content\bin\coretools'
+Download-NugetPackage -packageName 'Microsoft.CrmSdk.CoreTools' -version '9.1.0.49' -folderName 'CoreTools' -packagePath 'content\bin\coretools'
 
 # Download PowerShell Modules
 Download-PSModule -moduleName 'AzureAD' -version '2.0.2.52' -folderName 'AAD'
-Download-PSModule -moduleName 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell' -version '3.3.0.894' -folderName 'CrmConnector.PowerShell'
-Download-PSModule -moduleName 'Microsoft.Xrm.Tooling.PackageDeployment.Powershell' -version '3.3.0.895' -folderName 'PackageDeployment.Powershell'
+Download-PSModule -moduleName 'Microsoft.Xrm.Tooling.CrmConnector.PowerShell' -version '3.3.0.899' -folderName 'CrmConnector.PowerShell'
+Download-PSModule -moduleName 'Microsoft.Xrm.Tooling.PackageDeployment.Powershell' -version '3.3.0.898' -folderName 'PackageDeployment.Powershell'
 Download-PSModule -moduleName 'Microsoft.PowerApps.Checker.PowerShell' -version '1.0.12' -folderName 'PowerAppsChecker.PowerShell'
-Download-PSModule -moduleName 'Microsoft.Xrm.Tooling.ConfigurationMigration' -version '1.0.0.49' -folderName 'ConfigurationMigration.Powershell'
+Download-PSModule -moduleName 'Microsoft.Xrm.Tooling.ConfigurationMigration' -version '1.0.0.53' -folderName 'ConfigurationMigration.Powershell'
 Download-PSModule -moduleName 'Microsoft.Xrm.OnlineManagementAPI' -version '1.2.0.1' -folderName 'OnlineManagementAPI'
 #Download-PSModule -moduleName 'Xrm.Framework.CI.PowerShell.Cmdlets' -version '9.0.0.41' -folderName 'xRMCIFramework'
 

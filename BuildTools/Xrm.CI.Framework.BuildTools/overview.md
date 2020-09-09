@@ -238,5 +238,6 @@ Added preview region to solution checker task and use the region when invoking t
 Export solution(s) tasks now support the new async export API. Continue to use sync mode (default) if your environment doesn't support this API    
 Added more logging (including TrackingSessionId) when connecting to CDS to allow better troubleshooting of issues  
 Added more logging (including RequestId) for solution export/import to allow better troubleshooting of issues  
+Updated Sdk Tools/PS Modules to use the latest version (by default)  
 
 For more information on changes between versions, check the milestones and releases on GitHub
