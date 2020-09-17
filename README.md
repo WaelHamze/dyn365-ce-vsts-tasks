@@ -10,3 +10,6 @@ You can watch the [Getting Started with Power DevOps Tools](https://youtu.be/rl6
 
 You can install and download this [Power DevOps Tools extension](https://marketplace.visualstudio.com/items?itemName=WaelHamze.xrm-ci-framework-build-tasks) from the Azure DevOps Marketplace
 
+## Example
+
+See folder `Example\TaskGroups' for predefined [Task groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/task-groups?view=azure-devops) for quick start.
