@@ -125,7 +125,12 @@
         "Canada": "Canada",
         "SouthAmerica": "South America",
         "UnitedKingdom": "United Kingdom",
-        "France": "France"
+        "France": "France",
+        "UnitedArabEmirates": "United Arab Emirates",
+        "USGovernment": "US Government",
+        "USGovernmentL4": "US Government L4",
+        "USGovernmentL5DoD": "US Government L5 (DoD)",
+        "China": "China"
       },
       "required": true,
       "helpMarkDown": "The region where the scan will be executed"
