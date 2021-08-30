@@ -76,6 +76,7 @@ Below is a list of tasks that are included with this extension.
 | **Service Endpoint Registration** (preview) | Utility | Updates CDS Service Endpoints and steps in a PowerApps/CDS/Dynamics 365 environment |
 | **Split Plugin Assembly** (preview) (deprecated) | Utility | Splits a PowerApps/CDS/Dynamics 365 plugin assembly into multiple plugin assemblies |
 | **Power DevOps Tool Installer** | Utility | Configures the tools/dependencies required by all of the tasks |
+| **Update Connection References** (preview) | Utility | Links connection references to an existing connection in a CDS environment |
 | **Update Secure Configuration** | Utility | A task that updates plugin secure configuration in a PowerApps/CDS/Dynamics 365 environment |
 | **Update Web Resources** (preview) | Utility | Updates Web Resources from source control on a target PowerApps/CDS/Dynamics 365 environment |
 

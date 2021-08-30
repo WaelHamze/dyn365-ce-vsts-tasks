@@ -1,0 +1,50 @@
+{
+  "id": "7AE1A1B8-8C14-471A-A097-67B6FD8DF5F9",
+  "name": "MSCRMUpdateConnectionReferences",
+  "friendlyName": "Update Connection References",
+  "description": "Links connection references to an existing connection in a CDS environment",
+  "author": "Wael Hamze",
+  "helpMarkDown": "Reads a json array of mappings between connection reference logical name and connection Id and uses it to update the connection references",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 2
+  },
+  "preview": true,
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Update Connection References",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
+    },
+    {
+      "name": "connectionReferencesJson",
+      "type": "multiLine",
+      "label": "A json array of name/id pairs.",
+      "defaultValue": "[['name1','connectionid1'],['name2','$(connectionid2)']]",
+      "required": true,
+      "helpMarkDown": "FORMAT: [['name1','connectionid1'],['name2','$(connectionid2)']]"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMUpdateConnectionReferences.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}
