@@ -13,6 +13,7 @@ $pdTimeout = Get-VstsInput -Name pdTimeout -Require
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
 $unpackFilesDirectory = Get-VstsInput -Name unpackFilesDirectory
 $runtimePackageSettings = Get-VstsInput -Name runtimePackageSettings
+$useAsyncMode = Get-VstsInput -Name useAsyncMode -Require -AsBool
 
 #TFS Release Parameters
 $artifactsFolder = $env:AGENT_RELEASEDIRECTORY
@@ -64,7 +65,7 @@ New-Item $tempFolder -ItemType directory | Out-Null
 
 try
 {
-	& "$mscrmToolsPath\xRMCIFramework\9.0.0\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $tempFolder -toolingConnectorModulePath $CrmConnectorPath -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -crmConnectionTimeout $crmConnectionTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings
+	& "$mscrmToolsPath\xRMCIFramework\9.0.0\DeployPackage.ps1" -CrmConnectionString $crmConnectionString -PackageName $packageName -PackageDirectory $packageDirectory -LogsDirectory $tempFolder -toolingConnectorModulePath $CrmConnectorPath -PackageDeploymentPath $PackageDeploymentPath -Timeout $pdTimeout -crmConnectionTimeout $crmConnectionTimeout -unpackFilesDirectory $unpackFilesDirectory -runtimePackageSettings $runtimePackageSettings -ImportAsync $useAsyncMode
 }
 finally
 {
