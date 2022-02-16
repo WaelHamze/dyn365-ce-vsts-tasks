@@ -1,7 +1,7 @@
 [
   {
     "Name": "Microsoft.CrmSdk.CoreTools",
-    "Version": "9.1.0.49",
+    "Version": "9.1.0.92",
     "Source": "Nuget"
   },
   {
@@ -11,27 +11,27 @@
   },
   {
     "Name": "Microsoft.Xrm.Tooling.CrmConnector.PowerShell",
-    "Version": "3.3.0.899",
+    "Version": "3.3.0.928",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell",
-    "Version": "3.3.0.898",
+    "Version": "3.3.0.940",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.Checker.PowerShell",
-    "Version": "1.0.12",
+    "Version": "1.0.29",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.Tooling.ConfigurationMigration",
-    "Version": "1.0.0.53",
+    "Version": "1.0.0.64",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.OnlineManagementAPI",
-    "Version": "1.2.0.1",
+    "Version": "2.0.0.19",
     "Source": "PSGallery"
   }
 ]
