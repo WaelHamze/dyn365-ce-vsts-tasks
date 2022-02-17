@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 46
+    "Patch": 47
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Power DevOps Tool Installer",
@@ -197,6 +197,33 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify a version to override the default version: [1.0.0.64](https://www.powershellgallery.com/packages/Microsoft.Xrm.Tooling.ConfigurationMigration/1.0.0.64) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "powerAppsAdminVersion",
+      "type": "string",
+      "label": "Microsoft.PowerApps.Administration.PowerShell - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [2.0.142](https://www.powershellgallery.com/packages/Microsoft.PowerApps.Administration.PowerShell/2.0.142) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "powerAppsVersion",
+      "type": "string",
+      "label": "Microsoft.PowerApps.PowerShell - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.0.20](https://www.powershellgallery.com/packages/Microsoft.PowerApps.PowerShell/1.0.20) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "powerAppsCLIVersion",
+      "type": "string",
+      "label": "Microsoft.PowerApps.CLI - Version (Nuget)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.11.8](https://www.nuget.org/packages/Microsoft.PowerApps.CLI/1.11.8) Type latest to use the latest version available",
       "groupName": "tools"
     }
   ],

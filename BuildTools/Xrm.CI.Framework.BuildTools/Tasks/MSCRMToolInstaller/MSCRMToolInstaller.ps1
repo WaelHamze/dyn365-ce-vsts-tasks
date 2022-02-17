@@ -23,6 +23,9 @@ $packageDeploymentVersion = Get-VstsInput -Name packageDeploymentVersion
 $onlineAPIVersion = Get-VstsInput -Name onlineAPIVersion
 $checkerVersion = Get-VstsInput -Name checkerVersion
 $configMigrationVersion = Get-VstsInput -Name configMigrationVersion
+$powerAppsAdminVersion = Get-VstsInput -Name powerAppsAdminVersion
+$powerAppsVersion = Get-VstsInput -Name powerAppsVersion
+$powerAppsCLIVersion = Get-VstsInput -Name powerAppsCLIVersion
 
 #Script Location
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -214,5 +217,8 @@ Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.PackageDeployment.
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.OnlineManagementAPI' -version $onlineAPIVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.Checker.PowerShell' -version $checkerVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.ConfigurationMigration' -version $configMigrationVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.Administration.PowerShell' -version $powerAppsAdminVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.PowerShell' -version $powerAppsVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.CLI' -version $powerAppsCLIVersion
 
 Write-Verbose 'Leaving MSCRMToolInstaller.ps1'
