@@ -1,0 +1,103 @@
+﻿{
+  "manifestVersion": 1,
+  "id": "xrm-ci-framework-service-endpoint",
+  "version": "0.0.1",
+  "public": false,
+  "name": "Power DevOps Tools Service Endpoint",
+  "description": "Extension for development of Service Endpoint for Power DevOps Tools",
+  "publisher": "WaelHamze",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "service-endpoint",
+      "description": "Service endpoint type for Power DevOps Tools connections",
+      "type": "ms.vss-endpoint.service-endpoint-type",
+      "targets": [ "ms.vss-endpoint.endpoint-types" ],
+      "properties": {
+        "name": "xrm-ci-framework",
+        "displayName": "Power DevOps Tools",
+        "url": {
+          "displayName": "Server Url",
+          "helpText": "Url for the DataVerse environment to connect to. E.g. https://envname.crm11.dynamics.com"
+        },
+        "authenticationSchemes": [
+          {
+            "type": "ms.vss-endpoint.endpoint-auth-scheme-none",
+            "displayName": "Username/Password Authentication",
+            "inputDescriptors": [
+              {
+                "id": "username",
+                "name": "Username",
+                "description": "Username",
+                "inputMode": "textbox",
+                "validation": {
+                  "isRequired": true,
+                  "dataType": "string"
+                }
+              },
+              {
+                "id": "password",
+                "name": "Password",
+                "description": "Password",
+                "inputMode": "passwordbox",
+                "isConfidential": true,
+                "validation": {
+                  "isRequired": true,
+                  "dataType": "string"
+                }
+              }
+            ]
+          },
+          {
+            "type": "ms.vss-endpoint.endpoint-auth-scheme-none",
+            "displayName": "Application Authentication",
+            "inputDescriptors": [
+              {
+                "id": "TenantId",
+                "name": "Tenant Id",
+                "description": "Tenant Id",
+                "inputMode": "textBox",
+                "groupName": "AuthenticationParameter",
+                "validation": {
+                  "dataType": "guid",
+                  "isRequired": true
+                }
+              },
+              {
+                "id": "ApplicationId",
+                "name": "Application Id",
+                "description": "Application Id",
+                "inputMode": "textBox",
+                "groupName": "AuthenticationParameter",
+                "validation": {
+                  "dataType": "guid",
+                  "isRequired": true
+                }
+              },
+              {
+                "id": "ClientSecret",
+                "name": "ClientSecret",
+                "description": "Client Secret",
+                "inputMode": "textBox",
+                "isConfidential": true,
+                "groupName": "AuthenticationParameter",
+                "validation": {
+                  "dataType": "string",
+                  "isRequired": true
+                }
+              }
+            ],
+            "helpMarkDown": "<a href=\"url-to-documentation\" target=\"_blank\"><b>Learn More</b></a>"
+          }
+        ]
+      }
+    }
+  ]
+}
