@@ -1,7 +1,7 @@
 ﻿{
   "manifestVersion": 1,
   "id": "xrm-ci-framework-service-endpoint",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "public": false,
   "name": "Power DevOps Tools Service Endpoint",
   "description": "Extension for development of Service Endpoint for Power DevOps Tools",
@@ -24,12 +24,12 @@
         "name": "xrm-ci-framework",
         "displayName": "Power DevOps Tools",
         "url": {
-          "displayName": "Server Url",
+          "displayName": "DataVerse Url",
           "helpText": "Url for the DataVerse environment to connect to. E.g. https://envname.crm11.dynamics.com"
         },
         "authenticationSchemes": [
           {
-            "type": "ms.vss-endpoint.endpoint-auth-scheme-none",
+            "type": "ms.vss-endpoint.endpoint-auth-scheme-basic",
             "displayName": "Username/Password Authentication",
             "inputDescriptors": [
               {
@@ -37,6 +37,7 @@
                 "name": "Username",
                 "description": "Username",
                 "inputMode": "textbox",
+                "isConfidential": false,
                 "validation": {
                   "isRequired": true,
                   "dataType": "string"
@@ -64,6 +65,7 @@
                 "name": "Tenant Id",
                 "description": "Tenant Id",
                 "inputMode": "textBox",
+                "isConfidential": false,
                 "groupName": "AuthenticationParameter",
                 "validation": {
                   "dataType": "guid",
@@ -75,6 +77,7 @@
                 "name": "Application Id",
                 "description": "Application Id",
                 "inputMode": "textBox",
+                "isConfidential": false,
                 "groupName": "AuthenticationParameter",
                 "validation": {
                   "dataType": "guid",

@@ -21,6 +21,6 @@ $ManifestFile = "$scriptPath\vss-extension-servicecendpoint.json"
 
 tfx extension create --manifest-globs $ManifestFile --output-path $OutputDir --root $OutputDir
 
-tfx extension publish --vsix "$OutputDir\WaelHamze.xrm-ci-framework-service-endpoint-0.0.1.vsix" --share-with "crmdevops" --token $token  --auth-type 'pat'
+#tfx extension publish --vsix "$OutputDir\WaelHamze.xrm-ci-framework-service-endpoint-0.0.1.vsix" --share-with "crmdevops" --token $token  --auth-type 'pat'
 
 Write-Host "Deployment Completed" -ForegroundColor Green

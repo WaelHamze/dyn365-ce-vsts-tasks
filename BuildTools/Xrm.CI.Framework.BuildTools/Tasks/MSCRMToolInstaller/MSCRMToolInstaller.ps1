@@ -26,6 +26,9 @@ $configMigrationVersion = Get-VstsInput -Name configMigrationVersion
 $powerAppsAdminVersion = Get-VstsInput -Name powerAppsAdminVersion
 $powerAppsVersion = Get-VstsInput -Name powerAppsVersion
 $powerAppsCLIVersion = Get-VstsInput -Name powerAppsCLIVersion
+$msalPSVersion = Get-VstsInput -Name msalPSVersion
+$mgUsersVersion = Get-VstsInput -Name mgUsersVersion
+$mgGroupsVersion = Get-VstsInput -Name mgGroupsVersion
 
 #Script Location
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -220,5 +223,9 @@ Set-MSCRMToolVersionVariable -toolName 'Microsoft.Xrm.Tooling.ConfigurationMigra
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.Administration.PowerShell' -version $powerAppsAdminVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.PowerShell' -version $powerAppsVersion
 Set-MSCRMToolVersionVariable -toolName 'Microsoft.PowerApps.CLI' -version $powerAppsCLIVersion
+Set-MSCRMToolVersionVariable -toolName 'MSAL.PS' -version $msalPSVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.Graph.Users' -version $mgUsersVersion
+Set-MSCRMToolVersionVariable -toolName 'Microsoft.Graph.Groups' -version $mgGroupsVersion
+
 
 Write-Verbose 'Leaving MSCRMToolInstaller.ps1'

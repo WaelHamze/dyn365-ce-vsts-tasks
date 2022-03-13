@@ -21,7 +21,7 @@ $ManifestFile = "$PackageRoot\vss-extension.json"
 $ManifestFilePrivate = "$scriptPath\vss-extension-dev.json"
 $ManifestFilePreview = "$scriptPath\vss-extension-preview.json"
 
-tfx extension create --manifest-globs $ManifestFile --output-path $OutputDir --root $OutputDir --overrides-file $ManifestFilePrivate --rev-version
+tfx extension create --manifest-globs $ManifestFile --output-path $OutputDir --root $OutputDir --overrides-file $ManifestFilePrivate
 
 tfx extension create --manifest-globs $ManifestFile --output-path $OutputDir --root $OutputDir --overrides-file $ManifestFilePreview
 

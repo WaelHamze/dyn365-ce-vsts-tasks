@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Power DevOps Tools",
-  "version": "9.17.4",
+  "version": "9.18.2",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -11,12 +11,9 @@
   ],
   "description": "Tasks for automating Build & Deployment of Dynamics 365 CE/CDS/PowerApps Solutions",
   "categories": [
-    "Build and release"
+    "Azure Pipelines"
   ],
   "public": true,
-  "galleryFlags": [
-    "Preview"
-  ],
   "tags": [
     "Dynamics CRM",
     "CRM",
@@ -209,6 +206,9 @@
     },
     {
       "path": "Tasks/MSCRMUpdateConnectionReferences"
+    },
+    {
+      "path": "Tasks/MSCRMSharePowerApp"
     }
   ],
   "contributions": [
@@ -690,6 +690,75 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMUpdateConnectionReferences"
+      }
+    },
+    {
+      "id": "MSCRMSharePowerApp",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMSharePowerApp"
+      }
+    },
+    {
+      "id": "service-endpoint",
+      "description": "Service endpoint type for Power DevOps Tools connections",
+      "type": "ms.vss-endpoint.service-endpoint-type",
+      "targets": [ "ms.vss-endpoint.endpoint-types" ],
+      "properties": {
+        "name": "xrm-ci-framework",
+        "displayName": "Power DevOps Tools",
+        "url": {
+          "displayName": "DataVerse Url",
+          "helpText": "Url for the DataVerse environment to connect to. E.g. https://envname.crm11.dynamics.com"
+        },
+        "authenticationSchemes": [
+          {
+            "type": "ms.vss-endpoint.endpoint-auth-scheme-none",
+            "displayName": "Application Authentication",
+            "inputDescriptors": [
+              {
+                "id": "TenantId",
+                "name": "Tenant Id",
+                "description": "Tenant Id",
+                "inputMode": "textBox",
+                "isConfidential": false,
+                "groupName": "AuthenticationParameter",
+                "validation": {
+                  "dataType": "guid",
+                  "isRequired": true
+                }
+              },
+              {
+                "id": "ApplicationId",
+                "name": "Application Id",
+                "description": "Application Id",
+                "inputMode": "textBox",
+                "isConfidential": false,
+                "groupName": "AuthenticationParameter",
+                "validation": {
+                  "dataType": "guid",
+                  "isRequired": true
+                }
+              },
+              {
+                "id": "ClientSecret",
+                "name": "ClientSecret",
+                "description": "Client Secret",
+                "inputMode": "textBox",
+                "isConfidential": true,
+                "groupName": "AuthenticationParameter",
+                "validation": {
+                  "dataType": "string",
+                  "isRequired": true
+                }
+              }
+            ],
+            "helpMarkDown": "<a href=\"url-to-documentation\" target=\"_blank\"><b>Learn More</b></a>"
+          }
+        ]
       }
     }
   ]

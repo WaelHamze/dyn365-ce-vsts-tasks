@@ -48,5 +48,20 @@
     "Name": "Microsoft.PowerApps.CLI",
     "Version": "1.11.8",
     "Source": "Nuget"
+  },
+  {
+    "Name": "MSAL.PS",
+    "Version": "4.37.0",
+    "Source": "PSGallery"
+  },
+  {
+    "Name": "Microsoft.Graph.Users",
+    "Version": "1.9.2",
+    "Source": "PSGallery"
+  },
+  {
+    "Name": "Microsoft.Graph.Groups",
+    "Version": "1.9.2",
+    "Source": "PSGallery"
   }
 ]

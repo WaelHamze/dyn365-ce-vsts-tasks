@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 47
+    "Patch": 64
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Power DevOps Tool Installer",
@@ -224,6 +224,33 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify a version to override the default version: [1.11.8](https://www.nuget.org/packages/Microsoft.PowerApps.CLI/1.11.8) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "msalPSVersion",
+      "type": "string",
+      "label": "MSAL.PS - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [4.37.0.0](https://www.powershellgallery.com/packages/MSAL.PS/4.37.0.0) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "mgUsersVersion",
+      "type": "string",
+      "label": "Microsoft.Graph.Users - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.9.2](https://www.powershellgallery.com/packages/Microsoft.Graph.Users/1.9.2) Type latest to use the latest version available",
+      "groupName": "tools"
+    },
+    {
+      "name": "mgGroupsVersion",
+      "type": "string",
+      "label": "Microsoft.Graph.Groups - Version (PS Gallery)",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Specify a version to override the default version: [1.9.2](https://www.powershellgallery.com/packages/Microsoft.Graph.Groups/1.9.2) Type latest to use the latest version available",
       "groupName": "tools"
     }
   ],
