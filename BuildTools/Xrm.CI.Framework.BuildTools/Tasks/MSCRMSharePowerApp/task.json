@@ -18,7 +18,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 32
+    "Patch": 33
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Share Power App: $(appName)",
@@ -49,21 +49,7 @@
       "label": "App Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The display name of the App you want to share",
-      "visibleRule": "shareType = Basic"
-    },
-    {
-      "name": "roleName",
-      "type": "radio",
-      "label": "Permissions",
-      "defaultValue": "CanView",
-      "options": {
-        "CanView": "Can View (User)",
-        "CanEdit": "Can Edit (Co-owner)",
-        "CanViewWithShare": "Can View With Share"
-      },
-      "required": true,
-      "helpMarkDown": "Select the permissions you want to provide when sharing the App",
+      "helpMarkDown": "The name of the App you want to share. Note this is not the display name.",
       "visibleRule": "shareType = Basic"
     },
     {
@@ -87,6 +73,20 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "The name of the group (e.g. 'Sales Team') or user login (e.g. 'user@domain.com')",
+      "visibleRule": "shareType = Basic && principalType != Tenant"
+    },
+    {
+      "name": "roleName",
+      "type": "radio",
+      "label": "Permissions",
+      "defaultValue": "CanView",
+      "options": {
+        "CanView": "Can View (User)",
+        "CanEdit": "Can Edit (Co-owner)",
+        "CanViewWithShare": "Can View With Share"
+      },
+      "required": true,
+      "helpMarkDown": "Select the permissions you want to provide when sharing the App",
       "visibleRule": "shareType = Basic"
     },
     {
