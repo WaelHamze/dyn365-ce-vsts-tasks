@@ -140,6 +140,7 @@
     crmConnectionString: {String}
     fromSolutionName:{String}
     toSolutionName: {String}
+    includePatches: {Boolean}
 ```
 
 ### MSCRM Split Plugin Assembly
