@@ -15,6 +15,7 @@
     "powershell",
     "mscrmtools"
   ],
+  "preview": true,
   "version": {
     "Major": 12,
     "Minor": 0,

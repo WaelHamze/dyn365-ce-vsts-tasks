@@ -74,6 +74,7 @@ Below is a list of tasks that are included with this extension.
 | **Plugin Registration** (preview) | Utility | Updates a CDS Plugin/Workflow activity assembly/types/steps in a PowerApps/CDS/Dynamics 365 environment |
 | **Publish Customizations** | Utility | Publishes all customizations in a given PowerApps/CDS/Dynamics 365 environment |
 | **Service Endpoint Registration** (preview) | Utility | Updates CDS Service Endpoints and steps in a PowerApps/CDS/Dynamics 365 environment |
+| **Share Power App** (preview) | Utility | Shares Canvas Power App(s) with users and/or groups |
 | **Split Plugin Assembly** (preview) (deprecated) | Utility | Splits a PowerApps/CDS/Dynamics 365 plugin assembly into multiple plugin assemblies |
 | **Power DevOps Tool Installer** | Utility | Configures the tools/dependencies required by all of the tasks |
 | **Update Connection References** (preview) | Utility | Links connection references to an existing connection in a CDS environment |
@@ -239,6 +240,11 @@ Added preview region to solution checker task and use the region when invoking t
 Export solution(s) tasks now support the new async export API. Continue to use sync mode (default) if your environment doesn't support this API    
 Added more logging (including TrackingSessionId) when connecting to CDS to allow better troubleshooting of issues  
 Added more logging (including RequestId) for solution export/import to allow better troubleshooting of issues  
+Updated Sdk Tools/PS Modules to use the latest version (by default)  
+
+**9.18.x**  
+Added a Task to share Canvas Apps  
+Added a Task to update connection references  
 Updated Sdk Tools/PS Modules to use the latest version (by default)  
 
 For more information on changes between versions, check the milestones and releases on GitHub
