@@ -1,0 +1,112 @@
+{
+  "id": "C6CE54A9-4CFC-4274-962A-7E4D50D01289",
+  "name": "MSCRMShareFlow",
+  "friendlyName": "Share Flow",
+  "description": "Shares a Flow with users and/or groups",
+  "author": "Wael Hamze",
+  "helpMarkDown": "For more information visit the task [docs](https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMShareFlow/Overview.md).",
+  "category": "Utility",
+  "helpUrl": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMShareFlow/Overview.md",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [
+    "powershell",
+    "mscrmtools"
+  ],
+  "preview": true,
+  "version": {
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 4
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Share Flow: $(flowName)",
+  "inputs": [
+    {
+      "name": "ppServiceEndpoint",
+      "type": "connectedService:xrm-ci-framework",
+      "label": "Power DevOps Tools Connection",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
+    },
+    {
+      "name": "shareType",
+      "type": "radio",
+      "label": "Share Type",
+      "defaultValue": "Basic",
+      "options": {
+        "Basic": "Basic",
+        "Advanced": "Advanced"
+      },
+      "required": true,
+      "helpMarkDown": "Select Basic to share a single Flow with a single principal or Advanced to share mutiple Flows with mutiple principals via a json configuration file"
+    },
+    {
+      "name": "flowName",
+      "type": "string",
+      "label": "Flow Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the Flow you want to share. Note this is not the display name.",
+      "visibleRule": "shareType = Basic"
+    },
+    {
+      "name": "principalType",
+      "type": "radio",
+      "label": "Principal Type",
+      "defaultValue": "Group",
+      "options": {
+        "Group": "Group",
+        "User": "User"
+      },
+      "required": true,
+      "helpMarkDown": "Select if you want to share the Flow with a specific user or a group",
+      "visibleRule": "shareType = Basic"
+    },
+    {
+      "name": "principal",
+      "type": "string",
+      "label": "Principal",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the group (e.g. 'Sales Team') or user login (e.g. 'user@domain.com')",
+      "visibleRule": "shareType = Basic"
+    },
+    {
+      "name": "roleName",
+      "type": "radio",
+      "label": "Permissions",
+      "defaultValue": "CanView",
+      "options": {
+        "CanView": "Can View (User)",
+        "CanEdit": "Can Edit (Co-owner)",
+        "Owner":  "Change Owner"
+      },
+      "required": true,
+      "helpMarkDown": "Select the permissions you want to provide when sharing the App",
+      "visibleRule": "shareType = Basic"
+    },
+    {
+      "name": "shareConfigFile",
+      "type": "filePath",
+      "label": "Sharing Configuration File (json)",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the json configuration file on the agent machine. Sample configuration [file](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/ShareFlows.json).",
+      "visibleRule": "shareType = Advanced  "
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMShareFlow.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}

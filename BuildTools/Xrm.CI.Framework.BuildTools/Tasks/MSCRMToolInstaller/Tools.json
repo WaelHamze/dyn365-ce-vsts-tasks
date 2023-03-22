@@ -56,12 +56,12 @@
   },
   {
     "Name": "Microsoft.Graph.Users",
-    "Version": "1.9.2",
+    "Version": "1.23.0",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Graph.Groups",
-    "Version": "1.9.2",
+    "Version": "1.23.0",
     "Source": "PSGallery"
   }
 ]
