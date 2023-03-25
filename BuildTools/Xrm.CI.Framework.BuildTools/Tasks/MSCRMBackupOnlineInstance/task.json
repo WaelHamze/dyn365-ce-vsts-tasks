@@ -10,7 +10,8 @@
     "Build",
     "Release"
   ],
-  "demands": [ ],
+  "deprecated": true,
+  "demands": [],
   "version": {
     "Major": 12,
     "Minor": 0,

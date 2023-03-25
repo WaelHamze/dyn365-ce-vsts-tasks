@@ -16,6 +16,7 @@
     "Minor": 0,
     "Patch": 4
   },
+  "deprecated": true,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Restore $(TargetInstanceName)",
   "inputs": [

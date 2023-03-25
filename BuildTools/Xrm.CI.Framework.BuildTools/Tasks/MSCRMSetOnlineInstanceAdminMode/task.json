@@ -2,9 +2,9 @@
   "id": "77FB5553-32FE-471D-8E77-AE540BF7A32C",
   "name": "MSCRMSetOnlineInstanceAdminMode",
   "friendlyName": "Set Online Instance Admin Mode",
-  "description": "Enables/Disables Admin Mode for a PowerApps/CDS/Dynamics 365 environment",
+  "description": "Enables/Disables Admin Mode for a PowerApps/DataVerse/Dynamics 365 environment",
   "author": "Wael Hamze",
-  "helpMarkDown": "This task uses the (Microsoft.Xrm.OnlineManagementAPI)[https://www.powershellgallery.com/packages/Microsoft.Xrm.OnlineManagementAPI]",
+  "helpMarkDown": "This task uses the (Microsoft.PowerApps.Administration.PowerShell)[https://learn.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/set-adminpowerappenvironmentruntimestate?view=pa-ps-latest]",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -12,44 +12,20 @@
   ],
   "demands": [],
   "version": {
-    "Major": 12,
+    "Major": 13,
     "Minor": 0,
-    "Patch": 4
+    "Patch": 5
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Set $(instanceName) Admin Mode: $(enable)",
   "inputs": [
     {
-      "name": "apiUrl",
-      "type": "string",
-      "label": "ApiUrl",
-      "defaultValue": "https://admin.services.crm[n].dynamics.com",
-      "required": true,
-      "helpMarkDown": "Use the Service Url for your environment region as per (documentation)[https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/online-management-api/get-started-online-management-api]"
-    },
-    {
-      "name": "username",
-      "type": "string",
-      "label": "Username",
+      "name": "ppServiceEndpoint",
+      "type": "connectedService:xrm-ci-framework",
+      "label": "Power DevOps Tools Connection",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The environment username"
-    },
-    {
-      "name": "password",
-      "type": "string",
-      "label": "Password",
-      "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "The environment password"
-    },
-    {
-      "name": "instanceName",
-      "type": "string",
-      "label": "Instance Name",
-      "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "Name used in the Dynamics 365 domain: https://[instancename].crm[n].dynamics.com"
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
     },
     {
       "name": "enable",
@@ -66,7 +42,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Determines whether the environment can run background operations. Background operations are asynchronous operations, such as workflows and synchronization with Microsoft Exchange.",
-      "visibleRule": "enable = true"
+      "visibleRule": "false = true"
     },
     {
       "name": "notificationText",
@@ -75,7 +51,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "The message to diplay when any user attempts to sign in to the environment.",
-      "visibleRule": "enable = true"
+      "visibleRule": "false = true"
     }
   ],
   "execution": {

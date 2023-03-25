@@ -16,7 +16,7 @@
     "Minor": 0,
     "Patch": 6
   },
-  "preview": false,
+  "deprecated": true,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Reset $(domainName)",
   "groups": [

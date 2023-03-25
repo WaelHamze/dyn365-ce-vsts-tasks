@@ -16,6 +16,7 @@
     "Minor": 0,
     "Patch": 5
   },
+  "deprecated": true,
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Get Online Instance By Name",
   "inputs": [

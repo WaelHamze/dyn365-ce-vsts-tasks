@@ -209,6 +209,12 @@
     },
     {
       "path": "Tasks/MSCRMSharePowerApp"
+    },
+    {
+      "path": "Tasks/MSCRMShareFlow"
+    },
+    {
+      "path": "Tasks/MSCRMActivateFlow"
     }
   ],
   "contributions": [
@@ -700,6 +706,26 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMSharePowerApp"
+      }
+    },
+    {
+      "id": "MSCRMShareFlow",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMShareFlow"
+      }
+    },
+    {
+      "id": "MSCRMActivateFlow",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMActivateFlow"
       }
     },
     {

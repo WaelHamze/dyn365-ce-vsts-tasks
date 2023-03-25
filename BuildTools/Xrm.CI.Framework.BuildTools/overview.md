@@ -69,11 +69,13 @@ Below is a list of tasks that are included with this extension.
 | **Remove Solution Components** | Solution | Removes all components from a given Solution in PowerApps/CDS/Dynamics 365 environment |
 | **Set Version** | Solution | Updates the version of a PowerApps/CDS/Dynamics 365 Solution |
 | **Update Solution Description** | Solution | Updates the description of a given Solution in a PowerApps/CDS/Dynamics 365 environment |
+| **Activate Flow** (preview) | Utility | Turns on/off a Flow |
 | **Package Deployer** | Utility | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
 | **Ping Environment** | Utility | Use this task to test connectivity to a PowerApps/CDS/Dynamics 365 environment |
 | **Plugin Registration** (preview) | Utility | Updates a CDS Plugin/Workflow activity assembly/types/steps in a PowerApps/CDS/Dynamics 365 environment |
 | **Publish Customizations** | Utility | Publishes all customizations in a given PowerApps/CDS/Dynamics 365 environment |
 | **Service Endpoint Registration** (preview) | Utility | Updates CDS Service Endpoints and steps in a PowerApps/CDS/Dynamics 365 environment |
+| **Share Flow** (preview) | Utility | Shares a Flow with users and/or groups |
 | **Share Power App** (preview) | Utility | Shares Canvas Power App(s) with users and/or groups |
 | **Split Plugin Assembly** (preview) (deprecated) | Utility | Splits a PowerApps/CDS/Dynamics 365 plugin assembly into multiple plugin assemblies |
 | **Power DevOps Tool Installer** | Utility | Configures the tools/dependencies required by all of the tasks |
