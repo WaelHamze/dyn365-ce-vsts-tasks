@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 4
+    "Patch": 5
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Share Flow: $(flowName)",
@@ -95,7 +95,7 @@
       "label": "Sharing Configuration File (json)",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The absolute path to the json configuration file on the agent machine. Sample configuration [file](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/ShareFlows.json).",
+      "helpMarkDown": "The absolute path to the json configuration file on the agent machine. Sample configuration [file](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/Flows.json).",
       "visibleRule": "shareType = Advanced  "
     }
   ],

@@ -1,0 +1,89 @@
+{
+  "id": "C54CC87D-B2A5-4B8C-A214-13AE40EF17E2",
+  "name": "MSCRMActivateFlow",
+  "friendlyName": "Activate Flow",
+  "description": "Turns on/off a Flow",
+  "author": "Wael Hamze",
+  "helpMarkDown": "For more information visit the task [docs](https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMActivateFlow/Overview.md).",
+  "category": "Utility",
+  "helpUrl": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMActivateFlow/Overview.md",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [
+    "powershell",
+    "mscrmtools"
+  ],
+  "preview": true,
+  "version": {
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 5
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Activate Flow: $(flowName)",
+  "inputs": [
+    {
+      "name": "ppServiceEndpoint",
+      "type": "connectedService:xrm-ci-framework",
+      "label": "Power DevOps Tools Connection",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
+    },
+    {
+      "name": "activateType",
+      "type": "radio",
+      "label": "Activate Type",
+      "defaultValue": "Basic",
+      "options": {
+        "Basic": "Basic",
+        "Advanced": "Advanced"
+      },
+      "required": true,
+      "helpMarkDown": "Select Basic to activate a single Flow or Advanced to activate mutiple via a json configuration file"
+    },
+    {
+      "name": "flowName",
+      "type": "string",
+      "label": "Flow Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the Flow you want to activate.",
+      "visibleRule": "activateType = Basic"
+    },
+    {
+      "name": "state",
+      "type": "radio",
+      "label": "State",
+      "defaultValue": "On",
+      "options": {
+        "On": "On",
+        "Off": "Off"
+      },
+      "required": true,
+      "helpMarkDown": "Select if you want to turn on or turn off the flow",
+      "visibleRule": "activateType = Basic"
+    },
+    {
+      "name": "activateConfigFile",
+      "type": "filePath",
+      "label": "Activate Configuration File (json)",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the json configuration file on the agent machine. Sample configuration [file](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/Flows.json).",
+      "visibleRule": "activateType = Advanced"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMActivateFlow.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}
