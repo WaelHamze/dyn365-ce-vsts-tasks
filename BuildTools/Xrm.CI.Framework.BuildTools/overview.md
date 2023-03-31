@@ -39,14 +39,14 @@ Below is a list of tasks that are included with this extension.
 | **Pack Config Migration Data** (preview) | Data | Packs the data files that have been extracted using Extract task back into a data zip that can be imported using Configuration Migration Tool |
 | **Update Configuration Records** | Data | Upserts a configuration entity records using lookup/value pairs in a PowerApps/CDS/Dynamics 365 environment |
 | **Update Environment Variables** (preview) | Data | Upserts environemnt variables current value record using name/value pairs in a target PowerApps/CDS/Dynamics 365 environment |
-| **Backup Online Instance** | Environment | Creates a backup of a PowerApps/CDS/Dynamics 365 Environment |
-| **Copy Online Instance** (preview) | Environment | Copies a source PowerApps/CDS/Dynamics 365 environment to a target environment |
+| **Backup Online Instance** (deprecated) | Environment | Creates a backup of a PowerApps/CDS/Dynamics 365 Environment |
+| **Copy Online Instance** (preview) (deprecated) | Environment | Copies a source PowerApps/CDS/Dynamics 365 environment to a target environment |
 | **Delete Instance** | Environment | Deletes a PowerApps/CDS/Dynamics 365 environment |
-| **Get Online Instance By Name** | Environment | Gets PowerApps/CDS/Dynamics 365 environment Id based on the name of the environment |
-| **Provision Online Instance** | Environment | Creates a new PowerApps/CDS/Dynamics 365 environment |
-| **Reset Online Instance** | Environment | Resets a PowerApps/CDS/Dynamics 365 environment |
-| **Restore Online Instance** | Environment | Restores PowerApps/CDS/Dynamcics 365 environment from a previous backup using a timestamp or label |
-| **Set Online Instance Admin Mode** | Environment | Enables/Disables Admin Mode for a PowerApps/CDS/Dynamics 365 environment |
+| **Get Online Instance By Name** (deprecated) | Environment | Gets PowerApps/CDS/Dynamics 365 environment Id based on the name of the environment |
+| **Provision Online Instance** (deprecated) | Environment | Creates a new PowerApps/CDS/Dynamics 365 environment |
+| **Reset Online Instance** (deprecated) | Environment | Resets a PowerApps/CDS/Dynamics 365 environment |
+| **Restore Online Instance** (deprecated) | Environment | Restores PowerApps/CDS/Dynamcics 365 environment from a previous backup using a timestamp or label |
+| **Set Online Instance Admin Mode** | Environment | Enables/Disables Admin Mode for a PowerApps/DataVerse/Dynamics 365 environment |
 | **Apply Solution Upgrade** | Solution | Applies a solution upgrade after solution is import using stage for upgrade option |
 | **Checker Quality Gate** (preview) | Solution | Validates PowerApps Checker scan results against defined thresholds |
 | **Check Solution** | Solution | Uses PowerApps Checker API to validate your solution against a list of known issues |
@@ -247,6 +247,13 @@ Updated Sdk Tools/PS Modules to use the latest version (by default)
 **9.18.x**  
 Added a Task to share Canvas Apps  
 Added a Task to update connection references  
+Updated Sdk Tools/PS Modules to use the latest version (by default)  
+
+**9.19.x**  
+Added a Task to share and assign Flows  
+Added a Task to turn Flows on/off  
+Deprecated most of the environment management tasks  
+Fixed defect with task for setting Administration mode for environments  
 Updated Sdk Tools/PS Modules to use the latest version (by default)  
 
 For more information on changes between versions, check the milestones and releases on GitHub

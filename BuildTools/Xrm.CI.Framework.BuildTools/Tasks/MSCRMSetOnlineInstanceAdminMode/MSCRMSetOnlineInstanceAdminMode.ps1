@@ -10,8 +10,6 @@ Write-Verbose 'Entering MSCRMSetOnlineInstanceAdminMode.ps1'
 $ppServiceEndpointName = Get-VstsInput -Name ppServiceEndpoint -Require
 $ppServiceEndpoint = Get-VstsEndpoint -Name $ppServiceEndpointName -Require
 $enable = Get-VstsInput -Name enable -Require -AsBool
-$allowBackgroundOperations = Get-VstsInput -Name allowBackgroundOperations -AsBool
-$notificationText = Get-VstsInput -Name notificationText
 
 $EnvironmentUrl = $ppServiceEndpoint.Url
 
