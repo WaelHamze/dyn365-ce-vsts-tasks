@@ -66,6 +66,14 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Use to specifiy additional runtime parameters such as LCID=1033"
+    },
+    {
+      "name": "useAsyncMode",
+      "type": "boolean",
+      "label": "Use Async Mode",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "If set to true will perform operation in asynchronous mode using ExecuteAsyncRequest"
     }
   ],
   "execution": {
