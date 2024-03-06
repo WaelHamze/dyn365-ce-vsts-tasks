@@ -215,6 +215,9 @@
     },
     {
       "path": "Tasks/MSCRMActivateFlow"
+    },
+    {
+      "path": "Tasks/MSCRMUpdateTenantSettings"
     }
   ],
   "contributions": [
@@ -726,6 +729,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMActivateFlow"
+      }
+    },
+    {
+      "id": "MSCRMActivateFlow",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMUpdateTenantSettings"
       }
     },
     {

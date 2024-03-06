@@ -1,0 +1,54 @@
+{
+  "id": "B5F40A7E-F289-446E-894F-49DC757F838B",
+  "name": "MSCRMUpdateTenantSettings",
+  "friendlyName": "Update Tenant Settings",
+  "description": "Updates tenant settings from a json config file",
+  "author": "Wael Hamze",
+  "helpMarkDown": "For more information visit the task [docs](https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMUpdateTenantSettings/Overview.md).",
+  "category": "Utility",
+  "helpUrl": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMUpdateTenantSettings/Overview.md",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [
+    "powershell",
+    "mscrmtools"
+  ],
+  "preview": true,
+  "version": {
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 4
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Update Tenant Settings",
+  "inputs": [
+    {
+      "name": "ppServiceEndpoint",
+      "type": "connectedService:xrm-ci-framework",
+      "label": "Power DevOps Tools Connection",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
+    },
+    {
+      "name": "settingsConfigFile",
+      "type": "filePath",
+      "label": "Tenant Settings Configuration File (json)",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The absolute path to the json configuration file on the agent machine. Sample configuration [file](https://github.com/WaelHamze/xrm-ci-framework/blob/master/MSDYNV9/Xrm.Framework.CI/Xrm.Framework.CI.PowerShell.Scripts/TenantSettings.json)."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMUpdateTenantSettings.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}
