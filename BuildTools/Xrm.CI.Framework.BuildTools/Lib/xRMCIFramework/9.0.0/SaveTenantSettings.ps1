@@ -21,13 +21,23 @@ Write-Verbose "Script Path: $scriptPath"
 
 #Import Modules
 
-Write-Verbose "Importing PowerApps Admin Module: $PowerAppsAdminModulePath"
-Import-module "$PowerAppsAdminModulePath\Microsoft.PowerApps.Administration.PowerShell.psd1"
+if ($PowerAppsAdminModulePath)
+{
+	Write-Verbose "Importing PowerApps Admin Module: $PowerAppsAdminModulePath"
+	Import-module "$PowerAppsAdminModulePath\Microsoft.PowerApps.Administration.PowerShell.psd1"
+}
 
 #Connect
 
 Write-Verbose "Connecting to PowerApps Endpoint"
-Add-PowerAppsAccount -TenantID $TenantId -ApplicationId $ApplicationId -ClientSecret $ApplicationSecret -Endpoint prod
+If ($applicationId)
+{
+	Add-PowerAppsAccount -TenantID $TenantId -ApplicationId $ApplicationId -ClientSecret $ApplicationSecret -Endpoint prod
+}
+else
+{
+	Add-PowerAppsAccount
+}
 
 #Get Tenant Settings
 
