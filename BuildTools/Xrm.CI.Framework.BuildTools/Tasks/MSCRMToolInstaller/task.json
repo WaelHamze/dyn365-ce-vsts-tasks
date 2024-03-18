@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 100
+    "Patch": 107
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Power DevOps Tool Installer",

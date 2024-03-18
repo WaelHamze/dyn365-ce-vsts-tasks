@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 33
+    "Patch": 37
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Share Power App: $(appName)",

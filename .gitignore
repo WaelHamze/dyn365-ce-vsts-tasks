@@ -14,3 +14,7 @@
 /BuildTools/Xrm.CI.Framework.BuildTools/Lib/xRMCIFramework/9.0.0/System.Management.Automation.dll
 /BuildTools/Xrm.CI.Framework.BuildTools/Tools
 /BuildTools/Xrm.CI.Framework.BuildTools/.vs
+/BuildTools/Xrm.CI.Framework.BuildTools/Tasks/MSCRMSharePowerApp/MSCRMSharePowerApp.ps1
+/BuildTools/Xrm.CI.Framework.BuildTools/web.config
+/BuildTools/Xrm.CI.Framework.BuildTools/web.Debug.config
+/BuildTools/Xrm.CI.Framework.BuildTools/web.Release.config
