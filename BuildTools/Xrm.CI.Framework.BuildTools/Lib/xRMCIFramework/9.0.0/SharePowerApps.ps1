@@ -129,7 +129,7 @@ foreach ($app in $AppsToShare.AppSharing)
 		{
 			#$principalId = (Get-MgGroup -Filter "DisplayName eq '$principal'" | select Id).Id
 			$group = Get-UsersOrGroupsFromGraph -SearchString $principal
-			Write-Verbose "Group retrieved: $($group))"
+			Write-Verbose "Group retrieved: $($group)"
 			if ($group)
 			{
 				Write-Verbose "Group Found"
