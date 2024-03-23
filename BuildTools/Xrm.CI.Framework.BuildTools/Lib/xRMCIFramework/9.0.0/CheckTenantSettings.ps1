@@ -1,5 +1,5 @@
 #
-# SaveTenantSettings.ps1
+# CheckTenantSettings.ps1
 #
 [CmdletBinding()]
 
@@ -13,7 +13,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-Write-Verbose 'Entering SaveTenantSettings.ps1'
+Write-Verbose 'Entering CheckTenantSettings.ps1'
 
 #Script Location
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -45,12 +45,25 @@ Write-Verbose "Getting Tenant Settings"
 
 $tenantSettings = Get-TenantSettings
 
-Write-Host "Retrieved Tenant Settings: $tenantSettings"
+$tenantSettingsJson = ConvertTo-Json -InputObject $tenantSettings -Compress -Depth 10
 
-$tenantSettingsJson = ConvertTo-Json -InputObject $tenantSettings -Depth 10
+Write-Verbose "Retrieved Tenant Settings: $tenantSettingsJson"
 
-Set-Content -Path $tenantSettingsFile -Value $tenantSettingsJson
+$savedTenantSettings = Get-Content -Path $tenantSettingsFile -Raw
 
-Write-Host "Saved Tenant Settings to $tenantSettingsFile"
+$savedTenantSettingsObject = ConvertFrom-Json $savedTenantSettings
 
-Write-Verbose 'Leaving SaveTenantSettings.ps1'
+$savedTenantSettingsJson = ConvertTo-Json -InputObject $savedTenantSettingsObject -Compress -Depth 10
+
+Write-Verbose "Saved Tenant Settings: $savedTenantSettingsJson"
+
+if ($tenantSettingsJson -eq $savedTenantSettingsJson)
+{
+	Write-Host "Tenant Settings Matched"
+}
+else
+{
+	throw "Tenant Settings didn't match"
+}
+
+Write-Verbose 'Leaving CheckTenantSettings.ps1'
