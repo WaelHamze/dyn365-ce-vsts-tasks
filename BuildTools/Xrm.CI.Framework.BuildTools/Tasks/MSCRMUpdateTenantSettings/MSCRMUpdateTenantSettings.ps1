@@ -51,4 +51,4 @@ $settingsConfigJson = (Get-Content "$settingsConfigFile" -Raw)
 
 & "$mscrmToolsPath\xRMCIFramework\9.0.0\UpdateTenantSettings.ps1" -TenantId $TenantId -ApplicationId $ApplicationId -ApplicationSecret $ClientSecret -TenantSettingsJson $settingsConfigJson -PowerAppsAdminModulePath $powerAppsAdminPath
 
-Write-Verbose 'Leaving MSCRMSharePowerApp.ps1'
+Write-Verbose 'Leaving MSCRMCheckTenantSettings.ps1'
