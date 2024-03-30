@@ -1,4 +1,6 @@
-# Share Power App
+# Update Tenant Settings
+
+You can watch the [Tenant Settings](https://youtu.be/WjTRcUYiOHo) video on YouTube
 
 ## Pre-requisites
 
