@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Power DevOps Tools",
-  "version": "9.20.5",
+  "version": "9.20.7",
   "publisher": "WaelHamze",
   "targets": [
     {

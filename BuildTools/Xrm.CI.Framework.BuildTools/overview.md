@@ -41,7 +41,7 @@ Below is a list of tasks that are included with this extension.
 | **Update Environment Variables** (preview) | Data | Upserts environemnt variables current value record using name/value pairs in a target PowerApps/CDS/Dynamics 365 environment |
 | **Backup Online Instance** (deprecated) | Environment | Creates a backup of a PowerApps/CDS/Dynamics 365 Environment |
 | **Copy Online Instance** (preview) (deprecated) | Environment | Copies a source PowerApps/CDS/Dynamics 365 environment to a target environment |
-| **Delete Instance** | Environment | Deletes a PowerApps/CDS/Dynamics 365 environment |
+| **Delete Instance** (deprecated) | Environment | Deletes a PowerApps/CDS/Dynamics 365 environment |
 | **Get Online Instance By Name** (deprecated) | Environment | Gets PowerApps/CDS/Dynamics 365 environment Id based on the name of the environment |
 | **Provision Online Instance** (deprecated) | Environment | Creates a new PowerApps/CDS/Dynamics 365 environment |
 | **Reset Online Instance** (deprecated) | Environment | Resets a PowerApps/CDS/Dynamics 365 environment |
@@ -70,6 +70,7 @@ Below is a list of tasks that are included with this extension.
 | **Set Version** | Solution | Updates the version of a PowerApps/CDS/Dynamics 365 Solution |
 | **Update Solution Description** | Solution | Updates the description of a given Solution in a PowerApps/CDS/Dynamics 365 environment |
 | **Activate Flow** (preview) | Utility | Turns on/off a Flow |
+| **Check Tenant Settings** (preview) | Utility | Compares current tenant settings against a well known baseline in the provided file |
 | **Package Deployer** | Utility | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
 | **Ping Environment** | Utility | Use this task to test connectivity to a PowerApps/CDS/Dynamics 365 environment |
 | **Plugin Registration** (preview) | Utility | Updates a CDS Plugin/Workflow activity assembly/types/steps in a PowerApps/CDS/Dynamics 365 environment |
@@ -81,6 +82,7 @@ Below is a list of tasks that are included with this extension.
 | **Power DevOps Tool Installer** | Utility | Configures the tools/dependencies required by all of the tasks |
 | **Update Connection References** (preview) | Utility | Links connection references to an existing connection in a CDS environment |
 | **Update Secure Configuration** | Utility | A task that updates plugin secure configuration in a PowerApps/CDS/Dynamics 365 environment |
+| **Update Tenant Settings** (preview) | Utility | Updates tenant settings from a json config file |
 | **Update Web Resources** (preview) | Utility | Updates Web Resources from source control on a target PowerApps/CDS/Dynamics 365 environment |
 
 Some explanation for tasks that have the below in the names:
@@ -254,6 +256,13 @@ Added a Task to share and assign Flows
 Added a Task to turn Flows on/off  
 Deprecated most of the environment management tasks  
 Fixed defect with task for setting Administration mode for environments  
+Updated Sdk Tools/PS Modules to use the latest version (by default)  
+
+**9.20.x**  
+Added a Task to update tenant settings using config file  
+Added a Task to compare tenant settings against a known baseline  
+Deprecated most of the environment management tasks which are present in PPBT 
+Improved performance of Share Power App Task  
 Updated Sdk Tools/PS Modules to use the latest version (by default)  
 
 For more information on changes between versions, check the milestones and releases on GitHub
