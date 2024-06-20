@@ -1,0 +1,164 @@
+{
+    "tasks": [
+        {
+            "environment": {},
+            "displayName": "MSCRM Tool Installer",
+            "alwaysRun": false,
+            "continueOnError": false,
+            "condition": "succeeded()",
+            "enabled": true,
+            "timeoutInMinutes": 0,
+            "inputs": {},
+            "task": {
+                "id": "04ad1c72-5e49-4686-8a3a-dda6948b0fcd",
+                "versionSpec": "9.*",
+                "definitionType": "task"
+            }
+        },
+        {
+            "environment": {},
+            "displayName": "MSCRM Import Solution",
+            "alwaysRun": false,
+            "continueOnError": false,
+            "condition": "succeeded()",
+            "enabled": true,
+            "timeoutInMinutes": 0,
+            "inputs": {
+                "crmConnectionString": "$(D365ConnectionString)",
+                "solutionFile": "$(System.DefaultWorkingDirectory)/$(artifactSourceAlias)/$(artifactFolder)/$(solutionName)_managed.zip",
+                "publishWorkflows": "true",
+                "overwriteUnmanagedCustomizations": "true",
+                "skipProductUpdateDependencies": "false",
+                "convertToManaged": "false",
+                "holdingSolution": "true",
+                "override": "true",
+                "useAsyncMode": "true",
+                "asyncWaitTimeout": "900",
+                "logsDirectory": "",
+                "logFileName": "",
+                "crmConnectionTimeout": "120"
+            },
+            "task": {
+                "id": "4455576d-d40a-4234-ad75-3d7ff40ec76e",
+                "versionSpec": "11.*",
+                "definitionType": "task"
+            }
+        },
+        {
+            "environment": {},
+            "displayName": "MSCRM Apply Solution Upgrade",
+            "alwaysRun": false,
+            "continueOnError": false,
+            "condition": "succeeded()",
+            "enabled": true,
+            "timeoutInMinutes": 0,
+            "inputs": {
+                "crmConnectionString": "$(D365ConnectionString)",
+                "solutionName": "$(solutionName)",
+                "useAsyncMode": "true",
+                "asyncWaitTimeout": "900",
+                "crmConnectionTimeout": "900"
+            },
+            "task": {
+                "id": "f08caccb-e6cd-4857-9e69-410c8adb7eb8",
+                "versionSpec": "10.*",
+                "definitionType": "task"
+            }
+        },
+        {
+            "environment": {},
+            "displayName": "MSCRM Publish Customizations",
+            "alwaysRun": false,
+            "continueOnError": false,
+            "condition": "succeeded()",
+            "enabled": true,
+            "timeoutInMinutes": 0,
+            "inputs": {
+                "crmConnectionString": "$(D365ConnectionString)",
+                "crmConnectionTimeout": "120"
+            },
+            "task": {
+                "id": "f64d3db3-f19a-41dd-bdb8-f8f0e60a4bb1",
+                "versionSpec": "10.*",
+                "definitionType": "task"
+            }
+        }
+    ],
+    "runsOn": [
+        "Agent",
+        "DeploymentGroup"
+    ],
+    "comment": "",
+    "id": "859170b6-1224-4eb6-818f-4b1cd401017e",
+    "name": "Upgrade Solution with Holding Solution (Managed)",
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0,
+        "isTest": false
+    },
+    "iconUrl": "https://cdn.vsassets.io/v/M152_20190619.1/_content/icon-meta-task.png",
+    "friendlyName": "Upgrade Solution with Holding Solution (Managed)",
+    "description": "This will remove any components not present in the new solution package.",
+    "category": "Deploy",
+    "definitionType": "metaTask",
+    "demands": [],
+    "groups": [],
+    "inputs": [
+        {
+            "aliases": [],
+            "options": {},
+            "properties": {},
+            "name": "artifactFolder",
+            "label": "artifactFolder",
+            "defaultValue": "drop",
+            "required": true,
+            "type": "string",
+            "helpMarkDown": "Folder of build artifacts inside Source Alias.",
+            "groupName": ""
+        },
+        {
+            "aliases": [],
+            "options": {},
+            "properties": {},
+            "name": "artifactSourceAlias",
+            "label": "artifactSourceAlias",
+            "defaultValue": "_Solution",
+            "required": true,
+            "type": "string",
+            "helpMarkDown": "Artifacts Source Alias.",
+            "groupName": ""
+        },
+        {
+            "aliases": [],
+            "options": {},
+            "properties": {},
+            "name": "D365ConnectionString",
+            "label": "D365ConnectionString",
+            "defaultValue": "",
+            "required": true,
+            "type": "string",
+            "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx",
+            "groupName": ""
+        },
+        {
+            "aliases": [],
+            "options": {},
+            "properties": {},
+            "name": "solutionName",
+            "label": "solutionName",
+            "defaultValue": "",
+            "required": true,
+            "type": "string",
+            "helpMarkDown": "Name of solution and zip file",
+            "groupName": ""
+        }
+    ],
+    "satisfies": [],
+    "sourceDefinitions": [],
+    "dataSourceBindings": [],
+    "instanceNameFormat": "Task group: Upgrade Solution with Holding Solution (Managed) $(artifactFolder)",
+    "preJobExecution": {},
+    "execution": {},
+    "postJobExecution": {}
+}
