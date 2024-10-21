@@ -55,7 +55,7 @@ $powerAppsAdminInfo = Get-MSCRMTool -toolName $powerAppsAdmin
 Require-ToolVersion -toolName $powerAppsAdmin -version $powerAppsAdminInfo.Version -minVersion '2.0.142'
 $powerAppsAdminPath = "$($powerAppsAdminInfo.Path)"
 
-if ($shareType -eq "Advanced")
+if ($activateType -eq "Advanced")
 {
 	$flowsToActivateJson = (Get-Content "$activateConfigFile" -Raw)
 }
