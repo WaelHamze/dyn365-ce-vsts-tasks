@@ -1,0 +1,62 @@
+{
+  "id": "C6DB3200-EAD4-4271-ACE8-0C3B7EE99822",
+  "name": "MSCRMAddEnvironmentToGroup",
+  "friendlyName": "Add Environment To Group",
+  "description": "Adds an environment to an environment group",
+  "author": "Wael Hamze",
+  "helpMarkDown": "For more information visit the task [docs](https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMAddEnvironmentToGroup/Overview.md).",
+  "category": "Utility",
+  "helpUrl": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks/blob/master/Docs/MSCRMAddEnvironmentToGroup/Overview.md",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [
+    "powershell",
+    "mscrmtools"
+  ],
+  "preview": true,
+  "version": {
+    "Major": 12,
+    "Minor": 0,
+    "Patch": 7
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Add Environment: $(ppEnvironment) to Group $(ppGroupId)",
+  "inputs": [
+    {
+      "name": "ppServiceEndpoint",
+      "type": "connectedService:xrm-ci-framework",
+      "label": "Power DevOps Tools Connection",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "More information on [format](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/xrm-tooling/use-connection-strings-xrm-tooling-connect#connection-string-parameters)"
+    },
+    {
+      "name": "ppEnvironment",
+      "type": "string",
+      "label": "Environment",
+      "defaultValue": "$([PREFIX].BuildTools.EnvironmentUrl)",
+      "required": true,
+      "helpMarkDown": "The environment Id or Url. $([PREFIX].BuildTools.EnvironmentUrl) if using after Power Platform Build Tools Create Environment Task. The [PREFIX] is the reference you supplied in the output paramters of the Create Environment Task."
+    },
+    {
+      "name": "ppGroupId",
+      "type": "string",
+      "label": "Group Id",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The Id of the environment group. This can be obtained from the PP admin portal browser Url when looking at an environment group."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMAddEnvironmentToGroup.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}

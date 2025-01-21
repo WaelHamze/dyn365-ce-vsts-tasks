@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Power DevOps Tools",
-  "version": "9.20.8",
+  "version": "9.21.0",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -221,6 +221,9 @@
     },
     {
       "path": "Tasks/MSCRMCheckTenantSettings"
+    },
+    {
+      "path": "MSCRMAddEnvironmentToGroup"
     }
   ],
   "contributions": [
@@ -752,6 +755,16 @@
       ],
       "properties": {
         "name": "Tasks/MSCRMCheckTenantSettings"
+      }
+    },
+    {
+      "id": "MSCRMAddEnvironmentToGroup",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/MSCRMAddEnvironmentToGroup"
       }
     },
     {
