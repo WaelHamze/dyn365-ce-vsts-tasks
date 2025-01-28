@@ -8,7 +8,7 @@ function Get-Category
 		[string]$Name
     )
 
-	if (($name -match 'Online') -or ($name -match 'Instance'))
+	if (($name -match 'Online') -or ($name -match 'Instance') -or ($name -match 'Environment'))
 	{
 		$category = 'Environment'
 	}

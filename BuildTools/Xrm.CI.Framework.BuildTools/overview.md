@@ -70,6 +70,65 @@ Below is a list of tasks that are included with this extension.
 | **Set Version** | Solution | Updates the version of a PowerApps/CDS/Dynamics 365 Solution |
 | **Update Solution Description** | Solution | Updates the description of a given Solution in a PowerApps/CDS/Dynamics 365 environment |
 | **Activate Flow** (preview) | Utility | Turns on/off a Flow |
+| **Add Environment To Group** (preview) | Utility | Adds an environment to an environment group |
+| **Check Tenant Settings** (preview) | Utility | Compares current tenant settings against a well known baseline in the provided file |
+| **Package Deployer** | Utility | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
+| **Ping Environment** | Utility | Use this task to test connectivity to a PowerApps/CDS/Dynamics 365 environment |
+| **Plugin Registration** (preview) | Utility | Updates a CDS Plugin/Workflow activity assembly/types/steps in a PowerApps/CDS/Dynamics 365 environment |
+| **Publish Customizations** | Utility | Publishes all customizations in a given PowerApps/CDS/Dynamics 365 environment |
+| **Service Endpoint Registration** (preview) | Utility | Updates CDS Service Endpoints and steps in a PowerApps/CDS/Dynamics 365 environment |
+| **Share Flow** (preview) | Utility | Shares a Flow with users and/or groups |
+| **Share Power App** (preview) | Utility | Shares Canvas Power App(s) with users and/or groups |
+| **Split Plugin Assembly** (preview) (deprecated) | Utility | Splits a PowerApps/CDS/Dynamics 365 plugin assembly into multiple plugin assemblies |
+| **Power DevOps Tool Installer** | Utility | Configures the tools/dependencies required by all of the tasks |
+| **Update Connection References** (preview) | Utility | Links connection references to an existing connection in a CDS environment |
+| **Update Secure Configuration** | Utility | A task that updates plugin secure configuration in a PowerApps/CDS/Dynamics 365 environment |
+| **Update Tenant Settings** (preview) | Utility | Updates tenant settings from a json config file |
+| **Update Web Resources** (preview) | Utility | Updates Web Resources from source control on a target PowerApps/CDS/Dynamics 365 environment |
+
+PS C:\Dev\Src\dyn365-ce-vsts-tasks\BuildTools\Xrm.CI.Framework.BuildTools> .\GenerateTasksMD.ps1
+| Task | Category | Description |
+| --- | --- | --- |
+| **Export Config Migration Data** | Data | Exports data from a PowerApps/CDS/Dynamics 365 instance using a Configuration Migration schema file |
+| **Extract Config Migration Data** (preview) | Data | Extracts the data zip exported using Configuration Migration Tool into folder with the option split and sort the data.xml |
+| **Get Configuration Record** (preview) | Data | Retrieves a configuration entity record value using a lookup from a PowerApps/CDS/Dynamics 365 environment |
+| **Import Config Migration Data** | Data | Import data exported using Configuration Migration Tool into a CRM instance |
+| **Pack Config Migration Data** (preview) | Data | Packs the data files that have been extracted using Extract task back into a data zip that can be imported using Configuration Migration Tool |
+| **Update Configuration Records** | Data | Upserts a configuration entity records using lookup/value pairs in a PowerApps/CDS/Dynamics 365 environment |
+| **Add Environment To Group** (preview) | Environment | Adds an environment to an environment group |
+| **Backup Online Instance** (deprecated) | Environment | Creates a backup of a PowerApps/CDS/Dynamics 365 Environment |
+| **Copy Online Instance** (preview) (deprecated) | Environment | Copies a source PowerApps/CDS/Dynamics 365 environment to a target environment |
+| **Delete Instance** (deprecated) | Environment | Deletes a PowerApps/CDS/Dynamics 365 environment |
+| **Get Environment Variable** (preview) | Environment | Retrieves the current environment variable value from a PowerApps/CDS/Dynamics 365 environment |
+| **Get Online Instance By Name** (deprecated) | Environment | Gets PowerApps/CDS/Dynamics 365 environment Id based on the name of the environment |
+| **Provision Online Instance** (deprecated) | Environment | Creates a new PowerApps/CDS/Dynamics 365 environment |
+| **Reset Online Instance** (deprecated) | Environment | Resets a PowerApps/CDS/Dynamics 365 environment |
+| **Restore Online Instance** (deprecated) | Environment | Restores PowerApps/CDS/Dynamcics 365 environment from a previous backup using a timestamp or label |
+| **Set Online Instance Admin Mode** | Environment | Enables/Disables Admin Mode for a PowerApps/DataVerse/Dynamics 365 environment |
+| **Update Environment Variables** (preview) | Environment | Upserts environemnt variables current value record using name/value pairs in a target PowerApps/CDS/Dynamics 365 environment |
+| **Apply Solution Upgrade** | Solution | Applies a solution upgrade after solution is import using stage for upgrade option |
+| **Checker Quality Gate** (preview) | Solution | Validates PowerApps Checker scan results against defined thresholds |
+| **Check Solution** | Solution | Uses PowerApps Checker API to validate your solution against a list of known issues |
+| **Clone Solution** | Solution | Clones a PowerApps/CDS/Dynamics 365 unmanaged Solution |
+| **Copy Solution Components** | Solution | Adds components from a given solution to another solution if not present |
+| **Create Patch** | Solution | Creates an unmanaged CRM Solution Patch |
+| **Create Solution** | Solution | Creates an unmanaged Solution |
+| **Export Solution** | Solution | Exports a PowerApps/CDS/Dynamics 365 Solution from the source environment |
+| **Export Solutions Using Config** (preview) | Solution | Exports PowerApps/CDS/Dynamics 365 Solutions using a json configuration |
+| **Extract Solution** | Solution | Unpacks a PowerApps/CDS/Dynamics 365 Solution zip into mutiple files using SolutionPackager.exe |
+| **Get Latest Patch** (preview) | Solution | Retrieves the latest patch for a given solution from a PowerApps/CDS/Dynamics 365 environment |
+| **Get Solution** (preview) | Solution | Retrieves solution details from a PowerApps/CDS/Dynamics 365 instance |
+| **Get Solution Missing Components** (preview) | Solution | Retrieves missing components for a solution from a PowerApps/CDS/Dynamics 365 environment |
+| **Get Solution Missing Dependencies** (preview) | Solution | Retrieves missing dependencies for a solution in PowerApps/CDS/Dynamics 365 environment |
+| **Import Solution** | Solution | Import a Solution into a PowerApps/CDS/Dynamics 365 environment |
+| **Import Solutions Using Config** (preview) | Solution | Imports PowerApps/CDS/Dynamics 365 Solutions using a json configuration |
+| **Pack Solution** | Solution | Generates a PowerApps/CDS/Dynamics 365 Solution zip from previously extracted files using SolutionPackager.exe |
+| **Pack Solutions Using Config** | Solution | Generates PowerApps/CDS/Dynamics 365 Solution zips(s) from previously extracted files using a json config and SolutionPackager.exe |
+| **Remove Solution** | Solution | Deletes a managed/unmanaged Solution from a PowerApps/CDS/Dynamics 365 environment |
+| **Remove Solution Components** | Solution | Removes all components from a given Solution in PowerApps/CDS/Dynamics 365 environment |
+| **Set Version** | Solution | Updates the version of a PowerApps/CDS/Dynamics 365 Solution |
+| **Update Solution Description** | Solution | Updates the description of a given Solution in a PowerApps/CDS/Dynamics 365 environment |
+| **Activate Flow** (preview) | Utility | Turns on/off a Flow |
 | **Check Tenant Settings** (preview) | Utility | Compares current tenant settings against a well known baseline in the provided file |
 | **Package Deployer** | Utility | Deploys a CRM Package using the CRM Package Deployer PowerShell Cmdlets |
 | **Ping Environment** | Utility | Use this task to test connectivity to a PowerApps/CDS/Dynamics 365 environment |

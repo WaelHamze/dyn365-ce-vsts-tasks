@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "xrm-ci-framework-build-tasks",
   "name": "Power DevOps Tools",
-  "version": "9.21.0",
+  "version": "9.21.1",
   "publisher": "WaelHamze",
   "targets": [
     {
@@ -23,14 +23,18 @@
     "Package Deployer",
     "Dynamics 365",
     "Customer Engagement",
-    "Online Management API",
+    "Customer Service",
     "PowerShell",
     "PowerApps",
     "CDS",
     "Flow",
     "Model-Driven PowerApps",
     "Canvas PowerApps",
-    "MSCRM"
+    "MSCRM",
+    "DataVerse",
+    "Power Automate",
+    "Cloud Flow",
+    "Power Platform"
   ],
   "icons": {
     "default": "icon_128x128.png"
@@ -223,7 +227,7 @@
       "path": "Tasks/MSCRMCheckTenantSettings"
     },
     {
-      "path": "MSCRMAddEnvironmentToGroup"
+      "path": "Tasks/MSCRMAddEnvironmentToGroup"
     }
   ],
   "contributions": [
