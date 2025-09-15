@@ -6,7 +6,7 @@
   },
   {
     "Name": "AzureAD",
-    "Version": "2.0.2.52",
+    "Version": "2.0.2.182",
     "Source": "PSGallery"
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "Name": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell",
-    "Version": "3.3.0.972",
+    "Version": "3.3.0.1039",
     "Source": "PSGallery"
   },
   {
@@ -26,7 +26,7 @@
   },
   {
     "Name": "Microsoft.Xrm.Tooling.ConfigurationMigration",
-    "Version": "1.0.0.87",
+    "Version": "1.0.0.88",
     "Source": "PSGallery"
   },
   {
@@ -36,17 +36,17 @@
   },
   {
     "Name": "Microsoft.PowerApps.Administration.PowerShell",
-    "Version": "2.0.204",
+    "Version": "2.0.216",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.PowerShell",
-    "Version": "1.0.40",
+    "Version": "1.0.44",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.CLI",
-    "Version": "1.39.3",
+    "Version": "1.48.2",
     "Source": "Nuget"
   },
   {
