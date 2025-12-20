@@ -21,7 +21,7 @@
   },
   {
     "Name": "Microsoft.PowerApps.Checker.PowerShell",
-    "Version": "1.0.52",
+    "Version": "1.0.29",
     "Source": "PSGallery"
   },
   {

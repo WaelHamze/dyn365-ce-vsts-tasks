@@ -19,7 +19,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 114
+    "Patch": 115
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Power DevOps Tool Installer",
@@ -187,7 +187,7 @@
       "label": "Microsoft.PowerApps.Checker.PowerShell - Version (PS Gallery)",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify a version to override the default version: [1.0.52](https://www.powershellgallery.com/packages/Microsoft.PowerApps.Checker.PowerShell/1.0.52) Type latest to use the latest version available",
+      "helpMarkDown": "Specify a version to override the default version: [1.0.29](https://www.powershellgallery.com/packages/Microsoft.PowerApps.Checker.PowerShell/1.0.29) Type latest to use the latest version available",
       "groupName": "tools"
     },
     {
