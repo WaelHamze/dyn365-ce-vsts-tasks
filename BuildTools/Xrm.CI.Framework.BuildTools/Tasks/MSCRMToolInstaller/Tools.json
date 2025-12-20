@@ -16,17 +16,17 @@
   },
   {
     "Name": "Microsoft.Xrm.Tooling.PackageDeployment.Powershell",
-    "Version": "3.3.0.972",
+    "Version": "3.3.0.1039",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.Checker.PowerShell",
-    "Version": "1.0.29",
+    "Version": "1.0.52",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.Xrm.Tooling.ConfigurationMigration",
-    "Version": "1.0.0.87",
+    "Version": "1.0.0.88",
     "Source": "PSGallery"
   },
   {
@@ -36,17 +36,17 @@
   },
   {
     "Name": "Microsoft.PowerApps.Administration.PowerShell",
-    "Version": "2.0.204",
+    "Version": "2.0.216",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.PowerShell",
-    "Version": "1.0.40",
+    "Version": "1.0.45",
     "Source": "PSGallery"
   },
   {
     "Name": "Microsoft.PowerApps.CLI",
-    "Version": "1.39.3",
+    "Version": "1.51.1",
     "Source": "Nuget"
   },
   {
