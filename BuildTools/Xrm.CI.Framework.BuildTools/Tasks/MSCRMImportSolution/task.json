@@ -14,7 +14,7 @@
   "version": {
     "Major": 12,
     "Minor": 0,
-    "Patch": 5
+    "Patch": 7
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Import Solution",
@@ -122,6 +122,14 @@
       "defaultValue": "120",
       "required": false,
       "helpMarkDown": "The connection timeout in seconds"
+    },
+    {
+      "name": "uploadSolutionName",
+      "type": "boolean",
+      "label": "Use Solution Name in Async Table",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "If set to true, will set the friendlymessage in asyncoperation table to solution name during import so it can be more easily identified"
     }
   ],
   "OutputVariables": [

@@ -20,6 +20,7 @@ $asyncWaitTimeout = Get-VstsInput -Name asyncWaitTimeout -Require -AsInt
 $logsDirectory = Get-VstsInput -Name logsDirectory
 $logFileName = Get-VstsInput -Name logFileName
 $crmConnectionTimeout = Get-VstsInput -Name crmConnectionTimeout -Require -AsInt
+$uploadSolutionName = Get-VstsInput -Name uploadSolutionName -Require -AsBool
 
 #MSCRM Tools
 $mscrmToolsPath = $env:MSCRM_Tools_Path
@@ -58,7 +59,7 @@ $logFile = "$logsDirectory\$logFilename"
 #Import
 try
 {
-	& "$mscrmToolsPath\xRMCIFramework\9.0.0\ImportSolution.ps1" -solutionFile "$solutionFile" -crmConnectionString "$CrmConnectionString" -override $override -publishWorkflows $publishWorkflows -overwriteUnmanagedCustomizations $overwriteUnmanagedCustomizations -skipProductUpdateDependencies $skipProductUpdateDependencies -ConvertToManaged $convertToManaged -HoldingSolution $holdingSolution -logsDirectory "$logsDirectory" -logFileName "$logFilename" -ImportAsync $useAsyncMode -AsyncWaitTimeout $asyncWaitTimeout -Timeout $crmConnectionTimeout
+	& "$mscrmToolsPath\xRMCIFramework\9.0.0\ImportSolution.ps1" -solutionFile "$solutionFile" -crmConnectionString "$CrmConnectionString" -override $override -publishWorkflows $publishWorkflows -overwriteUnmanagedCustomizations $overwriteUnmanagedCustomizations -skipProductUpdateDependencies $skipProductUpdateDependencies -ConvertToManaged $convertToManaged -HoldingSolution $holdingSolution -logsDirectory "$logsDirectory" -logFileName "$logFilename" -ImportAsync $useAsyncMode -AsyncWaitTimeout $asyncWaitTimeout -Timeout $crmConnectionTimeout -UploadSolutionName $uploadSolutionName
 }
 catch
 {
