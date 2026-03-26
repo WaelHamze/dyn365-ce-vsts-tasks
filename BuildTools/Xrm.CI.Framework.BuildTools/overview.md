@@ -329,4 +329,8 @@ Added a Task to add an environment to an environment group
 Fixed issue in Activate Flow tasks to allow multiple flow activations  
 Updated Sdk Tools/PS Modules to use the latest version (by default)  
 
+**9.22.x**  
+Added ability to see solution name in Async Table during import  
+Updated Sdk Tools/PS Modules to use the latest version (by default)  
+
 For more information on changes between versions, check the milestones and releases on GitHub
