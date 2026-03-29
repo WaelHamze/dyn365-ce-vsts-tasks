@@ -51,7 +51,7 @@ Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
 Set-Alias nuget $targetNugetExe -Scope Global -Verbose
 
 # Download Nuget Packages
-Download-NugetPackage -packageName 'Microsoft.CrmSdk.CoreTools' -version '9.1.0.49' -folderName 'CoreTools' -packagePath 'content\bin\coretools'
+Download-NugetPackage -packageName 'Microsoft.CrmSdk.CoreTools' -version '9.1.1.159' -folderName 'CoreTools' -packagePath 'content\bin\coretools'
 
 # Download PowerShell Modules
 Download-PSModule -moduleName 'AzureAD' -version '2.0.2.52' -folderName 'AAD'
